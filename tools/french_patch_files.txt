@@ -1,0 +1,272 @@
+
+7-Zip (z) 23.01 (x64) : Copyright (c) 1999-2023 Igor Pavlov : 2023-06-20
+ 64-bit locale=en_US.UTF-8 Threads:16 OPEN_MAX:524288, ASM
+
+Scanning the drive for archives:
+1 file, 1888834888 bytes (1802 MiB)
+
+Listing archive: Yakuza-0-Patch-Vostfr-by-RGG-Yakuza-Rev-1.10.7z
+
+--
+Path = Yakuza-0-Patch-Vostfr-by-RGG-Yakuza-Rev-1.10.7z
+Type = 7z
+Physical Size = 1888834888
+Headers Size = 3855
+Method = LZMA2:24 BCJ
+Solid = +
+Blocks = 2
+
+   Date      Time    Attr         Size   Compressed  Name
+------------------- ----- ------------ ------------  ------------------------
+2025-02-17 20:50:02 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10
+2022-07-27 21:18:22 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data
+2022-07-27 19:57:30 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/2dpar
+2022-07-27 20:43:13 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e
+2022-07-27 21:18:22 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/bootpar
+2022-07-27 20:43:17 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/fontpar
+2022-07-27 21:01:17 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame
+2022-04-03 16:24:34 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/bakara
+2022-04-03 16:24:34 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/cabaret
+2022-04-03 16:24:34 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/catfight
+2022-04-03 16:24:34 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/chohan
+2022-04-03 16:24:34 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/fishing
+2022-04-03 16:24:34 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker
+2022-04-03 16:24:34 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub
+2022-07-27 21:04:07 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/pausepar_e
+2022-07-27 21:12:43 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/soundpar
+2022-07-27 21:14:14 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/staypar
+2022-07-27 21:16:33 D....            0            0  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/wdr_par_c
+2020-08-21 06:38:37 ....A      5328896   1883225214  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/2dpar/sprite_c.par
+2022-07-27 19:57:46 ....A     54706176               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/2dpar/ui_e.par
+2022-07-27 19:59:27 ....A     40921088               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_010.par
+2020-08-21 06:43:43 ....A        12288               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_020.par
+2020-08-21 06:43:58 ....A      6858752               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_030.par
+2022-07-27 20:00:10 ....A     22128640               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_050.par
+2020-08-21 06:45:22 ....A     15241216               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_055.par
+2022-07-27 20:00:44 ....A     15843328               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_080.par
+2020-08-21 06:46:30 ....A     15527936               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_100.par
+2020-08-21 06:46:38 ....A      3917824               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_110.par
+2022-07-27 20:01:41 ....A     31780864               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a01_120.par
+2020-08-21 06:47:33 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a02_010.par
+2020-08-21 06:48:28 ....A     21911552               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a02_020.par
+2020-08-21 06:48:29 ....A        12288               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a02_030.par
+2020-08-21 06:48:29 ....A        14336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a03_010.par
+2022-07-27 20:01:42 ....A        26624               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a03_020.par
+2022-07-27 20:01:42 ....A        14336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a03_030.par
+2022-07-27 20:03:07 ....A     35864576               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a03_050.par
+2020-08-21 06:50:25 ....A     13643776               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a03_060.par
+2020-08-21 06:51:07 ....A     22130688               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a03_070.par
+2022-07-27 20:03:07 ....A        14336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a04_005.par
+2022-07-27 20:03:36 ....A     13711360               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a04_020.par
+2022-07-27 20:04:38 ....A     23582720               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a04_030.par
+2022-07-27 20:05:26 ....A     23336960               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a04_040.par
+2022-07-27 20:06:28 ....A     30193664               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a04_050.par
+2020-08-21 06:54:56 ....A     10362880               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a04_060.par
+2022-07-27 20:06:56 ....A     13895680               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a05_010.par
+2022-07-27 20:08:05 ....A     42422272               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a05_020.par
+2020-08-21 06:56:38 ....A      1855488               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a06_020.par
+2022-07-27 20:08:44 ....A     17352704               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a06_030.par
+2020-08-21 06:57:40 ....A     11968512               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a06_050.par
+2022-07-27 20:09:16 ....A     14893056               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a06_060.par
+2020-08-21 06:58:49 ....A     16201728               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a06_070.par
+2022-07-27 20:09:16 ....A        14336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a06_080.par
+2022-07-27 20:10:57 ....A     39802880               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a06_090.par
+2022-07-27 20:11:24 ....A     10754048               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a07_010.par
+2022-07-27 20:12:00 ....A     18290688               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a07_020.par
+2020-08-21 07:02:07 ....A     12648448               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a07_030.par
+2020-08-21 07:02:20 ....A      5877760               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a07_040.par
+2020-08-21 07:03:02 ....A     19787776               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a07_050.par
+2022-07-27 20:12:48 ....A     24446976               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a08_010.par
+2022-07-27 20:13:20 ....A     18845696               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a08_020.par
+2022-07-27 20:13:20 ....A        12288               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a08_030.par
+2020-08-21 07:04:19 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a09_010.par
+2020-08-21 07:05:05 ....A     26365952               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a09_020.par
+2020-08-21 07:05:26 ....A     12001280               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a09_030.par
+2022-07-27 20:14:44 ....A     29007872               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a10_010.par
+2022-07-27 20:14:54 ....A      3647488               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a10_020.par
+2020-08-21 07:06:52 ....A      3022848               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a10_030.par
+2020-08-21 07:07:10 ....A     10592256               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a11_010.par
+2020-08-21 07:07:47 ....A     17262592               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a11_015.par
+2020-08-21 07:08:36 ....A     22611968               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a11_020.par
+2022-07-27 20:15:25 ....A     18817024               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a11_030.par
+2022-07-27 20:17:07 ....A     39112704               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a11_040.par
+2022-07-27 20:17:53 ....A     20463616               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a11_050.par
+2020-08-21 07:12:05 ....A     17715200               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a12_010.par
+2020-08-21 07:12:37 ....A     18958336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a12_025.par
+2022-07-27 20:18:21 ....A     11769856               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a12_040.par
+2022-07-27 20:18:52 ....A     19464192               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a13_010.par
+2022-07-27 20:19:45 ....A     34428928               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a13_020.par
+2020-08-21 07:14:52 ....A     10973184               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a13_025.par
+2020-08-21 07:15:10 ....A     10258432               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a13_030.par
+2022-07-27 20:20:27 ....A     17137664               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a13_040.par
+2022-07-27 20:20:51 ....A     11393024               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a14_010.par
+2022-07-27 20:21:34 ....A     20105216               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a14_020.par
+2022-07-27 20:22:06 ....A     22851584               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a14_030.par
+2022-07-27 20:22:54 ....A     24436736               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a14_040.par
+2022-07-27 20:23:44 ....A     20117504               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a14_050.par
+2020-08-21 07:19:31 ....A      9453568               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a14_060.par
+2020-08-21 07:19:51 ....A     11347968               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a15_010.par
+2022-07-27 20:24:29 ....A     17680384               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a15_020.par
+2020-08-21 07:21:23 ....A     29825024               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a15_030.par
+2022-07-27 20:24:45 ....A      9345024               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a15_040.par
+2020-08-21 07:21:47 ....A      1284096               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a15_050.par
+2020-08-21 07:21:55 ....A      2918400               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a15_060.par
+2022-07-27 20:25:19 ....A     14290944               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a16_010.par
+2022-07-27 20:26:00 ....A     28567552               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a16_020.par
+2020-08-21 07:23:57 ....A     37033984               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a16_030.par
+2022-07-27 20:26:46 ....A     27406336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a16_040.par
+2022-07-27 20:27:09 ....A     10332160               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a16_050.par
+2022-07-27 20:27:34 ....A     10713088               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a16_060.par
+2020-08-21 07:25:42 ....A      7299072               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a16_070.par
+2022-07-27 20:28:01 ....A     12701696               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_010.par
+2022-07-27 20:28:24 ....A     12765184               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_020.par
+2020-08-21 07:26:35 ....A      1667072               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_030.par
+2020-08-21 07:28:12 ....A     53684224               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_040.par
+2020-08-21 07:28:20 ....A      3713024               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_050.par
+2022-07-27 20:32:33 ....A     92332032               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_060.par
+2020-08-21 07:32:13 ....A      7251968               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_070.par
+2022-07-27 20:33:19 ....A     18626560               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_090.par
+2020-08-21 07:33:15 ....A     10438656               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_100.par
+2022-07-27 20:34:35 ....A     46696448               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_110.par
+2022-07-27 20:35:35 ....A     27662336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_120.par
+2022-07-27 20:36:35 ....A     32677888               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_130.par
+2022-07-27 20:37:34 ....A     26370048               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_140.par
+2020-08-21 07:38:12 ....A     24455168               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_150.par
+2020-08-21 07:38:23 ....A      4077568               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_160.par
+2022-07-27 20:38:32 ....A     27535360               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_170.par
+2022-07-27 20:39:11 ....A     14071808               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_180.par
+2022-07-27 20:42:32 ....A    118257664               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_190.par
+2020-08-21 07:43:26 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/a17_200.par
+2020-08-21 07:44:22 ....A     30453760               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f01_010.par
+2020-08-21 07:44:50 ....A     16078848               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f01_020.par
+2020-08-21 07:45:48 ....A     38414336               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f01_030.par
+2020-08-21 07:46:06 ....A      8425472               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f01_040.par
+2020-08-21 07:46:29 ....A     10858496               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f04_010.par
+2020-08-21 07:46:52 ....A     10858496               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f04_010_.par
+2022-07-27 20:42:55 ....A      9080832               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f10_010.par
+2020-08-21 07:47:20 ....A      3553280               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f13_010.par
+2020-08-21 07:47:23 ....A      2357248               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f13_020.par
+2020-08-21 07:47:43 ....A     11657216               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/f16_010.par
+2022-07-27 20:42:55 ....A        12288               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/p05_000.par
+2022-07-27 20:42:55 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/p07_000.par
+2022-07-27 20:42:55 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/p09_000.par
+2022-07-27 20:42:55 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/p11_000.par
+2022-07-27 20:42:56 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/p13_000.par
+2022-07-27 20:42:56 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/p15_000.par
+2022-07-27 20:42:56 ....A        10240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/p17_000.par
+2022-07-27 20:43:13 ....A      6871040               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/auth_w64_e/s00_000.par
+2022-07-27 21:17:56 ....A      1730560               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/bootpar/boot.par
+2022-07-27 20:43:18 ....A     32196608               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/fontpar/font.par
+2022-07-27 21:01:01 ....A    416933888               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/hact.par
+2019-11-15 04:39:25 ....A         1892               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/bakara/baccarat_cpu.bin_c
+2019-11-15 04:39:45 ....A          788               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/bakara/baccarat_gallery_msg.bin_c
+2019-11-15 04:41:54 ....A         8560               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/cabaret/caba_item_list.bin_c
+2019-11-15 04:39:45 ....A          364               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/catfight/catfight_human_condition.bin_c
+2019-11-15 04:41:28 ....A         4132               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/catfight/catfight_human_info.bin_c
+2019-11-15 04:40:42 ....A         6180               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/catfight/catfight_information.bin_c
+2019-11-15 04:39:25 ....A         2092               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/catfight/catfight_string.bin_c
+2019-11-15 04:41:28 ....A          616               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/catfight/catfight_string_matching.bin_c
+2019-11-15 04:39:25 ....A          740               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/chohan/minigame_chohan_bakuto.bin_c
+2019-11-15 04:39:25 ....A          872               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/fishing/fishing_bag_info.bin_c
+2019-11-15 04:41:52 ....A         6240               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/fishing/fishing_dispose.bin_c
+2019-11-15 04:40:42 ....A         3252               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/fishing/fishing_fish_info.bin_c
+2019-11-15 04:40:59 ....A          564               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/fishing/fishing_sao_info.bin_c
+2022-07-27 21:01:18 ....A        88064               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/pokecir.par
+2019-11-15 04:40:42 ....A         1492               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_1.bin_c
+2019-11-15 04:40:42 ....A         1488               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_10.bin_c
+2019-11-15 04:40:18 ....A         1484               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_11.bin_c
+2019-11-15 04:42:26 ....A         1500               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_12.bin_c
+2019-11-15 04:40:59 ....A         1492               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_2.bin_c
+2019-11-15 04:39:25 ....A         1472               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_3.bin_c
+2019-11-15 04:40:18 ....A         1460               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_4.bin_c
+2019-11-15 04:41:28 ....A         1516               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_5.bin_c
+2019-11-15 04:39:45 ....A         1480               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_6.bin_c
+2019-11-15 04:41:28 ....A         1496               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_7.bin_c
+2019-11-15 04:41:53 ....A         1524               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_8.bin_c
+2019-11-15 04:40:42 ....A         1492               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_9.bin_c
+2019-11-15 04:40:42 ....A         1476               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_exhigh_1.bin_c
+2019-11-15 04:40:18 ....A         1484               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_exhigh_2.bin_c
+2019-11-15 04:39:46 ....A         1464               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_exhigh_3.bin_c
+2019-11-15 04:41:28 ....A         1488               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_exhigh_4.bin_c
+2019-11-15 04:41:40 ....A         1496               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_exhigh_5.bin_c
+2019-11-15 04:39:46 ....A         1460               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/poker/poker_com_exhigh_6.bin_c
+2019-11-15 04:41:55 ....A       131200               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ky_telec_eff.dds
+2019-02-03 21:33:13 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_01.dds
+2019-02-03 21:35:59 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_01_f.dds
+2019-02-03 21:46:11 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_02.dds
+2019-02-03 22:28:18 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_02_f.dds
+2019-02-03 22:04:22 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_03.dds
+2019-02-03 22:03:39 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_04.dds
+2019-02-07 23:26:39 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_04_f.dds
+2019-02-07 23:14:05 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_05.dds
+2019-02-08 01:47:38 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_06.dds
+2019-02-08 00:27:50 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_07.dds
+2019-02-08 02:19:59 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_08.dds
+2019-02-03 22:23:26 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_09.dds
+2019-02-03 22:24:12 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_09_f.dds
+2019-02-07 23:41:49 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_10.dds
+2019-02-07 23:46:35 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_10_f.dds
+2019-02-08 02:09:02 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_11.dds
+2019-02-08 02:00:27 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_12.dds
+2019-02-08 00:38:38 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_13.dds
+2019-02-08 00:15:55 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_14.dds
+2019-02-07 05:59:42 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_15.dds
+2019-02-06 22:39:04 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_15_f.dds
+2019-02-08 00:04:44 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou01.dds
+2019-02-08 00:00:34 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou01_f.dds
+2019-02-07 05:53:47 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou02.dds
+2019-02-06 22:45:51 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou03.dds
+2019-02-07 23:55:20 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou04.dds
+2019-02-07 23:36:01 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou05.dds
+2019-02-06 22:25:53 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou06.dds
+2019-02-06 22:31:59 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou07.dds
+2019-02-07 22:10:38 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou08.dds
+2019-02-07 22:15:15 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou08_f.dds
+2019-03-06 18:46:15 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou09.dds
+2019-02-07 22:25:45 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou10.dds
+2019-03-06 18:44:14 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou10_f.dds
+2019-02-07 22:32:32 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou11.dds
+2019-02-07 22:49:14 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou12.dds
+2019-02-07 22:51:54 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou12_f.dds
+2019-03-06 18:52:23 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou13.dds
+2019-02-07 23:06:04 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou14.dds
+2019-02-03 22:13:26 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou14_f.dds
+2019-02-07 23:11:26 ....A       349732               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_ms_teleB_kaitou15.dds
+2019-11-15 00:52:17 ....A       349712               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_telec_b_l_00.dds
+2019-11-15 04:40:43 ....A       174928               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_telec_b_m_00.dds
+2019-11-15 04:40:59 ....A       174928               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_telec_b_m_01.dds
+2019-11-15 04:40:19 ....A       174928               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_telec_b_m_02.dds
+2019-11-15 04:41:55 ....A        87568               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_telec_b_s_00.dds
+2019-11-15 04:39:49 ....A       131200               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_telec_c_00.dds
+2019-11-15 04:41:56 ....A       131200               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_telec_c_01.dds
+2019-02-03 19:56:57 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ01_01.dds
+2019-02-03 19:52:49 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ01_02.dds
+2019-02-03 19:49:14 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ01_03.dds
+2019-02-03 19:46:19 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ01_04.dds
+2019-02-03 19:43:02 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ01_05.dds
+2019-02-03 19:39:37 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ01_06.dds
+2019-02-03 19:32:35 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ02_01.dds
+2019-02-03 19:27:25 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ02_02.dds
+2019-02-03 20:03:28 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ02_03.dds
+2019-02-03 20:07:29 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ02_04.dds
+2019-02-03 20:11:01 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ02_05.dds
+2019-02-03 20:14:37 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ02_06.dds
+2019-02-03 20:18:19 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ03_01.dds
+2019-02-03 20:22:37 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ03_02.dds
+2019-02-03 20:29:56 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ03_03.dds
+2019-02-03 20:27:02 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ03_04.dds
+2019-02-03 20:33:32 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ03_05.dds
+2019-02-03 20:36:08 ....A        87588               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/minigame/teleclub/2d_yk_teleQQ03_06.dds
+2019-11-25 23:19:53 ....A      5767168               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/pausepar_e/chapter.par
+2022-07-27 21:01:49 ....A     22487040               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/pausepar_e/find_arms.par
+2022-07-27 21:02:16 ....A     19283968               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/pausepar_e/minigame.par
+2022-07-27 21:07:35 ....A    159348736               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/pausepar_e/pause.par
+2022-07-27 21:14:07 ....A    321255424               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/soundpar/sound.par
+2022-07-27 21:14:15 ....A       808960               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/staypar/stay.par
+2022-07-27 21:14:16 ....A        32768               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/wdr_par_c/common.par
+2022-07-27 21:16:34 ....A     20135936               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/data/wdr_par_c/wdr.par
+2022-07-27 21:59:15 ....A          256               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/Installation.txt
+2022-07-27 21:40:17 ....A         5462               Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/Lisez-moi.txt
+2022-07-27 19:54:37 ....A     21205504      5605819  Yakuza 0 Patch Vostfr by RGG Yakuza Rev 1.10/Yakuza0.exe
+------------------- ----- ------------ ------------  ------------------------
+2025-02-17 20:50:02         3058483330   1888831033  232 files, 18 folders

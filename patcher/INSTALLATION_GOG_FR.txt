@@ -1,0 +1,61 @@
+===================================================================
+  PATCH FRANCAIS (VOSTFR) POUR YAKUZA 0 - EDITION GOG (Rev 1.10)
+===================================================================
+
+Traduction originale : Byce61 et l'équipe Yakuza RGG France
+Outils originaux : Kaplas80 (TranslationFramework2)
+Adaptation et Patcher GOG : Antigravity & L@Zar0
+
+Ce patch permet de profiter de la traduction française intégrale (Rev 1.10)
+de Yakuza 0 sur l'édition GOG (sans DRM), avec prise en charge complète
+des caractères accentués français (é, è, à, ç, etc.) et stabilité assurée.
+
+-------------------------------------------------------------------
+INSTRUCTIONS D'INSTALLATION (WINDOWS)
+-------------------------------------------------------------------
+
+1. Ouvrez le dossier d'installation de votre jeu Yakuza 0 sur GOG.
+   (Exemple par défaut : C:\GOG Games\Yakuza 0\)
+
+2. Copiez l'intégralité du contenu de ce dossier de patch :
+   - Le dossier "data"
+   - Le fichier "patch_gog.py"
+   - Le fichier "patch_gog.bat"
+   - Le fichier "font_table_french.bin"
+   Directement dans le dossier principal de Yakuza 0 (là où se trouve Yakuza0.exe).
+   
+   Lorsque Windows vous le demande, choisissez de REMPLACER / ÉCRASER
+   les fichiers existants.
+
+3. Double-cliquez sur "patch_gog.bat" (ou exécutez dans un terminal :
+   python patch_gog.py Yakuza0.exe).
+   
+   Le patcher va :
+   - Créer une copie de sauvegarde automatique "Yakuza0.exe.bak"
+   - Injecter les tables de coordonnées de police françaises
+   - Appliquer les correctifs assembleurs pour le moteur de rendu 1-octet (accents)
+   - Configurer les menus principaux et titres de chapitres en français
+
+4. Lancez votre jeu normalement via GOG Galaxy ou directement via Yakuza0.exe !
+
+-------------------------------------------------------------------
+INSTRUCTIONS D'INSTALLATION (LINUX / STEAM DECK)
+-------------------------------------------------------------------
+
+1. Ouvrez le dossier d'installation du jeu dans votre prefixe Wine / Heroic / Lutris.
+2. Copiez les fichiers du patch dans le dossier du jeu contenant Yakuza0.exe.
+3. Ouvrez un terminal dans le dossier et exécutez :
+   ./patch_gog.sh
+4. Lancez le jeu via votre lanceur habituel.
+
+-------------------------------------------------------------------
+NOTES IMPORTANTES
+-------------------------------------------------------------------
+- Ne remplacez JAMAIS Yakuza0.exe par l'exécutable de la version Steam,
+  car la version Steam contient des dépendances Steamworks qui empêchent
+  le jeu de se lancer sur GOG. Utilisez toujours le patcher fourni.
+- 5 à 6 bannières dynamiques de bornes d'arcade ingame ("Ability Acquired",
+  "Congratulations!" aux UFO Catchers, "GAME ON!" aux fléchettes) restent en
+  anglais car leur découpe est gérée dynamiquement par code dur dans le moteur.
+- En cas de problème ou si vous souhaitez restaurer l'exécutable original,
+  supprimez Yakuza0.exe et renommez Yakuza0.exe.bak en Yakuza0.exe.
