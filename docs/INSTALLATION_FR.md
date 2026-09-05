@@ -8,7 +8,7 @@ Ce guide détaille l'installation de la traduction française (VOSTFR Rev 1.10) 
 
 * Le jeu **Yakuza 0** installé via **GOG** (GOG Galaxy ou installateur hors-ligne).
 * **Python 3** installé sur votre machine (si ce n'est pas déjà le cas, téléchargeable gratuitement sur [python.org](https://www.python.org/) ou via le Microsoft Store).
-* L'archive du patch : **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`** (1,74 Go).
+* L'archive du patch : **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`** (1,70 Go).
 
 ---
 
@@ -20,7 +20,7 @@ Ce guide détaille l'installation de la traduction française (VOSTFR Rev 1.10) 
    * Vérifiez que le fichier `Yakuza0.exe` est bien présent dans ce dossier.
 
 2. **Copiez les fichiers du patch** :
-   * Ouvrez l'archive **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`** avec 7-Zip ou WinRAR.
+   * Ouvrez l'archive **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`** avec 7-Zip ou WinRAR.
    * Extrayez ou glissez-déposez **tout le contenu** de l'archive directement à la racine du jeu.
    * Lorsque Windows demande confirmation pour fusionner les dossiers ou remplacer des fichiers, choisissez **« Remplacer les fichiers dans la destination »**.
 

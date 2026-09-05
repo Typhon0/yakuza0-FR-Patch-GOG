@@ -1,7 +1,7 @@
 # Yakuza 0 - French Translation (VOSTFR) for GOG Edition
 
 [![Platform](https://img.shields.io/badge/Platform-GOG_Galaxy_%7C_Windows_%7C_Linux_%7C_Steam_Deck-blue.svg)](#)
-[![Version](https://img.shields.io/badge/Patch_Version-Rev_1.10--gog-green.svg)](#)
+[![Version](https://img.shields.io/badge/Patch_Version-Rev_1.10.1--gog-green.svg)](#)
 [![Original Mod](https://img.shields.io/badge/Original_Translation-Byce61_%2F_Yakuza_RGG_France-orange.svg)](https://www.youtube.com/channel/UCVhH_lJSjvyH_njkHQNxfBA)
 [![Nexus Mods](https://img.shields.io/badge/Nexus_Mods-Available-lightgrey.svg)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -52,7 +52,7 @@ Download the complete ready-to-use patch archive (1.70 GB):
 * **[GitHub Releases](../../releases/latest)** *(Primary Mirror)*
 * **[Nexus Mods](https://www.nexusmods.com/yakuza0)** *(Mod Page)*
 
-File: **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`**
+File: **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`**
 
 ---
 
@@ -128,7 +128,7 @@ Téléchargez l'archive complète du patch (1,70 Go) :
 * **[Releases GitHub](../../releases/latest)** *(Lien direct)*
 * **[Nexus Mods](https://www.nexusmods.com/yakuza0)** *(Page du mod)*
 
-Fichier : **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`**
+Fichier : **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`**
 
 ---
 
@@ -136,7 +136,7 @@ Fichier : **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`**
 
 #### Sur Windows
 1. Rendez-vous dans le dossier d'installation de votre jeu Yakuza 0 GOG (ex. `C:\GOG Games\Yakuza 0\` ou clic droit sur le jeu dans GOG Galaxy $\rightarrow$ *Gérer l'installation* $\rightarrow$ *Afficher le dossier*).
-2. Extrayez tout le contenu de **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`** directement à la racine du jeu (acceptez de remplacer les fichiers existants).
+2. Extrayez tout le contenu de **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`** directement à la racine du jeu (acceptez de remplacer les fichiers existants).
 3. Double-cliquez sur **`patch_gog.bat`**. Une sauvegarde `Yakuza0.exe.bak` est créée automatiquement et l'exécutable est patché en 2 secondes.
 4. Lancez le jeu via GOG Galaxy ou directement via `Yakuza0.exe`. Bon jeu !
 

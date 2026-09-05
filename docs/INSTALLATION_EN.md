@@ -8,7 +8,7 @@ This guide explains how to install the French fan-translation (VOSTFR Rev 1.10) 
 
 * The **Yakuza 0** game installed via **GOG** (GOG Galaxy or offline installer).
 * **Python 3** installed on your system (if not already installed, free download from [python.org](https://www.python.org/) or Microsoft Store).
-* The patch archive: **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`** (1.74 GB).
+* The patch archive: **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`** (1.70 GB).
 
 ---
 
@@ -20,7 +20,7 @@ This guide explains how to install the French fan-translation (VOSTFR Rev 1.10) 
    * Confirm that `Yakuza0.exe` is present in this folder.
 
 2. **Extract the patch files**:
-   * Open **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`** with 7-Zip or WinRAR.
+   * Open **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`** with 7-Zip or WinRAR.
    * Extract all contents directly into the game root folder.
    * When prompted by Windows, choose **"Replace files in the destination"**.
 
