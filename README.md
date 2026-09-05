@@ -156,11 +156,13 @@ Fichier : **`Yakuza_0_Patch_FR_GOG_Rev1.10.7z`**
 ```
 yakuza0-FR-Patch-GOG/
 ├── docs/                             # Technical documentation & guides
-│   ├── AUDIT_IMPERFECTIONS_TEXTUELLES.md # Technical audit of encoding defects (TM, mojibake, ligatures)
 │   ├── INSTALLATION_FR.md            # French installation guide
 │   ├── INSTALLATION_EN.md            # English installation instructions
-│   ├── NEXUS_MOD_DESCRIPTION.md      # Nexus Mods presentation template (BBCode & Markdown)
-│   └── TECHNICAL_SPEC.md             # Reverse-engineering & technical specification
+│   ├── TECHNICAL_SPEC.md             # Spécifications techniques & rétro-ingénierie (FR)
+│   ├── TECHNICAL_SPEC_EN.md          # Technical specifications & reverse engineering (EN)
+│   ├── AUDIT_IMPERFECTIONS_TEXTUELLES.md # Audit technique des anomalies de texte & d'encodage (FR)
+│   ├── TEXT_ENCODING_AUDIT_EN.md     # Technical audit of encoding defects (TM, mojibake, ligatures) (EN)
+│   └── NEXUS_MOD_DESCRIPTION.md      # Nexus Mods presentation template (Bilingual BBCode & Markdown)
 │
 ├── patcher/                          # Core patcher runtime files
 │   ├── patch_gog.py                  # Standalone 64-bit PE binary patcher
@@ -168,7 +170,7 @@ yakuza0-FR-Patch-GOG/
 │   ├── patch_gog.sh                  # 1-click Linux / Steam Deck launcher
 │   ├── font_table_french.bin         # Accented character font kerning metrics (0x80-0xFF)
 │   ├── INSTALLATION_GOG_FR.txt       # Player installation text guide (French)
-│   └── README_GOG_EN.txt             # Player installation text guide (English)
+│   └── INSTALLATION_GOG_EN.txt       # Player installation text guide (English)
 │
 ├── tools/                            # Developer, research & data cleaning utilities
 │   ├── clean_patch_data.py           # Automated text & mojibake cleaner for PAR archives
