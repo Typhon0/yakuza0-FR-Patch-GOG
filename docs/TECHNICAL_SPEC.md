@@ -67,3 +67,17 @@ Plutôt que d'écraser des buffers existants dans `.rdata` (ce qui limiterait la
 1. Les chaînes anglaises cibles sont localisées dans `.rdata`.
 2. Leurs équivalents français encodés en `Windows-1252 / ISO-8859-1` sont écrits dans la section `.trad` allouée.
 3. Le patcher balaie la table de pointeurs de `.data` et remplace les adresses virtuelles absolues 64-bit (`0x140xxxxxx`) par les nouvelles adresses pointant vers `.trad`.
+
+---
+
+## 4. Remédiation In-Place des Textes et Encodages
+
+### 4.1. Anomalie des Apostrophes « Trade Mark » `™`
+* **Cause** : Les apostrophes typographiques courbes `’` (U+2019) ont été exportées en UTF-8 (`\xE2\x80\x99`).
+* **Interprétation moteur** : En Windows-1252, l'octet `0x99` correspond au symbole Trade Mark `™` (`c™est`, `j™ai`, `d™argent`).
+* **Correctif** : Remplacement in-place par des apostrophes ASCII droites `'` (`0x27`) complétées par du null-padding (`\x00`).
+
+### 4.2. Recompression SLLZ Bit-Exacte
+* Les données compressées au sein des archives PAR de Sega (`.bin_c`) requièrent l'algorithme propriétaire SLLZ.
+* L'outil développé en pur Python ([`tools/sllz.py`](../tools/sllz.py)) recompresse les fichiers modifiés en garantissant que le nouveau flux compressé ne dépasse jamais la taille du slot d'origine, évitant tout décalage d'offset au sein des archives.
+
