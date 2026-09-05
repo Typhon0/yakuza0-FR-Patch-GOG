@@ -16,8 +16,9 @@ La traduction de Byce61 et de son équipe a été conçue à l'origine exclusive
 Ce dépôt propose :
 1. **Un patcher d'exécutable PE 64-bit automatisé** (`patch_gog.py`) qui patche proprement votre `Yakuza0.exe` GOG sans altérer son statut DRM-free.
 2. **Un correctif complet de rendu de police (Kerning / UV Table)** : les glyphes ASCII Sega vanilla (0x00–0x7F) sont préservés pour garantir un espacement parfait de toutes les lettres anglaises et chiffres, tandis que l'ensemble des caractères français accentués (0x80–0xFF : `é`, `è`, `ê`, `à`, `ç`, `î`, `ï`, etc.) sont injectés avec les marges de tige corrigées.
-3. **Une section `.trad` dédiée** : ajoutée dynamiquement dans l'en-tête PE pour relocaliser les chaînes d'interface en français via redirection de pointeurs 64-bit dans `.data`.
-4. **Des lanceurs 1-clic** pour Windows (`patch_gog.bat`) et Linux / Steam Deck (`patch_gog.sh`).
+3. **Un nettoyage automatisé des imperfections textuelles & d'encodage** : correction intégrale des apostrophes typographiques corrompues affichant le symbole `™` (`c™est`, `j™ai`, `d™argent`), des résidus d'encodage UTF-8 (`Ã©`, `Ã¨`, `Ã `, `Ã‰`), des points de suspension et des ligatures `œ` (`oeufs`).
+4. **Une section `.trad` dédiée** : ajoutée dynamiquement dans l'en-tête PE pour relocaliser les chaînes d'interface en français via redirection de pointeurs 64-bit dans `.data`.
+5. **Des lanceurs 1-clic** pour Windows (`patch_gog.bat`) et Linux / Steam Deck (`patch_gog.sh`).
 
 ---
 
@@ -93,6 +94,7 @@ L'exécutable Steam moddé contenait des marges manuelles (`0.6875` gauche / `0.
 ```
 yakuza0-FR-Patch-GOG/
 ├── docs/                             # Documentation détaillée & templates
+│   ├── AUDIT_IMPERFECTIONS_TEXTUELLES.md # Audit technique des anomalies de texte & d'encodage
 │   ├── INSTALLATION_FR.md            # Guide d'installation complet en français
 │   ├── INSTALLATION_EN.md            # English installation instructions
 │   ├── NEXUS_MOD_DESCRIPTION.md      # Page de présentation Nexus Mods (BBCode & Markdown)
@@ -106,7 +108,9 @@ yakuza0-FR-Patch-GOG/
 │   ├── INSTALLATION_GOG_FR.txt       # Guide texte pour les joueurs
 │   └── README_GOG_EN.txt             # English text readme
 │
-├── tools/                            # Utilitaires d'analyse et de recherche
+├── tools/                            # Utilitaires d'analyse, de nettoyage et de recherche
+│   ├── clean_patch_data.py           # Nettoyage automatique des textes & mojibake dans les archives PAR
+│   ├── sllz.py                       # Compresseur/décompresseur SLLZ pur Python 1:1 Kaplas
 │   ├── research/                     # Scripts d'extraction PE, parsing PAR, SLLZ & textures
 │   ├── diff_y0_gog.diff              # Diff d'arborescence GOG vs Steam
 │   └── french_patch_files.txt        # Liste des fichiers traduits par l'équipe d'origine
