@@ -124,7 +124,23 @@ def parse_par_table(par_data):
         }
     return entries
 
-def clean_data_buffer(data_bytes):
+def is_text_candidate(name):
+    """Determines whether a file in PAR archive contains French human text."""
+    if name.endswith('.msg'):
+        return True
+    if name.startswith('restaurant') and name.endswith('.bin'):
+        return True
+    if name.startswith('explanation_') and name.endswith('.bin_c'):
+        return True
+    if name.startswith('encounter_') and name.endswith('.bin_c'):
+        return True
+    if name.startswith('tips_') and name.endswith('.bin_c'):
+        return True
+    if name in ['item.bin_c', 'cmn.bin']:
+        return True
+    return False
+
+def clean_data_buffer(data_bytes, filename=None):
     """Replaces known corrupted text sequences in-place with null-padding."""
     data = bytearray(data_bytes)
     modified = False
@@ -142,6 +158,24 @@ def clean_data_buffer(data_bytes):
             modified = True
             mod_count += 1
             idx = pos + len(bad)
+
+    # Normalize Ç majuscule (\xc7) to C (\x43) to prevent the Trade Mark (™) font glitch
+    if filename and is_text_candidate(filename):
+        # 1. \xc7a -> Ca
+        ca_count = data.count(b'\xc7a')
+        if ca_count > 0:
+            data = bytearray(bytes(data).replace(b'\xc7a', b'Ca'))
+            modified = True
+            mod_count += ca_count
+        # 2. \xc7A in French words (followed by punctuation, space, newline or null)
+        for term in [b'\xc7A ', b'\xc7A.', b'\xc7A ?', b'\xc7A !', b'\xc7A\r', b'\xc7A\n', b'\xc7A\x00']:
+            term_rep = term.replace(b'\xc7A', b'CA')
+            cnt = data.count(term)
+            if cnt > 0:
+                data = bytearray(bytes(data).replace(term, term_rep))
+                modified = True
+                mod_count += cnt
+
     return bytes(data) if modified else None, mod_count
 
 def patch_par_archive(par_path):
@@ -161,7 +195,7 @@ def patch_par_archive(par_path):
         is_sllz = bool(info['flags'] & 0x80000000) or raw[:4] == b'SLLZ'
         
         uncompressed = decompress_sllz(raw) if is_sllz else raw
-        cleaned, count = clean_data_buffer(uncompressed)
+        cleaned, count = clean_data_buffer(uncompressed, filename=name)
         
         if cleaned:
             total_modified_files += 1

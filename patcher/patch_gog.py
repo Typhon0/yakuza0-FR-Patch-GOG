@@ -64,7 +64,7 @@ GOG_BYTECODE_PATCHES = [
 
 # Direct in-exe word replacements at fixed GOG locations
 GOG_DIRECT_WORDS = [
-    (0xDD73C8, b'RE\xc7U\x00', "GET -> REÇU (0xDD73C8)"),
+    (0xDD73C8, b'RECU\x00', "GET -> RECU (0xDD73C8)"),
     (0xE69424, b'PERDU\x00', "LOST -> PERDU (0xE69424)"),
     (0xDC5308, b'NIV\x00', "LV -> NIV (0xDC5308)"),
     (0xDC5338, b'Information\x00', "Information (0xDC5338)"),
