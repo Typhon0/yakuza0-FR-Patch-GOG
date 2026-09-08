@@ -117,33 +117,67 @@ def decompress_sllz(compressed_data):
             
     return out.getvalue()
 
+from collections import defaultdict
+
 def compress_sllz(uncompressed_data):
     output = io.BytesIO()
-    # Header: SLLZ, endianness=0, version=1, header_size=0x10, uncompressed_size, compressed_size=0
     output.write(b'SLLZ\x00\x01\x10\x00')
     output.write(struct.pack('<I', len(uncompressed_data)))
     output.write(struct.pack('<I', 0))
     
     manager = BitManager(output)
     queue = []
-    items_to_write = 7 # First time 7 items, then 8
+    items_to_write = 7
     current_position = 0
     uncompressed_size = len(uncompressed_data)
     
+    pos_heads = defaultdict(list)
+    
     while current_position < uncompressed_size:
-        match = find_match(uncompressed_data, current_position)
+        best_pos = 0
+        best_length = 0
+        
+        if current_position + 3 <= uncompressed_size:
+            triplet = uncompressed_data[current_position : current_position + 3]
+            candidates = pos_heads[triplet]
+            start_pos = max(0, current_position - SEARCH_SIZE)
+            
+            for cand in reversed(candidates[-32:]):
+                if cand < start_pos:
+                    break
+                max_len = min(uncompressed_size - current_position, MAX_LENGTH)
+                max_len = min(max_len, current_position - cand)
+                
+                l = 3
+                while l < max_len and uncompressed_data[cand + l] == uncompressed_data[current_position + l]:
+                    l += 1
+                if l > best_length:
+                    best_length = l
+                    best_pos = cand
+                    if best_length == MAX_LENGTH:
+                        break
+                        
+        if best_length >= 3:
+            match = MatchResult(True, current_position - best_pos, best_length)
+        else:
+            match = MatchResult(False, 0, 1)
+            
         if not match.found:
             queue.append(SllzItem(True, literal=uncompressed_data[current_position]))
             manager.set_flag(0)
+            if current_position + 3 <= uncompressed_size:
+                pos_heads[uncompressed_data[current_position : current_position + 3]].append(current_position)
+            current_position += 1
         else:
             copy_count = (match.length - 3) & 0x0F
             copy_distance = ((match.distance - 1) << 4) & 0xFFFF
             tuple_val = copy_distance | copy_count
             queue.append(SllzItem(False, copy_flags=tuple_val))
             manager.set_flag(1)
+            for p in range(current_position, min(current_position + match.length, uncompressed_size - 2)):
+                pos_heads[uncompressed_data[p : p + 3]].append(p)
+            current_position += match.length
             
-        current_position += match.length
-        
         if manager.is_byte_change:
             for _ in range(items_to_write):
                 item = queue.pop(0)
