@@ -478,21 +478,10 @@ def main():
     files = parse_par(par_bytes)
     replacements = {}
 
-    # 1. caption.bin_c (RGG binary table format with dense strings)
-    print("Processing caption.bin_c...")
-    raw_caption = files['caption.bin_c'][3]
-    dec_caption = decompress_sllz(raw_caption)
-    trans_caption = translate_rgg_table(dec_caption, {k: clean_fr(v) for k, v in CAPTIONS_BOOT.items()})
-    comp_caption = compress_sllz(trans_caption)
-    replacements['caption.bin_c'] = (files['caption.bin_c'][0], len(trans_caption), len(comp_caption), comp_caption)
-    print(f"caption.bin_c translated: {len(dec_caption)} -> {len(trans_caption)} uncompressed, {len(comp_caption)} compressed")
-
-    # 2. battle_deck_list.bin_c (Uncompressed RGG table)
-    print("Processing battle_deck_list.bin_c...")
-    raw_bdeck = files['battle_deck_list.bin_c'][3]
-    trans_bdeck = translate_rgg_table(raw_bdeck, {k: clean_fr(v) for k, v in BATTLE_DECK_BOOT.items()})
-    replacements['battle_deck_list.bin_c'] = (files['battle_deck_list.bin_c'][0], len(trans_bdeck), len(trans_bdeck), trans_bdeck)
-    print(f"battle_deck_list.bin_c translated: {len(trans_bdeck)} bytes")
+    # 1 & 2: caption.bin_c & battle_deck_list.bin_c:
+    # Do not resize/shift RGG binary table columns with translate_rgg_table,
+    # as altering string payload lengths breaks the engine's internal row/column offset calculations (crash at 0x371324).
+    # Keep original safe tables.
 
     # 3. item.bin_c (Exact in-place null-padded replacement)
     print("Processing item.bin_c...")
