@@ -268,61 +268,9 @@ def main():
         f.write(repacked_pokecir)
     print(f"  [+] Replaced {p_cnt} motor strings in pokecir.par!")
 
-    print("[2/5] Patching baccarat_cpu.bin_c...")
-    bac_cpu_p = 'release_gog/data/minigame/bakara/baccarat_cpu.bin_c'
-    with open(bac_cpu_p, 'rb') as f:
-        bac_raw = decompress_sllz(f.read())
-    new_bac = translate_rgg_table(bac_raw, BACCARAT_CPU_TRANS)
-    with open(bac_cpu_p, 'wb') as f:
-        f.write(compress_sllz(new_bac))
-    print(f"  [+] Updated baccarat_cpu.bin_c ({len(new_bac)} bytes)!")
-
-    print("[3/5] Patching baccarat_gallery_msg.bin_c...")
-    bac_gal_p = 'release_gog/data/minigame/bakara/baccarat_gallery_msg.bin_c'
-    with open(bac_gal_p, 'rb') as f:
-        gal_raw = decompress_sllz(f.read())
-    new_gal = translate_rgg_table(gal_raw, BACCARAT_GALLERY_TRANS)
-    with open(bac_gal_p, 'wb') as f:
-        f.write(compress_sllz(new_gal))
-    print(f"  [+] Updated baccarat_gallery_msg.bin_c ({len(new_gal)} bytes)!")
-
-    print("[4/5] Patching minigame_chohan_bakuto.bin_c...")
-    chohan_p = 'release_gog/data/minigame/chohan/minigame_chohan_bakuto.bin_c'
-    with open(chohan_p, 'rb') as f:
-        cho_raw = decompress_sllz(f.read())
-    new_cho = translate_rgg_table(cho_raw, CHOHAN_BAKUTO_TRANS)
-    with open(chohan_p, 'wb') as f:
-        f.write(compress_sllz(new_cho))
-    print(f"  [+] Updated minigame_chohan_bakuto.bin_c ({len(new_cho)} bytes)!")
-
-    print("[5/5] Patching stay.par...")
-    stay_p = 'release_gog/data/staypar/stay.par'
-    with open(stay_p, 'rb') as f:
-        stay_raw = f.read()
-    stay_files = parse_par(stay_raw)
-    stay_reps = {}
-
-    stay_table_files = [
-        'search_arms_location.bin_c',
-        'search_arms_result_picture.bin_c',
-        'tougijyo_realtime_quest.bin_c',
-        'tougijyo_regulation_set.bin_c',
-        'controller_explain.bin_c',
-        'response_roulette.bin_c'
-    ]
-
-    for fn in stay_table_files:
-        flags, u_sz, c_sz, data = stay_files[fn]
-        dec = decompress_sllz(data)
-        new_dec = translate_rgg_table(dec, STAY_FINAL_TRANS)
-        comp = compress_sllz(new_dec)
-        stay_reps[fn] = (flags, len(new_dec), len(comp), comp)
-        print(f"  [+] Rebuilt {fn} ({len(new_dec)} bytes)")
-
-    new_stay = repack_par(stay_raw, stay_reps)
-    with open(stay_p, 'wb') as f:
-        f.write(new_stay)
-    print(f"[+] Successfully repacked stay.par ({len(new_stay)} bytes)!")
+    print("[!] translate_minigames_and_stay_final: Disabled dynamic RGG table resizing to prevent crash 0x394973.")
+    print("[!] Safe table structures preserved.")
 
 if __name__ == '__main__':
     main()
+
