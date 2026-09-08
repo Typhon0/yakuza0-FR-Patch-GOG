@@ -1,14 +1,15 @@
 ===================================================================
-  PATCH FRANCAIS (VOSTFR) POUR YAKUZA 0 - EDITION GOG (Rev 1.10)
+  PATCH FRANCAIS (VOSTFR) POUR YAKUZA 0 - EDITION GOG (Rev 1.10.2)
 ===================================================================
 
 Traduction originale : Byce61 et l'équipe Yakuza RGG France
 Outils originaux : Kaplas80 (TranslationFramework2)
-Adaptation et Patcher GOG : Antigravity & L@Zar0
+Adaptation et Patcher GOG : Typhon0 & la communauté
 
-Ce patch permet de profiter de la traduction française intégrale (Rev 1.10)
+Ce patch permet de profiter de la traduction française intégrale (Rev 1.10.2)
 de Yakuza 0 sur l'édition GOG (sans DRM), avec prise en charge complète
-des caractères accentués français (é, è, à, ç, etc.) et stabilité assurée.
+des caractères accentués français (é, è, à, ç, etc.), traduction intégrale
+des 35 boutiques et supérettes du jeu, et stabilité assurée.
 
 -------------------------------------------------------------------
 INSTRUCTIONS D'INSTALLATION (WINDOWS)

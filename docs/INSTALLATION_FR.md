@@ -1,6 +1,6 @@
-# Guide d'Installation - Yakuza 0 Patch Français (GOG)
+# Guide d'Installation - Yakuza 0 Patch Français (GOG Rev 1.10.2)
 
-Ce guide détaille l'installation de la traduction française (VOSTFR Rev 1.10) pour l'édition **GOG** de **Yakuza 0**.
+Ce guide détaille l'installation de la traduction française (VOSTFR Rev 1.10.2) pour l'édition **GOG** de **Yakuza 0**.
 
 ---
 

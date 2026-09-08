@@ -29,9 +29,21 @@ import argparse
 # Embedded 6,144-byte French Font Table (zlib-compressed base64)
 # Extracted directly from Byce61's French translation patch (offset 0xD8F9E0)
 EMBEDDED_FONT_TABLE_B64 = (
-    "eJzt1rcOwjAQQNE7qf9/1c2j6hZ0QEg1YgE3YwU50uHqZgYAAODaZ3rO1P7d9v5+99s7v+1k13mU7e3m"
-    "4/N/4836/v1f2/b+89y/+/u/N1m59b//46d8P3933t/P6x8A4M8kX/O538z177y+vwAAAAAAALgA391e"
-    "47k=="
+    "eNrtWNGx4yAMpASXkBLcQIASUoJLoRQ38jIuJaVcSLSwrEXu3feFGUYGCyEJSUiE8G3f9l+35Pf12bMD"
+    "H/H9H3CzXr9Lnbu/yebn95LesPZyfU4azIa3Gyw/77UVVpwHvoP9e/aL7V/hTfat/YjvMfN3SX1O"
+    "+a1777GPId+rxT7epF8Ml+k84hmP8TPhgt9sa4LoB+M9dlkZvnRo+IX1GTtkOmsifcYuX7E9eF2x"
+    "78Oja2cKXUOXWIf/vI75A23Wy805z9W66hk0VrMzns+O/jEPHTAPhXTbdGZ22KDxwPYKW4Stvs4A"
+    "8DqOX7Zr4yz4QfS+x/Oc6ozpKX34CcOZ/25ptJ92TsxfInpXW0OQ/VL7rA36+Tn/Y7gl0tNd9qM4"
+    "gt7Wkn03aOs5fuTknB9o30fZqy5qHOPzZx9quHaODefeZSjxHF/g49hnSb1v9O3JHWK3zxYXACdx"
+    "Vf2jxYnU46TXOc4AbuQXgIoPuWFv0BH+Mx8cLxbEqzjq48R37Prw+JzZv8ZT3BMhSjzj2DHxoy2d"
+    "44Ynl+onOPMqV5uf6A13mt49zD90eKO7Z0njPah6O/EpZwB/4vNVeYNDB/mAxnPEaNhw5ZNteqb/"
+    "iofxI/ZxizVkG4M86t/f9m3fdmqaFzNc0znPazlMGGPzzfLFnf2d4ojeI2vye/Nj890deWrsub/e"
+    "W56/H4Zf5711yMcOoZsl3n26L71998n6WT0FfaueD4v5h8R+jHfhW+O9J++QByKWUn3k1UknOpIf"
+    "LWIzG+WeH8+N+AiwE8qbWo56tzyBcmrsf1C9c0j+0+4UqbP03GbzB9VHir8782WCj9wmxPM858uN"
+    "zqS+8OqILLnHLnezhz+rR/ieVXg4+RH0493XuzPvyenVM1wzDPiqD/G7v9YdTj6g+JpHsD+29su8"
+    "YlZ3fISf5JR6Fm8XXCssxvdD6ibEpVs6vyfgfDUfbvHTqVUP512iRJ/OQu8ZXp7827ya+edzae8e"
+    "zj3lzRfn3aMQfbXb/I/2XybzIcm7zHWM9RqfWd7gnJfWF6d4JXeJ0tmjT4f9Vd/HyoTOzTmvnEb7"
+    "ycKnF4s8e0NMGWIavavpW5TK9bbBP/+DqPA="
 )
 
 # GOG Executable Offsets (v1.015a)
@@ -260,6 +272,9 @@ def patch_yakuza0_gog(exe_path, output_path=None):
         vals[4] = 0.0   # bot left
         vals[5] = 1.17  # bot right
         font_table[off:off+24] = struct.pack('<6f', *vals)
+
+    # Normalize Á (0xC1) to À (0xC0) grave accent (Á does not exist in French)
+    font_table[0xC1 * 24 : 0xC1 * 24 + 24] = font_table[0xC0 * 24 : 0xC0 * 24 + 24]
 
     # Inject only extended character coordinates: 0x80 to 0xFF
     ext_offset = GOG_FONT_TABLE_OFFSET + 0x80 * 24

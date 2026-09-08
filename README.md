@@ -1,7 +1,7 @@
 # Yakuza 0 - French Translation (VOSTFR) for GOG Edition
 
 [![Platform](https://img.shields.io/badge/Platform-GOG_Galaxy_%7C_Windows_%7C_Linux_%7C_Steam_Deck-blue.svg)](#)
-[![Version](https://img.shields.io/badge/Patch_Version-Rev_1.10.1--gog-green.svg)](#)
+[![Version](https://img.shields.io/badge/Patch_Version-Rev_1.10.2--gog-green.svg)](#)
 [![Original Mod](https://img.shields.io/badge/Original_Translation-Byce61_%2F_Yakuza_RGG_France-orange.svg)](https://www.youtube.com/channel/UCVhH_lJSjvyH_njkHQNxfBA)
 [![Nexus Mods](https://img.shields.io/badge/Nexus_Mods-Available-lightgrey.svg)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -26,10 +26,13 @@ The original community patch was built strictly for the Steam release:
 1. **DRM & Executable Incompatibility**: Distributing a modified Steam `Yakuza0.exe` broke launching on GOG, crashing or triggering infinite loops on the Chapter 1 pager message.
 2. **Font Kerning Degradation**: Steam font injection overwrote Sega's native single-byte character metrics, causing narrow ASCII glyphs like `i` and `l` to collapse or vanish (*"Batte"* instead of *"Battle"*, *"Busness"* instead of *"Business"*).
 3. **Encoding Glitches in Data Archives**: The original data archives contained typographic curved apostrophes exported in UTF-8 (`\xE2\x80\x99`), which the game engine read as Windows-1252 `\x99`, displaying ugly **Trade Mark `™`** symbols across dialogues and descriptions (`c™est`, `j™ai`, `d™argent`). Several files also suffered from UTF-8 accent mojibake (`Ã©`, `Ã¨`, `Ã `) and unsupported `œ` ligatures.
+4. **Untranslated In-Store Menus**: The original Steam patch left all 35 shop files (`shop0000.bin`–`shop0034.bin`) 100% in English, leaving convenience stores (Poppo, Don Quijote, pharmacies) with English item descriptions even though the player's inventory was translated.
 
 #### What this project delivers:
 * **Automated 64-bit PE Patcher (`patcher/patch_gog.py`)**: Seamlessly patches your legitimate GOG `Yakuza0.exe` in-place while keeping its 100% DRM-free status.
 * **Vanilla ASCII Kerning Preservation**: Preserves native Sega metrics (`0x00–0x7F`) so all standard English letters and digits remain perfectly spaced, while injecting full French accented metrics (`0x80–0xFF`: `é`, `è`, `ê`, `à`, `ç`, `î`, `ï`, etc.).
+* **100% Localized Shops & Convenience Stores (`tools/translate_shops.py`)**: Injected 558 French item descriptions and shop UI dialogues across all 35 in-game stores (Poppo, Don Quijote, Kotobuki Drug, Ebisu Pawn, arms merchants).
+* **Capital Accent Normalization**: Automatically renders `Á` with the proper French grave accent `À` (`À vendre`), correcting legacy character map mismatches.
 * **Automated Text & Mojibake Cleaner (`tools/clean_patch_data.py`)**: Corrects all `™` apostrophes, UTF-8 accent residues, truncated ellipsis, and unsupported ligatures directly in the game data archives (`boot.par`, `wdr.par`) with null-padded sentences and bit-exact SLLZ recompression (`tools/sllz.py`).
 * **Dynamic `.trad` PE Section**: Injects a custom PE section to relocate localized UI strings via 64-bit pointer redirection.
 * **1-Click Launchers**: Batch script for Windows (`patch_gog.bat`) and shell script for Linux / Steam Deck (`patch_gog.sh`).
@@ -52,7 +55,7 @@ Download the complete ready-to-use patch archive (1.70 GB):
 * **[GitHub Releases](../../releases/latest)** *(Primary Mirror)*
 * **[Nexus Mods](https://www.nexusmods.com/yakuza0)** *(Mod Page)*
 
-File: **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`**
+File: **`Yakuza_0_Patch_FR_GOG_Rev1.10.2.7z`**
 
 ---
 
@@ -102,10 +105,13 @@ La traduction originale avait été compilée exclusivement pour la version Stea
 1. **Incompatibilité DRM & Exécutable** : L'exécutable Steam fourni écrasait l'exécutable GOG, causant l'échec du lancement ou des freezes au Chapitre 1 lors de la réception du premier bipeur de Kiryu.
 2. **Dégradation du Kerning de police** : L'injection Steam écrasait les métriques ASCII natives de Sega, provoquant la disparition ou l'écrasement des lettres étroites comme `i` et `l` (*« Batte »* au lieu de *« Battle »*, *« Busness »* au lieu de *« Business »*).
 3. **Imperfections d'encodage dans les archives de données** : Des apostrophes courbes exportées en UTF-8 (`\xE2\x80\x99`) étaient interprétées en Windows-1252 comme `\x99`, affichant le symbole **Trade Mark `™`** dans les dialogues et descriptions (`c™est`, `j™ai`, `d™argent`). Plusieurs fichiers comportaient également du mojibake UTF-8 (`Ã©`, `Ã¨`, `Ã `) et des ligatures `œ` non gérées.
+4. **Boutiques & Supérettes non traduites** : Le patch Steam d'origine laissait les 35 fichiers de boutiques (`shop0000.bin`–`shop0034.bin`) entièrement en anglais. Les supérettes (Poppo, Don Quijote, pharmacies) affichaient des descriptions d'objets en anglais même si l'inventaire du joueur était traduit.
 
 #### Ce que propose ce dépôt :
 * **Patcher PE 64-bit automatisé (`patcher/patch_gog.py`)** : Modifie proprement votre `Yakuza0.exe` GOG en conservant son statut 100% DRM-free.
 * **Préservation intégrale du Kerning ASCII Sega** : Maintient les métriques Sega natives (`0x00–0x7F`) pour un espacement parfait des lettres et chiffres anglais, tout en injectant les métriques accentuées françaises (`0x80–0xFF` : `é`, `è`, `ê`, `à`, `ç`, `î`, `ï`, etc.).
+* **Boutiques & Supérettes 100% localisées (`tools/translate_shops.py`)** : Injection de 558 descriptions d'objets françaises et des textes de dialogues d'achat/vente dans les 35 magasins du jeu (Poppo, Don Quijote, Kotobuki Drug, prêteurs sur gages Ebisu, marchands d'armes).
+* **Normalisation des accents majuscules** : Affichage garanti de l'accent grave sur `À` (`À vendre`), corrigeant les coquilles historiques de saisie (`Á`).
 * **Nettoyage automatisé des textes & mojibake (`tools/clean_patch_data.py`)** : Corrige tous les `™`, résidus UTF-8, points de suspension et ligatures directement dans les archives PAR (`boot.par`, `wdr.par`) avec null-padding strict et recompression SLLZ bit-exacte (`tools/sllz.py`).
 * **Section PE `.trad` dynamique** : Injecte une section PE dédiée pour relocaliser les chaînes d'interface en français via redirection de pointeurs 64-bit dans `.data`.
 * **Lanceurs 1-clic** : Fichier batch pour Windows (`patch_gog.bat`) et script shell pour Linux / Steam Deck (`patch_gog.sh`).
@@ -128,7 +134,7 @@ Téléchargez l'archive complète du patch (1,70 Go) :
 * **[Releases GitHub](../../releases/latest)** *(Lien direct)*
 * **[Nexus Mods](https://www.nexusmods.com/yakuza0)** *(Page du mod)*
 
-Fichier : **`Yakuza_0_Patch_FR_GOG_Rev1.10.1.7z`**
+Fichier : **`Yakuza_0_Patch_FR_GOG_Rev1.10.2.7z`**
 
 ---
 
@@ -173,6 +179,7 @@ yakuza0-FR-Patch-GOG/
 │   └── INSTALLATION_GOG_EN.txt       # Player installation text guide (English)
 │
 ├── tools/                            # Developer, research & data cleaning utilities
+│   ├── translate_shops.py            # Automated shop & convenience store translator
 │   ├── clean_patch_data.py           # Automated text & mojibake cleaner for PAR archives
 │   ├── sllz.py                       # Pure Python SLLZ compressor/decompressor (1:1 with Kaplas)
 │   ├── research/                     # Reverse engineering, PE disassembly, PAR & font tools

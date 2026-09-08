@@ -1,14 +1,15 @@
 ===================================================================
-  FRENCH TRANSLATION PATCH (VOSTFR) FOR YAKUZA 0 - GOG EDITION (Rev 1.10)
+  FRENCH TRANSLATION PATCH (VOSTFR) FOR YAKUZA 0 - GOG EDITION (Rev 1.10.2)
 ===================================================================
 
 Original Translation (Steam): Byce61 & Yakuza RGG France team
 Original Tools: Kaplas80 (TranslationFramework2)
 GOG Adaptation & Patcher: Typhon0 & the community
 
-This patch brings the complete French fan-translation (Rev 1.10) to the
+This patch brings the complete French fan-translation (Rev 1.10.2) to the
 GOG DRM-free release of Yakuza 0 (Build 3642285 / v1.015a), featuring
 full support for accented characters (é, è, à, ç, etc.), native kerning,
+100% localized shop and convenience store menus across all 35 stores,
 clean text encoding (no TM apostrophes), and 100% DRM-free stability.
 
 -------------------------------------------------------------------

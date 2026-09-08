@@ -1,6 +1,6 @@
-# Installation Guide - Yakuza 0 French Fan-Translation (GOG Edition)
+# Yakuza 0 GOG - French Translation Installation Guide (Rev 1.10.2)
 
-This guide explains how to install the French fan-translation (VOSTFR Rev 1.10) on the **GOG DRM-free version** of **Yakuza 0**.
+This guide explains how to install the French fan-translation (VOSTFR Rev 1.10.2) on the **GOG DRM-free version** of **Yakuza 0**.
 
 ---
 
