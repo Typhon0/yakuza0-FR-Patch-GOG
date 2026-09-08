@@ -247,7 +247,7 @@ def patch_yakuza0_gog(exe_path, output_path=None):
     pe = PEModifier(data)
 
     # 1. Apply single-byte bytecode patches
-    print("[1/5] Applying single-byte font rendering patches...")
+    print("[1/4] Applying single-byte font rendering patches...")
     for offset, patch_bytes, desc in GOG_BYTECODE_PATCHES:
         if offset + len(patch_bytes) <= len(data):
             data[offset:offset+len(patch_bytes)] = patch_bytes
@@ -259,7 +259,7 @@ def patch_yakuza0_gog(exe_path, output_path=None):
     # Standard ASCII (0x00 to 0x7F) is deliberately preserved from vanilla Sega GOG
     # so that narrow characters like 'i' and 'l' keep their native [0.0, 1.17, ...]
     # margins and don't collapse into preceding characters (e.g. "Battle" -> "Batte").
-    print(f"[2/5] Injecting French font table for accented characters (0x80-0xFF)...")
+    print(f"[2/4] Injecting French font table for accented characters (0x80-0xFF)...")
     font_table = bytearray(get_font_table_bytes())
 
     # Fix accented 'i' characters (î 0xEE, ï 0xEF, Ì 0xCC, Í 0xCD, Î 0xCE, Ï 0xCF, ì 0xEC, í 0xED)
@@ -284,74 +284,19 @@ def patch_yakuza0_gog(exe_path, output_path=None):
     print(f"  + Injected {len(ext_data)} bytes of French extended character data (0x80-0xFF).")
 
     # 3. Apply direct in-exe gameplay terms
-    print("[3/5] Patching direct in-exe terms (GET, LOST, LV, etc.)...")
+    print("[3/4] Patching direct in-exe terms (GET, LOST, LV, etc.)...")
     for offset, word_bytes, desc in GOG_DIRECT_WORDS:
         if offset + len(word_bytes) <= len(data):
             data[offset:offset+len(word_bytes)] = word_bytes
             print(f"  + Applied: {desc}")
 
-    # 4. Inject .trad section & redirect string pointers
-    print("[4/5] Preparing .trad section for French UI strings...")
-    trad_sec = pe.add_trad_section(0x100000)
-    trad_raw_start = trad_sec['raw_ptr']
-    trad_va_start = pe.image_base + trad_sec['vaddr']
-
-    rdata_sec = pe.get_section('.rdata')
-    data_sec = pe.get_section('.data')
-
-    if not rdata_sec or not data_sec:
-        print("  [WARN] .rdata or .data section not found; skipping string redirection.")
-    else:
-        rdata_raw = rdata_sec['raw_ptr']
-        rdata_bytes = data[rdata_raw:rdata_raw + rdata_sec['raw_size']]
-        rdata_va = pe.image_base + rdata_sec['vaddr']
-
-        data_raw = data_sec['raw_ptr']
-        data_size = data_sec['raw_size']
-
-        trad_write_offset = 0x1000  # Start inside .trad with padding
-        redirected_count = 0
-
-        for eng_str, fr_str in FRENCH_UI_TRANSLATIONS.items():
-            eng_bytes = eng_str.encode('latin1') + b'\x00'
-            fr_bytes = fr_str.encode('latin1') + b'\x00'
-
-            # Find English string in .rdata
-            p = rdata_bytes.find(eng_bytes)
-            if p != -1:
-                target_va = rdata_va + p
-                target_packed = struct.pack('<Q', target_va)
-
-                # Write French string into .trad
-                trad_str_raw = trad_raw_start + trad_write_offset
-                data[trad_str_raw:trad_str_raw + len(fr_bytes)] = fr_bytes
-                new_va = trad_va_start + trad_write_offset
-                new_packed = struct.pack('<Q', new_va)
-                trad_write_offset += align(len(fr_bytes), 8)
-
-                # Scan .data for pointers matching target_va
-                found_ptrs = 0
-                search_pos = data_raw
-                end_pos = data_raw + data_size - 8
-                while search_pos <= end_pos:
-                    if data[search_pos:search_pos+8] == target_packed:
-                        data[search_pos:search_pos+8] = new_packed
-                        found_ptrs += 1
-                    search_pos += 8
-
-                if found_ptrs > 0:
-                    redirected_count += found_ptrs
-                    print(f"  + Localized: '{eng_str[:30]}...' -> '{fr_str[:30]}...' ({found_ptrs} ptrs)")
-
-        print(f"  + Successfully redirected {redirected_count} string pointers to .trad section.")
-
-    # 5. Write out patched executable
-    print(f"[5/5] Saving patched GOG executable to: {output_path}")
+    # 4. Write out patched executable
+    print(f"[4/4] Saving patched GOG executable to: {output_path}")
     with open(output_path, 'wb') as f:
         f.write(data)
 
     print("\n[SUCCESS] Yakuza 0 GOG Executable successfully patched for French localization!")
-    print("Accented characters and French menus are now fully operational.")
+    print("Accented characters (é, è, à, ç, etc.) and fonts are now fully operational.")
     return True
 
 
