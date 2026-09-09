@@ -27,3 +27,6 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Crash dumps & user-provided originals
+crash logs/
