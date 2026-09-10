@@ -56,6 +56,7 @@ TOOL_FILES = [
     "tools/boot_dict_part2.py",
     "tools/boot_dict_part3.py",
     "tools/boot_dict_part4.py",
+    "tools/collect_originals.py",
 ]
 
 SCRATCH_FILES = [
@@ -73,6 +74,7 @@ PRECOMPILED_DATA = [
 ROOT_FILES = [
     ("release_gog/patch_gog.py", "patch_gog.py"),
     ("release_gog/font_table_french.bin", "font_table_french.bin"),
+    ("tools/collect_originals.bat", "collect_originals.bat"),
 ]
 
 BAT_PATCHER = r'''@echo off
