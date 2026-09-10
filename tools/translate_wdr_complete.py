@@ -70,9 +70,13 @@ def repack_par(orig_bytes, file_replacements={}):
     return bytes(rebuilt)
 
 def main():
-    wdr_path = 'release_gog/data/wdr_par_c/wdr.par'
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+        wdr_path = os.path.join(target, 'data', 'wdr_par_c', 'wdr.par') if os.path.isdir(target) else target
+    else:
+        wdr_path = 'release_gog/data/wdr_par_c/wdr.par'
     bak_path = wdr_path + '.pre_final.bak'
-    if not os.path.exists(bak_path):
+    if not os.path.exists(bak_path) and os.path.exists(wdr_path):
         print(f"[+] Creating backup {bak_path}...")
         shutil.copyfile(wdr_path, bak_path)
 

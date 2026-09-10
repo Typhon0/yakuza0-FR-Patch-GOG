@@ -103,13 +103,13 @@ def process_table_file(file_path):
         f.write(comp)
     print(f"  [+] {os.path.basename(file_path)}: translated table (decomp {len(decomp)} -> {len(translated_table)}, comp {len(raw)} -> {len(comp)})")
 
-def process_pokecir_par():
-    par_path = 'release_gog/data/minigame/pokecir.par'
+def process_pokecir_par(pokecir_path):
+    par_path = pokecir_path
     bak_path = par_path + '.bak'
-    if not os.path.exists(bak_path):
+    if not os.path.exists(bak_path) and os.path.exists(par_path):
         shutil.copyfile(par_path, bak_path)
     
-    with open(bak_path, 'rb') as f:
+    with open(par_path, 'rb') as f:
         orig_bytes = f.read()
     
     pfiles = parse_par(orig_bytes)
@@ -140,41 +140,49 @@ def process_pokecir_par():
     print(f"  [+] Repacked {par_path} ({len(new_par)} bytes)")
 
 def main():
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+        data_dir = os.path.join(target, 'data') if os.path.isdir(os.path.join(target, 'data')) else target
+    else:
+        data_dir = 'release_gog/data'
+    mg_dir = os.path.join(data_dir, 'minigame')
+
     print("[+] Starting minigame translations...")
     
     # 1. Pocket Circuit
     print("\n[1/7] Pocket Circuit:")
-    process_pokecir_par()
+    process_pokecir_par(os.path.join(mg_dir, 'pokecir.par'))
     
     # 2. Cabaret Makeover
     print("\n[2/7] Cabaret Makeover:")
-    process_table_file('release_gog/data/minigame/cabaret/caba_item_list.bin_c')
+    process_table_file(os.path.join(mg_dir, 'cabaret', 'caba_item_list.bin_c'))
     
     # 3. Catfight
     print("\n[3/7] Catfight Club:")
     for fn in ['catfight_information.bin_c', 'catfight_string.bin_c', 'catfight_human_info.bin_c', 'catfight_human_condition.bin_c']:
-        process_table_file(os.path.join('release_gog/data/minigame/catfight', fn))
+        process_table_file(os.path.join(mg_dir, 'catfight', fn))
     
     # 4. Baccarat
     print("\n[4/7] Baccarat Casino:")
     for fn in ['baccarat_cpu.bin_c', 'baccarat_gallery_msg.bin_c']:
-        process_table_file(os.path.join('release_gog/data/minigame/bakara', fn))
+        process_table_file(os.path.join(mg_dir, 'bakara', fn))
     
     # 5. Cho-han
     print("\n[5/7] Cho-han Gambling Hall:")
-    process_table_file('release_gog/data/minigame/chohan/minigame_chohan_bakuto.bin_c')
+    process_table_file(os.path.join(mg_dir, 'chohan', 'minigame_chohan_bakuto.bin_c'))
     
     # 6. Fishing
     print("\n[6/7] Fishing:")
     for fn in ['fishing_fish_info.bin_c', 'fishing_bag_info.bin_c', 'fishing_sao_info.bin_c']:
-        process_table_file(os.path.join('release_gog/data/minigame/fishing', fn))
+        process_table_file(os.path.join(mg_dir, 'fishing', fn))
     
     # 7. Poker
     print("\n[7/7] Poker Opponents:")
-    poker_dir = 'release_gog/data/minigame/poker'
-    for fn in sorted(os.listdir(poker_dir)):
-        if fn.endswith('.bin_c'):
-            process_table_file(os.path.join(poker_dir, fn))
+    poker_dir = os.path.join(mg_dir, 'poker')
+    if os.path.isdir(poker_dir):
+        for fn in sorted(os.listdir(poker_dir)):
+            if fn.endswith('.bin_c'):
+                process_table_file(os.path.join(poker_dir, fn))
     
     print("\n[+] All minigames translated successfully!")
 

@@ -466,9 +466,14 @@ def repack_par(orig_bytes, file_replacements={}):
     return bytes(rebuilt)
 
 def main():
-    par_path = 'release_gog/data/bootpar/boot.par'
-    bak_path = 'release_gog/data/bootpar/boot.par.orig_clean'
-    if not os.path.exists(bak_path):
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+        data_dir = os.path.join(target, 'data') if os.path.isdir(os.path.join(target, 'data')) else target
+        par_path = os.path.join(data_dir, 'bootpar', 'boot.par') if os.path.isdir(data_dir) else target
+    else:
+        par_path = 'release_gog/data/bootpar/boot.par'
+    bak_path = par_path + '.orig_clean'
+    if not os.path.exists(bak_path) and os.path.exists(par_path):
         shutil.copyfile(par_path, bak_path)
         print(f"Backed up clean boot.par -> {bak_path}")
 

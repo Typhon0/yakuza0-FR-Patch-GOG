@@ -224,6 +224,22 @@ class ParValidator:
                     except:
                         pass
 
+            if fn == 'uid033317da.msg':
+                if u_sz != 7245:
+                    self.error(
+                        f"{fn}: taille incorrecte {u_sz} (attendu: 7245) — "
+                        f"CAUSE DU SOFTLOCK DES CABINES TÉLÉPHONIQUES"
+                    )
+                if not is_sllz_flag:
+                    self.error(f"{fn}: devrait être compressé SLLZ")
+                if is_sllz_flag and is_sllz_data:
+                    try:
+                        dec = decompress_sllz(file_bytes)
+                        if b'Sauvegardez et utilisez le coffre' not in dec:
+                            self.warn(f"{fn}: texte français des cabines non trouvé")
+                    except:
+                        pass
+
 
 # ── Main ────────────────────────────────────────────────────────────────────
 def find_game_dir(hint=None):

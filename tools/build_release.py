@@ -25,10 +25,11 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.0"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.1"
 
 # Files to include from tools/
 TOOL_FILES = [
+    "tools/repair_phone_booths.py",
     "tools/rebuild_clean_wdr.py",
     "tools/translate_boot_par_complete.py",
     "tools/translate_wdr_complete.py",
@@ -52,7 +53,6 @@ TOOL_FILES = [
     "tools/boot_dict_part2.py",
     "tools/boot_dict_part3.py",
     "tools/boot_dict_part4.py",
-    "tools/translate_shops.py",
 ]
 
 SCRATCH_FILES = [
@@ -62,7 +62,7 @@ SCRATCH_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.0
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.1
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
@@ -95,31 +95,35 @@ if not exist "%PYTHON%" (
     exit /b 1
 )
 
-echo [1/7] Patch wdr.par (dialogues, quetes, menus)...
+echo [1/8] Reparation des cabines telephoniques (wdr.par)...
+"%PYTHON%" "%~dp0tools\repair_phone_booths.py" "%GAMEDIR%"
+if errorlevel 1 goto :error
+
+echo [2/8] Patch wdr.par (dialogues, quetes, menus)...
 "%PYTHON%" "%~dp0tools\translate_wdr_complete.py" "%GAMEDIR%"
 if errorlevel 1 goto :error
 
-echo [2/7] Patch boutiques et restaurants...
+echo [3/8] Patch boutiques et restaurants...
 "%PYTHON%" "%~dp0tools\translate_shops.py" "%GAMEDIR%"
 if errorlevel 1 goto :error
 
-echo [3/7] Patch boot.par (interface, objets, combats)...
+echo [4/8] Patch boot.par (interface, objets, combats)...
 "%PYTHON%" "%~dp0tools\translate_boot_par_complete.py" "%GAMEDIR%"
 if errorlevel 1 goto :error
 
-echo [4/7] Patch stay.par (descriptions, lieux)...
+echo [5/8] Patch stay.par (descriptions, lieux)...
 "%PYTHON%" "%~dp0tools\translate_stay_par_complete.py" "%GAMEDIR%"
 if errorlevel 1 goto :error
 
-echo [5/7] Patch pause.par (menus de pause)...
+echo [6/8] Patch pause.par (menus de pause)...
 "%PYTHON%" "%~dp0tools\translate_pause_par_complete.py" "%GAMEDIR%"
 if errorlevel 1 goto :error
 
-echo [6/7] Patch mini-jeux...
+echo [7/8] Patch mini-jeux...
 "%PYTHON%" "%~dp0tools\translate_all_minigames.py" "%GAMEDIR%"
 if errorlevel 1 goto :error
 
-echo [7/7] Verification d'integrite...
+echo [8/8] Verification d'integrite...
 "%PYTHON%" "%~dp0tools\verify_patch.py" "%GAMEDIR%"
 
 echo.
@@ -164,7 +168,7 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = '''# Yakuza 0 — Patch VOSTFR GOG v1.12.0
+README_FR = '''# Yakuza 0 — Patch VOSTFR GOG v1.12.1
 
 ## Installation
 
@@ -181,7 +185,7 @@ README_FR = '''# Yakuza 0 — Patch VOSTFR GOG v1.12.0
 - `patch_fr.bat` — Lance le patcher automatiquement
 - `verifier.bat` — Vérifie l'intégrité de tous les fichiers
 - `python/` — Python embarqué (aucune installation requise)
-- `tools/` — Scripts de traduction
+- `tools/` — Scripts de traduction et fichiers réparés
 
 ## Notes
 - Ce patch est compatible uniquement avec la version GOG de Yakuza 0
@@ -237,6 +241,12 @@ def build_release():
         if os.path.exists(f):
             shutil.copy2(f, os.path.join(stage, f))
             print(f"  + {f}")
+
+    # Copy repaired phones folder
+    repaired_src = "tools/repaired_phones"
+    if os.path.isdir(repaired_src):
+        shutil.copytree(repaired_src, os.path.join(stage, repaired_src), dirs_exist_ok=True)
+        print(f"  + {repaired_src} (20 repaired phone .msg files)")
     
     # 2. Download and extract Python embed
     print("[2/4] Python embarqué...")

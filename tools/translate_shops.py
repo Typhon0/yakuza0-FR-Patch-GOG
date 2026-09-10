@@ -234,8 +234,14 @@ def patch_wdr_shops(wdr_path, expls):
 
 def main():
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-    boot_par = os.path.join(repo_root, 'release_gog', 'data', 'bootpar', 'boot.par')
-    wdr_par = os.path.join(repo_root, 'release_gog', 'data', 'wdr_par_c', 'wdr.par')
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+        data_dir = os.path.join(target, 'data') if os.path.isdir(os.path.join(target, 'data')) else target
+        boot_par = os.path.join(data_dir, 'bootpar', 'boot.par')
+        wdr_par = os.path.join(data_dir, 'wdr_par_c', 'wdr.par')
+    else:
+        boot_par = os.path.join(repo_root, 'release_gog', 'data', 'bootpar', 'boot.par')
+        wdr_par = os.path.join(repo_root, 'release_gog', 'data', 'wdr_par_c', 'wdr.par')
 
     if not os.path.isfile(boot_par):
         print(f"[ERROR] {boot_par} not found!")

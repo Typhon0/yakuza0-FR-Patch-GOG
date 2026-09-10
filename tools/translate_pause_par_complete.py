@@ -304,9 +304,14 @@ def repack_par(orig_bytes, file_replacements={}):
     return bytes(rebuilt)
 
 def main():
-    pause_path = 'release_gog/data/pausepar_e/pause.par'
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+        data_dir = os.path.join(target, 'data') if os.path.isdir(os.path.join(target, 'data')) else target
+        pause_path = os.path.join(data_dir, 'pausepar_e', 'pause.par') if os.path.isdir(data_dir) else target
+    else:
+        pause_path = 'release_gog/data/pausepar_e/pause.par'
     bak_path = pause_path + '.pre_pause_complete.bak'
-    if not os.path.exists(bak_path):
+    if not os.path.exists(bak_path) and os.path.exists(pause_path):
         print(f"[+] Backing up {pause_path}...")
         shutil.copyfile(pause_path, bak_path)
 

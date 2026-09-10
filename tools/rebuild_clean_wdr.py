@@ -22,6 +22,7 @@ sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('scratch'))
 from scratch.scanner_engine import parse_par, decompress_sllz
 from tools.sllz import compress_sllz
+from tools.repair_phone_booths import PHONE_FILE_NAMES, PHONE_TRANSLATIONS, translate_msg_inplace
 
 def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
     print(f"[+] Reading pristine base: {clean_par_path}")
@@ -89,6 +90,16 @@ def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
             target_u_sz = item['u_sz']
             target_c_sz = item['c_sz']
             stats['pristine_pac'] += 1
+        elif name in PHONE_FILE_NAMES:
+            # Rebuilt from pristine GOG bytecode with safe in-place translations (fixes payphone softlock)
+            clean_decomp = decompress_sllz(orig_data) if orig_data.startswith(b'SLLZ') else orig_data
+            repaired_decomp, _ = translate_msg_inplace(clean_decomp, PHONE_TRANSLATIONS)
+            comp_data = compress_sllz(repaired_decomp)
+            target_data = comp_data
+            target_flags = 0x80000000
+            target_u_sz = len(repaired_decomp)
+            target_c_sz = len(comp_data)
+            stats['translated_msg'] += 1
         elif name in curr_files:
             curr_item = curr_files[name]
             curr_data = curr_item[3]
@@ -183,6 +194,17 @@ def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
     decomp_msg = decompress_sllz(msg_data)
     assert b'Pourquoi font-ils la queue' in decomp_msg, "French text missing from uid0104006f.msg"
     print("[+] uid0104006f.msg verification PASSED (translated & properly compressed)!")
+
+    # Verify Theater Square payphone (uid033317da.msg)
+    p10_fl, p10_u, p10_c, p10_data = verified_files['uid033317da.msg']
+    assert p10_fl == 0x80000000, "uid033317da.msg flag mismatch"
+    assert p10_u == 7245, f"uid033317da.msg uncompressed size mismatch: {p10_u} (expected clean 7245)"
+    decomp_p10 = decompress_sllz(p10_data)
+    assert b'Sauvegardez et utilisez le coffre' in decomp_p10, "French tutorial missing from uid033317da.msg"
+    assert b'Sauv\x00' in decomp_p10, "Save choice missing from uid033317da.msg"
+    assert b'Ouvrir le coffre\x00' in decomp_p10, "Item box choice missing from uid033317da.msg"
+    assert b'Retour\x00' in decomp_p10, "Cancel choice missing from uid033317da.msg"
+    print("[+] uid033317da.msg verification PASSED (phone booth softlock fixed)!")
     print("[SUCCESS] wdr.par rebuilt cleanly and fully verified!")
 
 if __name__ == '__main__':

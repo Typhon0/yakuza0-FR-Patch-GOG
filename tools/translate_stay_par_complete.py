@@ -256,9 +256,14 @@ def repack_par(orig_bytes, file_replacements={}):
     return bytes(rebuilt)
 
 def main():
-    stay_path = 'release_gog/data/staypar/stay.par'
+    if len(sys.argv) > 1:
+        target = sys.argv[1]
+        data_dir = os.path.join(target, 'data') if os.path.isdir(os.path.join(target, 'data')) else target
+        stay_path = os.path.join(data_dir, 'staypar', 'stay.par') if os.path.isdir(data_dir) else target
+    else:
+        stay_path = 'release_gog/data/staypar/stay.par'
     bak_path = stay_path + '.pre_stay_complete.bak'
-    if not os.path.exists(bak_path):
+    if not os.path.exists(bak_path) and os.path.exists(stay_path):
         print(f"[+] Backing up {stay_path}...")
         shutil.copyfile(stay_path, bak_path)
 
