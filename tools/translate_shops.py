@@ -157,45 +157,91 @@ def translate_shop_binary(raw_bin, expls):
     return bytes(new_bin), translated_count, item_count
 
 
+from sllz import compress_sllz
+
+def repack_par(orig_bytes, file_replacements={}):
+    magic, unkA, unkB, unkC = struct.unpack('>4I', orig_bytes[:16])
+    assert magic == 0x50415243
+    folder_count, folder_table_offset, file_count, file_table_offset = struct.unpack('>4I', orig_bytes[16:32])
+    name_offset = 32 + folder_count * 64
+
+    entries = []
+    for i in range(file_count):
+        n_off = name_offset + i * 64
+        name = orig_bytes[n_off : n_off + 64].split(b'\x00')[0].decode('latin1')
+        e_off = file_table_offset + i * 32
+        entry_meta = list(struct.unpack('>8I', orig_bytes[e_off : e_off + 32]))
+        flags, u_sz, c_sz, f_off = entry_meta[:4]
+        raw_file = orig_bytes[f_off : f_off + c_sz]
+        entries.append({
+            'idx': i,
+            'name': name,
+            'entry_offset': e_off,
+            'entry_meta': entry_meta,
+            'flags': flags,
+            'u_sz': u_sz,
+            'c_sz': c_sz,
+            'f_off': f_off,
+            'data': raw_file
+        })
+
+    sorted_entries = sorted(entries, key=lambda e: e['f_off'])
+    first_file_offset = sorted_entries[0]['f_off']
+    rebuilt = bytearray(orig_bytes[:first_file_offset])
+    curr_off = first_file_offset
+
+    for item in sorted_entries:
+        name = item['name']
+        if name in file_replacements:
+            n_flags, n_u_sz, n_c_sz, n_data = file_replacements[name]
+        else:
+            n_flags, n_u_sz, n_c_sz, n_data = item['flags'], item['u_sz'], item['c_sz'], item['data']
+
+        aligned_off = (curr_off + 63) & ~63
+        if aligned_off > len(rebuilt):
+            rebuilt.extend(b'\x00' * (aligned_off - len(rebuilt)))
+
+        new_file_offset = len(rebuilt)
+        rebuilt.extend(n_data)
+        curr_off = len(rebuilt)
+        struct.pack_into('>4I', rebuilt, item['entry_offset'], n_flags, n_u_sz, n_c_sz, new_file_offset)
+
+    return bytes(rebuilt)
+
+
 def patch_wdr_shops(wdr_path, expls):
     """Patches all shop*.bin files inside wdr.par."""
     print(f"\n[+] Opening wdr.par: {wdr_path}")
     with open(wdr_path, 'rb') as f:
-        wdr_data = bytearray(f.read())
+        orig_bytes = f.read()
 
-    magic = struct.unpack('>I', wdr_data[:4])[0]
-    assert magic == 0x50415243, f"Not a valid PARC: {hex(magic)}"
-
-    folder_count, folder_table_offset, file_count, file_table_offset = struct.unpack('>4I', wdr_data[16:32])
-    name_offset = 32 + folder_count * 64
-
-    # Locate shop*.bin entries
-    shop_indices = []
-    for i in range(file_count):
-        fn = wdr_data[name_offset + i * 64 : name_offset + (i + 1) * 64].split(b'\x00')[0].decode('latin1')
-        if fn.startswith('shop') and fn.endswith('.bin'):
-            entry_off = file_table_offset + i * 32
-            flags, u_sz, c_sz, f_off = struct.unpack('>4I', wdr_data[entry_off : entry_off + 16])
-            shop_indices.append((i, fn, entry_off, flags, u_sz, c_sz, f_off))
-
-    print(f"[+] Found {len(shop_indices)} shop files in wdr.par (indices {shop_indices[0][0]} to {shop_indices[-1][0]})")
-
-    # Verify that all shop files are located at the end of the archive
-    shop_start_offset = min(x[6] for x in shop_indices)
-    print(f"[+] Shop data block begins at offset: 0x{shop_start_offset:x} ({shop_start_offset})")
-
-    # Translate each shop binary
-    translated_bins = []
+    files = parse_par(orig_bytes)
+    replacements = {}
     total_translated = 0
     total_items = 0
 
-    for idx, fn, entry_off, flags, u_sz, c_sz, f_off in shop_indices:
-        raw_shop = wdr_data[f_off : f_off + c_sz]
-        trans_bin, count, itotal = translate_shop_binary(raw_shop, expls)
-        translated_bins.append((idx, fn, entry_off, flags, trans_bin))
-        total_translated += count
-        total_items += itotal
-        print(f"  - {fn}: translated {count}/{itotal} item descriptions (size {c_sz} -> {len(trans_bin)})")
+    for fn in sorted(files):
+        if fn.startswith('shop') and fn.endswith('.bin'):
+            flags, u_sz, c_sz, raw_shop = files[fn]
+            if raw_shop.startswith(b'SLLZ'):
+                try:
+                    decomp_shop = decompress_sllz(raw_shop)
+                except Exception:
+                    decomp_shop = raw_shop
+            else:
+                decomp_shop = raw_shop
+
+            trans_bin, count, itotal = translate_shop_binary(decomp_shop, expls)
+            total_translated += count
+            total_items += itotal
+
+            if flags & 0x80000000:
+                comp_bin = compress_sllz(trans_bin)
+                replacements[fn] = (flags, len(trans_bin), len(comp_bin), comp_bin)
+            else:
+                replacements[fn] = (flags, len(trans_bin), len(trans_bin), trans_bin)
+
+            print(f"  - {fn}: translated {count}/{itotal} item descriptions")
 
     print(f"[+] Translation complete: {total_translated}/{total_items} items localized to French!")
 
@@ -205,26 +251,8 @@ def patch_wdr_shops(wdr_path, expls):
         shutil.copyfile(wdr_path, bak_path)
         print(f"[+] Backup created: {bak_path}")
 
-    # Reconstruct wdr_data from shop_start_offset onwards
-    rebuilt_wdr = wdr_data[:shop_start_offset]
-    current_write_offset = shop_start_offset
-
-    for idx, fn, entry_off, flags, trans_bin in translated_bins:
-        # Align to 64 bytes for clean RGG PARC padding
-        aligned_offset = (current_write_offset + 63) & ~63
-        if aligned_offset > len(rebuilt_wdr):
-            rebuilt_wdr.extend(b'\x00' * (aligned_offset - len(rebuilt_wdr)))
-
-        bin_offset = len(rebuilt_wdr)
-        bin_len = len(trans_bin)
-        rebuilt_wdr.extend(trans_bin)
-        current_write_offset = len(rebuilt_wdr)
-
-        # Update entry in file table
-        # flags (keep uncompressed), uncomp_sz, comp_sz, offset
-        struct.pack_into('>4I', rebuilt_wdr, entry_off, flags & ~0x80000000, bin_len, bin_len, bin_offset)
-
-    print(f"[+] Rebuilt wdr.par size: {len(rebuilt_wdr)} bytes (original: {len(wdr_data)})")
+    rebuilt_wdr = repack_par(orig_bytes, replacements)
+    print(f"[+] Rebuilt wdr.par size: {len(rebuilt_wdr)} bytes (original: {len(orig_bytes)})")
 
     with open(wdr_path, 'wb') as f:
         f.write(rebuilt_wdr)
