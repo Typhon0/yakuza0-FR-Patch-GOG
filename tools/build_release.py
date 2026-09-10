@@ -114,20 +114,18 @@ if not exist "%GAMEDIR%\data\bootpar" mkdir "%GAMEDIR%\data\bootpar"
 if not exist "%GAMEDIR%\data\staypar" mkdir "%GAMEDIR%\data\staypar"
 
 if exist "%~dp0data\wdr_par_c\wdr.par" (
-    if not exist "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" (
-        copy /y "%GAMEDIR%\data\wdr_par_c\wdr.par" "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" >nul 2>&1
-    )
+    if not exist "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" copy /y "%GAMEDIR%\data\wdr_par_c\wdr.par" "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" >nul 2>&1
     copy /y "%~dp0data\wdr_par_c\wdr.par" "%GAMEDIR%\data\wdr_par_c\wdr.par" >nul
     copy /y "%~dp0data\wdr_par_c\common.par" "%GAMEDIR%\data\wdr_par_c\common.par" >nul
-    echo   + wdr.par (dialogues, sous-histoires, cabines telephoniques reparees) installe !
+    echo   + wdr.par installe avec succes
 )
 if exist "%~dp0data\bootpar\boot.par" (
     copy /y "%~dp0data\bootpar\boot.par" "%GAMEDIR%\data\bootpar\boot.par" >nul
-    echo   + boot.par (menus, inventaire, competences) installe !
+    echo   + boot.par installe avec succes
 )
 if exist "%~dp0data\staypar\stay.par" (
     copy /y "%~dp0data\staypar\stay.par" "%GAMEDIR%\data\staypar\stay.par" >nul
-    echo   + stay.par (descriptions de lieux) installe !
+    echo   + stay.par installe avec succes
 )
 
 echo.
@@ -148,7 +146,7 @@ echo.
 echo ========================================================
 echo   PATCH INSTALLE AVEC SUCCES !
 echo   Toutes les cabines telephoniques et dialogues sont 100%% fonctionnels.
-echo   Bon jeu ! :)
+echo   Bon jeu !
 echo ========================================================
 pause
 exit /b 0
@@ -187,7 +185,7 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = '''# Yakuza 0 — Patch VOSTFR GOG v1.12.2
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.2
 
 ## Correctif v1.12.2
 - **Correction définitive du crash et softlock des cabines téléphoniques** :
