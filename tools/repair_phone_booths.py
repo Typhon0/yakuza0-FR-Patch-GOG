@@ -78,9 +78,41 @@ PHONE_TRANSLATIONS = {
     'You can save the game and use the Item Box at\r\npay phones.': "Sauvegardez et utilisez le coffre depuis une\r\ncabine.",
     'You can save the game and use the Item Box at\r\ntelephones.': "Sauvegardez et utilisez le coffre depuis un\r\ntéléphone.",
     'You left the Dojima office, right?': "Tu as quitté le bureau Dojima ?",
+    'Save': 'Sauv',
+    'Change characters?': 'Changer de perso ?',
+    'Change Character': 'Changer perso',
+    'Change Outfit': 'Changer tenue',
+    'Create Game Clear Data': 'Creer donnees fin jeu',
+    'Yes': 'Oui',
+    'Wait until day': 'Passer au jour',
+    'Wait until evening': 'Passer au soir',
+    'Wait until night': 'Passer a nuit',
+    'Normal Outfit': 'Tenue normale',
+    'Dragon of Dojima': 'Dragon de Dojima',
+    'Dragon Tattoo': 'Dragon Tatoue',
+    'Lord of the Night': 'Seigneur de nuit',
+    'Caution!': 'Alerte !',
+    'Create': 'Creer',
+    'Hannya Tattoo': 'Hannya Tatoue',
+    'Mad Dog of Shimano': 'Chien de Shimano',
+    '24-hour Prince': 'Prince 24h/24',
+    'N-3B Parka': 'Parka N-3B',
+    'New Hire': 'Recrue',
+    'You can create Game Clear Data\r\nbased on your current play data.': 'Creer des donnees de fin de jeu\r\nbasees sur votre partie.',
+    'There are only about seven of them, but Kuze is there.\r\nYou know him, right?': 'Ils ne sont que sept, mais Kuze est la.\r\nVous le connaissez, non ?',
+    'The Crescendo Building, on Shichifuku Street. They are holding\r\nhim in the basement.': 'Le Crescendo, rue Shichifuku. Ils le retiennent\r\ndans le sous-sol.',
+    "It seems Kuze is acting on Shibusawa's orders. It looks like\r\nhe has started following Shibusawa rather than Awano.": "Kuze agit sur ordre de Shibusawa. Il semble\r\nsuivre Shibusawa plutot qu'Awano.",
+    "(The guys in Little Asia should have tracked down\r\nTachibana by now. Gotta hurry, or he'll be killed!)": "(Ceux de Little Asia doivent savoir ou est\r\nTachibana. Vite, avant qu'ils le tuent !)",
+    "Nishiki, Tachibana's in the Crescendo Building on\r\nShichifuku Street. Kuze's there, too.": "Nishiki, Tachibana est au Crescendo sur\r\nShichifuku. Kuze est la aussi.",
 }
 
-PHONE_FILE_NAMES = [f'uid033317{x:02x}.msg' for x in range(0xd1, 0xe5)]
+PHONE_FILE_NAMES = [
+    'uid03331633.msg',
+    'uid03331695.msg',
+    'uid0333170b.msg',
+    'uid033317ad.msg',
+    'uid033317ae.msg',
+] + [f'uid033317{x:02x}.msg' for x in range(0xd1, 0xe5)]
 
 def translate_msg_inplace(data_bytes, translations):
     out = bytearray(data_bytes)

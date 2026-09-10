@@ -23,7 +23,39 @@ from tools.boot_dict_part2 import P2
 from tools.boot_dict_part3 import P3
 from tools.boot_dict_part4 import P4
 
-BOOT_DICT = {**P1, **P2, **P3, **P4}
+ACTION_VERBS = {
+    'Check': 'Vérifier',
+    'List': 'Liste',
+    'Remove': 'Retirer',
+    'Buy': 'Acheter',
+    'Align': 'Aligner',
+    'Move': 'Déplacer',
+    'Overall Map': 'Carte générale',
+    'Equip All': 'Tout équiper',
+    'Switch': 'Changer',
+    'Sort': 'Trier',
+    'Standard Order': 'Ordre standard',
+    'Descending Order': 'Ordre décroissant',
+    'Ascending Order': 'Ordre croissant',
+    'Tool': 'Outil',
+    'Let Go': 'Lâcher',
+    'Tools': 'Outils',
+    'Equip': 'Équiper',
+    'Select': 'Sélectionner',
+    'Details': 'Détails',
+    'Check Abilities': 'Voir aptitudes',
+    'Upgrades': 'Améliorations',
+    'Items': 'Objets',
+    'Select Map': 'Sélectionner carte',
+    'Parts Required': 'Pièces requises',
+    'Play All': 'Tout jouer',
+    'Rotate': 'Tourner',
+    'Character': 'Personnage',
+    'Storage': 'Coffre',
+    'Weapons': 'Armes',
+}
+
+BOOT_DICT = {**P1, **P2, **P3, **P4, **ACTION_VERBS}
 
 CAPTIONS_BOOT = {
     # Objectives / Scenario
@@ -472,8 +504,12 @@ def main():
         par_path = os.path.join(data_dir, 'bootpar', 'boot.par') if os.path.isdir(data_dir) else target
     else:
         par_path = 'release_gog/data/bootpar/boot.par'
+    clean_source = 'scratch/diag/current_active_par/data/bootpar/boot.par'
     bak_path = par_path + '.orig_clean'
-    if not os.path.exists(bak_path) and os.path.exists(par_path):
+    if os.path.exists(clean_source):
+        shutil.copyfile(clean_source, bak_path)
+        print(f"Using clean GOG base from {clean_source} -> {bak_path}")
+    elif not os.path.exists(bak_path) and os.path.exists(par_path):
         shutil.copyfile(par_path, bak_path)
         print(f"Backed up clean boot.par -> {bak_path}")
 

@@ -214,7 +214,9 @@ def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
     print("[SUCCESS] wdr.par rebuilt cleanly and fully verified!")
 
 if __name__ == '__main__':
-    clean_par = 'scratch/test_shop_wdr.par.bak' if os.path.exists('scratch/test_shop_wdr.par.bak') else 'crash logs/wdr.par'
+    clean_par = 'scratch/diag/current_active_par/data/wdr_par_c/wdr.par'
+    if not os.path.exists(clean_par):
+        clean_par = 'scratch/test_shop_wdr.par.bak' if os.path.exists('scratch/test_shop_wdr.par.bak') else 'crash logs/wdr.par'
     curr_par = 'release_gog/data/wdr_par_c/wdr.par'
-    out_par = 'scratch/wdr_rebuilt.par' if len(sys.argv) < 2 else sys.argv[1]
+    out_par = 'release_gog/data/wdr_par_c/wdr.par' if len(sys.argv) < 2 else sys.argv[1]
     rebuild_clean_wdr(clean_par, curr_par, out_par)

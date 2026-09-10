@@ -87,11 +87,11 @@ def test_release_zip(zip_path: str):
                 sys.exit(1)
 
         # Check 5: Simulator test on payphone files
-        print("[5/6] Simulation machine x86-64 sur les 20 fichiers de cabines téléphoniques...")
+        from tools.repair_phone_booths import PHONE_FILE_NAMES
+        print(f"[5/6] Simulation machine x86-64 sur les {len(PHONE_FILE_NAMES)} fichiers d'interactions et cabines...")
         test_exec = './scratch/test_exec'
         if os.path.isfile(test_exec):
-            phones = [f'uid033317{x:02x}.msg' for x in range(0xd1, 0xe5)]
-            for p in phones:
+            for p in PHONE_FILE_NAMES:
                 d = files[p][3]
                 if d.startswith(b'SLLZ'):
                     d = decompress_sllz(d)
@@ -102,7 +102,7 @@ def test_release_zip(zip_path: str):
                 if res.returncode != 0:
                     print(f"[ÉCHEC] Crash détecté dans le chargeur Sega pour {p} !")
                     sys.exit(1)
-            print("  + 20/20 cabines validées sans aucun crash dans l'exécutable !")
+            print(f"  + {len(PHONE_FILE_NAMES)}/{len(PHONE_FILE_NAMES)} interactions et cabines validées sans aucun crash dans l'exécutable !")
         else:
             print("  ! scratch/test_exec non disponible, test simulateur sauté.")
 
@@ -120,5 +120,5 @@ def test_release_zip(zip_path: str):
     print("=" * 70)
 
 if __name__ == '__main__':
-    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.12.2.zip'
+    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.12.3.zip'
     test_release_zip(zip_target)

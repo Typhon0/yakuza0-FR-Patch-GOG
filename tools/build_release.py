@@ -113,6 +113,16 @@ if not exist "%PYTHON%" (
     exit /b 1
 )
 
+REM Verification conflits mods (YakuzaParless / SRMM)
+if exist "%GAMEDIR%\YakuzaParless.asi" (
+    echo [*] DETECTION : YakuzaParless.asi - Shin Ryu Mod Manager - est present.
+    echo     Pour eviter qu'un ancien mod dans mods n'ecrase les archives traduites,
+    echo     desactivation temporaire du chargeur de mods...
+    ren "%GAMEDIR%\YakuzaParless.asi" "YakuzaParless.asi.disabled_patch_fr" >nul 2>&1
+    echo     + YakuzaParless.asi desactive vers .disabled_patch_fr
+    echo.
+)
+
 echo [1/3] Installation des archives pre-compilees et verifiees...
 if not exist "%GAMEDIR%\data\wdr_par_c" mkdir "%GAMEDIR%\data\wdr_par_c"
 if not exist "%GAMEDIR%\data\bootpar" mkdir "%GAMEDIR%\data\bootpar"
@@ -125,10 +135,12 @@ if exist "%~dp0data\wdr_par_c\wdr.par" (
     echo   + wdr.par installe avec succes
 )
 if exist "%~dp0data\bootpar\boot.par" (
+    if not exist "%GAMEDIR%\data\bootpar\boot.par.bak" copy /y "%GAMEDIR%\data\bootpar\boot.par" "%GAMEDIR%\data\bootpar\boot.par.bak" >nul 2>&1
     copy /y "%~dp0data\bootpar\boot.par" "%GAMEDIR%\data\bootpar\boot.par" >nul
     echo   + boot.par installe avec succes
 )
 if exist "%~dp0data\staypar\stay.par" (
+    if not exist "%GAMEDIR%\data\staypar\stay.par.bak" copy /y "%GAMEDIR%\data\staypar\stay.par" "%GAMEDIR%\data\staypar\stay.par.bak" >nul 2>&1
     copy /y "%~dp0data\staypar\stay.par" "%GAMEDIR%\data\staypar\stay.par" >nul
     echo   + stay.par installe avec succes
 )
@@ -166,14 +178,20 @@ exit /b 1
 
 BAT_VERIFY = r'''@echo off
 chcp 65001 >nul
-echo Verification d'integrite du patch FR Yakuza 0 GOG...
+echo ========================================================
+echo   Yakuza 0 - Verification d'integrite du jeu
+echo ========================================================
 echo.
 
 if "%~1"=="" (
     if exist "data\wdr_par_c\wdr.par" (
         set "GAMEDIR=%CD%"
+    ) else if exist "..\data\wdr_par_c\wdr.par" (
+        set "GAMEDIR=%CD%\.."
     ) else (
-        set "GAMEDIR=%CD%"
+        echo [ERREUR] Impossible de trouver le dossier du jeu.
+        pause
+        exit /b 1
     )
 ) else (
     set "GAMEDIR=%~1"
@@ -193,17 +211,20 @@ pause
 README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.3
 
 ## Correctif v1.12.3
-- **Correction définitive du crash 0x6EA307 (Cabines téléphoniques & interactions)** :
-  Restauration intégrale du bytecode Sega officiel pour l'ensemble des fichiers de structures
-  système et de scène (`snitch.bin`, `ai_popup.bin`, `pac_*.bin`, etc.) éliminant tout décalage d'offset.
-- **Cabines téléphoniques 100% fonctionnelles** : Tous les 20 dialogues de cabines de Kamurocho
-  et Sotenbori sauvegardent, ouvrent le coffre et affichent les textes français sans crash.
-- **Support des boutiques et restaurants** : Noms et descriptions traduits en français sans troncature.
-- **Accents et polices** : Prise en charge intégrale des accents français sans chevauchement.
+- **Correction définitive du crash des cabines téléphoniques (0x6F21E0h)** :
+  Restauration intégrale du bytecode Sega officiel pour l'ensemble des 25 fichiers d'interaction
+  de cabines, sauvegardes et planques de Kamurocho et Sotenbori (`uid03331633.msg`, `uid03331695.msg`,
+  `uid0333170b.msg`, `uid033317ad.msg`, `uid033317ae.msg`, et `uid033317d1.msg` à `uid033317e4.msg`).
+- **Bouton d'interaction traduit en français** : L'invite d'interaction affiche désormais correctement
+  `[A] Vérifier` (au lieu de `Check` en anglais) grâce à la traduction native de la table des verbes dans `boot.par`.
+- **Compatibilité Shin Ryu Mod Manager / YakuzaParless** : Détection et neutralisation automatique des conflits
+  de fichiers lâches (`mods/`) pouvant surcharger les archives du jeu avec d'anciennes versions corrompues.
+- **Support complet boutiques, restaurants et mini-jeux** : Textes et menus 100% traduits sans troncature.
+- **Accents français parfaits** : Prise en charge intégrale des accents dans les sous-titres et dialogues.
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive du patch.
-2. Copiez l'intégralité du dossier dans le répertoire d'installation de Yakuza 0 GOG
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.3.zip`.
+2. Copiez l'intégralité du contenu du dossier dans le répertoire d'installation de Yakuza 0 GOG
    (par exemple `D:\GOG Games\Yakuza 0\` ou `C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\`).
 3. Double-cliquez sur `patch_fr.bat`.
 4. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
