@@ -21,6 +21,9 @@ import zipfile
 import urllib.request
 import tempfile
 
+sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed-amd64.zip"
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
@@ -299,6 +302,11 @@ def build_release():
     print(f"[+] Release créée: {zip_out} ({size_mb:.1f} MB)")
     print(f"    Contenu: Archives pré-compilées + Patcher + Python embarqué")
     print(f"    Installation instantanée et 100% fiable.")
+
+    # 6. Automated E2E release validation
+    print()
+    from tools.test_release_e2e import test_release_zip
+    test_release_zip(zip_out)
 
 
 if __name__ == '__main__':
