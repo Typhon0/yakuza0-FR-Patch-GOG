@@ -82,9 +82,15 @@ def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
         orig_flags = item['flags']
         orig_data = item['data']
 
+        PRISTINE_NON_MSG_BINS = {
+            'dispose_string.bin', 'snitch.bin', 'ai_popup.bin', 'eg_telephone_card.bin',
+            'arms_repair.bin', 'blacksmith.bin', 'present.bin', 'sale0000.bin',
+            'sale0001.bin', 'sale0002.bin', 'send.bin', 'throw.bin'
+        }
+
         # Determine target payload
-        if name.startswith('pac_'):
-            # ALWAYS keep pristine GOG stage binaries to avoid offset shift crashes
+        if name.startswith('pac_') or name in PRISTINE_NON_MSG_BINS:
+            # ALWAYS keep pristine GOG stage & system binaries to avoid offset shift crashes
             target_data = orig_data
             target_flags = orig_flags
             target_u_sz = item['u_sz']
@@ -208,7 +214,7 @@ def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
     print("[SUCCESS] wdr.par rebuilt cleanly and fully verified!")
 
 if __name__ == '__main__':
-    clean_par = 'crash logs/wdr.par'
+    clean_par = 'scratch/test_shop_wdr.par.bak' if os.path.exists('scratch/test_shop_wdr.par.bak') else 'crash logs/wdr.par'
     curr_par = 'release_gog/data/wdr_par_c/wdr.par'
     out_par = 'scratch/wdr_rebuilt.par' if len(sys.argv) < 2 else sys.argv[1]
     rebuild_clean_wdr(clean_par, curr_par, out_par)

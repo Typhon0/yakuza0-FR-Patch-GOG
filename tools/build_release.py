@@ -28,7 +28,7 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.2"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.3"
 
 # Files to include from tools/
 TOOL_FILES = [
@@ -78,7 +78,7 @@ ROOT_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.2
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.3
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
@@ -188,13 +188,15 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.2
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.3
 
-## Correctif v1.12.2
-- **Correction définitive du crash et softlock des cabines téléphoniques** :
-  Restauration intégrale du bytecode Sega d'origine et intégration du fichier
-  pré-compilé `wdr.par` certifié sans troncature ni corruption de mémoire.
-- **Support des boutiques et restaurants** : Noms et descriptions traduits en français.
+## Correctif v1.12.3
+- **Correction définitive du crash 0x6EA307 (Cabines téléphoniques & interactions)** :
+  Restauration intégrale du bytecode Sega officiel pour l'ensemble des fichiers de structures
+  système et de scène (`snitch.bin`, `ai_popup.bin`, `pac_*.bin`, etc.) éliminant tout décalage d'offset.
+- **Cabines téléphoniques 100% fonctionnelles** : Tous les 20 dialogues de cabines de Kamurocho
+  et Sotenbori sauvegardent, ouvrent le coffre et affichent les textes français sans crash.
+- **Support des boutiques et restaurants** : Noms et descriptions traduits en français sans troncature.
 - **Accents et polices** : Prise en charge intégrale des accents français sans chevauchement.
 
 ## Installation simple (Recommandée)
