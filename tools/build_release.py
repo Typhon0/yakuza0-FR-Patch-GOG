@@ -28,7 +28,7 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.5"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.6"
 
 # Files to include from tools/
 TOOL_FILES = [
@@ -81,7 +81,7 @@ ROOT_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.5
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.6
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
@@ -116,8 +116,8 @@ if "%~1"=="" (
     set "GAMEDIR=%~1"
 )
 
-REM Strip trailing backslash
-if "%GAMEDIR:~-1%"=="\" set "GAMEDIR=%GAMEDIR:~0,-1%"
+REM Canonicalize path and strip trailing slashes
+for %%I in ("%GAMEDIR%") do set "GAMEDIR=%%~fI"
 
 if not exist "%GAMEDIR%\Yakuza0.exe" (
     echo [ERREUR] Yakuza0.exe introuvable dans "%GAMEDIR%"
@@ -128,6 +128,14 @@ if not exist "%GAMEDIR%\Yakuza0.exe" (
 
 echo [*] Dossier du jeu confirme : %GAMEDIR%
 echo.
+
+REM Fermeture forcee de tout processus Yakuza0.exe residuel pour debloquer l'ecriture
+tasklist /FI "IMAGENAME eq Yakuza0.exe" 2>nul | find /I /N "Yakuza0.exe">nul
+if "%ERRORLEVEL%"=="0" (
+    echo [*] Fermeture de Yakuza0.exe en cours d'execution...
+    taskkill /F /IM Yakuza0.exe >nul 2>&1
+    timeout /t 1 /nobreak >nul
+)
 
 REM Use embedded Python
 set "PYTHON=%~dp0python\python.exe"
@@ -156,17 +164,36 @@ if not exist "%GAMEDIR%\data\staypar" mkdir "%GAMEDIR%\data\staypar"
 if exist "%~dp0data\wdr_par_c\wdr.par" (
     if not exist "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" copy /y "%GAMEDIR%\data\wdr_par_c\wdr.par" "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" >nul 2>&1
     copy /y "%~dp0data\wdr_par_c\wdr.par" "%GAMEDIR%\data\wdr_par_c\wdr.par" >nul
+    if errorlevel 1 (
+        echo [ERREUR CRITIQUE] Impossible d'ecrire dans "%GAMEDIR%\data\wdr_par_c\wdr.par" !
+        echo Assurez-vous que le jeu est ferme et que vous avez les droits d'ecriture.
+        goto :error
+    )
     copy /y "%~dp0data\wdr_par_c\common.par" "%GAMEDIR%\data\wdr_par_c\common.par" >nul
+    for %%A in ("%GAMEDIR%\data\wdr_par_c\wdr.par") do (
+        if %%~zA LSS 7000000 (
+            echo [ERREUR CRITIQUE] wdr.par copie est incomplet: %%~zA octets, attendu: plus de 7 Mo.
+            goto :error
+        )
+    )
     echo   + wdr.par installe avec succes
 )
 if exist "%~dp0data\bootpar\boot.par" (
     if not exist "%GAMEDIR%\data\bootpar\boot.par.bak" copy /y "%GAMEDIR%\data\bootpar\boot.par" "%GAMEDIR%\data\bootpar\boot.par.bak" >nul 2>&1
     copy /y "%~dp0data\bootpar\boot.par" "%GAMEDIR%\data\bootpar\boot.par" >nul
+    if errorlevel 1 (
+        echo [ERREUR CRITIQUE] Impossible d'ecrire dans "%GAMEDIR%\data\bootpar\boot.par" !
+        goto :error
+    )
     echo   + boot.par installe avec succes
 )
 if exist "%~dp0data\staypar\stay.par" (
     if not exist "%GAMEDIR%\data\staypar\stay.par.bak" copy /y "%GAMEDIR%\data\staypar\stay.par" "%GAMEDIR%\data\staypar\stay.par.bak" >nul 2>&1
     copy /y "%~dp0data\staypar\stay.par" "%GAMEDIR%\data\staypar\stay.par" >nul
+    if errorlevel 1 (
+        echo [ERREUR CRITIQUE] Impossible d'ecrire dans "%GAMEDIR%\data\staypar\stay.par" !
+        goto :error
+    )
     echo   + stay.par installe avec succes
 )
 
@@ -230,7 +257,7 @@ if "%~1"=="" (
     set "GAMEDIR=%~1"
 )
 
-if "%GAMEDIR:~-1%"=="\" set "GAMEDIR=%GAMEDIR:~0,-1%"
+for %%I in ("%GAMEDIR%") do set "GAMEDIR=%%~fI"
 
 set "PYTHON=%~dp0python\python.exe"
 if not exist "%PYTHON%" (
@@ -243,32 +270,24 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.5
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.6
 
-## Nouveautés v1.12.5
-- **Correction critique de l'installateur `patch_fr.bat` & `verifier.bat`** :
-  L'installateur détecte désormais de manière infaillible le répertoire racine du jeu en localisant `Yakuza0.exe`
-  (même si l'archive est décompressée dans un sous-dossier), garantissant le déploiement direct et sans faille
-  des archives traduites (`data/wdr_par_c/wdr.par`, `boot.par`, etc.) dans votre jeu.
-- **Correction définitive du crash des pharmacies Kotobuki Drugs & Daikoku Drugstore (0x234B0 / 0x234B7)** :
-  Restauration intégrale des tables annexes propriétaires de catégories Pocket Circuit (24 octets pour Kotobuki,
-  20 octets pour Daikoku) et reconstruction propre des 36 boutiques de Kamurocho et Sotenbori avec injection
-  directe des descriptions françaises officielles issues de `boot.par -> item.bin_c`.
-- **Correction définitive du crash et softlock des cabines téléphoniques (0x6EA328 / 0x6F21E0)** :
-  Restauration intégrale du bytecode Sega officiel pour l'ensemble des 25 fichiers d'interaction
-  de cabines, sauvegardes et planques de Kamurocho et Sotenbori (`uid03331633.msg`, `uid03331695.msg`,
-  `uid0333170b.msg`, `uid033317ad.msg`, `uid033317ae.msg`, et `uid033317d1.msg` à `uid033317e4.msg`).
-- **Bouton d'interaction traduit en français** : L'invite d'interaction affiche désormais correctement
-  `[A] Vérifier` (au lieu de `Check` en anglais) grâce à la traduction native de la table des verbes dans `boot.par`.
-- **Compatibilité Shin Ryu Mod Manager / YakuzaParless** : Détection et neutralisation automatique des conflits
-  de fichiers lâches (`mods/`) pouvant surcharger les archives du jeu avec d'anciennes versions corrompues.
-- **Support complet boutiques, restaurants et mini-jeux** : Textes et menus 100% traduits sans troncature.
-- **Accents français parfaits** : Injection intégrale de la table de crénage typographique complète (6 144 octets).
+## Nouveautés v1.12.6
+- **Sécurisation absolue de l'installateur `patch_fr.bat`** :
+  1. Fermeture automatique de tout processus `Yakuza0.exe` résiduel ou fantôme pour lever les verrous d'écriture Windows (Permissions / Sharing Violation).
+  2. Résolution canonique des chemins (`%%~fI`) éliminant tout dysfonctionnement lié aux chemins relatifs (`..`).
+  3. Contrôle strict et bloquant de la copie des archives avec vérification de taille minimale (>7 Mo pour `wdr.par`).
+  4. Vérification d'intégrité sur disque après écriture de `Yakuza0.exe` (contrôle des marges typographiques à 0.4).
+- **Correction critique des cabines téléphoniques et sauvegardes (0x6EA328 / 0x6F21E0)** :
+  Restauration intégrale du bytecode Sega officiel sur l'ensemble des 25 fichiers d'interaction de Kamurocho et Sotenbori.
+- **Pharmacies Kotobuki Drugs & Daikoku Drugstore (0x234B0 / 0x234B7)** :
+  Tables propriétaires Pocket Circuit (24 et 20 octets) 100% préservées.
+- **Typographie et crénage parfaits** :
+  Injection de la table complète de 6 144 octets garantissant zéro chevauchement de lettres sur `i` et `l`.
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.5.zip`.
-2. Lancez `patch_fr.bat` (directement depuis le dossier extrait).
-   L'installateur détecte automatiquement votre jeu Yakuza 0 et applique tous les correctifs.
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.6.zip`.
+2. Lancez `patch_fr.bat` (en faisant un clic droit -> « Exécuter en tant qu'administrateur »).
 3. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
 
 ## En cas de problème

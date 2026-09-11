@@ -269,10 +269,27 @@ def patch_yakuza0_gog(exe_path, output_path=None):
 
     # 4. Write out patched executable
     print(f"[4/4] Saving patched GOG executable to: {output_path}")
-    with open(output_path, 'wb') as f:
-        f.write(data)
+    try:
+        with open(output_path, 'wb') as f:
+            f.write(data)
+    except Exception as e:
+        print(f"\n[FATAL ERROR] Failed to write patched executable '{output_path}': {e}")
+        print("Please ensure Yakuza 0 is NOT running and that you have administrator privileges.")
+        return False
 
-    print("\n[SUCCESS] Yakuza 0 GOG Executable successfully patched for French localization!")
+    # 5. Verify written file integrity on disk
+    try:
+        with open(output_path, 'rb') as f:
+            f.seek(GOG_FONT_TABLE_OFFSET + 0x69 * 24)
+            i_margin = struct.unpack('<6f', f.read(24))
+            if abs(i_margin[0] - 0.4) > 0.01:
+                print(f"[ERROR] Font table verification failed on disk! 'i' margin: {i_margin}")
+                return False
+    except Exception as e:
+        print(f"[ERROR] Failed to verify patched executable on disk: {e}")
+        return False
+
+    print("\n[SUCCESS] Yakuza 0 GOG Executable successfully patched and verified on disk!")
     print("Accented characters (é, è, à, ç, etc.) and fonts are now fully operational.")
     return True
 
