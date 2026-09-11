@@ -76,7 +76,8 @@ PHONE_TRANSLATIONS = {
     "Yeah. Who's this?": "Oui. Qui est-ce ?",
     'You called me, Sera-san?': "Vous m'appeliez, Sera ?",
     'You can save the game and use the Item Box at\r\npay phones.': "Sauvegardez et utilisez le coffre depuis une\r\ncabine.",
-    'You can save the game and use the Item Box at\r\ntelephones.': "Sauvegardez et utilisez le coffre depuis un\r\ntéléphone.",
+    'You can save the game and use the Item Box at\r\ntelephones.': "Sauvegardez et utilisez le coffre depuis une\r\ncabine.",
+    'You can save the game and use the Item Box at\r\nphones.': "Sauvegardez et utilisez le coffre depuis une\r\ncabine.",
     'You left the Dojima office, right?': "Tu as quitté le bureau Dojima ?",
     'Save': 'Sauv',
     'Change characters?': 'Changer de perso ?',
@@ -114,23 +115,35 @@ PHONE_FILE_NAMES = [
     'uid033317ae.msg',
 ] + [f'uid033317{x:02x}.msg' for x in range(0xd1, 0xe5)]
 
+MENU_KEYWORDS = {
+    'Save', 'Cancel', 'Use the Item Box', 'Yes', 'Create', 'Caution!',
+    'Change Character', 'Change characters?', 'Change Outfit', 'Wait until day',
+    'Wait until evening', 'Wait until night', 'Normal Outfit', 'Dragon of Dojima',
+    'Dragon Tattoo', 'Lord of the Night', 'Hannya Tattoo', 'Mad Dog of Shimano',
+    '24-hour Prince', 'N-3B Parka', 'New Hire', 'Create Game Clear Data'
+}
+
 def translate_msg_inplace(data_bytes, translations):
     out = bytearray(data_bytes)
     translated_count = 0
     for en_str, fr_str in translations.items():
         fr_clean = fr_str.replace('Ça', 'Ca').replace('ÇA', 'CA').replace('Ç', 'C')
-        en_bytes = en_str.encode('latin1') + b'\x00'
-        fr_bytes = fr_clean.encode('latin1') + b'\x00'
+        en_bytes = en_str.encode('latin1')
+        fr_bytes = fr_clean.encode('latin1')
         assert len(fr_bytes) <= len(en_bytes), f"French string too long: {len(fr_bytes)} > {len(en_bytes)} for {repr(en_str)}"
+        needle = en_bytes + b'\x00'
         pos = 0
         while True:
-            idx = out.find(en_bytes, pos)
+            idx = out.find(needle, pos)
             if idx == -1:
                 break
-            padded = fr_bytes + b'\x00' * (len(en_bytes) - len(fr_bytes))
-            out[idx : idx + len(en_bytes)] = padded
+            if en_str in MENU_KEYWORDS:
+                padded = fr_bytes + b'\x00' * (len(en_bytes) - len(fr_bytes)) + b'\x00'
+            else:
+                padded = fr_bytes + b' ' * (len(en_bytes) - len(fr_bytes)) + b'\x00'
+            out[idx : idx + len(padded)] = padded
             translated_count += 1
-            pos = idx + len(en_bytes)
+            pos = idx + len(padded)
     return bytes(out), translated_count
 
 def repair_phone_booths(clean_par_path, target_par_path):

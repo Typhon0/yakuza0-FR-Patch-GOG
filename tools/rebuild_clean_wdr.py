@@ -23,8 +23,11 @@ sys.path.insert(0, os.path.abspath('scratch'))
 from scratch.scanner_engine import parse_par, decompress_sllz
 from tools.sllz import compress_sllz
 from tools.repair_phone_booths import PHONE_FILE_NAMES, PHONE_TRANSLATIONS, translate_msg_inplace
+from tools.rebuild_all_shops_clean import generate_repaired_shops
 
 def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
+    print(f"[+] Generating clean repaired shop binaries from {clean_par_path}...")
+    repaired_shops = generate_repaired_shops(clean_par_path)
     print(f"[+] Reading pristine base: {clean_par_path}")
     with open(clean_par_path, 'rb') as f:
         clean_bytes = f.read()
@@ -106,6 +109,10 @@ def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
             target_u_sz = len(repaired_decomp)
             target_c_sz = len(comp_data)
             stats['translated_msg'] += 1
+        elif name in repaired_shops:
+            # Rebuilt from pristine GOG with 100% intact extra tables (Kotobuki 24B, Daikoku 20B, Pawn 296B)
+            target_flags, target_u_sz, target_c_sz, target_data = repaired_shops[name]
+            stats['translated_other'] += 1
         elif name in curr_files:
             curr_item = curr_files[name]
             curr_data = curr_item[3]
@@ -211,12 +218,35 @@ def rebuild_clean_wdr(clean_par_path, curr_par_path, output_path):
     assert b'Ouvrir le coffre\x00' in decomp_p10, "Item box choice missing from uid033317da.msg"
     assert b'Retour\x00' in decomp_p10, "Cancel choice missing from uid033317da.msg"
     print("[+] uid033317da.msg verification PASSED (phone booth softlock fixed)!")
+
+    # Verify Kotobuki Drugs (shop0013.bin) Pocket Circuit table (24 bytes)
+    s13_fl, s13_u, s13_c, s13_data = verified_files['shop0013.bin']
+    assert s13_fl == 0x80000000, "shop0013.bin flag mismatch"
+    decomp_s13 = decompress_sllz(s13_data)
+    assert decomp_s13[272 + 35*48 : 1976] == bytes.fromhex('000200000002000000020000000200000002000000020000'), "Kotobuki Drugs 24B extra table corrupted!"
+    print("[+] shop0013.bin verification PASSED (Kotobuki Drugs 24B Pocket Circuit table intact)!")
+
+    # Verify Daikoku Drugstore (shop0029.bin) Pocket Circuit table (20 bytes)
+    s29_fl, s29_u, s29_c, s29_data = verified_files['shop0029.bin']
+    assert s29_fl == 0x80000000, "shop0029.bin flag mismatch"
+    decomp_s29 = decompress_sllz(s29_data)
+    assert decomp_s29[272 + 36*48 : 2020] == bytes.fromhex('0002000100020001000200010002000100020001'), "Daikoku Drugstore 20B extra table corrupted!"
+    print("[+] shop0029.bin verification PASSED (Daikoku Drugstore 20B Pocket Circuit table intact)!")
+
+    # Verify Ebisuya Pawn (shop0019.bin) items 0 and 1
+    s19_fl, s19_u, s19_c, s19_data = verified_files['shop0019.bin']
+    assert s19_fl == 0x80000000, "shop0019.bin flag mismatch"
+    decomp_s19 = decompress_sllz(s19_data)
+    assert struct.unpack('>H', decomp_s19[272:274])[0] == 902, "shop0019.bin item 0 id corrupted!"
+    assert struct.unpack('>H', decomp_s19[272+48:272+50])[0] == 907, "shop0019.bin item 1 id corrupted!"
+    print("[+] shop0019.bin verification PASSED (Ebisuya items intact)!")
+
     print("[SUCCESS] wdr.par rebuilt cleanly and fully verified!")
 
 if __name__ == '__main__':
     clean_par = 'scratch/diag/current_active_par/data/wdr_par_c/wdr.par'
     if not os.path.exists(clean_par):
-        clean_par = 'scratch/test_shop_wdr.par.bak' if os.path.exists('scratch/test_shop_wdr.par.bak') else 'crash logs/wdr.par'
+        clean_par = 'par_original/wdr.par' if os.path.exists('par_original/wdr.par') else 'crash logs/wdr.par'
     curr_par = 'release_gog/data/wdr_par_c/wdr.par'
     out_par = 'release_gog/data/wdr_par_c/wdr.par' if len(sys.argv) < 2 else sys.argv[1]
     rebuild_clean_wdr(clean_par, curr_par, out_par)

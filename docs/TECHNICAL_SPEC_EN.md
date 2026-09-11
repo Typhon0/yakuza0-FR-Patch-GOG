@@ -32,26 +32,34 @@ Four single-byte bytecode instructions were reverse-engineered and patched at th
 
 ---
 
-### 2.2. Font Kerning Distortion (Narrow Characters `i` and `l` Collapsing)
+### 2.2. Font Kerning Distortion (Narrow Characters `i`, `l` Overlapping & Asymmetric Gaps)
 
 #### Root Cause
-In the Yakuza 0 graphics engine, the UV coordinate and glyph margin table is stored within the `.data` section of the GOG executable at offset `0xD488F0`. Each ASCII character (`0x00` to `0xFF`) has a **24-byte entry** consisting of six 32-bit `float` values (IEEE-754 little-endian):
+In the Yakuza 0 graphics engine, the UV coordinate and glyph margin table is stored within the `.rdata` section of the GOG executable at offset `0xD488F0` (RVA `0xD4A0F0`). Each ASCII character (`0x00` to `0xFF`) has a **24-byte entry** consisting of six 32-bit `float` values (IEEE-754):
 ```
 [top_left_margin, top_right_margin, mid_left_margin, mid_right_margin, bot_left_margin, bot_right_margin]
 ```
 
-In Vanilla Sega (GOG):
-* For `i` (`0x69`): `[0.0, 1.17, 0.0, 1.17, 0.0, 1.17]`
-* For `l` (`0x6C`): `[0.0, 1.17, 0.0, 1.17, 0.0, 1.17]`
+The engine proportional kerning routine (`0x140397020`) evaluates consecutive character pairs $C_1$ and $C_2$:
+$$\text{min\_gap} = \min(R_{\text{top}}(C_1) + L_{\text{top}}(C_2),\; R_{\text{mid}}(C_1) + L_{\text{mid}}(C_2),\; R_{\text{bot}}(C_1) + L_{\text{bot}}(C_2))$$
+$$\text{reduction} = \text{min\_gap} \times 0.5 \times \frac{\text{font\_size}}{2}$$
+Cursor advance is calculated as:
+$$\text{Advance}(C_1 \to C_2) = \text{Base\_Advance} - \text{reduction}$$
 
-In Byce61's Steam executable, the table was entirely overwritten with artificial margins:
-* `[0.6875, 0.75, 0.6875, 0.75, 0.6875, 0.75]`
+In Sega Vanilla (GOG):
+* For `i` (`0x69`) and `l` (`0x6C`): `[0.0, 1.17, 0.0, 1.17, 0.0, 1.17]`
+* For `I` (`0x49`): `[0.0, 1.10, 0.0, 1.10, 0.0, 1.10]`
 
-On the GOG binary, applying `0.6875` to narrow glyphs like `i` triggered a negative translation calculation of over 16 pixels to the left. As a result:
-* The letters `i`, `l`, `I` were drawn directly on top of the preceding letter (*"Batte"* instead of *"Battle"*, *"Busness"*, *"Substores"*, etc.).
+This severe asymmetry (`Left = 0.0`, `Right = 1.17`) caused two critical rendering flaws:
+1. **Rightward Collisions**: `Right = 1.17` caused an advance reduction of over 11 pixels on the subsequent character, drawing it directly on top of `i` in words like *"utilisez"* (`il`, `is`) and *"depuis"* (`is`).
+2. **Leftward Gaps**: `Left = 0.0` prevented preceding characters from approaching normally (inflated advance up to 15px), leaving an unnatural visual void before `l` (e.g. `té  léphone`).
 
 #### Solution
-The patcher **fully preserves** the native Sega Vanilla table for standard ASCII (**`0x00` to `0x7F`**) and only injects the French table for the extended range (**`0x80` to `0xFF`**). Furthermore, accented characters derived from `i` (`î` `0xEE`, `ï` `0xEF`, etc.) have their margins recalibrated to `[0.0, 1.17, ...]` for flawless typography.
+A fully calibrated 6,144-byte typography table is injected across the entire range (`0x00` to `0xFF`):
+* **`i`, `l`, `I`**: Margins are centered symmetrically to `[0.4, 0.4, 0.4, 0.4, 0.4, 0.4]`, yielding smooth, natural advances of 9.6px to 10.4px without overlap or gaping holes.
+* **Accented `i` variants (`î`, `ï`, `ì`, `í`, `Î`, `Ï`, `Ì`, `Í`)**: Calibrated identically to `[0.4, 0.4, 0.4, 0.4, 0.4, 0.4]`.
+* **Accented letters (`é`, `è`, `ê`, `à`, `ç`, etc.)**: Symmetrically aligned with base character metrics.
+* **Punctuation period `.` (`0x2E`)**: Bottom-left margin adjusted to `0.4` to attach naturally to words without an artificial leading gap.
 
 ---
 

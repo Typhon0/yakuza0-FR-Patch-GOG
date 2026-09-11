@@ -26,24 +26,18 @@ import zlib
 import base64
 import argparse
 
-# Embedded 6,144-byte French Font Table (zlib-compressed base64)
-# Extracted directly from Byce61's French translation patch (offset 0xD8F9E0)
+# Embedded 6,144-byte French Font & Kerning Table (zlib-compressed base64)
+# Calibrated for proportional spacing on narrow stems (i, l, I) and accented glyphs (é, è, ê, à, ç, etc.)
 EMBEDDED_FONT_TABLE_B64 = (
-    "eNrtWNGx4yAMpASXkBLcQIASUoJLoRQ38jIuJaVcSLSwrEXu3feFGUYGCyEJSUiE8G3f9l+35Pf12bMD"
-    "H/H9H3CzXr9Lnbu/yebn95LesPZyfU4azIa3Gyw/77UVVpwHvoP9e/aL7V/hTfat/YjvMfN3SX1O"
-    "+a1777GPId+rxT7epF8Ml+k84hmP8TPhgt9sa4LoB+M9dlkZvnRo+IX1GTtkOmsifcYuX7E9eF2x"
-    "78Oja2cKXUOXWIf/vI75A23Wy805z9W66hk0VrMzns+O/jEPHTAPhXTbdGZ22KDxwPYKW4Stvs4A"
-    "8DqOX7Zr4yz4QfS+x/Oc6ozpKX34CcOZ/25ptJ92TsxfInpXW0OQ/VL7rA36+Tn/Y7gl0tNd9qM4"
-    "gt7Wkn03aOs5fuTknB9o30fZqy5qHOPzZx9quHaODefeZSjxHF/g49hnSb1v9O3JHWK3zxYXACdx"
-    "Vf2jxYnU46TXOc4AbuQXgIoPuWFv0BH+Mx8cLxbEqzjq48R37Prw+JzZv8ZT3BMhSjzj2DHxoy2d"
-    "44Ynl+onOPMqV5uf6A13mt49zD90eKO7Z0njPah6O/EpZwB/4vNVeYNDB/mAxnPEaNhw5ZNteqb/"
-    "iofxI/ZxizVkG4M86t/f9m3fdmqaFzNc0znPazlMGGPzzfLFnf2d4ojeI2vye/Nj890deWrsub/e"
-    "W56/H4Zf5711yMcOoZsl3n26L71998n6WT0FfaueD4v5h8R+jHfhW+O9J++QByKWUn3k1UknOpIf"
-    "LWIzG+WeH8+N+AiwE8qbWo56tzyBcmrsf1C9c0j+0+4UqbP03GbzB9VHir8782WCj9wmxPM858uN"
-    "zqS+8OqILLnHLnezhz+rR/ieVXg4+RH0493XuzPvyenVM1wzDPiqD/G7v9YdTj6g+JpHsD+29su8"
-    "YlZ3fISf5JR6Fm8XXCssxvdD6ibEpVs6vyfgfDUfbvHTqVUP512iRJ/OQu8ZXp7827ya+edzae8e"
-    "zj3lzRfn3aMQfbXb/I/2XybzIcm7zHWM9RqfWd7gnJfWF6d4JXeJ0tmjT4f9Vd/HyoTOzTmvnEb7"
-    "ycKnF4s8e0NMGWIavavpW5TK9bbBP/+DqPA="
+    "eNrtV91xgzAM5vrY6wLMwbOtBRihz3nvBmzQZ7JGnrMBXaNzFGMLybIMOCXN9YLudCaKLMuffmxX1UEH"
+    "PS+d+95q/DW8wbmvIR0H67kFwVba1mRr5OZo85qmAY39Hia/zPg5/w62AOfib/Sf1sP95OTxPtftSFxI"
+    "FlRnrAi3bsS8trT3zp5O3xM7fT6ijo9Rm7CUe7uDkaNbI9ZpIx/cN2cmA1zD49oxezR6HW2soYTzeUv/"
+    "Odsow7yQuDTNZcLGYRj0AfNFz0OMbzdjwHLUyNGvMxjaaxvwyFEXbNL4/vkCaINjyXKnoI7ivEbGmMnY"
+    "BfyswBPxAzG6eVeNb/DTEG71pv0irnzUaiGOf9o3pD2ld0GocaA9TrEOmHVW9ifZx1zf9Bz1gErm91r+"
+    "yziW1ovWx3Jy3t+wH7G4m/CfETzrY/6Hmtd0DdtH1PecDGvU9zvEP1qf5QraasN3K/wpwg3SXjissawB"
+    "tq/Iz0U55hXxwLCL9hbq+MLPLCD78hxf9n/ZTx9DvtYou3rW4s6xi/xP7MjzJReX3Lmf08+dy/w+8McE"
+    "nEOPSOpQ1qOcn/aPHs+xgw466KCH0Id5Bcd0z/G83/t0OpuVPq/fW269J2v3/EfoL7+LtfeF/o7YS77h"
+    "/vMrfoYaWX4HbtcvtVOS/6X31XvJF/qAdmdM7pPsnbCr/L/mfynOpfr3Xncvf3L0A8noUDg="
 )
 
 # GOG Executable Offsets (v1.015a)
@@ -255,33 +249,16 @@ def patch_yakuza0_gog(exe_path, output_path=None):
         else:
             print(f"  [WARN] Offset out of range: {hex(offset)}")
 
-    # 2. Inject French Font Table for Accented Characters (0x80 to 0xFF)
-    # Standard ASCII (0x00 to 0x7F) is deliberately preserved from vanilla Sega GOG
-    # so that narrow characters like 'i' and 'l' keep their native [0.0, 1.17, ...]
-    # margins and don't collapse into preceding characters (e.g. "Battle" -> "Batte").
-    print(f"[2/4] Injecting French font table for accented characters (0x80-0xFF)...")
+    # 2. Inject Calibrated French Font & Kerning Table (6,144 bytes, 0x00 to 0xFF)
+    # Fixes the severe native Sega kerning collision bug on narrow glyphs ('i', 'l', 'I')
+    # and ensures harmonious proportional spacing for accented characters (é, è, ê, à, ç, etc.)
+    print(f"[2/4] Injecting calibrated French typography and kerning table (0x00-0xFF)...")
     font_table = bytearray(get_font_table_bytes())
+    assert len(font_table) == FONT_TABLE_SIZE, f"Invalid font table size: {len(font_table)}"
 
-    # Fix accented 'i' characters (î 0xEE, ï 0xEF, Ì 0xCC, Í 0xCD, Î 0xCE, Ï 0xCF, ì 0xEC, í 0xED)
-    # so their stem margins match vanilla 'i' ([0.0, 1.17, 0.0, 1.17])
-    for ch_code in [0xCC, 0xCD, 0xCE, 0xCF, 0xEC, 0xED, 0xEE, 0xEF]:
-        off = ch_code * 24
-        vals = list(struct.unpack('<6f', font_table[off:off+24]))
-        vals[2] = 0.0   # mid left
-        vals[3] = 1.17  # mid right
-        vals[4] = 0.0   # bot left
-        vals[5] = 1.17  # bot right
-        font_table[off:off+24] = struct.pack('<6f', *vals)
-
-    # Normalize Á (0xC1) to À (0xC0) grave accent (Á does not exist in French)
-    font_table[0xC1 * 24 : 0xC1 * 24 + 24] = font_table[0xC0 * 24 : 0xC0 * 24 + 24]
-
-    # Inject only extended character coordinates: 0x80 to 0xFF
-    ext_offset = GOG_FONT_TABLE_OFFSET + 0x80 * 24
-    ext_data = font_table[0x80 * 24 : 0x100 * 24]
-    data[ext_offset : ext_offset + len(ext_data)] = ext_data
-    print(f"  + Preserved vanilla Sega ASCII kerning (0x00-0x7F).")
-    print(f"  + Injected {len(ext_data)} bytes of French extended character data (0x80-0xFF).")
+    data[GOG_FONT_TABLE_OFFSET : GOG_FONT_TABLE_OFFSET + FONT_TABLE_SIZE] = font_table
+    print(f"  + Calibrated proportional margins for 'i', 'l', 'I' and punctuation '.'.")
+    print(f"  + Injected {FONT_TABLE_SIZE} bytes of unified French typography (0x00-0xFF).")
 
     # 3. Apply direct in-exe gameplay terms
     print("[3/4] Patching direct in-exe terms (GET, LOST, LV, etc.)...")

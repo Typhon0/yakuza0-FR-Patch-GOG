@@ -14,6 +14,7 @@
 release_gog/
 scratch/
 staging_gog_patch/
+staging_release/
 frameworks/
 
 # Python & caches

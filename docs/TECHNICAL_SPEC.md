@@ -31,26 +31,34 @@ Quatre instructions bytecode 1-octet ont été identifiées et appliquées aux a
 
 ---
 
-### 2.2. Anomalie de Kerning de Police (Écrasement des caractères étroits `i` et `l`)
+### 2.2. Anomalie de Kerning de Police (Écrasement des caractères étroits `i`, `l` et espacement asymétrique)
 
 #### Cause Racine
-Dans le moteur graphique de Yakuza 0, la table de coordonnées UV et de marges de glyphes est stockée dans la section `.data` de l'exécutable GOG à l'adresse `0xD488F0`. Chaque caractère ASCII (0x00 à 0xFF) dispose d'une entrée de **24 octets** (6 valeurs flottantes 32-bit `float` en IEEE-754 little-endian) :
+Dans le moteur graphique de Yakuza 0, la table de coordonnées UV et de marges de glyphes est stockée dans la section `.rdata` de l'exécutable GOG à l'adresse `0xD488F0` (RVA `0xD4A0F0`). Chaque caractère ASCII (0x00 à 0xFF) dispose d'une entrée de **24 octets** (6 valeurs flottantes 32-bit `float` IEEE-754) :
 ```
 [top_left_margin, top_right_margin, mid_left_margin, mid_right_margin, bot_left_margin, bot_right_margin]
 ```
 
+La routine de crénage proportionnel (`0x140397020`) calcule pour deux caractères consécutifs $C_1$ et $C_2$ :
+$$\text{min\_gap} = \min(R_{\text{top}}(C_1) + L_{\text{top}}(C_2),\; R_{\text{mid}}(C_1) + L_{\text{mid}}(C_2),\; R_{\text{bot}}(C_1) + L_{\text{bot}}(C_2))$$
+$$\text{réduction} = \text{min\_gap} \times 0.5 \times \frac{\text{font\_size}}{2}$$
+L'avance réelle du curseur est alors :
+$$\text{Avance}(C_1 \to C_2) = \text{Base\_Advance} - \text{réduction}$$
+
 Dans la version Sega Vanilla (GOG) :
-* Pour `i` (`0x69`) : `[0.0, 1.17, 0.0, 1.17, 0.0, 1.17]`
-* Pour `l` (`0x6C`) : `[0.0, 1.17, 0.0, 1.17, 0.0, 1.17]`
+* Pour `i` (`0x69`) et `l` (`0x6C`) : `[0.0, 1.17, 0.0, 1.17, 0.0, 1.17]`
+* Pour `I` (`0x49`) : `[0.0, 1.10, 0.0, 1.10, 0.0, 1.10]`
 
-Dans l'exécutable Steam de Byce61, la table avait été intégralement générée avec des marges artificielles :
-* `[0.6875, 0.75, 0.6875, 0.75, 0.6875, 0.75]`
-
-Sur l'exécutable GOG, cette valeur `0.6875` sur un glyphe étroit comme `i` déclenchait un calcul de translation négative de plus de 16 pixels vers la gauche. En conséquence :
-* Les caractères `i`, `l`, `I` étaient dessinés directement par-dessus la lettre précédente (*« Batte »* pour *« Battle »*, *« Busness »*, *« Substores »*, etc.).
+Cette asymétrie extrême (`Left = 0.0`, `Right = 1.17`) produisait deux défauts majeurs :
+1. **Écrasement vers la droite** : Le `Right = 1.17` provoquait une réduction de plus de 11 pixels sur le caractère suivant. En conséquence, dans des mots comme *« utilisez »* (`il`, `is`) ou *« depuis »* (`is`), le deuxième caractère était dessiné directement par-dessus le `i`.
+2. **Trou vers la gauche** : Le `Left = 0.0` empêchait le caractère précédent de s'approcher normalement (avance gonflée à 15px), créant un vide anormal avant `l` (ex: `té  léphone`).
 
 #### Solution
-Le patcher préserve **intégralement** la table Sega Vanilla pour la plage ASCII standard (**`0x00` à `0x7F`**) et n'injecte la table française que pour la plage étendue (**`0x80` à `0xFF`**). De plus, les caractères accentués dérivés de `i` (`î` `0xEE`, `ï` `0xEF`, etc.) voient leurs marges réajustées à `[0.0, 1.17, ...]` pour un rendu typographique parfait.
+Une table de crénage étalonnée bit-exacte (6 144 octets) est injectée sur l'intégralité de la plage (`0x00` à `0xFF`) :
+* **`i`, `l`, `I`** : Marges symétriquement centrées à `[0.4, 0.4, 0.4, 0.4, 0.4, 0.4]`, assurant une avance fluide de 9.6px à 10.4px sans aucun écrasement ni trou.
+* **Caractères accentués dérivés de `i` (`î`, `ï`, `ì`, `í`, `Î`, `Ï`, `Ì`, `Í`)** : Calibrés à l'identique à `[0.4, 0.4, 0.4, 0.4, 0.4, 0.4]`.
+* **Caractères accentués (`é`, `è`, `ê`, `à`, `ç`, etc.)** : Alignés rigoureusement sur les métriques de leurs bases non-accentuées pour une harmonie parfaite.
+* **Point de ponctuation `.` (`0x2E`)** : Marge inférieure gauche ajustée à `0.4` pour coller naturellement aux fins de phrases sans trou visuel artificiel.
 
 ---
 

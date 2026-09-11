@@ -28,12 +28,13 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.3"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.4"
 
 # Files to include from tools/
 TOOL_FILES = [
     "tools/repair_phone_booths.py",
     "tools/rebuild_clean_wdr.py",
+    "tools/rebuild_all_shops_clean.py",
     "tools/translate_boot_par_complete.py",
     "tools/translate_wdr_complete.py",
     "tools/translate_shops.py",
@@ -80,7 +81,7 @@ ROOT_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.3
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.4
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
@@ -208,9 +209,13 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.3
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.4
 
-## Correctif v1.12.3
+## Correctif v1.12.4
+- **Correction définitive du crash des pharmacies Kotobuki Drugs & Daikoku Drugstore (0x234B0 / 0x234B7)** :
+  Restauration intégrale des tables annexes propriétaires de catégories Pocket Circuit (24 octets pour Kotobuki,
+  20 octets pour Daikoku) et reconstruction propre des 36 boutiques de Kamurocho et Sotenbori avec injection
+  directe des descriptions françaises officielles issues de `boot.par -> item.bin_c`.
 - **Correction définitive du crash des cabines téléphoniques (0x6F21E0h)** :
   Restauration intégrale du bytecode Sega officiel pour l'ensemble des 25 fichiers d'interaction
   de cabines, sauvegardes et planques de Kamurocho et Sotenbori (`uid03331633.msg`, `uid03331695.msg`,
@@ -223,7 +228,7 @@ README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.3
 - **Accents français parfaits** : Prise en charge intégrale des accents dans les sous-titres et dialogues.
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.3.zip`.
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.4.zip`.
 2. Copiez l'intégralité du contenu du dossier dans le répertoire d'installation de Yakuza 0 GOG
    (par exemple `D:\GOG Games\Yakuza 0\` ou `C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\`).
 3. Double-cliquez sur `patch_fr.bat`.

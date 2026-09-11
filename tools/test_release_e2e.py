@@ -106,6 +106,14 @@ def test_release_zip(zip_path: str):
         else:
             print("  ! scratch/test_exec non disponible, test simulateur sauté.")
 
+        # Check 5b: Verify Drugstore Pocket Circuit category tables
+        print("[5b] Vérification des tables Pocket Circuit de Kotobuki Drugs et Daikoku Drugstore...")
+        d13 = decompress_sllz(files['shop0013.bin'][3])
+        assert d13[272 + 35*48 : 1976] == bytes.fromhex('000200000002000000020000000200000002000000020000'), "Kotobuki Drugs 24B extra table mismatch!"
+        d29 = decompress_sllz(files['shop0029.bin'][3])
+        assert d29[272 + 36*48 : 2020] == bytes.fromhex('0002000100020001000200010002000100020001'), "Daikoku Drugstore 20B extra table mismatch!"
+        print("  + Kotobuki Drugs (24 octets) & Daikoku Drugstore (20 octets) tables 100% conformes !")
+
         # Check 6: Run verify_patch on extracted package
         print("[6/6] Exécution de verify_patch.py sur le package extrait...")
         res = subprocess.run([sys.executable, 'tools/verify_patch.py', root], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -120,5 +128,5 @@ def test_release_zip(zip_path: str):
     print("=" * 70)
 
 if __name__ == '__main__':
-    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.12.3.zip'
+    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.12.4.zip'
     test_release_zip(zip_target)
