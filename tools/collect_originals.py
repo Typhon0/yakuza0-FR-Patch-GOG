@@ -45,15 +45,11 @@ def find_game_dir(start_dir):
         r"C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0",
         r"D:\Games\Yakuza 0",
     ]
-    # First priority: find directory containing Yakuza0.exe
+    # Strict check: locate directory containing Yakuza0.exe
     for c in candidates:
         if os.path.isfile(os.path.join(c, 'Yakuza0.exe')):
             return os.path.abspath(c)
-    # Second priority: find directory containing data/wdr_par_c/wdr.par
-    for c in candidates:
-        if os.path.isfile(os.path.join(c, 'data', 'wdr_par_c', 'wdr.par')):
-            return os.path.abspath(c)
-    return os.path.abspath(start_dir)
+    return None
 
 def collect_diagnostics(game_dir, output_zip_path=None):
     if output_zip_path is None:
@@ -182,4 +178,9 @@ def collect_diagnostics(game_dir, output_zip_path=None):
 
 if __name__ == '__main__':
     target = sys.argv[1] if len(sys.argv) > 1 else find_game_dir(os.getcwd())
+    if not target or not os.path.isfile(os.path.join(target, 'Yakuza0.exe')):
+        print(f"[ERREUR] Impossible de trouver Yakuza0.exe dans '{target or 'aucun dossier'}'")
+        print("Veuillez specifier le chemin du repertoire d'installation du jeu Yakuza 0 :")
+        print("  python collect_originals.py \"D:\\GOG Games\\Yakuza 0\"")
+        sys.exit(1)
     collect_diagnostics(target)

@@ -7,12 +7,24 @@ echo.
 
 REM 1. Detection du repertoire du jeu
 if "%~1"=="" (
-    if exist "data\wdr_par_c\wdr.par" (
+    if exist "%~dp0Yakuza0.exe" (
+        set "GAMEDIR=%~dp0"
+    ) else if exist "%~dp0..\Yakuza0.exe" (
+        set "GAMEDIR=%~dp0.."
+    ) else if exist "%CD%\Yakuza0.exe" (
         set "GAMEDIR=%CD%"
-    ) else if exist "..\data\wdr_par_c\wdr.par" (
+    ) else if exist "%CD%\..\Yakuza0.exe" (
         set "GAMEDIR=%CD%\.."
+    ) else if exist "%CD%\..\..\Yakuza0.exe" (
+        set "GAMEDIR=%CD%\..\.."
+    ) else if exist "D:\GOG Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=D:\GOG Games\Yakuza 0"
+    ) else if exist "C:\GOG Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=C:\GOG Games\Yakuza 0"
+    ) else if exist "C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0"
     ) else (
-        echo [ERREUR] Impossible de trouver le dossier du jeu.
+        echo [ERREUR] Impossible de trouver Yakuza0.exe.
         echo Placez ce script dans le dossier de Yakuza 0 ou specifiez le chemin :
         echo   collect_originals.bat "D:\GOG Games\Yakuza 0"
         echo.
@@ -22,6 +34,8 @@ if "%~1"=="" (
 ) else (
     set "GAMEDIR=%~1"
 )
+
+if "%GAMEDIR:~-1%"=="\" set "GAMEDIR=%GAMEDIR:~0,-1%"
 
 echo [*] Dossier du jeu : %GAMEDIR%
 echo.

@@ -72,7 +72,7 @@ def lint_batch_content(content: str, filename: str = "script.bat") -> list:
                             break
 
         # Check 4: Unquoted paths in copy or file operations
-        if re.search(r'\b(copy|move|del|mkdir|rmdir)\b', stripped, re.IGNORECASE):
+        if re.search(r'^\s*(?:if\s+.*\s+)?(copy|move|del|mkdir|rmdir)\b', stripped, re.IGNORECASE):
             # Check for %VAR% with spaces without quotes
             tokens = stripped.split()
             for t in tokens[1:]:

@@ -14,7 +14,9 @@
 5. [Bulles d'Ambiance de Rue (`ai_popup.bin`)](#5-bulles-dambiance-de-rue-ai_popupbin)
 6. [Résumés de Quête du Menu Pause & Bannières (`boot.par`)](#6-résumés-de-quête-du-menu-pause--bannières-bootpar)
 7. [Architecture des Archives PAR & Règle des 2048 Octets](#7-architecture-des-archives-par--règle-des-2048-octets)
-8. [Matrice des Commandes de Validation](#8-matrice-des-commandes-de-validation)
+8. [Crash Boucle Infinie des Cabines & Faux Déploiement (`0x6EA328`)](#8-crash-boucle-infinie-des-cabines--faux-déploiement-0x6ea328)
+9. [Matrice des Commandes de Validation](#9-matrice-des-commandes-de-validation)
+10. [Catalogue des Anti-Patterns & Erreurs Récurrentes d'Agents IA](#10-catalogue-des-anti-patterns--erreurs-récurrentes-dagents-ia)
 
 ---
 
@@ -197,7 +199,56 @@ aligned_offset = (current_offset + 2047) & ~2047
 
 ---
 
-## 8. Matrice des Commandes de Validation
+## 8. Crash Boucle Infinie des Cabines & Faux Déploiement (`0x6EA328`)
+
+### Symptômes
+Crash brutal `EXCEPTION_ACCESS_VIOLATION` (c0000005) à `Yakuza0.exe+0x6EA328h` dès que Kiryu approche d'une cabine téléphonique ou tente d'interagir avec elle.
+Dans le crash log :
+```text
+[ FaultMod ]  * RIP Addr.: Yakuza0.exe+00000000006EA328h
+[StackFrame] <-> Rip=0001406ea328h, Rsp=00000014f8d0h, Rbp=7ff4d429d2e0h
+[  GP Reg  ]   rax:    0x000000000000    rbx:    0x7ff4de442814
+[  GP Reg  ]   rcx:    0x000000000003    rdx:    0x000000000000
+[  GP Reg  ]   r8:     0x000000000000    r9:     0x7ff4fdd30005
+[  GP Reg  ]   r10:    0x00001e45729f    r11:    0xffffffffe945f930
+[  GP Reg  ]   r12:    0x7ff4de443685    r13:    0x7ff4de442800
+[  GP Reg  ]   r14:    0x7ff4de443675    r15:    0x7ff4de442804
+```
+
+### Cause Racine (Reverse Engineering du Relocateur Sega)
+1. **La routine de décalage et d'endianness `.msg` (`0x1406ea0e0`) :**
+   Lors du chargement d'un script d'interaction de cabine (`uid033317d1.msg` à `uid033317e4.msg`), le moteur lit à l'offset `0x14` (offset 20) un pointeur relatif vers la table de nœuds (offset 3701 pour `uid033317d1.msg`).
+   À l'adresse `0x1406ea2e2`, il lit le nombre d'entrées de la table dans `%r10d` (`mov (%r14), %r10d`).
+2. **Le piège du fichier tronqué :**
+   Si `wdr.par` est tronqué ou incomplet (ex: ancien bug de `translate_shops.py` réduisant l'archive à ~2 Mo au lieu de 7,3 Mo), ou si le fichier de cabine dépasse la taille physique disponible, le moteur lit de la mémoire non initialisée.
+   Dans le crash ci-dessus, `%r10d` a été lu avec une valeur résiduelle corrompue `0x262924ff`.
+3. **La boucle infinie de 529 Mo :**
+   La routine applique une boucle d'endianness (`1406ea300` à `1406ea337`) qui décrémente `%r10d` de 4 et avance `%r9` de 16 octets à chaque tour :
+   ```assembly
+   1406ea300: mov (%r9), %r8d
+              ...
+              add $0xfffffffc, %r10d
+              add $0x10, %r9
+              ...
+              test $0xfffffffc, %r10d
+              jne 1406ea300
+   ```
+   Avec `r10_start = 0x262924ff`, la boucle a tourné pendant **33 millions d'itérations**, tentant d'inverser **529 Mo** (`0x1f8ec980` octets) en mémoire jusqu'à ce que `%r9` atteigne l'adresse non mappée `0x7ff4fdd30005`, déclenchant le crash immédiat à `0x1406ea328` (`mov %ecx, -0x8(%r9)`).
+4. **Le piège du faux déploiement dans les installateurs `.bat` :**
+   Le patch peut être 100% correct sur le dépôt, mais l'utilisateur subit quand même ce crash si l'installateur (`patch_fr.bat`) utilise une mauvaise condition de détection de dossier de jeu :
+   - Tester `if exist "data\wdr_par_c\wdr.par"` est fatal : le package de release extrait contient lui-même un dossier `data\wdr_par_c\wdr.par`.
+   - Si l'utilisateur extrait l'archive dans un sous-dossier (ex: `D:\GOG Games\Yakuza 0\Yakuza0_FR_Patch_GOG_v1.12.4\`), le script croit que **ce sous-dossier est le jeu**.
+   - Il copie les archives saines sur elles-mêmes dans le dossier temporaire, ignore le vrai jeu (`Yakuza0.exe non présent, étape sautée`), et laisse l'ancien `wdr.par` tronqué dans le jeu réel !
+
+### Règles Impératives & Solutions
+* **Règle 1 :** Tout crash à `Yakuza0.exe+0x6EA328h` prouve à 100% que l'archive `wdr.par` chargée par le jeu est incomplète, tronquée ou n'a pas été déployée dans le bon répertoire.
+* **Règle 2 :** Dans tous les scripts d'installation (`patch_fr.bat`, `verifier.bat`, scripts Python), détecter **EXCLUSIVEMENT** le répertoire du jeu via la présence de `Yakuza0.exe` (qui n'existe JAMAIS dans le package de release).
+* **Règle 3 :** Bloquer impérativement l'exécution si `Yakuza0.exe` est introuvable (`exit /b 1`) au lieu de sauter l'étape en silence.
+* **Règle 4 :** Afficher et logger en clair le chemin absolu du dossier de jeu détecté avant toute copie.
+
+---
+
+## 9. Matrice des Commandes de Validation
 
 Avant de déclarer un correctif ou une archive valide, exécuter impérativement la suite de tests automatisés :
 
@@ -208,3 +259,36 @@ Avant de déclarer un correctif ou une archive valide, exécuter impérativement
 | **Crénage Typographique** | `python3 scratch/verify_y0_ft.py` | Marges `i`, `l`, `I` à 0.4 et `.` à 0.4 |
 | **Absence Softlock Bob** | Contrôle taille `uid00331696.msg` | Exactement **27 575 octets** décompressés |
 | **Boutiques Non Tronquées** | Contrôle tables `shop0013.bin` & `shop0029.bin` | 24 octets et 20 octets préservés |
+| **Détection Dossier Jeu** | Test présence `Yakuza0.exe` dans scripts | `Yakuza0.exe` exigé, pas de test sur `data\` seul |
+| **Archive WDR Intègre** | Contrôle taille `wdr.par` | $\ge 7\text{ Mo}$ et 241 fichiers |
+
+---
+
+## 10. Catalogue des Anti-Patterns & Erreurs Récurrentes d'Agents IA
+
+Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lors des interventions successives d'agents IA sur ce dépôt. Tout agent IA intervenant doit impérativement s'auto-évaluer contre cette liste :
+
+### 1. L'illusion du "Patch Réussi" (Auto-Ciblage du Script d'Installation)
+* **Mécanisme de l'erreur :** L'agent conçoit un script `.bat` ou Python qui vérifie `if exist "data\wdr_par_c\wdr.par"`. Comme le package extrait contient cette sous-arborescence, le script prend le dossier d'extraction pour le jeu. Il copie les fichiers sur eux-mêmes, n'injecte rien dans `Yakuza0.exe` (considérant l'exécutable absent comme optionnel), et affiche un message triomphal *"Patch appliqué avec succès !"*.
+* **Résultat désastreux :** L'utilisateur lance son jeu qui continue d'exécuter d'anciennes archives tronquées ou buguées. L'agent perd alors un temps précieux à chercher un problème dans ses fichiers de patch alors que ceux-ci n'ont jamais atteint le jeu.
+* **Règle absolue :** La **SEULE** condition valable pour identifier le dossier de jeu est la présence physique de `Yakuza0.exe`. Si `Yakuza0.exe` n'est pas présent, le script **DOIT** échouer immédiatement (`exit /b 1`).
+
+### 2. Le Réflexe d'Accuser le Bytecode au lieu de l'Intégrité de l'Archive (`0x6EA328`)
+* **Mécanisme de l'erreur :** Face à un crash à `0x6EA328` (`mov %ecx, -0x8(%r9)`), l'agent suppose immédiatement qu'un dialogue ou un opcode `.msg` est mal formaté et tente de modifier le texte.
+* **Réalité d'ingénierie inverse :** L'adresse `0x1406ea0e0` est le décalage de pointeurs de Sega. Si `%r10` contient `0x262924ff` (ou toute valeur absurde), c'est parce que le fichier est lu au-delà de la fin de l'archive `wdr.par` ! Une archive `wdr.par` tronquée (ex: 2 Mo au lieu de 7.3 Mo) ou non copiée dans le jeu est la cause racine dans 100% des cas.
+* **Règle absolue :** Avant d'éditer le moindre fichier de dialogue, vérifier que le `wdr.par` présent dans le jeu fait bien ~7,3 Mo et compte 241 fichiers.
+
+### 3. La Confusion Entre Null-Padding (`\x00`) et Space-Padding (`b' '`)
+* **Mécanisme de l'erreur :** Remplacer une chaîne anglaise par une chaîne française plus courte et remplir le reste avec des octets nuls `\x00`.
+* **Réalité d'ingénierie inverse :** Dans les scripts de dialogue Sega, `\x00` marque la fin absolue d'une commande. Dans le dialogue de Bob Utsunomiya, insérer un `\x00` au milieu de la réplique coupe la séquence avant l'instruction qui attribue l'objet au joueur, provoquant un softlock.
+* **Règle absolue :** Remplir les phrases de dialogue avec des espaces ASCII (`b' '`). Les octets `\x00` sont strictement réservés aux chaînes d'interface fixes (labels de menus).
+
+### 4. Le Piège des Accents UTF-8 sur les Textes à Longueur Fixe
+* **Mécanisme de l'erreur :** Traduire les indications de cabine avec des accents (*« Sauvegardez et utilisez le coffre depuis une cabine téléphonique »*).
+* **Réalité d'ingénierie inverse :** La fonction `0x140396783` interprète les octets `\xE9` (`é`) comme des indicateurs UTF-8 multi-octets et saute des octets dans le décompte de caractères. Le nombre de caractères comptés devient inférieur à la longueur fixe attendue par le nœud de script (58 caractères). Le jeu attend indéfiniment la fin de l'animation de frappe et ne déclenche jamais le menu de sauvegarde (softlock cabine).
+* **Règle absolue :** Les cabines exigent une chaîne purement ASCII complétée par des espaces (`"Sauvegardez et utilisez le coffre depuis une\r\ncabine.     "` pile 58 caractères).
+
+### 5. La Troncature des Données Propriétaires de Boutiques
+* **Mécanisme de l'erreur :** Traiter les fichiers de boutique (`shop*.bin`) comme de simples tableaux d'articles homogènes et tronquer la fin du fichier.
+* **Réalité d'ingénierie inverse :** `shop0013.bin` et `shop0029.bin` contiennent des tables de catégories Pocket Circuit (24 et 20 octets). Les écraser ou les supprimer corrompt le chargement des textures et provoque le crash immédiat `0x234B7`.
+* **Règle absolue :** Toujours utiliser `tools/rebuild_all_shops_clean.py` qui préserve ces tables annexes au bit près.
