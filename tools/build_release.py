@@ -28,7 +28,7 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.4"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.5"
 
 # Files to include from tools/
 TOOL_FILES = [
@@ -81,21 +81,34 @@ ROOT_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.4
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.5
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
 
-REM Detect game directory
+REM Detect game directory by locating Yakuza0.exe
 if "%~1"=="" (
-    echo [*] Aucun chemin specifie, recherche automatique...
-    if exist "data\wdr_par_c\wdr.par" (
+    echo [*] Recherche automatique du repertoire de Yakuza 0...
+    if exist "%~dp0Yakuza0.exe" (
+        set "GAMEDIR=%~dp0"
+    ) else if exist "%~dp0..\Yakuza0.exe" (
+        set "GAMEDIR=%~dp0.."
+    ) else if exist "%CD%\Yakuza0.exe" (
         set "GAMEDIR=%CD%"
-    ) else if exist "..\data\wdr_par_c\wdr.par" (
+    ) else if exist "%CD%\..\Yakuza0.exe" (
         set "GAMEDIR=%CD%\.."
+    ) else if exist "%CD%\..\..\Yakuza0.exe" (
+        set "GAMEDIR=%CD%\..\.."
+    ) else if exist "D:\GOG Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=D:\GOG Games\Yakuza 0"
+    ) else if exist "C:\GOG Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=C:\GOG Games\Yakuza 0"
+    ) else if exist "C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0"
     ) else (
-        echo [ERREUR] Impossible de trouver le dossier du jeu.
-        echo Usage: patch_fr.bat "C:\Program Files\Yakuza 0"
+        echo [ERREUR] Impossible de trouver Yakuza0.exe.
+        echo Glissez-deposez votre dossier de jeu sur ce fichier patch_fr.bat
+        echo ou lancez: patch_fr.bat "D:\GOG Games\Yakuza 0"
         pause
         exit /b 1
     )
@@ -103,7 +116,17 @@ if "%~1"=="" (
     set "GAMEDIR=%~1"
 )
 
-echo [*] Dossier du jeu: %GAMEDIR%
+REM Strip trailing backslash
+if "%GAMEDIR:~-1%"=="\" set "GAMEDIR=%GAMEDIR:~0,-1%"
+
+if not exist "%GAMEDIR%\Yakuza0.exe" (
+    echo [ERREUR] Yakuza0.exe introuvable dans "%GAMEDIR%"
+    echo Veuillez specifier le chemin du dossier d'installation du jeu.
+    pause
+    exit /b 1
+)
+
+echo [*] Dossier du jeu confirme : %GAMEDIR%
 echo.
 
 REM Use embedded Python
@@ -124,7 +147,8 @@ if exist "%GAMEDIR%\YakuzaParless.asi" (
     echo.
 )
 
-echo [1/3] Installation des archives pre-compilees et verifiees...
+echo [1/3] Installation des archives pre-compilees et verifiees vers :
+echo       %GAMEDIR%\data\...
 if not exist "%GAMEDIR%\data\wdr_par_c" mkdir "%GAMEDIR%\data\wdr_par_c"
 if not exist "%GAMEDIR%\data\bootpar" mkdir "%GAMEDIR%\data\bootpar"
 if not exist "%GAMEDIR%\data\staypar" mkdir "%GAMEDIR%\data\staypar"
@@ -148,12 +172,8 @@ if exist "%~dp0data\staypar\stay.par" (
 
 echo.
 echo [2/3] Patch de l'executable Yakuza0.exe (polices et accents francais)...
-if exist "%GAMEDIR%\Yakuza0.exe" (
-    "%PYTHON%" "%~dp0patch_gog.py" "%GAMEDIR%\Yakuza0.exe"
-    if errorlevel 1 goto :error
-) else (
-    echo   ! Yakuza0.exe non present dans ce dossier, etape sautee.
-)
+"%PYTHON%" "%~dp0patch_gog.py" "%GAMEDIR%\Yakuza0.exe"
+if errorlevel 1 goto :error
 
 echo.
 echo [3/3] Verification d'integrite du jeu...
@@ -185,18 +205,32 @@ echo ========================================================
 echo.
 
 if "%~1"=="" (
-    if exist "data\wdr_par_c\wdr.par" (
+    if exist "%~dp0Yakuza0.exe" (
+        set "GAMEDIR=%~dp0"
+    ) else if exist "%~dp0..\Yakuza0.exe" (
+        set "GAMEDIR=%~dp0.."
+    ) else if exist "%CD%\Yakuza0.exe" (
         set "GAMEDIR=%CD%"
-    ) else if exist "..\data\wdr_par_c\wdr.par" (
+    ) else if exist "%CD%\..\Yakuza0.exe" (
         set "GAMEDIR=%CD%\.."
+    ) else if exist "%CD%\..\..\Yakuza0.exe" (
+        set "GAMEDIR=%CD%\..\.."
+    ) else if exist "D:\GOG Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=D:\GOG Games\Yakuza 0"
+    ) else if exist "C:\GOG Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=C:\GOG Games\Yakuza 0"
+    ) else if exist "C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\Yakuza0.exe" (
+        set "GAMEDIR=C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0"
     ) else (
-        echo [ERREUR] Impossible de trouver le dossier du jeu.
+        echo [ERREUR] Impossible de trouver Yakuza0.exe.
         pause
         exit /b 1
     )
 ) else (
     set "GAMEDIR=%~1"
 )
+
+if "%GAMEDIR:~-1%"=="\" set "GAMEDIR=%GAMEDIR:~0,-1%"
 
 set "PYTHON=%~dp0python\python.exe"
 if not exist "%PYTHON%" (
@@ -209,14 +243,18 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.4
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.5
 
-## Correctif v1.12.4
+## Nouveautés v1.12.5
+- **Correction critique de l'installateur `patch_fr.bat` & `verifier.bat`** :
+  L'installateur détecte désormais de manière infaillible le répertoire racine du jeu en localisant `Yakuza0.exe`
+  (même si l'archive est décompressée dans un sous-dossier), garantissant le déploiement direct et sans faille
+  des archives traduites (`data/wdr_par_c/wdr.par`, `boot.par`, etc.) dans votre jeu.
 - **Correction définitive du crash des pharmacies Kotobuki Drugs & Daikoku Drugstore (0x234B0 / 0x234B7)** :
   Restauration intégrale des tables annexes propriétaires de catégories Pocket Circuit (24 octets pour Kotobuki,
   20 octets pour Daikoku) et reconstruction propre des 36 boutiques de Kamurocho et Sotenbori avec injection
   directe des descriptions françaises officielles issues de `boot.par -> item.bin_c`.
-- **Correction définitive du crash des cabines téléphoniques (0x6F21E0h)** :
+- **Correction définitive du crash et softlock des cabines téléphoniques (0x6EA328 / 0x6F21E0)** :
   Restauration intégrale du bytecode Sega officiel pour l'ensemble des 25 fichiers d'interaction
   de cabines, sauvegardes et planques de Kamurocho et Sotenbori (`uid03331633.msg`, `uid03331695.msg`,
   `uid0333170b.msg`, `uid033317ad.msg`, `uid033317ae.msg`, et `uid033317d1.msg` à `uid033317e4.msg`).
@@ -225,14 +263,13 @@ README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.4
 - **Compatibilité Shin Ryu Mod Manager / YakuzaParless** : Détection et neutralisation automatique des conflits
   de fichiers lâches (`mods/`) pouvant surcharger les archives du jeu avec d'anciennes versions corrompues.
 - **Support complet boutiques, restaurants et mini-jeux** : Textes et menus 100% traduits sans troncature.
-- **Accents français parfaits** : Prise en charge intégrale des accents dans les sous-titres et dialogues.
+- **Accents français parfaits** : Injection intégrale de la table de crénage typographique complète (6 144 octets).
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.4.zip`.
-2. Copiez l'intégralité du contenu du dossier dans le répertoire d'installation de Yakuza 0 GOG
-   (par exemple `D:\GOG Games\Yakuza 0\` ou `C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\`).
-3. Double-cliquez sur `patch_fr.bat`.
-4. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.5.zip`.
+2. Lancez `patch_fr.bat` (directement depuis le dossier extrait).
+   L'installateur détecte automatiquement votre jeu Yakuza 0 et applique tous les correctifs.
+3. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
 
 ## En cas de problème
 - Double-cliquez sur `verifier.bat` pour vérifier l'intégrité de toutes les archives du jeu.

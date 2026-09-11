@@ -39,13 +39,19 @@ def find_game_dir(start_dir):
     candidates = [
         start_dir,
         os.path.join(start_dir, '..'),
+        os.path.join(start_dir, '..', '..'),
         r"D:\GOG Games\Yakuza 0",
         r"C:\GOG Games\Yakuza 0",
         r"C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0",
         r"D:\Games\Yakuza 0",
     ]
+    # First priority: find directory containing Yakuza0.exe
     for c in candidates:
-        if os.path.exists(os.path.join(c, 'data', 'wdr_par_c', 'wdr.par')) or os.path.exists(os.path.join(c, 'Yakuza0.exe')):
+        if os.path.isfile(os.path.join(c, 'Yakuza0.exe')):
+            return os.path.abspath(c)
+    # Second priority: find directory containing data/wdr_par_c/wdr.par
+    for c in candidates:
+        if os.path.isfile(os.path.join(c, 'data', 'wdr_par_c', 'wdr.par')):
             return os.path.abspath(c)
     return os.path.abspath(start_dir)
 
