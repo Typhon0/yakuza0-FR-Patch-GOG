@@ -332,3 +332,12 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
 ### 8. Règle de Livraison : Aucune Release Publique Sans Autorisation
 * **Mécanisme de l'erreur :** Créer un tag git et une release publique GitHub (`gh release create`) à chaque itération ou correctif intermédiaire.
 * **Règle absolue :** Il est **formellement interdit** de publier une release GitHub sans que l'utilisateur n'en donne l'ordre explicite et direct. Toutes les étapes de test et de validation doivent se faire localement dans le dépôt.
+
+### 9. L'Écrasement des Descriptions d'Objets par une Source Anglaise
+* **Mécanisme de l'erreur :** Pour reconstruire les magasins (`shop*.bin`) en préservant les tables Pocket Circuit, l'agent appelle une routine qui recharge les descriptions depuis `boot.par -> item.bin_c`. Or, si `item.bin_c` est la version anglaise Sega vanilla, l'agent écrase les 558 descriptions françaises de magasins par l'anglais. De plus, les identifiants d'objets dans `shop*.bin` ne correspondent pas aux index de lignes de `item.bin_c` pour les armes et équipements.
+* **Réalité d'ingénierie inverse :** 
+  1. Les descriptions de magasins sont physiquement intégrées dans chaque binaire `shop*.bin` avec leur propre table de pointeurs à l'offset `rec_off + 0x20`. Elles ne sont pas requêtées dynamiquement dans `item.bin_c` par le moteur de boutique.
+  2. Les 558 descriptions françaises de magasins doivent être chargées depuis le dictionnaire dédié `tools/shop_translations_data.py`.
+  3. Pour l'inventaire et le menu pause, `boot.par -> item.bin_c` peut être injecté en mode append-only 2 048 octets depuis la base certifiée Steam FR (`par_original/boot_steam_fr.par`, 206 628 octets décompressés) après nettoyage des mojibakes. Contrairement aux scénarios et quêtes secondaires (`0x371324`), `item.bin_c` ne fait l'objet d'aucune allocation de mémoire fixe dans `Yakuza0.exe`.
+* **Règle absolue :** Toujours utiliser `tools/rebuild_all_shops_clean.py` adossé à `tools/shop_translations_data.py` pour régénérer les magasins, et injecter `item.bin_c` français via `tools/rebuild_clean_boot_append.py`.
+

@@ -48,6 +48,7 @@ TOOL_FILES = [
     "tools/sllz.py",
     "tools/clean_patch_data.py",
     # Translation data
+    "tools/shop_translations_data.py",
     "tools/wdr_translations_data.py",
     "tools/wdr_dict_final.py",
     "tools/stay_translations_data.py",

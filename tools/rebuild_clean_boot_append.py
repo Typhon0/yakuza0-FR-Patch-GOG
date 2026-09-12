@@ -12,7 +12,25 @@ Rebuilds boot.par using the proven 2048-byte sector-aligned append-only model:
 
 import os, sys, struct
 sys.path.insert(0, '.')
-from scratch.scanner_engine import parse_par
+from scratch.scanner_engine import parse_par, decompress_sllz
+from tools.sllz import compress_sllz
+from tools.clean_patch_data import TEXT_REPLACEMENTS
+
+def get_clean_french_item_bin():
+    fr_boot_path = 'par_original/boot_steam_fr.par'
+    with open(fr_boot_path, 'rb') as f:
+        fr_files = parse_par(f.read())
+    raw = fr_files['item.bin_c'][3]
+    decomp = decompress_sllz(raw) if raw[:4] == b'SLLZ' else raw
+    
+    buf = bytearray(decomp)
+    for bad, good in TEXT_REPLACEMENTS[:5]:
+        diff = len(bad) - len(good)
+        padded = good + b'\x00' * diff
+        buf = bytearray(bytes(buf).replace(bad, padded))
+        
+    comp = compress_sllz(bytes(buf))
+    return 0x80000000, len(buf), len(comp), comp
 
 clean_boot_bytes = open('par_original/boot.par', 'rb').read()
 rel_boot_bytes = open('release_gog/data/bootpar/boot.par', 'rb').read()
@@ -39,7 +57,11 @@ for i in range(file_count):
     name = clean_boot_bytes[n_off : n_off + 64].split(b'\x00')[0].decode('latin1')
     
     if name in TARGET_FILES:
-        r_flags, r_u, r_c, r_data = rel_par[name]
+        if name == 'item.bin_c' and os.path.isfile('par_original/boot_steam_fr.par'):
+            r_flags, r_u, r_c, r_data = get_clean_french_item_bin()
+            print(f"  [+] Injected cleaned master French item.bin_c (u_sz={r_u}, c_sz={r_c})")
+        else:
+            r_flags, r_u, r_c, r_data = rel_par[name]
         
         aligned_off = (len(rebuilt_boot) + 2047) & ~2047
         if aligned_off > len(rebuilt_boot):
