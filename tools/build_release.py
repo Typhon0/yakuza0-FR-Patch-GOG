@@ -74,6 +74,7 @@ PRECOMPILED_DATA = [
 
 ROOT_FILES = [
     ("release_gog/patch_gog.py", "patch_gog.py"),
+    ("patcher/patch_gog.bat", "patch_gog.bat"),
     ("release_gog/font_table_french.bin", "font_table_french.bin"),
     ("tools/collect_originals.bat", "collect_originals.bat"),
 ]

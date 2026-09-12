@@ -26,6 +26,7 @@ import zlib
 import base64
 import argparse
 import stat
+import time
 
 # Embedded 6,144-byte French Font & Kerning Table (zlib-compressed base64)
 # Calibrated for proportional spacing on narrow stems (i, l, I) and accented glyphs (é, è, ê, à, ç, etc.)
@@ -218,6 +219,18 @@ class PEModifier:
         return self.get_section('.trad')
 
 
+def kill_game_process():
+    """Terminates any lingering Yakuza0.exe processes to unlock files."""
+    if sys.platform == 'win32':
+        try:
+            import subprocess
+            subprocess.run(["taskkill", "/F", "/IM", "Yakuza0.exe"],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            time.sleep(0.5)
+        except Exception:
+            pass
+
+
 def install_data_archives(game_dir):
     """Safely copies precompiled verified data archives into game directory, stripping read-only flags."""
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -242,6 +255,33 @@ def install_data_archives(game_dir):
         if not os.path.isfile(src):
             continue
 
+        # Check if source and destination point to the exact same file
+        is_same = False
+        try:
+            if os.path.exists(dst) and os.path.samefile(src, dst):
+                is_same = True
+        except Exception:
+            pass
+        if not is_same:
+            try:
+                if os.path.normcase(os.path.abspath(src)) == os.path.normcase(os.path.abspath(dst)):
+                    is_same = True
+            except Exception:
+                pass
+
+        if is_same:
+            # The archive is already located directly inside the game folder
+            try:
+                os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
+            except Exception:
+                pass
+            actual_size = os.path.getsize(dst)
+            if actual_size < min_size:
+                print(f"[ERREUR CRITIQUE] Fichier present incomplet: '{dst}' ({actual_size} octets, attendu: >{min_size})")
+                return False
+            print(f"  + {rel_path} deja present dans le jeu ({actual_size} octets)")
+            continue
+
         os.makedirs(os.path.dirname(dst), exist_ok=True)
 
         if os.path.isfile(dst):
@@ -262,9 +302,16 @@ def install_data_archives(game_dir):
             shutil.copy2(src, dst)
             os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
         except Exception as e:
-            print(f"[ERREUR CRITIQUE] Impossible d'ecrire dans '{dst}': {e}")
-            print("Assurez-vous que le jeu est ferme et que vous avez les droits d'ecriture.")
-            return False
+            # Attempt to terminate lingering Yakuza0.exe and retry once
+            kill_game_process()
+            try:
+                os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
+                shutil.copy2(src, dst)
+                os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
+            except Exception as e2:
+                print(f"[ERREUR CRITIQUE] Impossible d'ecrire dans '{dst}': {e2}")
+                print("Assurez-vous que le jeu est ferme et que vous avez les droits d'ecriture.")
+                return False
 
         actual_size = os.path.getsize(dst)
         if actual_size < min_size:
@@ -287,6 +334,9 @@ def patch_yakuza0_gog(exe_path, output_path=None):
         output_path = os.path.normpath(os.path.abspath(output_path))
 
     game_dir = os.path.dirname(exe_path)
+
+    # Terminate any lingering game process holding file handles
+    kill_game_process()
 
     # 0. Deploy precompiled data archives if present
     if not install_data_archives(game_dir):
@@ -341,12 +391,22 @@ def patch_yakuza0_gog(exe_path, output_path=None):
     # 4. Write out patched executable
     print(f"[4/4] Saving patched GOG executable to: {output_path}")
     try:
+        os.chmod(output_path, stat.S_IWRITE | stat.S_IREAD)
+    except Exception:
+        pass
+    try:
         with open(output_path, 'wb') as f:
             f.write(data)
     except Exception as e:
-        print(f"\n[FATAL ERROR] Failed to write patched executable '{output_path}': {e}")
-        print("Please ensure Yakuza 0 is NOT running and that you have administrator privileges.")
-        return False
+        kill_game_process()
+        try:
+            os.chmod(output_path, stat.S_IWRITE | stat.S_IREAD)
+            with open(output_path, 'wb') as f:
+                f.write(data)
+        except Exception as e2:
+            print(f"\n[FATAL ERROR] Failed to write patched executable '{output_path}': {e2}")
+            print("Please ensure Yakuza 0 is NOT running and that you have administrator privileges.")
+            return False
 
     # 5. Verify written file integrity on disk
     try:
