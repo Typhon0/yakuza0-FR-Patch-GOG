@@ -116,8 +116,20 @@ if "%~1"=="" (
     set "GAMEDIR=%~1"
 )
 
-REM Canonicalize path and strip trailing slashes
+REM Strip all trailing backslashes
+:strip_slash
+if "%GAMEDIR:~-1%"=="\" (
+    set "GAMEDIR=%GAMEDIR:~0,-1%"
+    goto :strip_slash
+)
+
 for %%I in ("%GAMEDIR%") do set "GAMEDIR=%%~fI"
+
+:strip_slash2
+if "%GAMEDIR:~-1%"=="\" (
+    set "GAMEDIR=%GAMEDIR:~0,-1%"
+    goto :strip_slash2
+)
 
 if not exist "%GAMEDIR%\Yakuza0.exe" (
     echo [ERREUR] Yakuza0.exe introuvable dans "%GAMEDIR%"
@@ -137,6 +149,11 @@ if "%ERRORLEVEL%"=="0" (
     timeout /t 1 /nobreak >nul
 )
 
+REM Deverrouillage des attributs lecture seule (Read-Only frequents sur GOG)
+echo [*] Deverrouillage des attributs lecture seule...
+attrib -R "%GAMEDIR%\Yakuza0.exe" >nul 2>&1
+attrib -R "%GAMEDIR%\data\*.par" /S >nul 2>&1
+
 REM Use embedded Python
 set "PYTHON=%~dp0python\python.exe"
 if not exist "%PYTHON%" (
@@ -155,55 +172,12 @@ if exist "%GAMEDIR%\YakuzaParless.asi" (
     echo.
 )
 
-echo [1/3] Installation des archives pre-compilees et verifiees vers :
-echo       %GAMEDIR%\data\...
-if not exist "%GAMEDIR%\data\wdr_par_c" mkdir "%GAMEDIR%\data\wdr_par_c"
-if not exist "%GAMEDIR%\data\bootpar" mkdir "%GAMEDIR%\data\bootpar"
-if not exist "%GAMEDIR%\data\staypar" mkdir "%GAMEDIR%\data\staypar"
-
-if exist "%~dp0data\wdr_par_c\wdr.par" (
-    if not exist "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" copy /y "%GAMEDIR%\data\wdr_par_c\wdr.par" "%GAMEDIR%\data\wdr_par_c\wdr.par.bak" >nul 2>&1
-    copy /y "%~dp0data\wdr_par_c\wdr.par" "%GAMEDIR%\data\wdr_par_c\wdr.par" >nul
-    if errorlevel 1 (
-        echo [ERREUR CRITIQUE] Impossible d'ecrire dans "%GAMEDIR%\data\wdr_par_c\wdr.par" !
-        echo Assurez-vous que le jeu est ferme et que vous avez les droits d'ecriture.
-        goto :error
-    )
-    copy /y "%~dp0data\wdr_par_c\common.par" "%GAMEDIR%\data\wdr_par_c\common.par" >nul
-    for %%A in ("%GAMEDIR%\data\wdr_par_c\wdr.par") do (
-        if %%~zA LSS 7000000 (
-            echo [ERREUR CRITIQUE] wdr.par copie est incomplet: %%~zA octets, attendu: plus de 7 Mo.
-            goto :error
-        )
-    )
-    echo   + wdr.par installe avec succes
-)
-if exist "%~dp0data\bootpar\boot.par" (
-    if not exist "%GAMEDIR%\data\bootpar\boot.par.bak" copy /y "%GAMEDIR%\data\bootpar\boot.par" "%GAMEDIR%\data\bootpar\boot.par.bak" >nul 2>&1
-    copy /y "%~dp0data\bootpar\boot.par" "%GAMEDIR%\data\bootpar\boot.par" >nul
-    if errorlevel 1 (
-        echo [ERREUR CRITIQUE] Impossible d'ecrire dans "%GAMEDIR%\data\bootpar\boot.par" !
-        goto :error
-    )
-    echo   + boot.par installe avec succes
-)
-if exist "%~dp0data\staypar\stay.par" (
-    if not exist "%GAMEDIR%\data\staypar\stay.par.bak" copy /y "%GAMEDIR%\data\staypar\stay.par" "%GAMEDIR%\data\staypar\stay.par.bak" >nul 2>&1
-    copy /y "%~dp0data\staypar\stay.par" "%GAMEDIR%\data\staypar\stay.par" >nul
-    if errorlevel 1 (
-        echo [ERREUR CRITIQUE] Impossible d'ecrire dans "%GAMEDIR%\data\staypar\stay.par" !
-        goto :error
-    )
-    echo   + stay.par installe avec succes
-)
-
-echo.
-echo [2/3] Patch de l'executable Yakuza0.exe (polices et accents francais)...
+echo [1/2] Installation des archives et patch de l'executable Yakuza0.exe...
 "%PYTHON%" "%~dp0patch_gog.py" "%GAMEDIR%\Yakuza0.exe"
 if errorlevel 1 goto :error
 
 echo.
-echo [3/3] Verification d'integrite du jeu...
+echo [2/2] Verification d'integrite du jeu...
 "%PYTHON%" "%~dp0tools\verify_patch.py" "%GAMEDIR%"
 if errorlevel 1 goto :error
 

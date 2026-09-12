@@ -25,6 +25,7 @@ import shutil
 import zlib
 import base64
 import argparse
+import stat
 
 # Embedded 6,144-byte French Font & Kerning Table (zlib-compressed base64)
 # Calibrated for proportional spacing on narrow stems (i, l, I) and accented glyphs (é, è, ê, à, ç, etc.)
@@ -217,22 +218,92 @@ class PEModifier:
         return self.get_section('.trad')
 
 
+def install_data_archives(game_dir):
+    """Safely copies precompiled verified data archives into game directory, stripping read-only flags."""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(script_dir, "data")
+    if not os.path.isdir(data_dir):
+        return True
+
+    print("\n[0/4] Installation securisee des archives pre-compilees vers :")
+    print(f"      {os.path.join(game_dir, 'data')}...")
+
+    archives = [
+        ("data/wdr_par_c/wdr.par", 7000000),
+        ("data/wdr_par_c/common.par", 10000),
+        ("data/bootpar/boot.par", 1500000),
+        ("data/staypar/stay.par", 500000),
+    ]
+
+    for rel_path, min_size in archives:
+        src = os.path.normpath(os.path.join(script_dir, rel_path.replace('/', os.sep)))
+        dst = os.path.normpath(os.path.join(game_dir, rel_path.replace('/', os.sep)))
+
+        if not os.path.isfile(src):
+            continue
+
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+
+        if os.path.isfile(dst):
+            # Backup if not already backed up
+            bak = dst + ".bak"
+            if not os.path.exists(bak):
+                try:
+                    shutil.copy2(dst, bak)
+                except Exception:
+                    pass
+            # Remove read-only attribute if present
+            try:
+                os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
+            except Exception:
+                pass
+
+        try:
+            shutil.copy2(src, dst)
+            os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
+        except Exception as e:
+            print(f"[ERREUR CRITIQUE] Impossible d'ecrire dans '{dst}': {e}")
+            print("Assurez-vous que le jeu est ferme et que vous avez les droits d'ecriture.")
+            return False
+
+        actual_size = os.path.getsize(dst)
+        if actual_size < min_size:
+            print(f"[ERREUR CRITIQUE] Fichier copie incomplet: '{dst}' ({actual_size} octets, attendu: >{min_size})")
+            return False
+        print(f"  + {rel_path} installe avec succes ({actual_size} octets)")
+
+    return True
+
+
 def patch_yakuza0_gog(exe_path, output_path=None):
     if not os.path.isfile(exe_path):
         print(f"[ERROR] Executable not found: {exe_path}")
         return False
 
+    exe_path = os.path.normpath(os.path.abspath(exe_path))
     if output_path is None:
         output_path = exe_path
+    else:
+        output_path = os.path.normpath(os.path.abspath(output_path))
+
+    game_dir = os.path.dirname(exe_path)
+
+    # 0. Deploy precompiled data archives if present
+    if not install_data_archives(game_dir):
+        return False
 
     backup_path = exe_path + ".bak"
     # If backup exists, always load from clean backup to allow clean repatching
     if os.path.exists(backup_path):
-        print(f"[INFO] Restoring clean data from backup: {backup_path}")
+        print(f"\n[INFO] Restoring clean data from backup: {backup_path}")
         with open(backup_path, 'rb') as f:
             data = bytearray(f.read())
     else:
-        print(f"[INFO] Creating backup: {backup_path}")
+        print(f"\n[INFO] Creating backup: {backup_path}")
+        try:
+            os.chmod(exe_path, stat.S_IWRITE | stat.S_IREAD)
+        except Exception:
+            pass
         shutil.copy2(exe_path, backup_path)
         print(f"[INFO] Loading executable: {exe_path}")
         with open(exe_path, 'rb') as f:
