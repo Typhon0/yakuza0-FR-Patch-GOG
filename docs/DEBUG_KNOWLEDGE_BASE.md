@@ -292,3 +292,17 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
 * **Mécanisme de l'erreur :** Traiter les fichiers de boutique (`shop*.bin`) comme de simples tableaux d'articles homogènes et tronquer la fin du fichier.
 * **Réalité d'ingénierie inverse :** `shop0013.bin` et `shop0029.bin` contiennent des tables de catégories Pocket Circuit (24 et 20 octets). Les écraser ou les supprimer corrompt le chargement des textures et provoque le crash immédiat `0x234B7`.
 * **Règle absolue :** Toujours utiliser `tools/rebuild_all_shops_clean.py` qui préserve ces tables annexes au bit près.
+
+### 6. Le Piège du Double Antislash (`\\`) et de la Lecture Seule (`+R`) dans Windows Batch
+* **Mécanisme de l'erreur :** 
+  1. Si la variable `%GAMEDIR%` conserve un antislash final (`D:\GOG Games\Yakuza 0\`), la concaténation `%GAMEDIR%\data\...` produit un chemin avec double antislash `\\` (`0\\data`). La commande interne `copy` de Windows `cmd.exe` échoue avec une erreur de syntaxe ou accès refusé.
+  2. Les installations GOG marquent fréquemment les archives du jeu (`wdr.par`, `boot.par`...) avec l'attribut **Lecture Seule (`+R`)**. Sous Windows, la commande `copy /y` **refuse d'écraser un fichier en lecture seule** et échoue avec `Accès refusé` même en mode Administrateur !
+  3. Rediriger `copy ... >nul` masque le message réel de Windows, affichant un message générique trompeur.
+* **Règle absolue :** 
+  - Nettoyer agressivement les antislashs terminaux via des boucles de détection (`if "%GAMEDIR:~-1%"=="\" set "GAMEDIR=%GAMEDIR:~0,-1%"`).
+  - Retirer systématiquement l'attribut lecture seule (`attrib -R "%GAMEDIR%\data\*.par" /S`).
+  - Déléguer la copie à Python (`shutil.copy2` combiné à `os.chmod(dst, stat.S_IWRITE)`) qui normalise nativement les séparateurs de dossiers et lève les verrous de lecture seule.
+
+### 7. Règle de Livraison : Aucune Release Publique Sans Autorisation
+* **Mécanisme de l'erreur :** Créer un tag git et une release publique GitHub (`gh release create`) à chaque itération ou correctif intermédiaire.
+* **Règle absolue :** Il est **formellement interdit** de publier une release GitHub sans que l'utilisateur n'en donne l'ordre explicite et direct. Toutes les étapes de test et de validation doivent se faire localement dans le dépôt.

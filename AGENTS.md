@@ -53,7 +53,20 @@
 * **Conséquence si violée :** Lors du chargement d'un script `.msg` (ex: cabines téléphoniques `uid033317d1.msg`), le pointeur de table de nœuds à l'offset `0x14` lit au-delà de la fin de fichier dans de la mémoire non allouée. Le registre `%r10` charge des octets résiduels corrompus (ex: `0x262924ff`), lançant la boucle de bswap de 529 Mo sur 33 millions d'itérations qui se termine par un crash `mov %ecx, -0x8(%r9)` à `Yakuza0.exe+0x6EA328h`.
 * **Action :**  
   - `release_gog/data/wdr_par_c/wdr.par` DOIT contenir **exactement 241 fichiers** et peser **plus de 7 Mo** (~7,3 Mo).
-  - Toujours vérifier que la taille du PAR recompilé est supérieure ou égale à l'original Sega.
+### 🚫 Règle 8 : Ne JAMAIS se fier à `copy /y` pour écraser des fichiers de jeu (Lecture seule & double antislash)
+* **Piège :** 
+  1. Si `%GAMEDIR%` conserve un antislash final (`D:\GOG Games\Yakuza 0\`), la commande `copy /y ... "%GAMEDIR%\data\..."` produit `0\\data` avec un double antislash, ce qui fait échouer `cmd.exe` avec une erreur de syntaxe ou accès refusé.
+  2. Les installeurs GOG appliquent très souvent l'attribut **Lecture Seule (`+R`)** sur les archives `.par`. La commande `copy /y` **refuse catégoriquement** d'écraser un fichier en lecture seule, même si l'utilisateur est Administrateur !
+  3. Rediriger `>nul` masque le message réel de Windows et induit en erreur en affichant un message générique.
+* **Action :**  
+  - Toujours retirer préalablement l'attribut lecture seule : `attrib -R "%GAMEDIR%\data\*.par" /S`.
+  - Nettoyer agressivement les antislashs finaux dans les scripts.
+  - Déléguer la copie à Python (`shutil.copy2` avec `os.chmod(dst, stat.S_IWRITE)`) qui normalise nativement les chemins et lève les verrous de lecture seule.
+
+### 🚫 Règle 9 : AUCUNE release publique GitHub sans demande explicite de l'utilisateur
+* **Piège :** Lancer automatiquement `gh release create` à chaque modification ou correctif intermédiaire.
+* **Conséquence :** Pollue les releases publiques avec des versions non stabilisées et contredit les consignes de déploiement de l'utilisateur.
+* **Action :** Valider et tester exclusivement en local (`tools/test_release_e2e.py`). Attendre **STRICTEMENT** l'instruction explicite de l'utilisateur avant toute publication sur GitHub.
 
 ---
 
@@ -72,11 +85,12 @@ Avant de clore toute tâche, de livrer un fichier à l'utilisateur ou de créer 
    - Boutiques : `shop0013.bin` (24 octets) et `shop0029.bin` (20 octets) préservés.
    - Taille de `wdr.par` : $\ge 7\text{ Mo}$ et 241 fichiers.
    - Détection de jeu : Présence obligatoire de `Yakuza0.exe` dans tous les scripts.
-3. **Reconstruire le package de release autonome et valider l'End-to-End :**
+3. **Reconstruire le package autonome et valider l'End-to-End local :**
    ```bash
    python3 tools/build_release.py
    ```
    *Exigence :* Le test End-to-End intégré doit afficher **SUCCÈS TOTAL**.
+4. **Attendre l'accord de l'utilisateur avant TOUTE publication publique.**
 
 ---
 
@@ -86,6 +100,9 @@ Voici la liste des erreurs types commises de manière répétée par les agents 
 
 | Anti-Pattern de l'Agent IA | Pourquoi c'est une faute grave | Règle de Conduite Immédiate |
 |---|---|---|
+| **Publier une release sans autorisation** | Pollue le dépôt public avec des versions intermédiaires. | Valider en local et attendre l'accord explicite de l'utilisateur. |
+| **Utiliser `copy /y` sans gérer la lecture seule (`+R`)** | `copy /y` échoue avec 'Accès refusé' sur les fichiers GOG en lecture seule. | Utiliser Python (`os.chmod`) ou `attrib -R` avant d'écraser. |
+| **Laisser un double antislash `\\` dans les chemins** | Fait échouer les commandes internes `cmd.exe`. | Nettoyer les antislashs terminaux en boucle. |
 | **Supposer que le patch est copié** sans vérifier la détection de `Yakuza0.exe` | Le batch s'exécute dans le dossier extrait et ne copie rien dans le jeu. | Exiger `Yakuza0.exe` et bloquer avec code d'erreur si absent. |
 | **Accuser un script `.msg` lors d'un crash à `0x6EA328`** au lieu de vérifier la taille de `wdr.par` | `0x6EA328` est le symptôme direct d'une lecture au-delà de la fin de fichier causée par un `wdr.par` tronqué ou non déployé. | Vérifier la taille physique de `wdr.par` (~7.3 Mo) dans le dossier du jeu. |
 | **Mettre des accents dans les textes à longueur stricte** (Cabines) | `é` encode 2 octets UTF-8 (`\xC3\xA9`), faussant le compteur de machine à écrire Sega (`0x140396783`) et provoquant un softlock. | Garder un texte 100% ASCII complété par des espaces (`b' '`). |
