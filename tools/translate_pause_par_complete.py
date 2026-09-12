@@ -292,7 +292,7 @@ def repack_par(orig_bytes, file_replacements={}):
         else:
             n_flags, n_u_sz, n_c_sz, n_data = item['flags'], item['u_sz'], item['c_sz'], item['data']
         
-        aligned_off = (curr_off + 63) & ~63
+        aligned_off = (curr_off + 2047) & ~2047
         if aligned_off > len(rebuilt):
             rebuilt.extend(b'\x00' * (aligned_off - len(rebuilt)))
         
@@ -301,6 +301,9 @@ def repack_par(orig_bytes, file_replacements={}):
         curr_off = len(rebuilt)
         struct.pack_into('>4I', rebuilt, item['entry_offset'], n_flags, n_u_sz, n_c_sz, new_file_offset)
     
+    final_aligned = (len(rebuilt) + 2047) & ~2047
+    if final_aligned > len(rebuilt):
+        rebuilt.extend(b'\x00' * (final_aligned - len(rebuilt)))
     return bytes(rebuilt)
 
 def main():

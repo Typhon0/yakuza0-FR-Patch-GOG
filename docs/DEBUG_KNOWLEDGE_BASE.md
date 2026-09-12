@@ -20,23 +20,40 @@
 
 ---
 
-## 1. Crash Pharmacie / Drugstore (`0x234B7`)
+## 1. Crash Pharmacie / Drugstore (`0x234B0` & `0x234B7`)
 
 ### Symptômes
-Crash instantané `EXCEPTION_ACCESS_VIOLATION` à `Yakuza0.exe+0x234B7` dès que Kiryu entre dans la pharmacie Kotobuki Drugs (ou Daikoku Drugstore) et que le menu d'achat s'ouvre.
+Crash instantané `EXCEPTION_ACCESS_VIOLATION` à `Yakuza0.exe+0x234B0` ou `Yakuza0.exe+0x234B7` dès que Kiryu entre dans la pharmacie Kotobuki Drugs (ou Daikoku Drugstore) et que le menu d'achat s'ouvre.
 
-### Cause Racine
-Les fichiers de boutique (`shop0000.bin` à `shop0034.bin`, `ex_shop0000.bin`) ne contiennent pas uniquement une liste d'articles :
-* Deux boutiques en particulier contiennent une table annexe propriétaire de catégories Pocket Circuit immédiatement après la liste d'articles :
-  - **`shop0013.bin` (Kotobuki Drugs) :** Table annexe de **24 octets**.
-  - **`shop0029.bin` (Daikoku Drugstore) :** Table annexe de **20 octets**.
-* L'ancien script de traduction considérait que tous les fichiers de boutique avaient une structure plate. Il tronquait les fichiers ou écrasait ces octets avec du texte français.
-* Le moteur de rendu de boutique interprétait les octets de texte ASCII comme des identifiants de textures. Il passait un pointeur `NULL` à la routine de décompression SLLZ pour charger `2d_yk_staminan_lite.dds`, déclenchant le crash à `0x234B7`.
+### Double Cause Racine Identifiée (Reverse Engineering Bit-Exact)
+La pharmacie concentre deux mécanismes très sensibles du moteur Sega :
 
-### Règle Impérative & Solution
-* **NE JAMAIS tronquer les fichiers de boutique.**
-* Utiliser exclusivement le générateur dédié [`tools/rebuild_all_shops_clean.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_all_shops_clean.py) qui préserve à l'octet près les tables annexes de 24 et 20 octets.
-* Recompresser les boutiques en SLLZ natif avec l'indicateur compressé `flags = 0x80000000` (les fichiers non compressés dans l'original Sega restent non compressés avec `flags = 0x0`).
+1. **Cause 1 (`0x234B7`) — Tronquage des tables Pocket Circuit dans `shop*.bin` :**
+   * Deux boutiques possèdent une table annexe propriétaire de catégories Pocket Circuit immédiatement après la liste d'articles :
+     - **`shop0013.bin` (Kotobuki Drugs) :** Table annexe de **24 octets** (`00020000...`).
+     - **`shop0029.bin` (Daikoku Drugstore) :** Table annexe de **20 octets** (`00020001...`).
+   * Si un script de traduction tronque ou écrase ces octets avec des chaînes de texte, le moteur de rendu tente de lire ces octets comme des identifiants et passe un pointeur invalide, déclenchant le crash à `0x234B7`.
+
+2. **Cause 2 (`0x234B0`) — Désalignement sectoriel des textures 2D dans `pause.par` :**
+   * Le tout premier article vendu chez Kotobuki Drugs et Daikoku Drugstore est la **Staminan Light**.
+   * Pour afficher son icône dans l'inventaire de la boutique, le moteur Sega charge en streaming asynchrone la texture `2d_yk_staminan_lite.dds` (taille décompressée : **16 512 octets**, soit `0x4080`) depuis l'archive `pause.par`.
+   * La routine de streaming disque de Sega (`Yakuza0.exe+0x2177d` : `add $0x7ff, %edi; and $0xfffff800, %edi`) lit par **secteurs stricts de 2 048 octets**.
+   * Dans les anciennes versions du patch, `tools/translate_pause_par_complete.py` recompilait `pause.par` avec un alignement 64 octets : `(curr_off + 63) & ~63`.
+   * La texture `2d_yk_staminan_lite.dds` se retrouvait positionnée à l'offset `0x2dffe80`.
+   * Le lecteur sectoriel de Sega arrondissait l'accès disque au secteur suivant : `0x2e00000`.
+   * À l'offset `0x2e00000` de `pause.par`, les octets réels en plein flux compressé sont : `0xfe 0xda 0xaf` !
+   * Sega transmettait ce buffer désaligné au décompresseur SLLZ (`Yakuza0.exe+0x234B0`) :
+     - L'octet `0xfe` est interprété comme un flag de copie LZ.
+     - Les octets suivants `0xda 0xaf` indiquent une distance de copie de 2 813 octets en arrière.
+     - Étant à la position 0 du buffer, la soustraction provoque un **underflow de pointeur** : `%rdx = 0x0000fffff502`.
+     - L'instruction `mov -0x1(%rdx), %al` tente d'accéder à la mémoire non allouée et provoque le crash immédiat `EXCEPTION_ACCESS_VIOLATION` à `0x234B0` !
+
+### Règles Impératives & Solution Définitive
+1. **Conserver les tables Pocket Circuit :** Utiliser exclusivement [`tools/rebuild_all_shops_clean.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_all_shops_clean.py) qui recopie fidèlement les 24 et 20 octets annexes de `shop0013.bin` et `shop0029.bin`.
+2. **Alignement sectoriel 2 048 octets obligatoire sur `pause.par` :**
+   Tous les 3 820 fichiers de `pause.par` doivent être rigoureusement alignés sur un multiple de 2 048 octets (`(curr_off + 2047) & ~2047`). Ainsi, `2d_yk_staminan_lite.dds` démarre exactement à `0x3001000` avec son en-tête `SLLZ` intact.
+3. **Dialogue du pharmacien (`uid0044018f.msg`) :** Traduire en conservant rigoureusement la taille exacte de 865 octets décompressés avec space-padding ASCII sans accents pour ne pas décaler les pointeurs de nœuds (`VStaff`, `Talk_Ojigi`).
+4. **Vérification automatique :** [`tools/verify_patch.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/verify_patch.py) contrôle désormais automatiquement l'alignement 2 048 octets de tous les fichiers de `pause.par` ainsi que l'intégrité bit-exacte des tables Pocket Circuit de Kotobuki et Daikoku.
 
 ---
 
@@ -196,6 +213,10 @@ aligned_offset = (current_offset + 2047) & ~2047
 ```
 * **Tout payload de fichier DOIT démarrer à un multiple strict de 2 048 octets (`0x800`).**
 * **La taille totale du fichier archive `.par` DOIT être un multiple strict de 2 048 octets.** Compléter la fin du fichier avec des octets nuls `\x00` si nécessaire.
+* **Le piège critique de `pause.par` (Textures 2D & Streaming Asynchrone) :**
+  L'archive `pause.par` contient plus de 3 800 textures DDS (icônes de menus, objets de boutiques, visages de participants). Le moteur Sega charge ces textures à la volée via des requêtes de streaming disque par secteurs de 2 048 octets (`0x14002177d`).  
+  Si un outil repack `pause.par` avec un alignement 64 octets (`& ~63`) pour « gagner de la place », les offsets sont décalés par rapport aux frontières physiques de secteur. La routine de streaming lit au secteur 2 048 supérieur le plus proche, saute l'en-tête `SLLZ` et tente de décompresser du bruit, provoquant un crash immédiat `EXCEPTION_ACCESS_VIOLATION` (ex : crash pharmacie `0x234B0` sur `2d_yk_staminan_lite.dds`).
+* **Archives exigeant l'alignement sectoriel strict :** `pause.par`, `stay.par`, `boot.par`, `wdr.par`.
 
 ---
 
@@ -303,6 +324,11 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
   - Retirer systématiquement l'attribut lecture seule (`attrib -R "%GAMEDIR%\data\*.par" /S`).
   - Déléguer la copie à Python (`shutil.copy2` combiné à `os.chmod(dst, stat.S_IWRITE)`) qui normalise nativement les séparateurs de dossiers et lève les verrous de lecture seule.
 
-### 7. Règle de Livraison : Aucune Release Publique Sans Autorisation
+### 7. L'Alignement 64 Octets dans `pause.par` et la Fausse Piste du Crash Pharmacie (`0x234B0`)
+* **Mécanisme de l'erreur :** Constatant un crash lors de l'ouverture de Kotobuki Drugs ou Daikoku Drugstore, l'agent suppose que la traduction de la boutique dans `wdr.par` est corrompue et choisit d'annuler la traduction en laissant les boutiques ou les dialogues en anglais.
+* **Réalité d'ingénierie inverse :** Le crash `0x234B0` (`EXCEPTION_ACCESS_VIOLATION`) n'avait aucun rapport avec le texte de la boutique ! Il était causé par la tentative du moteur Sega de charger en streaming direct l'icône de Staminan Light (`2d_yk_staminan_lite.dds`, 16 512 octets) située dans **`pause.par`**. Un ancien script (`translate_pause_par_complete.py`) avait utilisé un alignement compact 64 octets (`& ~63`). Le lecteur de streaming Sega, lisant le disque par secteurs de 2 048 octets, lisait 384 octets trop loin dans le flux compressé (`0xfe 0xda 0xaf`), faisant crasher le décompresseur SLLZ par underflow de pointeur (`%rdx = 0x0000fffff502`).
+* **Règle absolue :** TOUS les 3 820 fichiers de `pause.par` doivent être obligatoirement alignés sur une frontière de secteur de 2 048 octets (`(curr_off + 2047) & ~2047`). `tools/verify_patch.py` fait désormais échouer la validation si un seul fichier de `pause.par` n'est pas aligné sur 2 048 octets.
+
+### 8. Règle de Livraison : Aucune Release Publique Sans Autorisation
 * **Mécanisme de l'erreur :** Créer un tag git et une release publique GitHub (`gh release create`) à chaque itération ou correctif intermédiaire.
 * **Règle absolue :** Il est **formellement interdit** de publier une release GitHub sans que l'utilisateur n'en donne l'ordre explicite et direct. Toutes les étapes de test et de validation doivent se faire localement dans le dépôt.

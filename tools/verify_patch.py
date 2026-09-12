@@ -205,7 +205,45 @@ class ParValidator:
                 except Exception as ex:
                     self.error(f"{fn}: ERREUR décompression SLLZ: {ex}")
 
+            # ── Sector alignment check for streaming archive (pause.par) ──
+            base_name = os.path.basename(self.path)
+            if base_name == 'pause.par':
+                if f_off % 2048 != 0:
+                    self.error(
+                        f"{fn}: offset {hex(f_off)} NON aligné sur 2 048 octets (reste: {f_off % 2048}) "
+                        f"— CAUSE DU CRASH 0x234B0 (Règle d'or n°1 & n°3)"
+                    )
+
             # ── Critical file checks ──
+            if fn == '2d_yk_staminan_lite.dds':
+                if f_off % 2048 != 0:
+                    self.error(
+                        f"{fn}: offset {hex(f_off)} non aligné sur 2048 octets "
+                        f"— CAUSE DIRECTE DU CRASH PHARMACIE 0x234B0"
+                    )
+
+            if fn == 'shop0013.bin':
+                if is_sllz_flag and is_sllz_data:
+                    try:
+                        dec = decompress_sllz(file_bytes)
+                        str_start = struct.unpack('>I', dec[0x10:0x14])[0]
+                        extra_tbl = dec[str_start - 24 : str_start]
+                        if extra_tbl != bytes.fromhex('000200000002000000020000000200000002000000020000'):
+                            self.error(f"{fn}: table Pocket Circuit (24 octets) corrompue — CAUSE DU CRASH 0x234B7")
+                    except Exception as ex:
+                        self.error(f"{fn}: erreur vérification table: {ex}")
+
+            if fn == 'shop0029.bin':
+                if is_sllz_flag and is_sllz_data:
+                    try:
+                        dec = decompress_sllz(file_bytes)
+                        str_start = struct.unpack('>I', dec[0x10:0x14])[0]
+                        extra_tbl = dec[str_start - 20 : str_start]
+                        if extra_tbl != bytes.fromhex('0002000100020001000200010002000100020001'):
+                            self.error(f"{fn}: table Pocket Circuit (20 octets) corrompue — CAUSE DU CRASH 0x234B7")
+                    except Exception as ex:
+                        self.error(f"{fn}: erreur vérification table: {ex}")
+
             if fn == 'pac_STID_ST_KAMURO.bin':
                 if u_sz != 1233900:
                     self.error(

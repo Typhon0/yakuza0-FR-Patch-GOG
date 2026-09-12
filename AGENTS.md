@@ -9,10 +9,12 @@
 
 ## 1. Règles d'Or Inviolables (Ne Jamais Reproduire Ces Erreurs)
 
-### 🚫 Règle 1 : Ne JAMAIS tronquer les fichiers de boutique (`shop*.bin`)
-* **Piège :** Les fichiers `shop0013.bin` (Kotobuki Drugs) et `shop0029.bin` (Daikoku Drugstore) contiennent des tables propriétaires de catégories Pocket Circuit (respectivement **24** et **20 octets**) situées après la liste d'articles.
-* **Conséquence si violée :** Crash instantané `0x234B7` (`EXCEPTION_ACCESS_VIOLATION`) à l'ouverture du menu d'achat.
-* **Action :** Utiliser exclusivement [`tools/rebuild_all_shops_clean.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_all_shops_clean.py) qui conserve rigoureusement ces tables annexes.
+### 🚫 Règle 1 : Ne JAMAIS tronquer les fichiers de boutique (`shop*.bin`) ni désaligner `pause.par` (Crash Pharmacie `0x234B0` / `0x234B7`)
+* **Piège 1 (Tables annexes Pocket Circuit) :** Les fichiers `shop0013.bin` (Kotobuki Drugs) et `shop0029.bin` (Daikoku Drugstore) contiennent des tables propriétaires de catégories Pocket Circuit (respectivement **24** et **20 octets**) situées après la liste d'articles.
+  - **Conséquence :** Crash `0x234B7` (`EXCEPTION_ACCESS_VIOLATION`) à l'ouverture du menu d'achat.
+  - **Action :** Utiliser exclusivement [`tools/rebuild_all_shops_clean.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_all_shops_clean.py) qui conserve rigoureusement ces tables annexes.
+* **Piège 2 (Alignement sectoriel 2 048 octets dans `pause.par`) :** Le tout premier article vendu chez Kotobuki et Daikoku est la *Staminan Light*. Le moteur Sega charge son icône 2D `2d_yk_staminan_lite.dds` (16 512 octets) depuis `pause.par` via streaming asynchrone par secteurs de 2 048 octets (`0x14002177d`). Si `pause.par` est compilé avec un alignement 64 octets, le lecteur de disque arrondit l'offset au secteur 2 048 supérieur (`0x2e00000`), saute l'en-tête SLLZ et injecte des octets résiduels de flux (`0xfe 0xda 0xaf`) dans le décompresseur SLLZ, provoquant un underflow (`%rdx = 0x0000fffff502`) et le crash instantané à `0x234B0`.
+  - **Action :** TOUS les 3 820 fichiers de `pause.par` doivent être strictement alignés sur une frontière de secteur de 2 048 octets (`(curr_off + 2047) & ~2047`).
 
 ### 🚫 Règle 2 : Ne JAMAIS tronquer ou null-padder les dialogues dans les scripts `.msg` (Bob & Cabines)
 * **Piège :** 
@@ -27,9 +29,11 @@
     `"Sauvegardez et utilisez le coffre depuis une\r\ncabine.     "` (pile 58 caractères ASCII).
   - Toujours utiliser du **space-padding** (`b' '`) pour les dialogues et du *null-padding* (`\x00`) strictement pour les mots-clés d'interface (`Save`, `Cancel`, `Yes`...).
 
-### 🚫 Règle 3 : Respecter l'alignement sectoriel de 2 048 octets dans les archives PAR
-* **Piège :** Les archives PAR Sega (`stay.par`, `boot.par`, `wdr.par`) stockent des données de streaming audio/stage (`response_wanderer.bin_c`) qui dépendent d'alignements stricts. Une recompilation séquentielle standard corrompt les pointeurs et fait crasher le chargement des sauvegardes (`0xA4526` / `SOUND_ID`).
-* **Action :** Utiliser le modèle **Append-Only** : conserver les fichiers Sega d'origine intacts au début de l'archive, et ajouter les fichiers modifiés à la fin, chacun aligné sur un multiple strict de 2 048 octets (`(offset + 2047) & ~2047`).
+### 🚫 Règle 3 : Respecter l'alignement sectoriel de 2 048 octets dans les archives PAR (`pause.par`, `stay.par`, `boot.par`, `wdr.par`)
+* **Piège :** Les archives PAR Sega (`pause.par`, `stay.par`, `boot.par`, `wdr.par`) stockent des textures 2D et données de streaming audio/stage (`2d_yk_staminan_lite.dds`, `response_wanderer.bin_c`) qui dépendent d'alignements sectoriels stricts de 2 048 octets. Une recompilation compactée à 64 octets corrompt les lectures directes par secteurs et fait crasher le moteur à `0x234B0` (pharmacie) ou `0xA4526` / `SOUND_ID` (chargement de sauvegarde).
+* **Action :** 
+  - Pour `pause.par` : aligner chaque fichier sur un multiple strict de 2 048 octets (`(curr_off + 2047) & ~2047`).
+  - Pour `stay.par`, `boot.par`, `wdr.par` : utiliser le modèle **Append-Only**, conserver les fichiers originaux Sega intacts et ajouter les fichiers modifiés à la fin, chacun aligné sur un multiple de 2 048 octets.
 
 ### 🚫 Règle 4 : Ne JAMAIS laisser les métriques Sega Vanilla `[0.0, 1.17, ...]` sur `i` et `l`
 * **Piège :** La routine de crénage (`0x140397020`) applique une translation négative proportionnelle à la marge droite. Avec la valeur native Sega de `1.17`, l'avance est réduite de 11.76 px, écrasant les lettres suivantes sur `i` et `l` (*« utilisez »*, *« depuis »*).
@@ -108,6 +112,7 @@ Voici la liste des erreurs types commises de manière répétée par les agents 
 | **Mettre des accents dans les textes à longueur stricte** (Cabines) | `é` encode 2 octets UTF-8 (`\xC3\xA9`), faussant le compteur de machine à écrire Sega (`0x140396783`) et provoquant un softlock. | Garder un texte 100% ASCII complété par des espaces (`b' '`). |
 | **Utiliser du null-padding (`\x00`) dans les dialogues** | `\x00` est interprété comme un terminateur de script de dialogue, coupant l'exécution avant le don d'objet ou le retour de contrôle (softlock Bob). | Space-padding (`b' '`) pour les phrases, `\x00` uniquement pour les mots d'interface courts. |
 | **Recompiler un PAR séquentiellement** sans préserver les offsets Sega originaux | Corrompt les offsets absolus de streaming audio/stage (`response_wanderer.bin_c`), crash au chargement de sauvegarde `0xA4526`. | Utiliser strictement le modèle Append-Only aligné à 2 048 octets. |
+| **Accuser les scripts de boutique (`shop*.bin`) lors d'un crash pharmacie `0x234B0`** au lieu de vérifier l'alignement de `pause.par` | `0x234B0` est causé par le lecteur sectoriel Sega chargeant l'icône de Staminan Light (`2d_yk_staminan_lite.dds` dans `pause.par`). S'il est aligné sur 64 octets au lieu de 2048, le décompresseur SLLZ lit au mauvais offset et plante. | Aligner impérativement TOUS les fichiers de `pause.par` sur des frontières strictes de 2 048 octets. |
 | **Faire des hypothèses sans lire le crash log** | Fait perdre des heures en conjectures erronées. | Lire l'adresse RIP, désassembler l'instruction et calculer les deltas de registres (%r10, %r9...). |
 
 ---
