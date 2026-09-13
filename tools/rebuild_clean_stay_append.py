@@ -9,10 +9,11 @@ append-only model (Gold Rule 3 of AGENTS.md):
 2. Keeps all untouched files (including response_wanderer at 0x9a000) at their exact
    100% pristine original sector offsets.
 3. Translates in-place with exact byte length preservation (0 heap overflow).
-4. Preserves original compression flags (flags=0x0 for uncompressed, flags=0x80000000 for SLLZ).
-5. Appends modified French tables at the end of the archive, each strictly aligned
+4. Cleans all residual UTF-8 / mojibake characters in correlation_person.bin_c bit-for-bit.
+5. Preserves original compression flags (flags=0x0 for uncompressed, flags=0x80000000 for SLLZ).
+6. Appends modified French tables at the end of the archive, each strictly aligned
    to 2048-byte (0x800) boundaries.
-6. Pads archive to 2048-byte sector boundary.
+7. Pads archive to 2048-byte sector boundary.
 """
 
 import os
@@ -25,6 +26,37 @@ sys.path.insert(0, os.path.abspath('scratch'))
 from scratch.scanner_engine import parse_par, decompress_sllz
 from tools.sllz import compress_sllz
 from tools.translate_stay_par_complete import translate_exact_bytes
+
+def get_clean_correlation_person_bin(ref_par):
+    raw = ref_par['correlation_person.bin_c'][3]
+    dec = decompress_sllz(raw) if raw[:4] == b'SLLZ' else raw
+
+    col5_start = 16 + 6 * 64 + 148 + 377 + 512 + 696 + 1213
+    col5_data = dec[col5_start : col5_start + 45948]
+
+    strs = col5_data.split(b'\x00')[:86]
+    new_strs = []
+    for s in strs:
+        try:
+            text = s.decode('utf-8')
+            text = text.replace('’', "'").replace('‘', "'").replace('œ', 'oe').replace('Œ', 'OE')
+            encoded = text.encode('latin1')
+            diff = len(s) - len(encoded)
+            assert diff >= 0
+            new_strs.append(encoded + b' ' * diff)
+        except Exception:
+            new_strs.append(s)
+
+    new_col5_data = b'\x00'.join(new_strs) + b'\x00'
+    if len(new_col5_data) < len(col5_data):
+        new_col5_data += col5_data[len(new_col5_data):]
+
+    assert len(new_col5_data) == len(col5_data)
+    new_dec = dec[:col5_start] + new_col5_data + dec[col5_start + len(col5_data):]
+    assert len(new_dec) == len(dec)
+
+    comp = compress_sllz(new_dec)
+    return 0x80000000, len(new_dec), len(comp), comp
 
 def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
                              ref_par_path='scratch/data/staypar/stay.par',
@@ -62,7 +94,10 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
         name = clean_bytes[n_off : n_off + 64].split(b'\x00')[0].decode('latin1')
 
         if name in TARGET_TABLES and name in ref_par:
-            r_flags, r_u, r_c, r_data = ref_par[name]
+            if name == 'correlation_person.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_correlation_person_bin(ref_par)
+            else:
+                r_flags, r_u, r_c, r_data = ref_par[name]
             
             # Align strictly to 2048-byte sector boundary
             aligned_off = (len(rebuilt_stay) + 2047) & ~2047
