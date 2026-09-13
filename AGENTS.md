@@ -72,13 +72,13 @@
 * **Conséquence :** Pollue les releases publiques avec des versions non stabilisées et contredit les consignes de déploiement de l'utilisateur.
 * **Action :** Valider et tester exclusivement en local (`tools/test_release_e2e.py`). Attendre **STRICTEMENT** l'instruction explicite de l'utilisateur avant toute publication sur GitHub.
 
-### 🚫 Règle 10 : Ne JAMAIS injecter de tables surdimensionnées dans `boot.par` ni compresser en SLLZ les tables natives brutes de `stay.par` (Crash Instantané au Boot `0x1400eb0cf`)
-* **Piège 1 (`boot.par`) :** La routine monolithique d'initialisation du moteur au démarrage (`0x1400eb0cf`) alloue des buffers mémoire fixes pour les tables de boot (`ability.bin_c`, `tips_tutorial.bin_c`, `complete_heat.bin_c`, `explanation_sub_story.bin_c`...).
-  - Injecter des tables de Steam FR surdimensionnées (+10 Ko sur `ability`, +7 Ko sur `tips_tutorial`...) fait déborder le tas alloué et crashe le moteur avant même l'affichage du menu.
-  - `explanation_sub_story.bin_c` DOIT faire **rigoureusement 58 232 octets décompressés** (space-padding in-place).
-* **Piège 2 (`stay.par`) :** Les tables vanilla ayant le flag `0x0` (`response_roulette.bin_c`, `controller_explain.bin_c`, `battle_result.bin_c`, `cabaret_island_area.bin_c`) sont lues telles quelles en mémoire sans passer par la décompression SLLZ.
-  - Les compresser en SLLZ (`flags = 0x80000000`) injecte l'en-tête `SLLZ` dans le parser RGG et provoque un crash instantané.
+### 🚫 Règle 10 : Ne JAMAIS compresser en SLLZ les tables natives brutes de `stay.par` ni corrompre les structures binaires RGG de `boot.par` (Crash Instantané au Boot)
+* **Piège 1 (`stay.par` - Flags SLLZ) :** Les tables vanilla ayant le flag `0x0` (`response_roulette.bin_c`, `controller_explain.bin_c`, `battle_result.bin_c`, `cabaret_island_area.bin_c`) sont lues telles quelles en mémoire sans passer par la décompression SLLZ.
+  - Les compresser en SLLZ (`flags = 0x80000000`) injecte l'en-tête `SLLZ` dans le parser RGG et provoque un crash instantané au démarrage.
   - Conserver strictement `flags = 0x0` pour les fichiers natifs non-compressés.
+* **Piège 2 (`boot.par` - Intégrité des structures binaires RGG & Allocation dynamique) :** Le reverse engineering de `Yakuza0.exe` à `0x14037d510` a prouvé que le moteur alloue la mémoire des tables dynamiquement via `malloc` (`0x14037d5a6`) selon la taille déclarée dans l'en-tête PAR. Les tables Steam FR complètes (`ability.bin_c` à 130 914 o, `tips_tutorial.bin_c` à 68 713 o, `explanation_sub_story.bin_c` à 63 017 o) sont parfaitement supportées.
+  - **Attention aux corruptions de pointeurs de colonnes :** Les tables binaires RGG (`0x20070319`) définissent des tailles fixes par colonne. Remplacer du multi-octets UTF-8 par du Windows-1252 sans compenser la perte d'octets décale les offsets de colonnes et provoque des crashs d'accès (`0x371324`).
+  - Toujours préserver la longueur exacte de chaque chaîne modifiée en complétant par du null-padding (`\x00 * diff`).
 
 ---
 
@@ -124,7 +124,7 @@ Voici la liste des erreurs types commises de manière répétée par les agents 
 | **Écraser les descriptions de boutiques avec un boot.par non vérifié** | Les descriptions de boutiques sont stockées dans chaque `shop*.bin` et `boot.par` vanilla est en anglais. | Utiliser exclusivement le dictionnaire `tools/shop_translations_data.py` dans `rebuild_all_shops_clean.py`. |
 | **Omettre `ai_popup.bin` dans `wdr.par` ou `encounter_pupup_message.bin_c` dans `boot.par`** | Les bulles de passants et les interpellations de rue retombent en anglais si `wdr.par` et `boot.par` conservent les versions Sega vanilla. | Synchroniser `ai_popup.bin` (SLLZ, 7 146 octets) dans `wdr.par` et injecter `encounter_pupup_message.bin_c` (24 908 octets) dans `boot.par`. |
 | **Faire des hypothèses sans lire le crash log** | Fait perdre des heures en conjectures erronées. | Lire l'adresse RIP, désassembler l'instruction et calculer les deltas de registres (%r10, %r9...). |
-| **Injecter des tables Steam FR surdimensionnées dans `boot.par`** | Les buffers tas de boot (`0x1400eb0cf`) débordent (`ability`, `tips_tutorial`...) et crashent instantanément le jeu au lancement. | Conserver les tailles Sega GOG vanilla strictes (ex: `explanation_sub_story` = 58 232 octets). |
+| **Corrompre les structures binaires RGG ou compresser les tables brutes de `stay.par`** | Provoque le crash instantané au boot (`0x1400eb0cf`) ou lors de la lecture (`0x371324`). Les allocations de tables sont dynamiques (`malloc` à `0x14037d5a6`), mais la structure des colonnes doit rester bit-exacte. | Nettoyer l'encodage avec null-padding in-place (`\x00 * diff`), conserver `flags = 0x0` sur les tables brutes de `stay.par`, et aligner à 2 048 octets. |
 | **Compresser en SLLZ les tables brutes (`flags = 0x0`) de `stay.par`** | Le moteur lit `response_roulette`, `controller_explain`, etc. en direct ; s'il reçoit un header SLLZ, il crashe. | Respecter impérativement les flags vanilla (`0x0` si non compressé). |
 
 ---

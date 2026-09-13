@@ -28,8 +28,7 @@ sys.path.insert(0, os.path.abspath('scratch'))
 from scratch.scanner_engine import parse_par, decompress_sllz
 from tools.sllz import compress_sllz
 
-def get_clean_french_encounter_popup_bin():
-    fr_boot_path = 'par_original/boot_steam_fr.par'
+def get_clean_french_encounter_popup_bin(fr_boot_path='par_original/boot_steam_fr.par'):
     with open(fr_boot_path, 'rb') as f:
         fr_files = parse_par(f.read())
     raw = fr_files['encounter_pupup_message.bin_c'][3]
@@ -37,6 +36,64 @@ def get_clean_french_encounter_popup_bin():
     assert len(decomp) == 24908, f"Unexpected encounter_pupup_message.bin_c length: {len(decomp)}"
     comp = compress_sllz(decomp)
     return 0x80000000, len(decomp), len(comp), comp
+
+def get_clean_french_ability_bin(fr_boot_path='par_original/boot_steam_fr.par'):
+    with open(fr_boot_path, 'rb') as f:
+        fr_files = parse_par(f.read())
+    raw = fr_files['ability.bin_c'][3]
+    decomp = decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw
+    assert len(decomp) == 130914, f"Unexpected ability.bin_c length: {len(decomp)}"
+    comp = compress_sllz(decomp)
+    return 0x80000000, len(decomp), len(comp), comp
+
+def get_clean_french_tips_tutorial_bin(fr_boot_path='par_original/boot_steam_fr.par'):
+    with open(fr_boot_path, 'rb') as f:
+        fr_files = parse_par(f.read())
+    raw = fr_files['tips_tutorial.bin_c'][3]
+    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    orig_len = len(dec)
+    assert orig_len == 68713, f"Unexpected tips_tutorial.bin_c length: {orig_len}"
+
+    full_replacements_t = [
+        (b'La s\xc3\xa9curit\xc3\xa9 a r\xc3\xa9solu le conflit\nSant\xc3\xa9 r\xc3\xa9duite de \xe2\x98\x85\x00',
+         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\x00'),
+        (b'La s\xc3\xa9curit\xc3\xa9 a r\xc3\xa9solu le conflit\nSant\xc3\xa9 r\xc3\xa9duite de \xe2\x98\x85\xe2\x98\x85\x00',
+         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\xe2\x98\x85\x00'),
+        (b'La s\xc3\xa9curit\xc3\xa9 a r\xc3\xa9solu le conflit\nSant\xc3\xa9 r\xc3\xa9duite de \xe2\x98\x85\xe2\x98\x85\xe2\x98\x85\x00',
+         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\xe2\x98\x85\xe2\x98\x85\x00'),
+    ]
+    for bad, good in full_replacements_t:
+        pos = dec.find(bad)
+        while pos != -1:
+            diff = len(bad) - len(good)
+            dec[pos:pos+len(bad)] = good + b'\x00' * diff
+            pos = dec.find(bad, pos + len(bad))
+
+    assert len(dec) == orig_len, f"Length altered during normalization: {len(dec)} vs {orig_len}"
+    comp = compress_sllz(bytes(dec))
+    return 0x80000000, len(dec), len(comp), comp
+
+def get_clean_french_substory_bin(fr_boot_path='par_original/boot_steam_fr.par'):
+    with open(fr_boot_path, 'rb') as f:
+        fr_files = parse_par(f.read())
+    raw = fr_files['explanation_sub_story.bin_c'][3]
+    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    orig_len = len(dec)
+    assert orig_len == 63017, f"Unexpected explanation_sub_story.bin_c length: {orig_len}"
+
+    bad_s = (b"J'ai trouv\xc3\xa9 le yakuza qui a pris Ara-Q3 au voyou qui\nl'a pris au gamin qui l'a arrach\xc3\xa9 \xc3\xa0 Akio \xc3\xa0 l'origine.\n"
+             b"\xe2\x80\xa6 Trop compliqu\xc3\xa9 ! Quelqu'un va se faire frapper !\x00")
+    good_s = (b"J'ai trouv\xe9 le yakuza qui a pris Ara-Q3 au voyou qui\nl'a pris au gamin qui l'a arrach\xe9 \xe0 Akio \xe0 l'origine.\n"
+              b"... Trop compliqu\xe9 ! Quelqu'un va se faire frapper !\x00")
+
+    pos = dec.find(bad_s)
+    if pos != -1:
+        diff = len(bad_s) - len(good_s)
+        dec[pos:pos+len(bad_s)] = good_s + b'\x00' * diff
+
+    assert len(dec) == orig_len, f"Length altered during normalization: {len(dec)} vs {orig_len}"
+    comp = compress_sllz(bytes(dec))
+    return 0x80000000, len(dec), len(comp), comp
 
 def rebuild_boot_par(clean_par_path='par_original/boot.par',
                      ref_par_path='scratch/data/bootpar/boot.par',
@@ -52,15 +109,20 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
     ref_par = parse_par(ref_boot_bytes)
 
     epm_entry = get_clean_french_encounter_popup_bin()
+    ability_entry = get_clean_french_ability_bin()
+    tips_entry = get_clean_french_tips_tutorial_bin()
+    substory_entry = get_clean_french_substory_bin()
 
     TARGET_FILES = {
         'caption.bin_c': ref_par['caption.bin_c'],
         'explanation_main_scenario.bin_c': ref_par['explanation_main_scenario.bin_c'],
-        'explanation_sub_story.bin_c': ref_par['explanation_sub_story.bin_c'],
+        'explanation_sub_story.bin_c': substory_entry,
         'item.bin_c': ref_par['item.bin_c'],
         'string_tbl.bin_c': ref_par['string_tbl.bin_c'],
         'battle_deck_list.bin_c': ref_par['battle_deck_list.bin_c'],
         'encounter_pupup_message.bin_c': epm_entry,
+        'ability.bin_c': ability_entry,
+        'tips_tutorial.bin_c': tips_entry,
     }
 
     folder_count, folder_table_offset, file_count, file_table_offset = struct.unpack('>4I', clean_boot_bytes[16:32])

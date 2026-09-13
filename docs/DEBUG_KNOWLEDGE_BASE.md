@@ -210,25 +210,31 @@ Si l'un de ces fichiers décompressés dépasse sa taille mémoire d'origine lor
 
 ---
 
-## 6b. Crash Instantané au Démarrage / Boot (`0x1400eb0cf` / Heap Overflow)
+## 6b. Crash Instantané au Démarrage / Boot (`0x1400eb0cf` vs `0x14037d510` Dynamic Malloc)
 
 ### Symptômes
 Le jeu se ferme brutalement 1 à 2 secondes après le lancement (`dxgi.log` s'arrête net après l'initialisation audio WASAPI et `SK_Xbox_GetOverlayState`, aucun écran de menu ou de logo n'apparaît).
 
 ### Cause Racine Identifiée par Reverse Engineering
-1. **Initialisation Monolithique de Boot (`0x1400eb0cf`) :**
-   Au démarrage, le moteur exécute une fonction monolithique (`0x1400eb0cf`) qui instancie et parse à la chaîne tous les fichiers de `data/boot/` (`string_tbl.bin`, `restaurant_menu.bin`, `complete_heat.bin`, `ability.bin`, `explanation_sub_story.bin`, `tips_tutorial.bin`, `mail.bin`, `complete_shisho.bin`...).
-   Le moteur Sega pré-alloue des tampons mémoire fixes dans le tas pour chacune de ces tables.
-2. **Dépassement de Buffer Tas :**
-   Si l'on injecte des tables issues de la version Steam FR dont la taille décompressée dépasse la taille Sega GOG vanilla (ex: `ability.bin_c` +10 674 octets, `tips_tutorial.bin_c` +7 182 octets), le décompresseur SLLZ déborde du tampon alloué et corrompt le tas, entraînant une `EXCEPTION_ACCESS_VIOLATION` immédiate.
-3. **Calibrage In-Place de `explanation_sub_story.bin_c` :**
-   La table des quêtes secondaires dans GOG vanilla fait **exactement 58 232 octets**. Si la table est reconstruite avec une taille différente (ex: 54 376 octets), la routine de parcours de chaînes (`0x140371300` / `0x140371324`) itère au-delà du buffer mémoire et plante.
-4. **Compression SLLZ Interdite sur Fichiers Natifs Bruts (`stay.par`) :**
-   Dans `stay.par`, plusieurs tables (`response_roulette.bin_c`, `controller_explain.bin_c`, `battle_result.bin_c`, `cabaret_island_area.bin_c`) ont le flag natif `0x0` (non compressées). Les routines de lecture de ces sous-systèmes lisent directement le fichier en RAM sans passer par `decompress_sllz`. Si elles sont compressées en SLLZ (`flags = 0x80000000`), le moteur lit l'en-tête `SLLZ...` au lieu du magic RGG et plante.
+1. **Allocation Dynamique des Tables (`0x14037d510`) :**
+   Le désassemblage approfondi de la fonction de chargement des fichiers de boot dans `Yakuza0.exe` a révélé le mécanisme exact :
+   - `0x14037d576`: Appel à `0x1400149c0` qui extrait la taille décompressée (`uncomp_size`) directement depuis l'en-tête du fichier dans l'archive PAR.
+   - `0x14037d57b`: Chargement du plafond demandé (`0xFFFFFFFF`).
+   - `0x14037d584`: `cmovb %eax, %edi` affecte à `%edi` la taille exacte demandée.
+   - `0x14037d5a6`: `call 0x140ba00a0` (`malloc(%edi)`).
+   **Conclusion :** Le moteur Sega n'impose **aucun buffer fixe restrictif** sur les tables de boot. L'allocation mémoire s'adapte dynamiquement à la taille déclarée dans le PAR (ce que confirme `item.bin_c` qui fait 206 628 octets contre 192 308 octets vanilla (+14 Ko) sans le moindre crash).
+
+2. **Causes Réelles des Crashs de Boot Observés :**
+   - **Compression SLLZ Interdite sur Fichiers Natifs Bruts (`stay.par`) :**  
+     Dans `stay.par`, plusieurs tables (`response_roulette.bin_c`, `controller_explain.bin_c`, `battle_result.bin_c`, `cabaret_island_area.bin_c`) possèdent le flag natif `0x0` (fichiers bruts non compressés). Si un script recompile `stay.par` en compressant aveuglément tous les fichiers avec le flag `0x80000000`, le moteur reçoit un en-tête `SLLZ...` au lieu des données binaires RGG attendues, provoquant un crash immédiat lors de l'instanciation des systèmes.
+   - **Corruption des Pointers de Colonnes RGG (`0x20070319`) :**  
+     Les tables binaires RGG ont des en-têtes définissant des tailles fixes de colonnes. Réduire la taille des chaînes (ex: convertir de l'UTF-8 2-octets en Win-1252 1-octet sans padding de compensation) décale les offsets relatifs de toutes les colonnes suivantes, entraînant une boucle d'accès mémoire invalide (`0x371324`).
+   - **Désalignement Sectoriel :**  
+     L'absence d'alignement sur frontière de 2 048 octets (`0x800`) dans `boot.par` ou `stay.par`.
 
 ### Solution Appliquée & Règle Absolue
-* Dans `boot.par` : Conserver rigoureusement la taille Sega GOG vanilla sur `explanation_sub_story.bin_c` (**58 232 octets** avec space-padding), et ne jamais injecter de tables de boot qui excèdent l'allocation Sega GOG.
-* Dans `stay.par` : Conserver strictement `flags = 0x0` sur les fichiers natifs non-compressés et respecter la taille exacte des tables (`activity_list` = 38 792 octets).
+* Dans `boot.par` : Les tables Steam FR complètes (`ability.bin_c` 130 914 o, `tips_tutorial.bin_c` 68 713 o, `explanation_sub_story.bin_c` 63 017 o) sont 100% injectables. Il suffit de nettoyer les mojibakes UTF-8 avec du *null-padding in-place* (`\x00 * diff`) pour préserver les offsets de colonnes, et de garantir l'alignement strict à 2 048 octets.
+* Dans `stay.par` : Conserver rigoureusement `flags = 0x0` sur les fichiers natifs non-compressés et respecter la taille exacte des tables (`activity_list` = 38 792 octets).
 
 ---
 
