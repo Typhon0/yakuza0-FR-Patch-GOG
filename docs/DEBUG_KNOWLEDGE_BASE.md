@@ -210,6 +210,28 @@ Si l'un de ces fichiers décompressés dépasse sa taille mémoire d'origine lor
 
 ---
 
+## 6b. Crash Instantané au Démarrage / Boot (`0x1400eb0cf` / Heap Overflow)
+
+### Symptômes
+Le jeu se ferme brutalement 1 à 2 secondes après le lancement (`dxgi.log` s'arrête net après l'initialisation audio WASAPI et `SK_Xbox_GetOverlayState`, aucun écran de menu ou de logo n'apparaît).
+
+### Cause Racine Identifiée par Reverse Engineering
+1. **Initialisation Monolithique de Boot (`0x1400eb0cf`) :**
+   Au démarrage, le moteur exécute une fonction monolithique (`0x1400eb0cf`) qui instancie et parse à la chaîne tous les fichiers de `data/boot/` (`string_tbl.bin`, `restaurant_menu.bin`, `complete_heat.bin`, `ability.bin`, `explanation_sub_story.bin`, `tips_tutorial.bin`, `mail.bin`, `complete_shisho.bin`...).
+   Le moteur Sega pré-alloue des tampons mémoire fixes dans le tas pour chacune de ces tables.
+2. **Dépassement de Buffer Tas :**
+   Si l'on injecte des tables issues de la version Steam FR dont la taille décompressée dépasse la taille Sega GOG vanilla (ex: `ability.bin_c` +10 674 octets, `tips_tutorial.bin_c` +7 182 octets), le décompresseur SLLZ déborde du tampon alloué et corrompt le tas, entraînant une `EXCEPTION_ACCESS_VIOLATION` immédiate.
+3. **Calibrage In-Place de `explanation_sub_story.bin_c` :**
+   La table des quêtes secondaires dans GOG vanilla fait **exactement 58 232 octets**. Si la table est reconstruite avec une taille différente (ex: 54 376 octets), la routine de parcours de chaînes (`0x140371300` / `0x140371324`) itère au-delà du buffer mémoire et plante.
+4. **Compression SLLZ Interdite sur Fichiers Natifs Bruts (`stay.par`) :**
+   Dans `stay.par`, plusieurs tables (`response_roulette.bin_c`, `controller_explain.bin_c`, `battle_result.bin_c`, `cabaret_island_area.bin_c`) ont le flag natif `0x0` (non compressées). Les routines de lecture de ces sous-systèmes lisent directement le fichier en RAM sans passer par `decompress_sllz`. Si elles sont compressées en SLLZ (`flags = 0x80000000`), le moteur lit l'en-tête `SLLZ...` au lieu du magic RGG et plante.
+
+### Solution Appliquée & Règle Absolue
+* Dans `boot.par` : Conserver rigoureusement la taille Sega GOG vanilla sur `explanation_sub_story.bin_c` (**58 232 octets** avec space-padding), et ne jamais injecter de tables de boot qui excèdent l'allocation Sega GOG.
+* Dans `stay.par` : Conserver strictement `flags = 0x0` sur les fichiers natifs non-compressés et respecter la taille exacte des tables (`activity_list` = 38 792 octets).
+
+---
+
 ## 7. Architecture des Archives PAR & Règle des 2048 Octets
 
 ### Structure d'une Archive PARC Sega

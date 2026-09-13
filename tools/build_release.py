@@ -28,7 +28,7 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.6"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.7"
 
 # Files to include from tools/
 TOOL_FILES = [
@@ -94,7 +94,7 @@ ROOT_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.6
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.7
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
