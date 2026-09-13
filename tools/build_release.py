@@ -50,6 +50,7 @@ TOOL_FILES = [
     "tools/verify_patch.py",
     "tools/sllz.py",
     "tools/clean_patch_data.py",
+    "tools/build_calibrated_substories.py",
     # Translation data
     "tools/shop_translations_data.py",
     "tools/wdr_translations_data.py",
@@ -72,6 +73,7 @@ SCRATCH_FILES = [
     "scratch/location_translations.json",
     "scratch/test_merchant_dict.py",
     "scratch/prepare_snitch_translations.py",
+    "scratch/substory_titles_inplace.py",
 ]
 
 # Pre-compiled verified archives to include directly
