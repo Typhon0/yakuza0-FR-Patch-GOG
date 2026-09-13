@@ -34,6 +34,9 @@ RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.6"
 TOOL_FILES = [
     "tools/repair_phone_booths.py",
     "tools/rebuild_clean_wdr.py",
+    "tools/rebuild_clean_wdr_append.py",
+    "tools/rebuild_clean_boot_append.py",
+    "tools/rebuild_clean_stay_append.py",
     "tools/rebuild_all_shops_clean.py",
     "tools/translate_boot_par_complete.py",
     "tools/translate_wdr_complete.py",
@@ -63,6 +66,12 @@ TOOL_FILES = [
 
 SCRATCH_FILES = [
     "scratch/scanner_engine.py",
+    "scratch/test_generic_table_translator.py",
+    "scratch/activity_translations.json",
+    "scratch/agent_translations.json",
+    "scratch/location_translations.json",
+    "scratch/test_merchant_dict.py",
+    "scratch/prepare_snitch_translations.py",
 ]
 
 # Pre-compiled verified archives to include directly

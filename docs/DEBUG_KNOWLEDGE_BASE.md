@@ -168,11 +168,28 @@ Les passants dans Kamurocho et Sotenbori parlent en anglais dans leurs bulles d'
 ### Cause Racine
 Le moteur recherche `ai_popup.bin` dans [`data/wdr_par_c/wdr.par`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/release_gog/data/wdr_par_c/wdr.par) et dans [`data/wdr_par_c/common.par`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/release_gog/data/wdr_par_c/common.par).
 * Si `ai_popup.bin` n'est pas compressé en SLLZ avec le flag exact `0x80000000`, ou si sa taille dépasse le slot alloué dans `common.par` (offset `0x800`), le moteur ignore le fichier et affiche les chaînes de repli hardcodées en anglais.
+* **Le piège de la non-synchronisation dans `wdr.par` :** Si `tools/rebuild_clean_wdr_append.py` conserve `ai_popup.bin` parmi les binaires intouchés (`PRISTINE_NON_MSG_BINS`), `wdr.par` conserve la version originale Sega en anglais. Le moteur chargeant `wdr.par`, la version anglaise prend le pas sur `common.par` et les bulles de rue restent en anglais !
 
 ### Règle Impérative & Solution
 * Compresser `ai_popup.bin` (7 146 octets décompressés) en SLLZ natif avec `flags = 0x80000000` (taille compressée : **3 048 octets**).
 * Dans `common.par`, insérer le payload compressé à l'offset exact `0x800` (taille disponible : 3 073 octets, 3048 $\le$ 3073, parfait remplacement in-place).
-* Synchroniser le même `ai_popup.bin` compressé dans `wdr.par`.
+* **Synchroniser obligatoirement le même `ai_popup.bin` compressé dans `wdr.par`** via [`tools/rebuild_clean_wdr_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_wdr_append.py) avec alignement sectoriel strict de 2 048 octets.
+
+---
+
+## 5b. Interpellations des Ennemis de Rue en Bas d'Écran (`encounter_pupup_message.bin_c`)
+
+### Symptômes
+Quand des ennemis agressifs ou groupes de yakuzas repèrent Kiryu ou Majima dans la rue, les interpellations affichées en bas de l'écran (*"Toi, là !"*, *"Hé !"*, *"Ce type..."*, *"Ce bâtard..."*, *"Qu'est-ce qui presse ?"*) apparaissent en anglais (*"You there!"*, *"Hey!"*, *"That guy..."*, *"That piece of crap!"*...).
+
+### Cause Racine
+* Ce texte est contenu dans **`encounter_pupup_message.bin_c`** dans [`data/bootpar/boot.par`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/release_gog/data/bootpar/boot.par).
+* L'archive Steam FR certifiée (`par_original/boot_steam_fr.par`) contient l'intégralité de ces interpellations traduites en français, sans aucun mojibake et avec une taille bit-exacte identique à la version originale Sega vanilla (**24 908 octets décompressés**, format de table `ePMB` à entrées fixes de 64 octets).
+* `tools/rebuild_clean_boot_append.py` ne l'avait pas inclus dans sa liste `TARGET_FILES`, laissant la version anglaise Sega vanilla dans `boot.par`.
+
+### Règle Impérative & Solution
+* Inclure impérativement `encounter_pupup_message.bin_c` dans `TARGET_FILES` au sein de [`tools/rebuild_clean_boot_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_boot_append.py).
+* Injecter le payload décompressé de 24 908 octets, recompressé en SLLZ natif (`flags = 0x80000000`, 6 189 octets compressés), aligné sur un secteur de 2 048 octets en mode append-only dans `boot.par`.
 
 ---
 

@@ -105,6 +105,16 @@ PHONE_TRANSLATIONS = {
     "It seems Kuze is acting on Shibusawa's orders. It looks like\r\nhe has started following Shibusawa rather than Awano.": "Kuze agit sur ordre de Shibusawa. Il semble\r\nsuivre Shibusawa plutot qu'Awano.",
     "(The guys in Little Asia should have tracked down\r\nTachibana by now. Gotta hurry, or he'll be killed!)": "(Ceux de Little Asia doivent savoir ou est\r\nTachibana. Vite, avant qu'ils le tuent !)",
     "Nishiki, Tachibana's in the Crescendo Building on\r\nShichifuku Street. Kuze's there, too.": "Nishiki, Tachibana est au Crescendo sur\r\nShichifuku. Kuze est la aussi.",
+    'Chen-san, have you found Tachibana?': 'Chen-san, avez-vous vu Tachibana ? ',
+    'In an abandoned building next to the Empty Lot.': 'Dans un immeuble abandonne pres du Lot vide.   ',
+    'Crescendo Building. Got it.': 'Batiment Crescendo. Vu.    ',
+    'Yeah...': 'Ouais..',
+    'He is running out of options. That makes him dangerous.': "A court d'options, il devient d'autant plus dangereux. ",
+    'I know.': 'Je sais',
+    "Tachibana-san's life is in your hands, Kiryu-san.": 'La vie de Tachibana repose sur vous, Kiryu-san.  ',
+    'Got it. We better move quick!': 'Compris. Depechons-nous vite ',
+    "But <Color:255,255,0,255>after switching to the Game Clear Data creation screen`<Color:Default>\r\n<Color:255,255,0,255>you will have to go back to the title screen.<Color:Default>\r\nWe strongly recommend that you save\r\nyour game progress before creating\r\nGame Clear Data.": "Mais <Color:255,255,0,255>apres passage a l'ecran de creation des donnees de fin`<Color:Default>\r\n<Color:255,255,0,255>vous devrez revenir a l'ecran-titre.<Color:Default>\r\nIl est vivement conseille de sauvegarder\r\nvotre progression avant de creer les\r\ndonnees de fin.  ",
+    "Create Game Clear Data?\r\nAfter you select Create and switch to the save screen,\r\nyou will have to go back to the title screen.": "Creer les donnees de fin ?\r\nApres selection de Creer et passage a l'ecran de sauvegarde,\r\nvous devrez revenir a l'ecran-titre.",
 }
 
 PHONE_FILE_NAMES = [

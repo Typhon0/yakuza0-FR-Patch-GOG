@@ -32,6 +32,16 @@ def get_clean_french_item_bin():
     comp = compress_sllz(bytes(buf))
     return 0x80000000, len(buf), len(comp), comp
 
+def get_clean_french_encounter_popup_bin():
+    fr_boot_path = 'par_original/boot_steam_fr.par'
+    with open(fr_boot_path, 'rb') as f:
+        fr_files = parse_par(f.read())
+    raw = fr_files['encounter_pupup_message.bin_c'][3]
+    decomp = decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw
+    assert len(decomp) == 24908, f"Unexpected encounter_pupup_message.bin_c length: {len(decomp)}"
+    comp = compress_sllz(decomp)
+    return 0x80000000, len(decomp), len(comp), comp
+
 clean_boot_bytes = open('par_original/boot.par', 'rb').read()
 rel_boot_bytes = open('release_gog/data/bootpar/boot.par', 'rb').read()
 
@@ -45,6 +55,7 @@ TARGET_FILES = [
     'item.bin_c',
     'string_tbl.bin_c',
     'battle_deck_list.bin_c',
+    'encounter_pupup_message.bin_c',
 ]
 
 folder_count, folder_table_offset, file_count, file_table_offset = struct.unpack('>4I', clean_boot_bytes[16:32])
@@ -60,6 +71,9 @@ for i in range(file_count):
         if name == 'item.bin_c' and os.path.isfile('par_original/boot_steam_fr.par'):
             r_flags, r_u, r_c, r_data = get_clean_french_item_bin()
             print(f"  [+] Injected cleaned master French item.bin_c (u_sz={r_u}, c_sz={r_c})")
+        elif name == 'encounter_pupup_message.bin_c' and os.path.isfile('par_original/boot_steam_fr.par'):
+            r_flags, r_u, r_c, r_data = get_clean_french_encounter_popup_bin()
+            print(f"  [+] Injected French encounter_pupup_message.bin_c (u_sz={r_u}, c_sz={r_c})")
         else:
             r_flags, r_u, r_c, r_data = rel_par[name]
         
