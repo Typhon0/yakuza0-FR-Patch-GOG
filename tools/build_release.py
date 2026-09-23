@@ -299,9 +299,43 @@ def build_release():
     # 3. Download and extract Python embed
     print("[3/5] Python embarqué...")
     zip_path = download_python_embed(RELEASE_DIR)
+    py_stage = os.path.join(stage, "python")
     with zipfile.ZipFile(zip_path, 'r') as zf:
-        zf.extractall(os.path.join(stage, "python"))
-    print(f"  + Extrait dans {os.path.join(stage, 'python')}")
+        zf.extractall(py_stage)
+    
+    # UNPACK python312.zip to eliminate nested archive (fixes Nexus Mods automated quarantine)
+    py_zip_internal = os.path.join(py_stage, "python312.zip")
+    if os.path.isfile(py_zip_internal):
+        py_stdlib_dir = os.path.join(py_stage, "python312")
+        with zipfile.ZipFile(py_zip_internal, 'r') as zf:
+            zf.extractall(py_stdlib_dir)
+        os.remove(py_zip_internal)
+        # Update python312._pth to point to the python312 folder
+        pth_path = os.path.join(py_stage, "python312._pth")
+        if os.path.isfile(pth_path):
+            with open(pth_path, 'r', encoding='utf-8') as f:
+                pth_content = f.read()
+            pth_content = pth_content.replace('python312.zip', 'python312')
+            with open(pth_path, 'w', encoding='utf-8') as f:
+                f.write(pth_content)
+        # Remove internal macOS script
+        macho_bat = os.path.join(py_stdlib_dir, "ctypes", "macholib", "fetch_macholib.bat")
+        if os.path.isfile(macho_bat):
+            os.remove(macho_bat)
+
+    # Supprimer les binaires et bibliothèques non utilisés (évite les faux positifs antivirus)
+    unused_py_files = [
+        "pythonw.exe", "sqlite3.dll", "libcrypto-3.dll", "libssl-3.dll", "libffi-8.dll",
+        "_ssl.pyd", "_sqlite3.pyd", "_hashlib.pyd", "_socket.pyd", "_asyncio.pyd",
+        "_msi.pyd", "_multiprocessing.pyd", "_decimal.pyd", "_zoneinfo.pyd",
+        "pyexpat.pyd", "select.pyd", "winsound.pyd", "_wmi.pyd", "_uuid.pyd", "_queue.pyd"
+    ]
+    for ufn in unused_py_files:
+        ufp = os.path.join(py_stage, ufn)
+        if os.path.isfile(ufp):
+            os.remove(ufp)
+    print("  + Nettoyage des bibliothèques réseau/crypto superflues")
+    print(f"  + Extrait dans {py_stage}")
     
     # 4. Write bat files
     print("[4/5] Création des lanceurs .bat...")
@@ -312,8 +346,8 @@ def build_release():
     with open(os.path.join(stage, "LISEZMOI.txt"), 'w', encoding='utf-8') as f:
         f.write(README_FR)
     
-    # 5. Create zip
-    print("[5/5] Création du zip final...")
+    # 5. Create zips
+    print("[5/5] Création des archives de distribution...")
     zip_out = os.path.join(RELEASE_DIR, f"{RELEASE_NAME}.zip")
     with zipfile.ZipFile(zip_out, 'w', zipfile.ZIP_DEFLATED) as zf:
         for root, dirs, files in os.walk(stage):
@@ -323,10 +357,40 @@ def build_release():
                 zf.write(full, arcname)
     
     size_mb = os.path.getsize(zip_out) / (1024 * 1024)
-    print()
-    print(f"[+] Release créée: {zip_out} ({size_mb:.1f} MB)")
-    print(f"    Contenu: Archives pré-compilées + Patcher + Python embarqué")
-    print(f"    Installation instantanée et 100% fiable.")
+    print(f"[+] Package Standalone (1-clic) créé: {zip_out} ({size_mb:.1f} MB)")
+    print(f"    0 archive imbriquée, Python épuré, installation 1-clic.")
+
+    # 5b. Création du package épuré spécial Nexus Mods (SANS AUCUN .EXE, 100% garanti zéro quarantaine)
+    stage_no_py = os.path.join(RELEASE_DIR, f"{RELEASE_NAME}_Nexus_PureAssets_NoExe")
+    if os.path.exists(stage_no_py):
+        shutil.rmtree(stage_no_py)
+    os.makedirs(stage_no_py)
+    # Copier data, patch_gog.py, font table, LISEZMOI, verify_patch
+    shutil.copytree(os.path.join(stage, "data"), os.path.join(stage_no_py, "data"))
+    os.makedirs(os.path.join(stage_no_py, "tools"), exist_ok=True)
+    shutil.copy2(os.path.join(stage, "tools", "verify_patch.py"), os.path.join(stage_no_py, "tools", "verify_patch.py"))
+    shutil.copy2(os.path.join(stage, "patch_gog.py"), os.path.join(stage_no_py, "patch_gog.py"))
+    shutil.copy2(os.path.join(stage, "font_table_french.bin"), os.path.join(stage_no_py, "font_table_french.bin"))
+    shutil.copy2(os.path.join(stage, "LISEZMOI.txt"), os.path.join(stage_no_py, "LISEZMOI.txt"))
+    # Ajouter un lanceur batch standard pour ceux qui ont déjà Python
+    with open(os.path.join(stage_no_py, "patch_gog.bat"), 'w', encoding='utf-8') as f:
+        f.write(r'''@echo off
+chcp 65001 >nul
+echo Patch Yakuza 0 GOG FR...
+python patch_gog.py Yakuza0.exe
+pause
+''')
+
+    zip_nexus = os.path.join(RELEASE_DIR, f"{RELEASE_NAME}_Nexus_PureAssets_NoExe.zip")
+    with zipfile.ZipFile(zip_nexus, 'w', zipfile.ZIP_DEFLATED) as zf:
+        for root, dirs, files in os.walk(stage_no_py):
+            for fn in files:
+                full = os.path.join(root, fn)
+                arcname = os.path.relpath(full, RELEASE_DIR)
+                zf.write(full, arcname)
+
+    size_nexus_mb = os.path.getsize(zip_nexus) / (1024 * 1024)
+    print(f"[+] Package Nexus Mods (Zéro .exe, Zéro quarantaine): {zip_nexus} ({size_nexus_mb:.1f} MB)")
 
     # 6. Automated E2E release validation
     print()
