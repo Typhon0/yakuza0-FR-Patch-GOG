@@ -30,52 +30,9 @@ PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 RELEASE_DIR = "staging_release"
 RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.9"
 
-# Files to include from tools/
+# Files to include from tools/ (strictly user-facing)
 TOOL_FILES = [
-    "tools/repair_phone_booths.py",
-    "tools/rebuild_clean_wdr.py",
-    "tools/rebuild_clean_wdr_append.py",
-    "tools/rebuild_clean_boot_append.py",
-    "tools/rebuild_clean_stay_append.py",
-    "tools/rebuild_all_shops_clean.py",
-    "tools/translate_boot_par_complete.py",
-    "tools/translate_wdr_complete.py",
-    "tools/translate_shops.py",
-    "tools/translate_stay_par_complete.py",
-    "tools/translate_pause_par_complete.py",
-    "tools/translate_common_par_complete.py",
-    "tools/translate_all_minigames.py",
-    "tools/translate_minigames_and_stay_final.py",
-    "tools/repair_stay_par.py",
     "tools/verify_patch.py",
-    "tools/sllz.py",
-    "tools/clean_patch_data.py",
-    "tools/build_calibrated_substories.py",
-    "tools/repair_chapter13_oda.py",
-    "tools/deep_audit.py",
-    # Translation data
-    "tools/shop_translations_data.py",
-    "tools/wdr_translations_data.py",
-    "tools/wdr_dict_final.py",
-    "tools/stay_translations_data.py",
-    "tools/pause_translations_data.py",
-    "tools/minigame_translations_data.py",
-    "tools/boot_dict_part1.py",
-    "tools/boot_dict_part2.py",
-    "tools/boot_dict_part3.py",
-    "tools/boot_dict_part4.py",
-    "tools/collect_originals.py",
-]
-
-SCRATCH_FILES = [
-    "scratch/scanner_engine.py",
-    "scratch/test_generic_table_translator.py",
-    "scratch/activity_translations.json",
-    "scratch/agent_translations.json",
-    "scratch/location_translations.json",
-    "scratch/test_merchant_dict.py",
-    "scratch/prepare_snitch_translations.py",
-    "scratch/substory_titles_inplace.py",
 ]
 
 # Pre-compiled verified archives to include directly
@@ -88,9 +45,7 @@ PRECOMPILED_DATA = [
 
 ROOT_FILES = [
     ("release_gog/patch_gog.py", "patch_gog.py"),
-    ("patcher/patch_gog.bat", "patch_gog.bat"),
     ("release_gog/font_table_french.bin", "font_table_french.bin"),
-    ("tools/collect_originals.bat", "collect_originals.bat"),
 ]
 
 BAT_PATCHER = r'''@echo off
@@ -317,28 +272,16 @@ def build_release():
     stage = os.path.join(RELEASE_DIR, RELEASE_NAME)
     os.makedirs(stage)
     os.makedirs(os.path.join(stage, "tools"))
-    os.makedirs(os.path.join(stage, "scratch"))
     os.makedirs(os.path.join(stage, "python"))
     
-    # 1. Copy tool files
-    print("[1/5] Copie des scripts...")
+    # 1. Copy user-facing tool files
+    print("[1/5] Copie des scripts utilisateur...")
     for f in TOOL_FILES:
         if os.path.exists(f):
             shutil.copy2(f, os.path.join(stage, f))
             print(f"  + {f}")
         else:
             print(f"  ! MANQUANT: {f}")
-    
-    for f in SCRATCH_FILES:
-        if os.path.exists(f):
-            shutil.copy2(f, os.path.join(stage, f))
-            print(f"  + {f}")
-
-    # Copy repaired phones folder
-    repaired_src = "tools/repaired_phones"
-    if os.path.isdir(repaired_src):
-        shutil.copytree(repaired_src, os.path.join(stage, repaired_src), dirs_exist_ok=True)
-        print(f"  + {repaired_src} (20 repaired phone .msg files)")
 
     # 2. Copy pre-compiled data archives
     print("[2/5] Copie des archives pré-compilées certifiées...")
