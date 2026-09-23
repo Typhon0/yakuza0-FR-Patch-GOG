@@ -241,6 +241,23 @@ def install_data_archives(game_dir):
     print("\n[0/4] Installation securisee des archives pre-compilees vers :")
     print(f"      {os.path.join(game_dir, 'data')}...")
 
+    # Nettoyage automatique des sous-dossiers parasites issus d'anciennes extractions imbriquees
+    nested_parasites = [
+        os.path.join(game_dir, 'data', 'bootpar', 'bootpar'),
+        os.path.join(game_dir, 'data', 'staypar', 'staypar'),
+        os.path.join(game_dir, 'data', 'wdr_par_c', 'wdr_par_c'),
+        os.path.join(game_dir, 'data', 'pausepar_e', 'pausepar_e'),
+        os.path.join(game_dir, 'data', 'data'),
+    ]
+    for parasite in nested_parasites:
+        if os.path.isdir(parasite):
+            print(f"[*] Nettoyage du sous-dossier parasite issu d'une ancienne extraction : {parasite}")
+            try:
+                shutil.rmtree(parasite)
+                print(f"    + Supprime avec succes.")
+            except Exception as e:
+                print(f"    [AVERTISSEMENT] Impossible de supprimer {parasite}: {e}")
+
     archives = [
         ("data/wdr_par_c/wdr.par", 7000000),
         ("data/wdr_par_c/common.par", 10000),

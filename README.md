@@ -181,12 +181,14 @@ yakuza0-FR-Patch-GOG/
 │   └── INSTALLATION_GOG_EN.txt       # Player installation text guide (English)
 │
 ├── tools/                            # Developer, research & data cleaning utilities
-│   ├── translate_shops.py            # Automated shop & convenience store translator
+│   ├── rebuild_all_shops_clean.py    # Shop translator preserving Pocket Circuit tables
+│   ├── rebuild_clean_boot_append.py  # Clean boot.par generator (item, abilities, etc.)
+│   ├── rebuild_clean_wdr_append.py   # Clean wdr.par generator (Oda cutscene, substories)
+│   ├── verify_patch.py               # Autonomous PAR archive validator (131/131 check)
+│   ├── deep_audit.py                 # Deep integrity static analyzer
 │   ├── clean_patch_data.py           # Automated text & mojibake cleaner for PAR archives
-│   ├── sllz.py                       # Pure Python SLLZ compressor/decompressor (1:1 with Kaplas)
-│   ├── research/                     # Reverse engineering, PE disassembly, PAR & font tools
-│   ├── diff_y0_gog.diff              # File tree diff between Steam and GOG
-│   └── french_patch_files.txt        # Translated asset manifest from original patch
+│   ├── sllz.py                       # Pure Python SLLZ compressor/decompressor
+│   └── build_release.py              # Automated release packager and E2E validator
 │
 ├── .gitignore                        # Git exclusion rules
 ├── LICENSE                           # MIT License
