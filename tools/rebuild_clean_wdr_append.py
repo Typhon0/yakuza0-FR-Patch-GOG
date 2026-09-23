@@ -28,6 +28,7 @@ from tools.repair_phone_booths import PHONE_FILE_NAMES, PHONE_TRANSLATIONS, tran
 from tools.rebuild_all_shops_clean import generate_repaired_shops
 from scratch.test_merchant_dict import merchant_dict
 from scratch.prepare_snitch_translations import SNITCH_FR
+from tools.repair_chapter13_oda import repair_uid01331415
 
 def get_clean_french_ai_popup():
     common_path = 'release_gog/data/wdr_par_c/common.par'
@@ -219,6 +220,16 @@ def rebuild_clean_wdr_append(clean_par_path, curr_par_path, output_path):
             target_u_sz = len(patched)
             target_c_sz = len(comp_data)
             print(f"  [+] Injected French {name} (u_sz={target_u_sz}, c_sz={target_c_sz})")
+        elif name == 'uid01331415.msg':
+            clean_decomp = decompress_sllz(orig_data) if orig_data.startswith(b'SLLZ') else orig_data
+            repaired = repair_uid01331415(clean_decomp)
+            assert len(repaired) == 23696
+            comp_data = compress_sllz(repaired)
+            target_data = comp_data
+            target_flags = 0x80000000
+            target_u_sz = len(repaired)
+            target_c_sz = len(comp_data)
+            print(f"  [+] Injected repaired French {name} (Chapter 13 Oda) (u_sz={target_u_sz}, c_sz={target_c_sz})")
         elif name in curr_files:
             curr_item = curr_files[name]
             curr_flags, curr_u, curr_c, curr_data = curr_item

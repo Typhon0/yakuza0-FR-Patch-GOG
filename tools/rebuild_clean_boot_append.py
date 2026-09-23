@@ -10,7 +10,7 @@ Rebuilds boot.par using the proven 2048-byte sector-aligned append-only model:
    - caption.bin_c (15,376 bytes uncompressed)
    - explanation_main_scenario.bin_c (23,772 bytes uncompressed)
    - explanation_sub_story.bin_c (strict 58,232 bytes uncompressed, space-padded, prevents crash 0x371324)
-   - item.bin_c (192,308 bytes uncompressed, proven French stable baseline)
+   - item.bin_c (206,628 bytes uncompressed, full clean French table, prevents crash 0x9C4861)
    - string_tbl.bin_c (158,893 bytes uncompressed)
    - battle_deck_list.bin_c (2,972 bytes uncompressed)
    - encounter_pupup_message.bin_c (strict 24,908 bytes uncompressed, 6,189 bytes SLLZ compressed)
@@ -56,17 +56,19 @@ def get_clean_french_tips_tutorial_bin(fr_boot_path='par_original/boot_steam_fr.
 
     full_replacements_t = [
         (b'La s\xc3\xa9curit\xc3\xa9 a r\xc3\xa9solu le conflit\nSant\xc3\xa9 r\xc3\xa9duite de \xe2\x98\x85\x00',
-         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\x00'),
+         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85'),
         (b'La s\xc3\xa9curit\xc3\xa9 a r\xc3\xa9solu le conflit\nSant\xc3\xa9 r\xc3\xa9duite de \xe2\x98\x85\xe2\x98\x85\x00',
-         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\xe2\x98\x85\x00'),
+         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\xe2\x98\x85'),
         (b'La s\xc3\xa9curit\xc3\xa9 a r\xc3\xa9solu le conflit\nSant\xc3\xa9 r\xc3\xa9duite de \xe2\x98\x85\xe2\x98\x85\xe2\x98\x85\x00',
-         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\xe2\x98\x85\xe2\x98\x85\x00'),
+         b'La s\xe9curit\xe9 a r\xe9solu le conflit\nSant\xe9 r\xe9duite de \xe2\x98\x85\xe2\x98\x85\xe2\x98\x85'),
     ]
-    for bad, good in full_replacements_t:
+    for bad, good_text in full_replacements_t:
+        diff = len(bad) - (len(good_text) + 1)
+        good = good_text + (b' ' * diff) + b'\x00'
+        assert len(bad) == len(good)
         pos = dec.find(bad)
         while pos != -1:
-            diff = len(bad) - len(good)
-            dec[pos:pos+len(bad)] = good + b'\x00' * diff
+            dec[pos : pos + len(bad)] = good
             pos = dec.find(bad, pos + len(bad))
 
     assert len(dec) == orig_len, f"Length altered during normalization: {len(dec)} vs {orig_len}"
@@ -83,15 +85,55 @@ def get_clean_french_substory_bin(fr_boot_path='par_original/boot_steam_fr.par')
 
     bad_s = (b"J'ai trouv\xc3\xa9 le yakuza qui a pris Ara-Q3 au voyou qui\nl'a pris au gamin qui l'a arrach\xc3\xa9 \xc3\xa0 Akio \xc3\xa0 l'origine.\n"
              b"\xe2\x80\xa6 Trop compliqu\xc3\xa9 ! Quelqu'un va se faire frapper !\x00")
-    good_s = (b"J'ai trouv\xe9 le yakuza qui a pris Ara-Q3 au voyou qui\nl'a pris au gamin qui l'a arrach\xe9 \xe0 Akio \xe0 l'origine.\n"
-              b"... Trop compliqu\xe9 ! Quelqu'un va se faire frapper !\x00")
+    good_text = (b"J'ai trouv\xe9 le yakuza qui a pris Ara-Q3 au voyou qui\nl'a pris au gamin qui l'a arrach\xe9 \xe0 Akio \xe0 l'origine.\n"
+                 b"... Trop compliqu\xe9 ! Quelqu'un va se faire frapper !")
 
     pos = dec.find(bad_s)
     if pos != -1:
-        diff = len(bad_s) - len(good_s)
-        dec[pos:pos+len(bad_s)] = good_s + b'\x00' * diff
+        diff = len(bad_s) - (len(good_text) + 1)
+        good_s = good_text + (b' ' * diff) + b'\x00'
+        assert len(bad_s) == len(good_s)
+        dec[pos : pos + len(bad_s)] = good_s
 
     assert len(dec) == orig_len, f"Length altered during normalization: {len(dec)} vs {orig_len}"
+    comp = compress_sllz(bytes(dec))
+    return 0x80000000, len(dec), len(comp), comp
+
+def get_clean_french_item_bin(fr_boot_path='par_original/boot_steam_fr.par'):
+    with open(fr_boot_path, 'rb') as f:
+        fr_files = parse_par(f.read())
+    raw = fr_files['item.bin_c'][3]
+    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    orig_len = len(dec)
+    assert orig_len == 206628, f"Unexpected item.bin_c length: {orig_len}"
+
+    pairs = [
+        (b"Poulet au yuzu et soba d\xe2\x80\x99\xc3\xa9pinards",
+         b"Poulet au yuzu et soba d'\xe9pinards"),
+        (b"Pi\xc3\xa8ce d\xe2\x80\x99OVNI",
+         b"Pi\xe8ce d'OVNI"),
+        (b"Ses balles ont des effets diff\xc3\xa9rents. L'inconv\xc3\xa9nient,\nc'est qu'on ne sait pas ce que c'est avant\nd\xe2\x80\x99avoir tirer.",
+         b"Ses balles ont des effets diff\xe9rents. L'inconv\xe9nient,\nc'est qu'on ne sait pas ce que c'est avant\nd'avoir tirer."),
+        (b"Porter cet encens intrigant vous rend plus susceptible\nde rencontrer des ennemis ayant beaucoup d\xe2\x80\x99argent.",
+         b"Porter cet encens intrigant vous rend plus susceptible\nde rencontrer des ennemis ayant beaucoup d'argent."),
+        (b"Ce fragment de m\xc3\xa9t\xc3\xa9orite est un objet extr\xc3\xaamement\nrare. \xc3\x89tant donn\xc3\xa9 ses origines d\xe2\x80\x99un autre monde,\nil se vendrait sans doute pour une petite fortune.",
+         b"Ce fragment de m\xe9t\xe9orite est un objet extr\xeamement\nrare. \xc9tant donn\xe9 ses origines d'un autre monde,\nil se vendrait sans doute pour une petite fortune.")
+    ]
+
+    for bad, good_raw in pairs:
+        assert len(bad) >= len(good_raw)
+        diff = len(bad) - len(good_raw)
+        good = good_raw + (b' ' * diff)
+        assert len(bad) == len(good)
+        pos = dec.find(bad)
+        assert pos != -1, f"Could not find {bad}"
+        dec[pos : pos + len(bad)] = good
+
+    assert len(dec) == orig_len, f"Length altered during normalization: {len(dec)} vs {orig_len}"
+
+    for m in [b'\xc3\xa9', b'\xc3\xa8', b'\xc3\xaa', b'\xc3\x89', b'\xe2\x80\x99']:
+        assert dec.count(m) == 0, f"Remaining mojibake {m}"
+
     comp = compress_sllz(bytes(dec))
     return 0x80000000, len(dec), len(comp), comp
 
@@ -112,12 +154,13 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
     ability_entry = get_clean_french_ability_bin()
     tips_entry = get_clean_french_tips_tutorial_bin()
     substory_entry = get_clean_french_substory_bin()
+    item_entry = get_clean_french_item_bin()
 
     TARGET_FILES = {
         'caption.bin_c': ref_par['caption.bin_c'],
         'explanation_main_scenario.bin_c': ref_par['explanation_main_scenario.bin_c'],
         'explanation_sub_story.bin_c': substory_entry,
-        'item.bin_c': ref_par['item.bin_c'],
+        'item.bin_c': item_entry,
         'string_tbl.bin_c': ref_par['string_tbl.bin_c'],
         'battle_deck_list.bin_c': ref_par['battle_deck_list.bin_c'],
         'encounter_pupup_message.bin_c': epm_entry,

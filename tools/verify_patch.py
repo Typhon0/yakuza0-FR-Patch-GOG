@@ -278,6 +278,72 @@ class ParValidator:
                     except:
                         pass
 
+            if fn == 'uid01331415.msg':
+                if u_sz != 23696:
+                    self.error(
+                        f"{fn}: taille décompressée incorrecte {u_sz} (attendu: 23696) — "
+                        f"CAUSE DU CRASH APRÈS AVOIR BATTU ODA (CH. 13)"
+                    )
+                if not is_sllz_flag:
+                    self.error(f"{fn}: devrait être compressé SLLZ")
+                if is_sllz_flag and is_sllz_data:
+                    try:
+                        dec = decompress_sllz(file_bytes)
+                        if b"Par ici." not in dec or b"Tachibana" not in dec:
+                            self.warn(f"{fn}: dialogue français Ch. 13 Oda non trouvé")
+                    except:
+                        pass
+
+            if fn == 'item.bin_c':
+                if is_sllz_flag and is_sllz_data:
+                    try:
+                        dec = decompress_sllz(file_bytes)
+                        if len(dec) >= 16 and dec[:4] == b'\x20\x07\x03\x19':
+                            ncols, nrows = struct.unpack('>2I', dec[4:12])
+                            c2_off = 16 + 2 * 64
+                            c2_t, c2_cnt, c2_sz, c2_fl = struct.unpack('>4I', dec[c2_off + 48 : c2_off + 64])
+                            start_data = 16 + ncols * 64
+                            for c in range(2):
+                                start_data += struct.unpack('>I', dec[16 + c*64 + 56 : 16 + c*64 + 60])[0]
+                            c2_data = dec[start_data : start_data + c2_sz]
+                            strs = c2_data.split(b'\x00')[:-1]
+                            empties = [idx for idx, s in enumerate(strs) if len(s) == 0]
+                            if empties:
+                                self.error(
+                                    f"{fn}: {len(empties)} objet(s) avec nom vide détecté(s) (ex: ligne {empties[0]}) "
+                                    f"— CAUSE DU CRASH 0x9C4861 (Substory 49 / Fan-san)"
+                                )
+                    except Exception as ex:
+                        self.error(f"{fn}: erreur vérification table item.bin_c: {ex}")
+
+            if fn == 'explanation_sub_story.bin_c':
+                if is_sllz_flag and is_sllz_data:
+                    try:
+                        dec = decompress_sllz(file_bytes)
+                        if len(dec) >= 16 and dec[:4] == b'\x20\x07\x03\x19':
+                            ncols, nrows = struct.unpack('>2I', dec[4:12])
+                            c3_off = 16 + 3 * 64
+                            c3_t, c3_cnt, c3_sz, c3_fl = struct.unpack('>4I', dec[c3_off + 48 : c3_off + 64])
+                            start_data = 16 + ncols * 64
+                            for c in range(3):
+                                start_data += struct.unpack('>I', dec[16 + c*64 + 56 : 16 + c*64 + 60])[0]
+                            c3_data = dec[start_data : start_data + c3_sz]
+                            strs = c3_data.split(b'\x00')[:-1]
+                            if len(strs) != c3_cnt:
+                                self.error(f"{fn}: décalage de lignes dans EXPLANATION ({len(strs)} vs {c3_cnt})")
+                            empties = sum(1 for s in strs if not s)
+                            if empties > 0:
+                                self.error(f"{fn}: {empties} chaînes vides dans EXPLANATION — risque de crash")
+                    except Exception as ex:
+                        self.error(f"{fn}: erreur vérification explanation_sub_story.bin_c: {ex}")
+
+            if fn in ['uid00331696.msg', 'uid003316a2.msg']:
+                if u_sz != 27575:
+                    self.error(
+                        f"{fn}: taille décompressée incorrecte {u_sz} (attendu: 27575) — "
+                        f"CAUSE DU SOFTLOCK DE BOB UTSUNOMIYA 0 (Règle d'or n°2)"
+                    )
+
 
 # ── Main ────────────────────────────────────────────────────────────────────
 def find_game_dir(hint=None):
@@ -351,12 +417,33 @@ def main():
 
     start = time.time()
 
+    CANONICAL_CRITICAL_RELPATHS = {
+        'boot.par': os.path.normpath('bootpar/boot.par'),
+        'stay.par': os.path.normpath('staypar/stay.par'),
+        'common.par': os.path.normpath('wdr_par_c/common.par'),
+        'wdr.par': os.path.normpath('wdr_par_c/wdr.par'),
+        'pause.par': os.path.normpath('pausepar_e/pause.par'),
+        'chapter.par': os.path.normpath('pausepar_e/chapter.par'),
+        'minigame.par': os.path.normpath('pausepar_e/minigame.par'),
+        'find_arms.par': os.path.normpath('pausepar_e/find_arms.par'),
+        'pokecir.par': os.path.normpath('minigame/pokecir.par'),
+    }
+
     # 1. Critical archives (deep check with SLLZ decompression)
     print("─" * 70)
     print("  VÉRIFICATION APPROFONDIE DES ARCHIVES CRITIQUES (avec décompression)")
     print("─" * 70)
     for p in critical_pars:
         rel = os.path.relpath(p, data_dir)
+        canon = CANONICAL_CRITICAL_RELPATHS.get(os.path.basename(p))
+        if canon and os.path.normpath(rel) != canon:
+            total_warn += 1
+            print(f"  \033[93m[DOUBLON ORPHELIN IGNORÉ]\033[0m {rel}")
+            print(f"         ⚠️ Ce fichier est situé dans un sous-dossier parasite non chargé par le jeu.")
+            print(f"         💡 Le fichier officiel actif du jeu est '{canon}'.")
+            print(f"         🗑️ Vous pouvez supprimer ce sous-dossier accidentel en toute sécurité.")
+            continue
+
         v = ParValidator(p)
         v.validate()
 

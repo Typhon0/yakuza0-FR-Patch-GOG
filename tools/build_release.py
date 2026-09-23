@@ -28,7 +28,7 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.8"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.9"
 
 # Files to include from tools/
 TOOL_FILES = [
@@ -51,6 +51,8 @@ TOOL_FILES = [
     "tools/sllz.py",
     "tools/clean_patch_data.py",
     "tools/build_calibrated_substories.py",
+    "tools/repair_chapter13_oda.py",
+    "tools/deep_audit.py",
     # Translation data
     "tools/shop_translations_data.py",
     "tools/wdr_translations_data.py",
@@ -94,7 +96,7 @@ ROOT_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.8
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.9
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
@@ -257,23 +259,30 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.6
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.9
 
-## Nouveautés v1.12.6
+## Nouveautés v1.12.9
+- **Correction critique du crash au Chapitre 13 après le combat contre Oda (`uid01331415.msg`)** :
+  Restauration de la cinématique et des dialogues avec Jun Oda bit-à-bit sur le bytecode Sega vanilla officiel, réinjection in-place des 62 répliques françaises calibrées sans altération des pointeurs ni de la taille de fichier (23 696 octets stricts).
+- **Correction critique du crash à la fin de la Quête #49 avec Fan-san (`Yakuza0.exe+0x9C4861`, `item.bin_c`)** :
+  Intégration de la table complète certifiée sans la moindre chaîne vide dans la colonne NAME, éliminant tout déréférencement NULL lors des notifications HUD d'obtention d'objets.
+- **Correction des décalages d'histoires secondaires (`explanation_sub_story.bin_c`)** :
+  Remplacement du null-padding par du space-padding pour préserver rigoureusement l'indexation séquentielle du moteur RGG (447 histoires pour 447 lignes déclarées, 0 décalage).
+- **Audit approfondi d'intégrité intégré (`tools/deep_audit.py`)** :
+  Contrôle exhaustif automatique des 131 archives PAR, 115 tables de propriétés RGG, 1 655 scripts de dialogue, 35 boutiques et cabines téléphoniques.
+- **Localisation intégrale et enrichie de `boot.par` & `stay.par`** :
+  Toutes les compétences, tutoriels, mails, messages Heat et tables de gestion traduits fidèlement en français sans compromis.
 - **Sécurisation absolue de l'installateur `patch_fr.bat`** :
-  1. Fermeture automatique de tout processus `Yakuza0.exe` résiduel ou fantôme pour lever les verrous d'écriture Windows (Permissions / Sharing Violation).
-  2. Résolution canonique des chemins (`%%~fI`) éliminant tout dysfonctionnement lié aux chemins relatifs (`..`).
-  3. Contrôle strict et bloquant de la copie des archives avec vérification de taille minimale (>7 Mo pour `wdr.par`).
-  4. Vérification d'intégrité sur disque après écriture de `Yakuza0.exe` (contrôle des marges typographiques à 0.4).
-- **Correction critique des cabines téléphoniques et sauvegardes (0x6EA328 / 0x6F21E0)** :
+  Fermeture automatique de tout processus `Yakuza0.exe` résiduel, déverrouillage des attributs lecture seule (+R) fréquents sur GOG, normalisation canonique des chemins et contrôle d'intégrité post-copie.
+- **Cabines téléphoniques & sauvegardes (0x6EA328 / 0x6F21E0)** :
   Restauration intégrale du bytecode Sega officiel sur l'ensemble des 25 fichiers d'interaction de Kamurocho et Sotenbori.
 - **Pharmacies Kotobuki Drugs & Daikoku Drugstore (0x234B0 / 0x234B7)** :
-  Tables propriétaires Pocket Circuit (24 et 20 octets) 100% préservées.
+  Tables propriétaires Pocket Circuit (24 et 20 octets) et alignement sectoriel 2 048 octets strictement préservés.
 - **Typographie et crénage parfaits** :
-  Injection de la table complète de 6 144 octets garantissant zéro chevauchement de lettres sur `i` et `l`.
+  Injection de la table de crénage symétrique [0.4, 0.4] éliminant tout chevauchement de lettres sur `i` and `l`.
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.6.zip`.
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.9.zip`.
 2. Lancez `patch_fr.bat` (en faisant un clic droit -> « Exécuter en tant qu'administrateur »).
 3. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
 

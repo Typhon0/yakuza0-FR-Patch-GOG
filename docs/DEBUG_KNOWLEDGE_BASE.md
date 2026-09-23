@@ -386,3 +386,90 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
   3. Pour l'inventaire et le menu pause, `boot.par -> item.bin_c` peut être injecté en mode append-only 2 048 octets depuis la base certifiée Steam FR (`par_original/boot_steam_fr.par`, 206 628 octets décompressés) après nettoyage des mojibakes. Contrairement aux scénarios et quêtes secondaires (`0x371324`), `item.bin_c` ne fait l'objet d'aucune allocation de mémoire fixe dans `Yakuza0.exe`.
 * **Règle absolue :** Toujours utiliser `tools/rebuild_all_shops_clean.py` adossé à `tools/shop_translations_data.py` pour régénérer les magasins, et injecter `item.bin_c` français via `tools/rebuild_clean_boot_append.py`.
 
+### 10. Crash après avoir battu Oda — Chapitre 13 (`Yakuza0.exe+0x30ED`, `uid01331415.msg`)
+* **Symptôme :** Crash immédiat `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) à la fin du combat de boss contre Jun Oda (Tachibana Immobilier) au Chapitre 13 ("Crime et Châtiment"), au moment de la cinématique de dialogue / aveu d'Oda sur son tatouage et sa rencontre avec Tachibana.
+* **Adresse RIP du crash :** `Yakuza0.exe+0x30ED` (`0x1400030ED`), instruction `movzbl (%r8), %eax`.
+* **Analyse des registres :**
+  - `%r8 = 0x64` (100 décimal)
+  - `%rdx = 0x73` ('s' de `%s`)
+  - `%r12 = 0x10` (16 octets déjà écrits)
+  - `%r15 = 0x7ff4d48418c8` (pointeur dans la chaîne de formatage sur le heap)
+  - `%rbx = 0x14f780` (buffer cible sur la pile)
+  - `%rdi = 0x14f728` (`va_list`)
+* **Cause racine :**
+  1. La routine `0x140002E70` est le formateur `vsnprintf` interne de Sega. À `0x1400030ED`, le moteur traite un spécificateur `%s` et déréférence l'argument passé dans `%r8`. L'argument passé était l'entier `0x64` (100) au lieu d'un pointeur mémoire valide, provoquant un accès hors mémoire sur la page nulle.
+  2. Le script de dialogue de cette scène est `uid01331415.msg` dans `data/wdr_par_c/wdr.par`.
+  3. Dans le patch communautaire Steam historique de 2022, `uid01331415.msg` a été recompilé avec une table de chaînes raccourcie (23 604 octets au lieu de 23 696 octets vanilla, soit -92 octets) en omettant la ligne de dialogue index 54 (`b"......"`).
+  4. Cette omission a décalé d'une unité tous les index de dialogue de 54 à 61, et a décalé les tables de nœuds de `0x64` octets (100 octets !). Arrivé à la réplique finale d'Oda (*« Merde... Planquons-nous ici »*), le moteur lisait au-delà de la table dans du bytecode résiduel contenant l'octet `0x64`, qu'il a tenté de passer à `vsnprintf` comme pointeur de chaîne (`%s`), déclenchant le crash instantané à `0x30ED`.
+* **Solution pérenne :**
+  1. `tools/repair_chapter13_oda.py` : applique une traduction française in-place calibrée sur les 62 répliques d'origine depuis le binaire Sega vanilla GOG (`par_original/wdr.par`), préservant bit-à-bit la taille de **23 696 octets**, les 62 slots de chaînes avec space-padding, et 100% des offsets de sauts et opcodes de bytecode.
+  2. Intégration systématique dans `tools/rebuild_clean_wdr_append.py` et validation automatique dans `tools/verify_patch.py`.
+
+### 11. Crash Notification d'Objet / Fin Discussion Faussaire — Quête #49 (`Yakuza0.exe+0x9C4861`, `item.bin_c`)
+* **Symptôme :** Crash `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) à la fin de la discussion avec Fan-san (le faussaire) dans la quête secondaire #49 (*De tout cœur* / *Collier en forme de cœur*, `uid00410047.msg`), au moment où Majima rend la carte de visite de Fan.
+* **Adresse RIP du crash :** `Yakuza0.exe+0x9C4861` (`0x1409C4861`), instruction `movzx ecx, BYTE PTR [rax+rdx*1]`.
+* **Analyse des registres au crash :**
+  - `rsp = 0x00000014f6e0` $\rightarrow$ `rcx = rdx = rsp + 0x60 = 0x00000014f740`
+  - `rax = 0xffffffffffeb08c0` (complément à 2 de `-0x14f740`)
+  - `rax + rdx = -0x14f740 + 0x14f740 = 0x0000000000000000` (déréférencement de pointeur NULL)
+  - `r10 = 0x0000000001af` (soit **431** décimal, ID de l'objet `event_fanmeishi` = *Carte de visite de Fan*)
+* **Cause racine :**
+  1. À la fin de la quête, le moteur enfile une notification HUD d'objet pour l'élément 431. Le thread de rendu (`Primary Render Thread`, `0x1409B5979` $\rightarrow$ `0x1409C4760`) appelle `CFileItem::GetString(item_id=431, col=2)` (`0x14037BD60`) pour récupérer le nom de l'objet dans `boot.par -> item.bin_c`.
+  2. Dans `item.bin_c`, la colonne 2 (`NAME`) est de type 0 (séquence de chaînes séparées par `\x00`).
+  3. Une ancienne routine de traduction `translate_boot_par_complete.py` utilisait du null-padding (`\x00 * diff`) pour tenter de forcer `item.bin_c` à la taille anglaise (192 308 octets). Cela a inséré 37 octets nuls supplémentaires dans la table, décalant les index de lignes et vidant 35 noms d'objets (dont la ligne 431 `event_fanmeishi` qui valait `""`).
+  4. Le parser de table binaire Sega (`0x140371324`) retourne `NULL` (`0x0`) lorsqu'une chaîne est vide (`BYTE PTR [rax] == 0x0`).
+  5. Contrairement à la routine d'icône `0x14037BD10` qui gère le retour NULL en retombant sur `default.dds`, la fonction `0x1409C4760` enchaîne immédiatement sur `strcpy` (`sub rax, rcx; movzx ecx, BYTE PTR [rax+rdx*1]`). Avec `rax == 0`, elle tente de lire à l'adresse 0 et crashe.
+* **Solution pérenne :**
+  1. Extraire la table complète officielle française `item.bin_c` depuis `par_original/boot_steam_fr.par` (**206 628 octets**, 963 lignes sans la moindre ligne vide).
+  2. Nettoyer in-place les 5 mojibakes résiduels (`dâ€™Ã©pinards`, `PiÃ¨ce dâ€™OVNI`, `diffÃ©rents...`, `dâ€™argent`, `mÃ©tÃ©orite...`) avec compensation par espaces (`b' '`) afin de conserver la taille bit-exacte à **206 628 octets** sans ajouter d'octet nul.
+  3. Injecter cette table via `tools/rebuild_clean_boot_append.py` en mode Append-Only avec alignement sectoriel strict de 2 048 octets.
+  4. L'allocation dynamique vérifiée dans `Yakuza0.exe` à `0x14037D5A6` alloue dynamiquement la taille déclarée dans le PAR sans aucune contrainte de buffer fixe.
+
+### 12. Mécanisme Fondamental d'Indexation des Tables RGG (`0x20070319`) et Audit Global Anti-Crash
+* **Désassemblage critique du moteur Sega (`Yakuza0.exe+0x371300` à `0x371333`) :**
+  ```assembly
+  140371300: 49 8d 04 09          lea    rax, [r9+rcx*1]        ; rax = début de la colonne de chaînes
+  140371304: 45 85 d2             test   r10d, r10d             ; r10d = index de ligne cible
+  140371307: 74 16                je     0x14037131f           ; Si ligne 0, terminé
+  140371309: 0f 1f 80 00 00 00 00 nop    DWORD PTR [rax]
+  140371310: 80 38 00             cmp    BYTE PTR [rax], 0x0    ; Rencontre-t-on un octet nul \x00 ?
+  140371313: 75 02                jne    0x140371317
+  140371315: ff c2                inc    edx                    ; edx incrémente le compteur de lignes
+  140371317: 48 ff c0             inc    rax                    ; Avance dans le buffer
+  14037131a: 41 3b d2             cmp    edx, r10d              ; A-t-on atteint la ligne cible ?
+  14037131d: 72 f1                jb     0x140371310            ; Boucle tant que edx < r10d
+  14037131f: 48 85 c0             test   rax, rax
+  140371322: 74 07                je     0x14037132b
+  140371324: 80 38 00             cmp    BYTE PTR [rax], 0x0    ; Premier caractère de la chaîne cible
+  140371327: 75 02                jne    0x14037132b
+  140371329: 33 c0                xor    eax, eax               ; SI PREMIER CARACTÈRE == 0x0 (CHAÎNE VIDE), RETOURNE NULL (0x0) !
+  14037132b: 48 8b 1c 24          mov    rbx, QWORD PTR [rsp]
+  14037132f: 48 83 c4 08          add    rsp, 0x8
+  140371333: c3                   ret
+  ```
+* **Implications capitales de cette routine :**
+  1. **Pas de table d'offsets séparée :** Le moteur Sega n'utilise pas de pointeurs pour les colonnes de type 0 (`string`). Il parcourt les octets séquentiellement et compte les octets nuls `\x00` pour sauter d'une ligne à la suivante.
+  2. **Interdiction absolue du null-padding (`\x00 * diff`) :**
+     - Si une traduction remplace une chaîne par un texte plus court complété par des `\x00`, chaque octet `\x00` supplémentaire est interprété par `inc edx` comme une NOUVELLE LIGNE.
+     - Conséquence : TOUTES les lignes suivantes de la table sont décalées d'autant d'unités, et des lignes fantômes vides (`""`) sont créées.
+     - Quand le jeu interroge l'une de ces lignes fantômes, l'instruction `0x140371329: xor eax, eax` retourne `NULL`.
+     - Dès qu'un composant de rendu appelle `strcpy(dest, ptr)` (ex: notification HUD `0x1409C4760`, journal de quête), il déréférence l'adresse `0x0` et provoque un crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`).
+  3. **Règle du Space-Padding :**
+     - Tout remplacement d'une chaîne par une chaîne plus courte doit impérativement être complété avec des espaces ASCII (`b' ' * diff`) AVANT le terminateur nul unique (`b'\x00'`).
+     - Ainsi, `len(str_bytes) == len(orig_bytes)`, aucun octet nul supplémentaire n'est introduit, le nombre total de chaînes reste identique au nombre de lignes déclaré, et aucun décalage d'index n'est possible.
+* **Découverte et correction immédiate lors de l'audit :**
+  - Dans `explanation_sub_story.bin_c`, une substitution antérieure sur la quête Ara-Q3 avait injecté 5 octets nuls (`\x00 * 5`), créant 5 lignes vides aux index 14 à 18 et décalant les 428 histoires secondaires suivantes de 5 crans !
+  - Corrigé immédiatement dans `tools/rebuild_clean_boot_append.py` par space-padding : désormais, la colonne `EXPLANATION` compte exactement **447 chaînes pour 447 lignes déclarées (0 chaîne vide)**.
+* **Outil d'Audit Exhaustif Global (`tools/deep_audit.py`) :**
+  - Développé et déployé pour balayer automatiquement en 3 secondes :
+    - Les 131 archives PAR (en-têtes, intégrité et alignement sectoriel 2 048 octets).
+    - Les 115 tables de propriétés RGG (`0x20070319`) : vérification d'absence totale de chaînes vides dans les colonnes `NAME`, détection des décalages d'index de lignes, contrôle des formats.
+    - Les 1 655 scripts de dialogue `.msg` (détection des dépassements d'offsets de pointeurs).
+    - Les 35 fichiers de boutique `shop*.bin` (validation des pas de 48 octets et intégrité bit-exacte des tables Pocket Circuit 24B & 20B).
+    - Les 25 fichiers de cabines téléphoniques (stricts 58 caractères ASCII, simulation x86-64 sans crash).
+    - Les scripts de Bob Utsunomiya (strictement 27 575 octets décompressés).
+  - Intégré également dans `tools/verify_patch.py` pour bloquer immédiatement toute tentative de build en cas de nom d'objet ou de description vide.
+
+
+
+
