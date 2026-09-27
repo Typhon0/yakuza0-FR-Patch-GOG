@@ -26,6 +26,41 @@ sys.path.insert(0, os.path.abspath('scratch'))
 from scratch.scanner_engine import parse_par, decompress_sllz
 from tools.sllz import compress_sllz
 from tools.translate_stay_par_complete import translate_exact_bytes
+from tools.calibrate_stay_tables import (
+    CABARET_AREA_CALIBRATED,
+    BATTLE_RESULT_CALIBRATED,
+    CABA_CAST_CALIBRATED,
+    MONEY_ISLAND_TARENT_CALIBRATED,
+    ULTIMATE_CALIBRATED,
+    SEARCH_ARMS_PICTURE_CALIBRATED,
+    SEARCH_ARMS_AGENT_CALIBRATED,
+    SEARCH_ARMS_LOCATION_CALIBRATED,
+    ACTIVITY_LIST_CALIBRATED,
+)
+
+def apply_in_place_clean(raw_data, trans_dict, table_name=''):
+    out = bytearray(raw_data)
+    for en, fr in trans_dict.items():
+        en_b = en.encode('latin1')
+        fr_clean = fr.replace('’', "'").replace('‘', "'").replace('«', '"').replace('»', '"').replace('œ', 'oe').replace('Œ', 'OE')
+        fr_b = fr_clean.encode('latin1')
+        diff = len(en_b) - len(fr_b)
+        assert diff >= 0, f"Translation too long for {table_name}: {repr(en)}"
+        rep_b = fr_b + (b' ' * diff)
+        assert len(rep_b) == len(en_b)
+        
+        pos = 0
+        while True:
+            idx = out.find(en_b, pos)
+            if idx == -1:
+                break
+            out[idx : idx + len(en_b)] = rep_b
+            pos = idx + len(en_b)
+    
+    clean_bytes = bytes(out)
+    assert len(clean_bytes) == len(raw_data), f"Length altered for {table_name}: {len(clean_bytes)} != {len(raw_data)}"
+    assert clean_bytes.count(b'\x00') == raw_data.count(b'\x00'), f"Null count altered for {table_name}!"
+    return clean_bytes
 
 def get_clean_correlation_person_bin(ref_par):
     raw = ref_par['correlation_person.bin_c'][3]
@@ -60,10 +95,19 @@ def get_clean_correlation_person_bin(ref_par):
 
 def get_clean_activity_list_bin(clean_par):
     raw = decompress_sllz(clean_par['activity_list.bin_c'][3])
-    clean = raw.replace(b'Go out with Riichi Ippatsu', b'Gagner avec Riichi Ippatsu')
-    clean = clean.replace(b'Go out with Full Straight', b'Gagner avec Grande Suite ')
-    assert len(clean) == len(raw), f"Length mismatch in activity_list: {len(clean)} != {len(raw)}"
-    assert clean.count(b'\x00') == raw.count(b'\x00'), "Null count diff in activity_list!"
+    clean = apply_in_place_clean(raw, ACTIVITY_LIST_CALIBRATED, 'activity_list.bin_c')
+    comp = compress_sllz(clean)
+    return 0x80000000, len(clean), len(comp), comp
+
+def get_clean_search_arms_agent_bin(clean_par):
+    raw = decompress_sllz(clean_par['search_arms_agent.bin_c'][3])
+    clean = apply_in_place_clean(raw, SEARCH_ARMS_AGENT_CALIBRATED, 'search_arms_agent.bin_c')
+    comp = compress_sllz(clean)
+    return 0x80000000, len(clean), len(comp), comp
+
+def get_clean_search_arms_location_bin(clean_par):
+    raw = decompress_sllz(clean_par['search_arms_location.bin_c'][3])
+    clean = apply_in_place_clean(raw, SEARCH_ARMS_LOCATION_CALIBRATED, 'search_arms_location.bin_c')
     comp = compress_sllz(clean)
     return 0x80000000, len(clean), len(comp), comp
 
@@ -93,6 +137,40 @@ def get_clean_tougijyo_realtime_quest_bin(clean_par):
     comp = compress_sllz(clean)
     return 0x80000000, len(clean), len(comp), comp
 
+def get_clean_cabaret_island_area_bin(clean_par):
+    raw = clean_par['cabaret_island_area.bin_c'][3]
+    clean = apply_in_place_clean(raw, CABARET_AREA_CALIBRATED, 'cabaret_island_area.bin_c')
+    return 0x0, len(clean), len(clean), clean
+
+def get_clean_battle_result_bin(clean_par):
+    raw = clean_par['battle_result.bin_c'][3]
+    clean = apply_in_place_clean(raw, BATTLE_RESULT_CALIBRATED, 'battle_result.bin_c')
+    return 0x0, len(clean), len(clean), clean
+
+def get_clean_caba_cast_info_bin(clean_par):
+    raw = decompress_sllz(clean_par['caba_cast_info.bin_c'][3])
+    clean = apply_in_place_clean(raw, CABA_CAST_CALIBRATED, 'caba_cast_info.bin_c')
+    comp = compress_sllz(clean)
+    return 0x80000000, len(clean), len(comp), comp
+
+def get_clean_money_island_tarent_bin(clean_par):
+    raw = decompress_sllz(clean_par['money_island_tarent.bin_c'][3])
+    clean = apply_in_place_clean(raw, MONEY_ISLAND_TARENT_CALIBRATED, 'money_island_tarent.bin_c')
+    comp = compress_sllz(clean)
+    return 0x80000000, len(clean), len(comp), comp
+
+def get_clean_ultimate_bin(clean_par):
+    raw = decompress_sllz(clean_par['ultimate.bin_c'][3])
+    clean = apply_in_place_clean(raw, ULTIMATE_CALIBRATED, 'ultimate.bin_c')
+    comp = compress_sllz(clean)
+    return 0x80000000, len(clean), len(comp), comp
+
+def get_clean_search_arms_result_picture_bin(clean_par):
+    raw = decompress_sllz(clean_par['search_arms_result_picture.bin_c'][3])
+    clean = apply_in_place_clean(raw, SEARCH_ARMS_PICTURE_CALIBRATED, 'search_arms_result_picture.bin_c')
+    comp = compress_sllz(clean)
+    return 0x80000000, len(clean), len(comp), comp
+
 def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
                              ref_par_path='scratch/data/staypar/stay.par',
                              output_path='release_gog/data/staypar/stay.par'):
@@ -114,11 +192,19 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
     # All in-place string replacements MUST preserve exact byte length and null counts (b' ' padding, not b'\x00')
     TARGET_TABLES = [
         'activity_list.bin_c',
+        'battle_result.bin_c',
+        'caba_cast_info.bin_c',
+        'cabaret_island_area.bin_c',
         'controller_explain.bin_c',
         'correlation_person.bin_c',
+        'money_island_tarent.bin_c',
         'response_roulette.bin_c',
+        'search_arms_agent.bin_c',
+        'search_arms_location.bin_c',
+        'search_arms_result_picture.bin_c',
         'tougijyo_realtime_quest.bin_c',
         'tutorial.bin_c',
+        'ultimate.bin_c',
         'virtue_shop.bin_c',
     ]
 
@@ -132,12 +218,28 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
                 r_flags, r_u, r_c, r_data = get_clean_correlation_person_bin(ref_par)
             elif name == 'activity_list.bin_c':
                 r_flags, r_u, r_c, r_data = get_clean_activity_list_bin(clean_par)
+            elif name == 'battle_result.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_battle_result_bin(clean_par)
+            elif name == 'caba_cast_info.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_caba_cast_info_bin(clean_par)
+            elif name == 'cabaret_island_area.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_cabaret_island_area_bin(clean_par)
             elif name == 'controller_explain.bin_c':
                 r_flags, r_u, r_c, r_data = get_clean_controller_explain_bin(clean_par)
+            elif name == 'money_island_tarent.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_money_island_tarent_bin(clean_par)
             elif name == 'response_roulette.bin_c':
                 r_flags, r_u, r_c, r_data = get_clean_response_roulette_bin(clean_par)
+            elif name == 'search_arms_agent.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_search_arms_agent_bin(clean_par)
+            elif name == 'search_arms_location.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_search_arms_location_bin(clean_par)
+            elif name == 'search_arms_result_picture.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_search_arms_result_picture_bin(clean_par)
             elif name == 'tougijyo_realtime_quest.bin_c':
                 r_flags, r_u, r_c, r_data = get_clean_tougijyo_realtime_quest_bin(clean_par)
+            elif name == 'ultimate.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_ultimate_bin(clean_par)
             elif name in ref_par:
                 r_flags, r_u, r_c, r_data = ref_par[name]
             else:

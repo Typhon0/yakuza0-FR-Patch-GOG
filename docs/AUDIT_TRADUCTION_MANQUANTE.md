@@ -106,37 +106,26 @@ Ces menus sont appelés très fréquemment par le joueur lorsqu'il interagit ave
 
 ---
 
-### C. Gestion, Cabaret Club, Immobilier & CP (`data/staypar/stay.par`) — 544 chaînes
+### C. Gestion, Cabaret Club, Immobilier & CP (`data/staypar/stay.par`) — ✅ 100% Traduit & Validé (Phase 3)
 
-Toutes les données résidentes de gestion d'activités :
+Toutes les données résidentes de gestion d'activités ont été intégralement traduites et étalonnées en place (space-padding strict, 0 décalage d'octets nuls, flags bruts préservés, alignement sectoriel 2 048 octets) :
 
-1. **Objectifs de Points de Complétion / CP (`activity_list.bin_c` — 216 chaînes) :**
-   - *« Talk to people %d times »*
-   - *« Buy from Dream Machines %d times »*
-   - *« Defeat %d enemies on the street »*
-   - *« Help %d attack victims around town »*
-   - *« Complete Gindaco »*, *« Complete Yoronotaki »*
-2. **Recherche d'armes Dragon & Tigre (`search_arms_location.bin_c` & `search_arms_agent.bin_c` — 121 chaînes) :**
-   - Zones d'exploration : *« The Arctic »*, *« Dispatch agents to locations in Japan... »*, *« Areas known for oil, extreme wealth... »*
-   - Rapports de mission (`search_arms_result_picture.bin_c`) : *« Sudden setback! Interference from the locals. »*, *« Tight spot! Surrounded by men who look like bad news. »*
-3. **Biographies des Hôtesses du Sunshine (`caba_cast_info.bin_c` — 29 chaînes) :**
-   - Profils de recrutement : *« The star of this club. She's a diamond in the rough who could shine. »*
-   - *« One of Sotenbori's top girls, her customer care skills are unparalleled. »*
-4. **Biographies des Employés Immobiliers (`money_island_tarent.bin_c` — 29 chaînes) :**
-   - Profils des managers et agents de sécurité de Kiryu : *« I'm all about keeping things the same... »*, *« I know Kamurocho's underbelly inside out... »*
-5. **Descriptions des Clubs Rivaux (`cabaret_island_area.bin_c` — 15 chaînes) :**
-   - Club Mars, Club Jupiter, Club Mercury, Club Vénus, Club Moon.
-6. **Combats Ultimes (`ultimate.bin_c` — 14 chaînes) :**
-   - *« Missions with special completion requirements. »*
-   - *« Defeat all enemies in a variety of situations. »*
-   - *« Fulfill monetary requirements to win big. »*
-7. **Rangs de fin de combat & Manette (`battle_result.bin_c`, `controller_explain.bin_c` — 72 chaînes) :**
-   - *« The Brawler »*, *« The Rusher »*, *« The Beast »*, *« Enemy Down »*.
-   - *« Finish/Back »*, *« Cancel Close Window »*.
-
-> 📌 **Note :** La quasi-totalité des traductions françaises de ces tables a déjà été préparée dans [`tools/stay_translations_data.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/stay_translations_data.py).
-
----
+1. **Objectifs de Points de Complétion / CP (`activity_list.bin_c` — 390 chaînes étalonnées) :** ✅
+   - Intitulés et descriptions des 222 défis CP traduits et calibrés (`len(FR) <= len(EN)`).
+   - Protection absolue contre le crash `vsnprintf` (`0x1400030ED`).
+2. **Recherche d'armes Dragon & Tigre (`search_arms_location.bin_c` & `search_arms_agent.bin_c` — 246 chaînes étalonnées) :** ✅
+   - 38 noms d'agents, 5 indices de profil, 58 destinations mondiales, 37 indices d'organisations et sous-titres traduits.
+   - Rapports de mission (`search_arms_result_picture.bin_c` — 17 rapports) traduits.
+3. **Biographies des Hôtesses du Sunshine (`caba_cast_info.bin_c` — 30 hôtesses) :** ✅
+   - Yuki, Chika, Mana, Ai, Hibiki, Saki et toutes les hôtesses platine/or/argent/bronze traduites.
+4. **Biographies des Employés Immobiliers (`money_island_tarent.bin_c` — 33 employés) :** ✅
+   - Présentations, managers, agents de sécurité et conseillers de Kiryu traduits.
+5. **Descriptions des Clubs Rivaux (`cabaret_island_area.bin_c` — 20 chaînes) :** ✅
+   - Club Mars, Club Jupiter, Club Mercury, Club Vénus, Club Moon. Préservation stricte de `flags = 0x0` (RAW).
+6. **Combats Ultimes (`ultimate.bin_c` — 58 chaînes) :** ✅
+   - Intitulés d'épreuves (Épreuve, Mêlée, Duel de Millions, Combat Ultime) et conditions de victoire traduits.
+7. **Rangs de fin de combat & Manette (`battle_result.bin_c`, `controller_explain.bin_c` — 64 chaînes) :** ✅
+   - 30 rangs et descriptions de combat traduits. Préservation stricte de `flags = 0x0` (RAW).
 
 ### D. Système, Actions Heat & Bipeur (`data/bootpar/boot.par`) — 493 chaînes
 
