@@ -277,6 +277,8 @@ PAC_TRANSLATIONS = {
         "D'autres ennemis arrivent !",
     "Reinforcements are on the way!":
         "Des renforts sont en route !",
+    "Table up in Front":
+        "Table de devant",
     "Table at the Back":
         "Table du fond",
     "Table near the Back":

@@ -71,6 +71,10 @@ WDR_FINAL_DICT = {
         '\x01A\x02\x98(Des machines ici. Mieux vaut ne pas toucher au bureau.)',
     '\x01pTo the Bed of Styx':
         '\x01pAu Lit du Styx',
+    '\x01bTable up in Front':
+        '\x01bTable de devant',
+    'Table up in Front':
+        'Table de devant',
     '\x01\x92Table at the Back':
         '\x01\x92Table du fond',
     '\x01×Table near the Back':
