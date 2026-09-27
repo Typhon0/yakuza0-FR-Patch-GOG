@@ -400,6 +400,110 @@ PAC_TRANSLATIONS = {
         "Pas d'temps à perdre.",
     "Time for an ass-kicking!":
         "L'heure de la raclée !",
+
+    # --- INTERACTIVE PROMPTS (HUD / DECOR) ---
+    "Need a taxi?":
+        "Un taxi ?   ",
+    "River Fishing":
+        "Pêche rivière",
+    "Sea Fishing":
+        "Pêcher ici ",
+    "Karaoke Machine":
+        "Poste karaoké  ",
+    "Low Rate":
+        "Mise min",
+    "Medium Rate":
+        "Mise moy.  ",
+    "High Rate":
+        "Mise max ",
+    "Interested in blackjack?":
+        "Une partie de blackjack?",
+    "Who wants to play baccarat?":
+        "Qui veut jouer au baccara ?",
+    "Need medicine?":
+        "Des remèdes ? ",
+    "CP Exchange":
+        "Échange CP ",
+    "Kamurocho Real Estate Royale":
+        "Immobilier Kamurocho Royale ",
+    "Sotenbori Cabaret Club Czar":
+        "Cabaret Club Czar Sotenbori",
+    "Plywood Shack":
+        "Abri en bois ",
+    "Pocket Circuit Fighter":
+        "Combattant Pocket Cir.",
+    "Mr. Fan Increaser":
+        "Maître Éventail  ",
+
+    # --- COMBAT / MISSION OBJECTIVES & BARKS ---
+    "Almost done!":
+        "Presque fini",
+    "Better avoid stairs...":
+        "Évitons l'escalier... ",
+    "Better go around...":
+        "Faisons le détour..",
+    "Defeat five foes!":
+        "Battez 5 ennemis ",
+    "Dodge, duck, dip, dive, dodge!":
+        "Esquivez, plongez et fuyez ! ",
+    "Fifth one!":
+        "Cinquième!",
+    "Gotta get that 500":
+        "Trouvons ces 500k ",
+    "I need a good challenge.":
+        "Il me faut un vrai défi.",
+    "Isn't it amazing?":
+        "C'est incroyable!",
+    "Kung fu, huh?":
+        "Du kung-fu ? ",
+    "Last but not least!":
+        "Et enfin le dernier",
+    "Last one!":
+        "Dernier !",
+    "Let's dance!":
+        "Dansons !   ",
+    "Let's go already!":
+        "Allez, on y va ! ",
+    "Let's go grab us one!":
+        "Allons en choper un !",
+    "Let's go mug someone!":
+        "Allons en braquer un!",
+    "Let's go punch people.":
+        "Allons taper des gens.",
+    "Let's go punch someone.":
+        "Allons casser du type.",
+    "Miracle's in Kamurocho?":
+        "Miracle à Kamurocho ?  ",
+    "No one can beat him...":
+        "Personne ne le bat...",
+    "One last push!":
+        "Dernier effort",
+    "Over here!":
+        "Par ici ! ",
+    "Sagawa's watchdog.":
+        "Le chien de Sagawa",
+    "Seventh heaven!":
+        "Septième ciel !",
+    "So weird!":
+        "Bizarre !",
+    "Stairs're a bad idea...":
+        "L'escalier craint trop.",
+    "Stay sharp!":
+        "Vigilance !",
+    "Swing things around!":
+        "Faites valser tout !",
+    "Third time's a charm!":
+        "La 3e est la bonne ! ",
+    "Three's a crowd!":
+        "Un de trop ici !",
+    "Time to finish this!":
+        "L'heure d'en finir !",
+    "Vanquish ten adversaries!":
+        "Battez dix adversaires ! ",
+    "Watch out for weapons!":
+        "Gare aux armes !      ",
+    "Wreck ten rivals!":
+        "Écrasez 10 rivaux",
 }
 
 if __name__ == '__main__':
