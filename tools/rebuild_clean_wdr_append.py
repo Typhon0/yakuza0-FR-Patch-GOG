@@ -29,6 +29,28 @@ from tools.rebuild_all_shops_clean import generate_repaired_shops
 from scratch.test_merchant_dict import merchant_dict
 from scratch.prepare_snitch_translations import SNITCH_FR
 from tools.repair_chapter13_oda import repair_uid01331415
+from tools.stage_pac_translations import PAC_TRANSLATIONS
+
+def patch_with_pac_translations(data_bytes):
+    out = bytearray(data_bytes)
+    replacements_count = 0
+    for en, fr in PAC_TRANSLATIONS.items():
+        en_b = en.encode('latin1')
+        fr_clean = fr.replace('’', "'").replace('œ', 'oe').replace('Ça', 'Ca').replace('ÇA', 'CA').replace('Ç', 'C')
+        fr_b = fr_clean.encode('latin1')
+        assert len(fr_b) <= len(en_b), f"Length overflow: {len(fr_b)} > {len(en_b)} for {en}"
+        rep_b = fr_b + (b' ' * (len(en_b) - len(fr_b)))
+
+        pos = 0
+        while True:
+            idx = out.find(en_b, pos)
+            if idx == -1:
+                break
+            out[idx : idx + len(en_b)] = rep_b
+            pos = idx + len(en_b)
+            replacements_count += 1
+    assert len(out) == len(data_bytes), "File size changed!"
+    return bytes(out), replacements_count
 
 def get_clean_french_ai_popup():
     common_path = 'release_gog/data/wdr_par_c/common.par'
@@ -151,10 +173,24 @@ def rebuild_clean_wdr_append(clean_par_path, curr_par_path, output_path):
         target_u_sz = 0
         target_c_sz = 0
 
-        # Keep untouched stage binaries and pristine system bins 100% untouched
-        if name.startswith('pac_') or name in PRISTINE_NON_MSG_BINS:
+        # Keep pristine system bins 100% untouched
+        if name in PRISTINE_NON_MSG_BINS:
             stats['kept_orig'] += 1
             continue
+        elif name.startswith('pac_'):
+            decomp_orig = decompress_sllz(orig_data) if orig_data.startswith(b'SLLZ') or (orig_flags & 0x80000000) else orig_data
+            patched, count = patch_with_pac_translations(decomp_orig)
+            if count > 0:
+                assert len(patched) == len(decomp_orig)
+                comp_data = compress_sllz(patched)
+                target_data = comp_data
+                target_flags = 0x80000000
+                target_u_sz = len(patched)
+                target_c_sz = len(comp_data)
+                print(f"  [+] Injected French stage PAC {name} ({count} barks, u_sz={target_u_sz}, c_sz={target_c_sz})")
+            else:
+                stats['kept_orig'] += 1
+                continue
         elif name == 'ai_popup.bin':
             target_flags, target_u_sz, target_c_sz, target_data = get_clean_french_ai_popup()
             print(f"  [+] Injected French ai_popup.bin (u_sz={target_u_sz}, c_sz={target_c_sz})")

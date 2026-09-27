@@ -42,6 +42,19 @@ UI_TRANSLATIONS = {
     '<Sign:1>Next %d/%d': '<Sign:1>Suivant %d/%d',
     'Order': 'Commander',
     '-': '-',
+    '(All outta space.)': "(Plus de place.)",
+    '(Got this already.)': "(J'ai déjà ça.)",
+    "(I ain't got no use for this.)": "(Je n'en ai pas l'utilité.)",
+    "(I don't have any space.)": "(Je n'ai plus de place.)",
+    "(I don't need this.)": "(Je n'en ai pas besoin.)",
+    'Done': 'Terminé',
+    'Is this what you want?': "C'est ce que vous voulez ?",
+    'OK': 'OK',
+    'Obtained': 'Obtenu',
+    'Thank you. That comes to %s.': "Merci. Ça fera %s.",
+    "That'll be %s.": "Ça fera %s.",
+    "Umm... That'll be %s.": "Euh... Ça fera %s.",
+    'Would you like to order this?': "Voulez-vous commander ceci ?",
 }
 
 CUSTOM_ITEM_DESCRIPTIONS = {

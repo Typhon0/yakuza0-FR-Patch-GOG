@@ -30,6 +30,25 @@ DAIKOKU_20B = bytes.fromhex('0002000100020001000200010002000100020001')
 def parse_par_header(data):
     return struct.unpack('>4I', data[16:32])
 
+ORIG_CACHE = {}
+def get_orig_file(par_name, fname):
+    if par_name not in ORIG_CACHE:
+        path = os.path.join('par_original', par_name)
+        if os.path.exists(path):
+            try:
+                from tools.rebuild_clean_boot_append import parse_par
+                with open(path, 'rb') as f:
+                    ORIG_CACHE[par_name] = parse_par(f.read())
+            except Exception:
+                ORIG_CACHE[par_name] = {}
+        else:
+            ORIG_CACHE[par_name] = {}
+    entry = ORIG_CACHE[par_name].get(fname)
+    if entry:
+        raw = entry[3]
+        return decompress_sllz(raw) if raw.startswith(b'SLLZ') or (entry[0] & 0x80000000) else raw
+    return None
+
 def audit_rgg_table(fname, data, rel_par):
     issues = []
     if len(data) < 16:
@@ -67,11 +86,35 @@ def audit_rgg_table(fname, data, rel_par):
         c0 = cols[0]
         id_strings = data[c0['start'] : c0['start'] + c0['size']].split(b'\x00')[:-1]
 
+    # Reference vanilla table for null count comparison (protection against 0x30ED vsnprintf crash)
+    orig_decomp = get_orig_file(os.path.basename(rel_par), fname) if rel_par else None
+    orig_cols_map = {}
+    if orig_decomp and len(orig_decomp) >= 16 and orig_decomp[:4] == b'\x20\x07\x03\x19':
+        o_cols, _ = struct.unpack('>2I', orig_decomp[4:12])
+        o_start = 16 + o_cols * 64
+        for oc in range(o_cols):
+            o_off = 16 + oc * 64
+            oc_name = orig_decomp[o_off : o_off + 32].split(b'\x00')[0].decode('latin1', errors='replace')
+            ot, count, sz, _ = struct.unpack('>4I', orig_decomp[o_off + 48 : o_off + 64])
+            orig_cols_map[oc] = {
+                'name': oc_name, 'type': ot, 'count': count, 'size': sz,
+                'data': orig_decomp[o_start : o_start + sz]
+            }
+            o_start += sz
+
     # String column audits
     for c in cols:
-        if c['type'] == 0:
+        if c['type'] in (0, 1):
             c_data = data[c['start'] : c['start'] + c['size']]
             strs = c_data.split(b'\x00')[:-1]
+
+            # Null count check against original vanilla table
+            if c['idx'] in orig_cols_map and orig_cols_map[c['idx']]['type'] in (0, 1):
+                o_c_data = orig_cols_map[c['idx']]['data']
+                o_nulls = o_c_data.count(b'\x00')
+                r_nulls = c_data.count(b'\x00')
+                if o_nulls != r_nulls:
+                    issues.append(f"Table {fname}: Colonne {c['name']} (type {c['type']}): Nombre d'octets nuls altéré ({r_nulls} vs {o_nulls} vanilla) - décalage de lignes garanti (Crash vsnprintf 0x30ED)!")
             
             # Check for critical NAME columns (like item.bin_c)
             if c['name'] in ['NAME', 'ITEM_NAME'] and fname == 'item.bin_c':

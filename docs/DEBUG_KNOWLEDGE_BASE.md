@@ -17,6 +17,9 @@
 8. [Crash Boucle Infinie des Cabines & Faux Déploiement (`0x6EA328`)](#8-crash-boucle-infinie-des-cabines--faux-déploiement-0x6ea328)
 9. [Matrice des Commandes de Validation](#9-matrice-des-commandes-de-validation)
 10. [Catalogue des Anti-Patterns & Erreurs Récurrentes d'Agents IA](#10-catalogue-des-anti-patterns--erreurs-récurrentes-dagents-ia)
+11. [Crash Notification d'Objet / Quête #49 (`0x9C4861`)](#11-crash-notification-dobjet--fin-discussion-faussaire--quête-49-yakuza0exe0x9c4861-itembinc)
+12. [Mécanisme Fondamental d'Indexation des Tables RGG (`0x20070319`)](#12-mécanisme-fondamental-dindexation-des-tables-rgg-0x20070319-et-audit-global-anti-crash)
+13. [Crash Combat de Rue & Défis CP — Décalage de Lignes par Null-Padding (`0x30ED`)](#13-crash-combat-de-rue--défis-cp--décalage-de-lignes-par-null-padding-dans-les-tables-rgg-yakuza0exe0x30ed-activity_listbinc--staypar)
 
 ---
 
@@ -469,6 +472,35 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
     - Les 25 fichiers de cabines téléphoniques (stricts 58 caractères ASCII, simulation x86-64 sans crash).
     - Les scripts de Bob Utsunomiya (strictement 27 575 octets décompressés).
   - Intégré également dans `tools/verify_patch.py` pour bloquer immédiatement toute tentative de build en cas de nom d'objet ou de description vide.
+
+### 13. Crash Combat de Rue & Défis CP — Décalage de Lignes par Null-Padding dans les Tables RGG (`Yakuza0.exe+0x30ED`, `activity_list.bin_c` / `stay.par`)
+* **Symptômes :** Crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) pendant les combats de rue ordinaires, généralement au moment où des compteurs d'objectifs (ennemis vaincus, style de combat, objets détruits, etc.) ou de défis de complétion (CP / Completion Points) se mettent à jour.
+* **Adresse RIP du crash :** `Yakuza0.exe+0x30ED` (`0x1400030ED`), instruction `movzbl (%r8), %eax`.
+* **Analyse des registres au crash :**
+  - `%rdx = 0x73` ('s', correspondant au spécificateur de format `%s`)
+  - `%r8  = 0x64` (soit **100** en décimal)
+  - `%r12 = 0x10` (16 caractères déjà écrits dans le buffer cible)
+  - `%r15 = 0x7ff4d483f6c8` (pointeur sur la chaîne de formatage sur le heap)
+  - `%rbx = 0x14f780` (buffer de destination sur la pile)
+  - `%rdi = 0x14f728` (`va_list`)
+* **Cause racine (Reverse Engineering Bit-Exact) :**
+  1. La routine `0x140002E70` est le formateur `vsnprintf` interne de Sega. À `0x1400030ED`, elle traite un spécificateur `%s` et déréférence l'argument dans `%r8`. L'argument passé était l'entier `100` (`0x64`) au lieu d'un pointeur de chaîne, provoquant le déréférencement de la page nulle `0x00000064`.
+  2. La routine appelante (`0x14074e400` $\rightarrow$ `0x14074e547`) actualise les défis de complétion de Kamurocho et Sotenbori en lisant la colonne 3 `ACTIVITY_NAME` de la table RGG **`activity_list.bin_c`** dans `stay.par`.
+  3. Le moteur Sega (`0x140371220`) résout les lignes des colonnes de texte de type 0 et type 1 en comptant séquentiellement les octets nuls `\x00`.
+  4. L'ancien script `translate_stay_par_complete.py` utilisait du null-padding (`\x00 * diff`). Sur la ligne 212 `"Go out with Full Straight"` (25 octets $\rightarrow$ `"Gagner avec Grande Suite"` de 24 octets), il a injecté un octet nul excédentaire (`\x00`).
+  5. Cet octet nul parasite a créé une ligne 213 vide fantôme (`""`) et décalé toutes les lignes suivantes de $+1$ :
+     - La ligne 214 d'origine (`"Catch %d different freshwater fish"`, format entier `%d`) s'est retrouvée avec la chaîne de la ligne 213 (`"Earn a total of %s in mahjong"`, format chaîne `%s`) !
+  6. Dès qu'une action de jeu (combat de rue, minijeu, exploration) a incrémenté les compteurs, le moteur a appelé `sprintf(buffer, format_chaine_decalee, compteur_entier)`.
+  7. `sprintf` a lu `%s`, a interprété le compteur `100` comme un pointeur mémoire, et a crashé instantanément à `0x30ED`.
+  8. De plus, 5 autres tables de `stay.par` (`controller_explain.bin_c`, `response_roulette.bin_c`, `search_arms_location.bin_c`, `search_arms_result_picture.bin_c`, `tougijyo_realtime_quest.bin_c`) contenaient des dizaines d'octets nuls excédentaires injectés par cette même routine.
+* **Solution pérenne :**
+  1. **Space-padding strict :** Dans [`tools/rebuild_clean_stay_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_stay_append.py), interdiction absolue du null-padding. Utilisation exclusive d'espaces ASCII (`b' ' * diff`) pour compenser la différence de longueur :
+     - `activity_list.bin_c` : `"Gagner avec Grande Suite "` (25 octets stricts, `count(b'\x00')` bit-exact au vanilla Sega).
+     - `tougijyo_realtime_quest.bin_c` : `"Bloquez l'attaque adverse"` (25 octets, compressé en SLLZ `0x80000000`).
+     - `controller_explain.bin_c` et `response_roulette.bin_c` : space-padding strict avec préservation des flags uncompressed `0x0` (Règle 10).
+  2. **Restauration Sega vanilla pour les tables instables :** `search_arms_location.bin_c` et `search_arms_result_picture.bin_c` sont conservées dans leur version originale Sega intacte.
+  3. **Contrôle automatique dans `deep_audit.py` :** Vérification comparative automatique du nombre total d'octets nuls par colonne contre `par_original/` pour les colonnes de type 0 et type 1.
+  4. **Validation joueur :** 1 heure de jeu et de combats de rue validée sans aucun crash.
 
 
 

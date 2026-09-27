@@ -137,6 +137,33 @@ def get_clean_french_item_bin(fr_boot_path='par_original/boot_steam_fr.par'):
     comp = compress_sllz(bytes(dec))
     return 0x80000000, len(dec), len(comp), comp
 
+def get_clean_french_complete_heat(fr_boot):
+    raw = fr_boot['complete_heat.bin_c'][3]
+    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    comp = compress_sllz(bytes(dec))
+    return 0x80000000, len(dec), len(comp), comp
+
+def get_clean_french_complete_shisho(fr_boot):
+    raw = fr_boot['complete_shisho.bin_c'][3]
+    dec = bytes(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    return 0x0, len(dec), len(dec), dec
+
+def get_clean_french_mail(fr_boot):
+    raw = fr_boot['mail.bin_c'][3]
+    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    return 0x0, len(dec), len(dec), bytes(dec)
+
+def get_clean_french_restaurant_menu(fr_boot):
+    raw = fr_boot['restaurant_menu.bin_c'][3]
+    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    comp = compress_sllz(bytes(dec))
+    return 0x80000000, len(dec), len(comp), comp
+
+def get_clean_french_money_result(fr_boot):
+    raw = fr_boot['money_result.bin_c'][3]
+    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    return 0x0, len(dec), len(dec), bytes(dec)
+
 def rebuild_boot_par(clean_par_path='par_original/boot.par',
                      ref_par_path='scratch/data/bootpar/boot.par',
                      output_path='release_gog/data/bootpar/boot.par'):
@@ -156,6 +183,9 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
     substory_entry = get_clean_french_substory_bin()
     item_entry = get_clean_french_item_bin()
 
+    with open('par_original/boot_steam_fr.par', 'rb') as f:
+        fr_boot = parse_par(f.read())
+
     TARGET_FILES = {
         'caption.bin_c': ref_par['caption.bin_c'],
         'explanation_main_scenario.bin_c': ref_par['explanation_main_scenario.bin_c'],
@@ -166,6 +196,11 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
         'encounter_pupup_message.bin_c': epm_entry,
         'ability.bin_c': ability_entry,
         'tips_tutorial.bin_c': tips_entry,
+        'complete_heat.bin_c': get_clean_french_complete_heat(fr_boot),
+        'complete_shisho.bin_c': get_clean_french_complete_shisho(fr_boot),
+        'mail.bin_c': get_clean_french_mail(fr_boot),
+        'restaurant_menu.bin_c': get_clean_french_restaurant_menu(fr_boot),
+        'money_result.bin_c': get_clean_french_money_result(fr_boot),
     }
 
     folder_count, folder_table_offset, file_count, file_table_offset = struct.unpack('>4I', clean_boot_bytes[16:32])
