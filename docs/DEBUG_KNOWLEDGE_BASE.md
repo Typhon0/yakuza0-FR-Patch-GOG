@@ -502,6 +502,25 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
   3. **Contrôle automatique dans `deep_audit.py` :** Vérification comparative automatique du nombre total d'octets nuls par colonne contre `par_original/` pour les colonnes de type 0 et type 1.
   4. **Validation joueur :** 1 heure de jeu et de combats de rue validée sans aucun crash.
 
+---
 
-
-
+### 14. Crash Cabaret Club Sunshine / Première Nuit de Gestion (`Yakuza0.exe+0x37177C`, Tables RGG Tronquées & Désalignées)
+* **Symptômes :** Crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) au lancement ou lors de la première nuit de gestion du Cabaret Club Sunshine (Chapitre 7 de Majima).
+* **Adresse RIP du crash :** `Yakuza0.exe+0x37177C` (`0x14037177c`), instruction `movzx ecx, WORD PTR [rax]`.
+* **Analyse des registres au crash :**
+  - `%rax = 0x7ff52ed2e697`
+  - `%rbx = 0x0000000f9640` (`0x3e59 << 6` = index de colonne 15 961 $\times$ 64 octets)
+  - `%rdx = 0x00006c67745f` (somme cumulée des tailles de colonnes garbage)
+  - `%rsi = 0x000000003e59` (colonne 15 961)
+  - `%rdi = 0x7ff4d492e880` (pointeur de table RGG en mémoire)
+  - `%rbp = 0x7ff4d4a8eb20` (`this` de `CPropertyTable`)
+* **Cause racine (Reverse Engineering Bit-Exact) :**
+  1. La routine `0x1403715b0` est le convertisseur d'endianness des tables RGG (`CPropertyTable::ConvertEndianness`). Si `DWORD PTR [rdi] != 0x20070319`, le moteur suppose que la table est en Big-Endian (`0x19030720`), effectue un `bswap` sur le nombre de colonnes (`0x4(%rdi)`) et boucle sur toutes les colonnes (`%esi = 0` à `num_cols`). À `0x14037177c`, elle traite les colonnes de Type 2 (ID 16-bit + chaîne).
+  2. Le chargeur de fichiers du moteur (`0x14037d510`) compare la taille du fichier déclaré dans le PAR (`%eax`) avec la taille maximale du buffer alloué par le composant appelant (`%edi = 0x80(%rsp)`) via l'instruction `0x14037d582: cmovb %eax, %edi`. Si le fichier dans le PAR dépasse cette taille allouée par le moteur Sega, `%edi` n'augmente PAS : le moteur alloue seulement le buffer fixe et **tronque le fichier**.
+  3. L'injection de tables Steam FR non calibrées (`money_result.bin_c` à 4 191 o vs 3 756 o vanilla, `mail.bin_c` à 2 950 o vs 2 816 o, `tips_tutorial.bin_c` à 68 713 o vs 61 516 o dans `boot.par`, et `tutorial.bin_c` à 21 444 o vs 18 908 o dans `stay.par`) a dépassé les tailles de buffers fixes de l'exécutable GOG.
+  4. De surcroît, les offsets de colonnes internes étaient désalignés (ex: offset 2 795 impair dans `money_result.bin_c`, 3 715 dans `tutorial.bin_c`), brisant l'alignement sur 4 octets requis pour les entiers 32-bit.
+  5. Lors du lancement de la première nuit de gestion du Cabaret Club, le moteur initialise le gestionnaire de résultat financier (`CCabaOperationResult` via `money_result.bin_c`), les notifications pager (`mail.bin_c`) et le tutoriel Cabaret (`tutorial.bin_c` / `tips_tutorial.bin_c`). En lisant la table tronquée en mémoire, la boucle d'endianness a débordé au-delà de la fin du buffer alloué, interprétant des octets résiduels du heap comme des colonnes jusqu'à la colonne 15 961 (`0x3e59`) où `rax` a tenté de lire une page mémoire non mappée (`0x7ff52ed2e697`), provoquant le crash `0x37177C`.
+* **Solution pérenne :**
+  1. **Exclusion stricte des tables hors gabarit dans `boot.par` :** Dans [`tools/rebuild_clean_boot_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_boot_append.py), retour au jeu de tables strictement vérifiées : `caption.bin_c`, `explanation_main_scenario.bin_c`, `explanation_sub_story.bin_c` (58 232 o stricts), `item.bin_c` (206 628 o sans mojibake), `string_tbl.bin_c`, `battle_deck_list.bin_c` et `encounter_pupup_message.bin_c`. `money_result.bin_c`, `mail.bin_c`, `tips_tutorial.bin_c`, `ability.bin_c`, `complete_heat.bin_c`, `complete_shisho.bin_c` et `restaurant_menu.bin_c` demeurent intactes dans leur version Sega GOG originale.
+  2. **Nettoyage de `stay.par` :** Dans [`tools/rebuild_clean_stay_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_stay_append.py), retrait de `tutorial.bin_c` et `virtue_shop.bin_c` de `TARGET_TABLES` pour conserver les versions Sega vanilla GOG strictement dimensionnées à leurs offsets natifs. Les 13 autres tables de `stay.par` (dont `caba_cast_info.bin_c` et `cabaret_island_area.bin_c`) sont calibrées in-place par space-padding avec conservation bit-exacte des longueurs et alignements.
+  3. **Vérification d'intégrité :** Recompilation des archives en Append-Only aligné à 2 048 octets. Test de simulation machine : 20/20 tables modifiées validées avec succès. 131/131 archives OK (100% PASS) et validation End-to-End totale du package de release.

@@ -203,9 +203,7 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
         'search_arms_location.bin_c',
         'search_arms_result_picture.bin_c',
         'tougijyo_realtime_quest.bin_c',
-        'tutorial.bin_c',
         'ultimate.bin_c',
-        'virtue_shop.bin_c',
     ]
 
     modified_count = 0
