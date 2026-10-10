@@ -43,9 +43,18 @@ PRECOMPILED_DATA = [
     ("release_gog/data/staypar/stay.par", "data/staypar/stay.par"),
 ]
 
+# Automatically include all standalone loose minigame tables (.bin and .bin_c)
+for _root, _dirs, _files in os.walk("release_gog/data/minigame"):
+    for _f in sorted(_files):
+        if _f.endswith(".bin") or _f.endswith(".bin_c"):
+            _src = os.path.join(_root, _f)
+            _rel = os.path.relpath(_src, "release_gog")
+            PRECOMPILED_DATA.append((_src, _rel))
+
 ROOT_FILES = [
     ("release_gog/patch_gog.py", "patch_gog.py"),
     ("release_gog/font_table_french.bin", "font_table_french.bin"),
+    ("release_gog/rgg_preflight.exe", "rgg_preflight.exe"),
 ]
 
 BAT_PATCHER = r'''@echo off
@@ -235,6 +244,15 @@ README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.9
   Tables propriétaires Pocket Circuit (24 et 20 octets) et alignement sectoriel 2 048 octets strictement préservés.
 - **Typographie et crénage parfaits** :
   Injection de la table de crénage symétrique [0.4, 0.4] éliminant tout chevauchement de lettres sur `i` and `l`.
+
+## Périmètre de traduction & éléments conservés en version originale
+100 % des contenus jouables (histoire, quêtes secondaires, arbres de compétences, styles de combat, actions Heat, cabaret, immobilier, boutiques, bipeur, sanctuaires CP) sont en français naturel.
+Certains termes techniques ou officiels sont volontairement conservés en version originale par fidélité et stabilité :
+- **Jeux et bornes d'arcade Sega** : Noms officiels mondiaux (*Out Run*, *Space Harrier*, *Super Hang-On*, *Fantasy Zone*, *UFO Catcher*).
+- **Titres musicaux Disco** : Noms originaux des chansons sous licence (*I Wanna Take You Home*, *Friday Night*...).
+- **Terminologie officielle Mahjong / Shogi** : Règles et annonces officielles (*Riichi*, *Ippatsu*, *Ron*, *Tsumo*...).
+- **Cartes de collection d'actrices réelles** : Noms de scène japonais authentiques.
+- **Identifiants internes Sega** : Noms de variables et d'animations du moteur qui causeraient des crashs mémoire s'ils étaient altérés.
 
 ## Installation simple (Recommandée)
 1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.9.zip`.

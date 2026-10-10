@@ -20,6 +20,9 @@
 11. [Crash Notification d'Objet / Quête #49 (`0x9C4861`)](#11-crash-notification-dobjet--fin-discussion-faussaire--quête-49-yakuza0exe0x9c4861-itembinc)
 12. [Mécanisme Fondamental d'Indexation des Tables RGG (`0x20070319`)](#12-mécanisme-fondamental-dindexation-des-tables-rgg-0x20070319-et-audit-global-anti-crash)
 13. [Crash Combat de Rue & Défis CP — Décalage de Lignes par Null-Padding (`0x30ED`)](#13-crash-combat-de-rue--défis-cp--décalage-de-lignes-par-null-padding-dans-les-tables-rgg-yakuza0exe0x30ed-activity_listbinc--staypar)
+14. [Crash Cabaret Club Sunshine / Première Nuit de Gestion (`0x37177C`)](#14-crash-cabaret-club-sunshine--première-nuit-de-gestion-yakuza0exe0x37177c-tables-rgg-tronquées--désalignées)
+15. [Crash Cabaret Sunshine / Lancement de Nuit — Minigame Quest HUD (`0x3711DB`)](#15-crash-cabaret-sunshine--lancement-de-nuit--déréférencement-hors-limite-yakuza0exe0x3711db-minigame-quest-hud)
+16. [Crash Mini-jeu de Pêche / Fichiers Isolés Compressés en SLLZ (`0x37177C`)](#16-crash-mini-jeu-de-pêche--fichiers-isolés-compressés-en-sllz-yakuza0exe0x37177c)
 
 ---
 
@@ -507,20 +510,107 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
 ### 14. Crash Cabaret Club Sunshine / Première Nuit de Gestion (`Yakuza0.exe+0x37177C`, Tables RGG Tronquées & Désalignées)
 * **Symptômes :** Crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) au lancement ou lors de la première nuit de gestion du Cabaret Club Sunshine (Chapitre 7 de Majima).
 * **Adresse RIP du crash :** `Yakuza0.exe+0x37177C` (`0x14037177c`), instruction `movzx ecx, WORD PTR [rax]`.
-* **Analyse des registres au crash :**
-  - `%rax = 0x7ff52ed2e697`
-  - `%rbx = 0x0000000f9640` (`0x3e59 << 6` = index de colonne 15 961 $\times$ 64 octets)
-  - `%rdx = 0x00006c67745f` (somme cumulée des tailles de colonnes garbage)
-  - `%rsi = 0x000000003e59` (colonne 15 961)
-  - `%rdi = 0x7ff4d492e880` (pointeur de table RGG en mémoire)
-  - `%rbp = 0x7ff4d4a8eb20` (`this` de `CPropertyTable`)
+* **Analyse des registres au crash (Double Occurrence) :**
+  - **Crash 1 (20:54:24) :** `%rax = 0x7ff52ed2e697`, `%rbx = 0xf9640` (colonne 15 961 $\times$ 64 o), `%rdx = 0x00006c67745f`, `%rsi = 0x3e59`, `%rdi = 0x7ff4d492e880`.
+  - **Crash 2 (22:26:23) :** `%rax = 0x7ff4adea5625`, `%rbx = 0x6cb40` (colonne 6 957 $\times$ 64 o), `%rdx = 0x00006c67745f`, `%rsi = 0x1b2d`, `%rdi = 0x7ff4d4957400`.
 * **Cause racine (Reverse Engineering Bit-Exact) :**
-  1. La routine `0x1403715b0` est le convertisseur d'endianness des tables RGG (`CPropertyTable::ConvertEndianness`). Si `DWORD PTR [rdi] != 0x20070319`, le moteur suppose que la table est en Big-Endian (`0x19030720`), effectue un `bswap` sur le nombre de colonnes (`0x4(%rdi)`) et boucle sur toutes les colonnes (`%esi = 0` à `num_cols`). À `0x14037177c`, elle traite les colonnes de Type 2 (ID 16-bit + chaîne).
-  2. Le chargeur de fichiers du moteur (`0x14037d510`) compare la taille du fichier déclaré dans le PAR (`%eax`) avec la taille maximale du buffer alloué par le composant appelant (`%edi = 0x80(%rsp)`) via l'instruction `0x14037d582: cmovb %eax, %edi`. Si le fichier dans le PAR dépasse cette taille allouée par le moteur Sega, `%edi` n'augmente PAS : le moteur alloue seulement le buffer fixe et **tronque le fichier**.
-  3. L'injection de tables Steam FR non calibrées (`money_result.bin_c` à 4 191 o vs 3 756 o vanilla, `mail.bin_c` à 2 950 o vs 2 816 o, `tips_tutorial.bin_c` à 68 713 o vs 61 516 o dans `boot.par`, et `tutorial.bin_c` à 21 444 o vs 18 908 o dans `stay.par`) a dépassé les tailles de buffers fixes de l'exécutable GOG.
-  4. De surcroît, les offsets de colonnes internes étaient désalignés (ex: offset 2 795 impair dans `money_result.bin_c`, 3 715 dans `tutorial.bin_c`), brisant l'alignement sur 4 octets requis pour les entiers 32-bit.
-  5. Lors du lancement de la première nuit de gestion du Cabaret Club, le moteur initialise le gestionnaire de résultat financier (`CCabaOperationResult` via `money_result.bin_c`), les notifications pager (`mail.bin_c`) et le tutoriel Cabaret (`tutorial.bin_c` / `tips_tutorial.bin_c`). En lisant la table tronquée en mémoire, la boucle d'endianness a débordé au-delà de la fin du buffer alloué, interprétant des octets résiduels du heap comme des colonnes jusqu'à la colonne 15 961 (`0x3e59`) où `rax` a tenté de lire une page mémoire non mappée (`0x7ff52ed2e697`), provoquant le crash `0x37177C`.
+  1. La routine `0x1403715b0` est le convertisseur d'endianness des tables RGG (`CPropertyTable::ConvertEndianness`), appelée depuis `CPropertyTable::Load` (`0x140370b08`). Si `DWORD PTR [rdi] != 0x20070319`, le moteur suppose que la table est en Big-Endian (`0x19030720`), effectue un `bswap` sur le nombre de colonnes (`0x4(%rdi)`) et boucle sur toutes les colonnes (`%esi = 0` à `num_cols`). À `0x14037177c`, elle traite les colonnes de Type 2 (ID 16-bit + chaîne).
+  2. Le registre `%rdx = 0x00006c67745f` correspond à la valeur ASCII little-endian `_tgl` (`lgt_`), chargée depuis le champ de taille de colonne à l'offset `0x38(%rbx, %rcx, 1)`.
+  3. Lors du lancement de la première nuit de gestion du Cabaret Club Sunshine, le moteur charge en mémoire les tables de gestion spécifiques stockées dans `stay.par` : les biographies des 30 hôtesses (`caba_cast_info.bin_c`) et la définition des clubs rivaux (`cabaret_island_area.bin_c`).
+  4. La modification in-place de ces tables (et leur recompression SLLZ pour `caba_cast_info.bin_c`) corrompt la structure de colonnes ou les flags attendus par le moteur GOG, provoquant la dérive du pointeur de données `%rax` au-delà des pages allouées lors de la conversion d'endianness jusqu'au crash d'accès mémoire à `0x37177C`.
 * **Solution pérenne :**
-  1. **Exclusion stricte des tables hors gabarit dans `boot.par` :** Dans [`tools/rebuild_clean_boot_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_boot_append.py), retour au jeu de tables strictement vérifiées : `caption.bin_c`, `explanation_main_scenario.bin_c`, `explanation_sub_story.bin_c` (58 232 o stricts), `item.bin_c` (206 628 o sans mojibake), `string_tbl.bin_c`, `battle_deck_list.bin_c` et `encounter_pupup_message.bin_c`. `money_result.bin_c`, `mail.bin_c`, `tips_tutorial.bin_c`, `ability.bin_c`, `complete_heat.bin_c`, `complete_shisho.bin_c` et `restaurant_menu.bin_c` demeurent intactes dans leur version Sega GOG originale.
-  2. **Nettoyage de `stay.par` :** Dans [`tools/rebuild_clean_stay_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_stay_append.py), retrait de `tutorial.bin_c` et `virtue_shop.bin_c` de `TARGET_TABLES` pour conserver les versions Sega vanilla GOG strictement dimensionnées à leurs offsets natifs. Les 13 autres tables de `stay.par` (dont `caba_cast_info.bin_c` et `cabaret_island_area.bin_c`) sont calibrées in-place par space-padding avec conservation bit-exacte des longueurs et alignements.
-  3. **Vérification d'intégrité :** Recompilation des archives en Append-Only aligné à 2 048 octets. Test de simulation machine : 20/20 tables modifiées validées avec succès. 131/131 archives OK (100% PASS) et validation End-to-End totale du package de release.
+  1. **Exclusion stricte des tables de minijeu dans `stay.par` :** Dans [`tools/rebuild_clean_stay_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_stay_append.py), retrait total de `caba_cast_info.bin_c`, `cabaret_island_area.bin_c`, `money_island_tarent.bin_c`, `search_arms_agent.bin_c`, `search_arms_location.bin_c` et `search_arms_result_picture.bin_c` de `TARGET_TABLES`. Ces fichiers demeurent intacts dans leur version native Sega GOG sans aucun décalage.
+  2. **Tables conservées dans `stay.par` :** Seules les tables d'interface et d'évaluation stabilisées demeurent actives : `activity_list.bin_c`, `battle_result.bin_c`, `controller_explain.bin_c`, `correlation_person.bin_c`, `response_roulette.bin_c`, `tougijyo_realtime_quest.bin_c`, et `ultimate.bin_c`.
+  3. **Vérification d'intégrité :** Les archives `boot.par` et `stay.par` sont calibrées et prêtes pour validation locale.
+
+---
+
+### 15. Crash Cabaret Sunshine / Lancement de Nuit — Déréférencement Hors-Limite (`Yakuza0.exe+0x3711DB`, Minigame Quest HUD)
+* **Symptômes :** Crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) au moment précis où Majima valide « Démarrer la nuit » dans le Cabaret Sunshine (Chapitre 7, Sotenbori).
+* **Adresse RIP du crash :** `Yakuza0.exe+0x3711DBh` (`0x1403711DB`), instruction `movsxd rax, DWORD PTR [r9 + 0x30]`.
+* **Analyse des registres au crash :**
+  - `%rax = 0x7ff52f7bf050`
+  - `%r8  = 0x59c7b8c4` (valeur corrompue lue à `table + 0xC`)
+  - `%r9  = 0x7ff52f7bf090` (pointeur hors mémoire valide, 1,5 Go au-delà du buffer)
+  - `%r10 = 0x1a9` (Ligne 425 = objectif de quête active, Kyoko au Club SEGA)
+  - `%rbx = 0x1a9` (Ligne 425)
+  - `%r11 = 0x7374` (compteur résiduel)
+* **Chaîne d'Appel Inverse Complète (x86-64 Bit-Exact) :**
+  1. `0x1401575D0` $\rightarrow$ `0x140157615` : Méthode de cycle de rendu UI. Dès que le mode minigame est actif (`cmp DWORD PTR [rcx+rax*1], 0x1a`), appelle le contrôleur HUD.
+  2. `0x140163E60` (Minigame HUD Controller) : Formate le chronomètre `"%2u s left"` (`0x140E5A6F8` via pointeur `0x1410DCB08`) et appelle `0x1403961D0` pour charger les données d'objectif de la ligne 425 (`%r8d = 0x1a9`).
+  3. `0x1403961D0` (Lecteur d'enregistrement d'objectif) :
+     - `0x1403961EA` : `GetCell(col=3, row=425)` $\rightarrow$ `strlen` (`0x140BA6250`) $\rightarrow$ description textuelle (succès).
+     - `0x1403961FF` : `GetCell(col=2, row=425)` $\rightarrow$ identifiant de scénario (succès).
+     - `0x140396212` : `GetCell(col=1, row=425)` $\rightarrow$ appelle `0x140371170`.
+  4. `0x140371170` $\rightarrow$ `0x1403711A0` (`CPropertyTable::GetCell` / dynamic unindexed access) :
+     - La table n'étant pas pré-indexée (`[rcx+0x158] == 0`), saute à `0x1403711A0`.
+     - `0x1403711BB` : `movsxd r8, DWORD PTR [rax + 0xC]`. Dans une table RGG saine (`0x20070319`), cet offset relatif vaut **toujours 4** (offset menant au premier descripteur de colonne à `0x10`).
+     - Ici, `*(int32*)(table + 0xC)` contenait `0x59c7b8c4`.
+     - `0x1403711CC` : `lea rax, [rcx + r8*1]` additionne `0x59C7B8C4` octets au pointeur de table, atterrissant à `0x7FF52F7BF050`.
+     - `0x1403711D0` : `shl r9, 0x6` (colonne 1 $\times$ 64 octets = `0x40`).
+     - `0x1403711D8` : `add r9, rax` $\rightarrow$ `%r9 = 0x7FF52F7BF090`.
+     - `0x1403711DB` : `movsxd rax, DWORD PTR [r9 + 0x30]` tente de lire dans une page non allouée $\rightarrow$ **`0xC0000005 EXCEPTION_ACCESS_VIOLATION`**.
+* **Causes Racines Matérielles & Prévention :**
+  1. **Absence de synchronisation de `pause.par` et `minigame/` sur la machine cible :**
+     - Toutes les textures de commandes (`2d_yk_caba_drink*.dds`, `food*.dds`, `tower.dds`) et `caba_profile.bin_c` sont chargées depuis `pause.par`.
+     - Si l'utilisateur remplace uniquement `stay.par` et `boot.par` sans synchroniser `pause.par` (aligné à 2 048 octets), le streaming asynchrone sectoriel Sega charge des données décalées.
+     - Tout fichier loose `caba_item_list.bin_c` laissé dans `data/minigame/cabaret/` interfère avec la structure interne du minijeu.
+  2. **Intégrité de `boot.par` (`explanation_sub_story.bin_c` & `item.bin_c`) :**
+     - La table `explanation_sub_story.bin_c` est vérifiée bit-exacte (colonne 0 `TITLE` traduite avec préservation bit-exacte de chaque entrée, colonnes 1 à 9 100% identiques au vanilla Sega).
+
+---
+
+### 16. Crash Mini-jeu de Pêche / Fichiers Isolés Compressés en SLLZ (`Yakuza0.exe+0x37177C`)
+* **Symptômes :** Crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) au moment où le joueur interagit avec un spot de pêche (Sotenbori ou Kamurocho) pour démarrer l'activité.
+* **Adresse RIP du crash :** `Yakuza0.exe+0x37177Ch` (`0x14037177c`), instruction `movzwl (%rax), %ecx` dans `CPropertyTable::ConvertEndianness`.
+* **Analyse des registres au crash :**
+  - `%rax = 0x7ff4b16c366f` (pointeur hors mémoire valide, 65 Ko au-delà du buffer)
+  - `%rbx = 0x102c0` (colonne 1 035 $\times$ 64 octets = `0x102C0`)
+  - `%rcx = 0x7ff4d49b5410`
+  - `%rdx = 0x00006c67745f` (octets ASCII résiduels `_tgl`)
+  - `%rsi = 0x40b` (colonne 1 035)
+  - `%rdi = 0x7ff4d49b5400` (tampon de fichier chargé du disque)
+  - `%r8  = 0x7ff4d49b540c`
+  - `%r9  = 0x4`
+* **Cause Racine Bit-Exact :**
+  1. Les tables du mini-jeu de pêche (`data/minigame/fishing/fishing_*.bin[_c]`) sont des **fichiers isolés** (*loose files*) chargés directement en mémoire par le moteur via `ReadFile` sans passer par une archive `.par`.
+  2. N'étant pas contenues dans un PAR, elles ne possèdent pas de métadonnées de décompression (`flags = 0x80000000`).
+  3. Le script `translate_all_minigames.py` avait recompressé ces tables en SLLZ. Lors du chargement, `CPropertyTable::Load` (`0x140370ac0`) recevait le buffer compressé commençant par les octets `SLLZ` (`0x53 0x4C 0x4C 0x5A`).
+  4. Ne correspondant pas à `0x20070319`, le moteur appelle `CPropertyTable::ConvertEndianness` (`0x1403715b0`) qui lit les octets `[0x00, 0x01, 0x10, 0x00]` à l'offset 4 de l'en-tête SLLZ. L'instruction `bswap %edx` interprète cette valeur comme **69 632 colonnes**.
+  5. La boucle de conversion itère alors sur 69 632 colonnes, déborde le buffer de 1 320 octets, et crashe à la colonne 1 035 (`0x40b`) lors de la lecture d'un mot ID 16-bit dans une page mémoire non allouée.
+* **Solution Pérenne & Règle Universelle des Tables Isolées :**
+  1. **Décompression intégrale en pur binaire RGG non-compressé (`0x20070319`)** des 27 tables de mini-jeux isolées (54 fichiers) :
+     - **Pêche (4 tables) :** `fishing_fish_info.bin[_c]`, `fishing_bag_info.bin[_c]`, `fishing_sao_info.bin[_c]`, `fishing_dispose.bin[_c]`.
+     - **Cabaret (1 table) :** `caba_item_list.bin[_c]`.
+     - **Catfight Club (5 tables) :** `catfight_human_condition.bin[_c]`, `catfight_human_info.bin[_c]`, `catfight_information.bin[_c]`, `catfight_string.bin[_c]`, `catfight_string_matching.bin[_c]`.
+     - **Poker Casino (18 tables) :** `poker_com_1.bin[_c]` à `poker_com_12.bin[_c]`, `poker_com_exhigh_1.bin[_c]` à `poker_com_exhigh_6.bin[_c]`.
+  2. **Génération conjointe des versions jumelles `.bin` et `.bin_c`** pour chacune des 27 tables afin de garantir la compatibilité ascendante avec tous les points d'entrée du moteur Sega.
+  3. **Interdiction de la recompression SLLZ** sur ces tables dans `tools/translate_all_minigames.py` (`compress=False`).
+  4. **Intégration systématique dans la liste `PRECOMPILED_DATA` de `tools/build_release.py`** via détection automatique `os.walk('release_gog/data/minigame')`.
+
+---
+
+### 17. Crash Mini-jeu de Pêche au Relevé de Canne (`cima_minigame_release_retail.dll+0x1093A4`, Décalage d'Offsets Colonnes RGG)
+* **Symptômes :** Crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) au moment exact où un poisson mord et que le joueur relève la canne à pêche pour ferrer / entamer la phase de remontée.
+* **Adresse RIP du crash :** `cima_minigame_release_retail.dll+0x1093A4` (`0x74393A4` en relatif module).
+* **Analyse des registres au crash (`logs/crash/2026-10-09__20'28'05/crash.log`) :**
+  - `%rip = 0x1093a4`, `%rsp = 0x00000014f7f0`, `%rbp = 0x0`
+  - `%rsi = 0x10` (**colonne 16 = `HIT_SPEED`**)
+  - `%rax = 0x01a40755861c`, `%rbx = 0x01a40755861c` (adresse mémoire désalignée / invalide)
+  - `%r9  = 0xbf567a8620000000` (flottant double précision `-0.00137198`)
+  - `%r10 = 0xbfdfffff20000000` (flottant double précision `-0.5`)
+* **Cause Racine Bit-Exact :**
+  1. Lors du ferrage, la DLL du mini-jeu (`cima_minigame_release_retail.dll`) accède aux propriétés physiques du poisson ferré dans `fishing_fish_info.bin` : notamment la colonne 16 (`HIT_SPEED`) pour déterminer la fenêtre de réaction temporelle, et dans `fishing_sao_info.bin` la colonne 5 (`HIT_SPEED_REVISE`).
+  2. L'ancien traducteur dynamique de tables (`translate_rgg_table`) avait remplacé les noms anglais de poissons par des noms français plus longs, passant la colonne 0 `NAME` de **316 à 356 octets** (+40 octets), et la table de **3 252 à 3 292 octets**.
+  3. Ce redimensionnement a décalé les 16 colonnes suivantes de +40 octets. La colonne 16 (`HIT_SPEED`), attendue à l'offset fixe natif **3 120** (`0xC30`), se retrouvait à l'offset **3 160** (`0xC58`).
+  4. La routine de ferrage de la DLL minigame lisant à l'offset natif s'est retrouvée à interpréter des octets désalignés comme un pointeur mémoire (`%rax = 0x01a40755861c`), déclenchant immédiatement l'`EXCEPTION_ACCESS_VIOLATION`.
+* **Solution Pérenne :**
+  1. **Restauration stricte des gabarits et offsets natifs Sega (Règle 10 & 14)** pour les 4 tables de pêche :
+     - `fishing_fish_info.bin[_c]` : **exactement 3 252 octets**, 17 colonnes, colonne 0 `NAME` = 316 octets, colonne 16 `HIT_SPEED` = offset `0xC30`.
+     - `fishing_sao_info.bin[_c]` : **exactement 564 octets**, 6 colonnes, colonne 0 `NAME` = 68 octets, colonne 5 `HIT_SPEED_REVISE` = offset `0x21C`.
+     - `fishing_bag_info.bin[_c]` : **exactement 872 octets**, 11 colonnes, colonne 0 `NAME` = 32 octets.
+     - `fishing_dispose.bin[_c]` : **exactement 6 240 octets**, 10 colonnes (intact).
+  2. **Affichage français 100% garanti** : les notifications de capture ("Vous avez obtenu : ...") et l'inventaire reposent sur `item.bin_c` (dans `boot.par`), où l'intégralité des 33 espèces de poissons et sacs sont traduites en français certifié.
+  3. **Verrouillage du pipeline de build** : exclusion définitive de `fishing/` de tout redimensionnement dynamique dans `tools/translate_all_minigames.py`.
+
+

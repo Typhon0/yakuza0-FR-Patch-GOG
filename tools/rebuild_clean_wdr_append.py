@@ -110,6 +110,19 @@ def patch_snitch_binary(decomp_snitch):
             padded_fr = fr_b + (b' ' * (en_len - len(fr_b))) + b'\x00'
             out[start:end] = padded_fr
             entry_idx += 1
+
+    extra_barks = [
+        (b"Please, don't hit me...", b"Pitie, me tapez pas !  "),
+        (b"Ahh! Please don't hit me!", b"Aah ! Pitie, pitie !     "),
+        (b'Enjoy your time at our bar.', b'Passez un bon moment ici.  '),
+        (b'Please, let my daughter go!', b'Pitie, relachez ma fille ! '),
+    ]
+    for en_b, fr_b in extra_barks:
+        assert len(en_b) == len(fr_b)
+        idx = out.find(en_b)
+        if idx != -1:
+            out[idx : idx + len(en_b)] = fr_b
+
     assert len(out) == len(decomp_snitch), "snitch length changed!"
     return bytes(out)
 
@@ -228,6 +241,25 @@ def rebuild_clean_wdr_append(clean_par_path, curr_par_path, output_path):
             repaired = repaired.replace(b'There you go. Have a nice day!\x00', b'Et voila. Bonne journee !     \x00')
             repaired = repaired.replace(b'Have a nice day!\x00', b'Bonne journee ! \x00')
             assert len(repaired) == len(clean_decomp), f"Mismatch in uid0044018f.msg length: {len(repaired)} != {len(clean_decomp)}"
+            comp_data = compress_sllz(repaired)
+            target_data = comp_data
+            target_flags = 0x80000000
+            target_u_sz = len(repaired)
+            target_c_sz = len(comp_data)
+        elif name in ('uid01640008.msg', 'uid0164000d.msg', 'uid0164000e.msg', 'uid0164000f.msg', 'uid01640010.msg', 'uid01640011.msg'):
+            clean_decomp = decompress_sllz(orig_data) if orig_data.startswith(b'SLLZ') else orig_data
+            repaired = clean_decomp.replace(b'I see.', b'Bien. ')
+            repaired = repaired.replace(b'Oh, thanks.', b'Oh, merci. ')
+            assert len(repaired) == len(clean_decomp)
+            comp_data = compress_sllz(repaired)
+            target_data = comp_data
+            target_flags = 0x80000000
+            target_u_sz = len(repaired)
+            target_c_sz = len(comp_data)
+        elif name in ('uid01030192.msg', 'uid015e0009.msg'):
+            clean_decomp = decompress_sllz(orig_data) if orig_data.startswith(b'SLLZ') else orig_data
+            repaired = clean_decomp.replace(b'Press <Sign:2> to  enter shot mode.', b'Appuyez sur <Sign:2> pour tirer.   ')
+            assert len(repaired) == len(clean_decomp)
             comp_data = compress_sllz(repaired)
             target_data = comp_data
             target_flags = 0x80000000

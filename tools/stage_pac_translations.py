@@ -73,6 +73,8 @@ PAC_TRANSLATIONS = {
     # --- KAMUROCHO (pac_STID_ST_KAMURO.bin) ---
     "Oh, Mina-chan...  What should I do?":
         "Oh Mina-chan... Que dois-je faire?",
+    "Oh, Mina-chan...\r\nWhat should I do?":
+        "Oh, Mina-chan...\r\nQue faire ?    ",
     "Be honest with me!":
         "Parle franchement!",
     "How about some pocket tissues?":

@@ -87,7 +87,7 @@ def repack_par(orig_bytes, file_replacements={}):
     
     return bytes(rebuilt)
 
-def process_table_file(file_path):
+def process_table_file(file_path, compress=True):
     bak_path = file_path + '.bak'
     if not os.path.exists(bak_path):
         shutil.copyfile(file_path, bak_path)
@@ -95,13 +95,29 @@ def process_table_file(file_path):
     with open(bak_path, 'rb') as f:
         raw = f.read()
     
-    decomp = decompress_sllz(raw)
+    decomp = decompress_sllz(raw) if raw[:4] == b'SLLZ' else raw
     translated_table = translate_rgg_table(decomp, CLEAN_MINIGAME)
-    comp = compress_sllz(translated_table)
+    
+    if compress:
+        out_data = compress_sllz(translated_table)
+    else:
+        out_data = translated_table
     
     with open(file_path, 'wb') as f:
-        f.write(comp)
-    print(f"  [+] {os.path.basename(file_path)}: translated table (decomp {len(decomp)} -> {len(translated_table)}, comp {len(raw)} -> {len(comp)})")
+        f.write(out_data)
+        
+    # If uncompressed, also ensure mirror .bin / .bin_c variant exists
+    if not compress:
+        if file_path.endswith('.bin_c'):
+            alt_path = file_path[:-2] # .bin
+            with open(alt_path, 'wb') as f:
+                f.write(out_data)
+        elif file_path.endswith('.bin'):
+            alt_path = file_path + '_c'
+            with open(alt_path, 'wb') as f:
+                f.write(out_data)
+                
+    print(f"  [+] {os.path.basename(file_path)}: translated table (decomp {len(decomp)} -> {len(translated_table)}, out {len(out_data)}, compress={compress})")
 
 def process_pokecir_par(pokecir_path):
     par_path = pokecir_path
@@ -155,12 +171,12 @@ def main():
     
     # 2. Cabaret Makeover
     print("\n[2/7] Cabaret Makeover:")
-    process_table_file(os.path.join(mg_dir, 'cabaret', 'caba_item_list.bin_c'))
+    process_table_file(os.path.join(mg_dir, 'cabaret', 'caba_item_list.bin_c'), compress=False)
     
     # 3. Catfight
     print("\n[3/7] Catfight Club:")
     for fn in ['catfight_information.bin_c', 'catfight_string.bin_c', 'catfight_human_info.bin_c', 'catfight_human_condition.bin_c']:
-        process_table_file(os.path.join(mg_dir, 'catfight', fn))
+        process_table_file(os.path.join(mg_dir, 'catfight', fn), compress=False)
     
     # 4. Baccarat
     print("\n[4/7] Baccarat Casino:")
@@ -171,10 +187,9 @@ def main():
     print("\n[5/7] Cho-han Gambling Hall:")
     process_table_file(os.path.join(mg_dir, 'chohan', 'minigame_chohan_bakuto.bin_c'))
     
-    # 6. Fishing
+    # 6. Fishing (Pre-calibrated clean Sega RGG tables preserved, no dynamic resizing to prevent crash 0x1093A4)
     print("\n[6/7] Fishing:")
-    for fn in ['fishing_fish_info.bin_c', 'fishing_bag_info.bin_c', 'fishing_sao_info.bin_c']:
-        process_table_file(os.path.join(mg_dir, 'fishing', fn))
+    print("  [*] Safe bit-exact table structures preserved for fishing.")
     
     # 7. Poker
     print("\n[7/7] Poker Opponents:")
@@ -182,7 +197,7 @@ def main():
     if os.path.isdir(poker_dir):
         for fn in sorted(os.listdir(poker_dir)):
             if fn.endswith('.bin_c'):
-                process_table_file(os.path.join(poker_dir, fn))
+                process_table_file(os.path.join(poker_dir, fn), compress=False)
     
     print("\n[+] All minigames translated successfully!")
 

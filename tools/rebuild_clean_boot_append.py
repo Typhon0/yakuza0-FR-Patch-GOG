@@ -27,6 +27,8 @@ sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('scratch'))
 from scratch.scanner_engine import parse_par, decompress_sllz
 from tools.sllz import compress_sllz
+from tools.translate_boot_par_complete import rebuild_string_tbl
+from tools.rebuild_clean_stay_append import apply_in_place_clean
 
 def get_clean_french_encounter_popup_bin(fr_boot_path='par_original/boot_steam_fr.par'):
     with open(fr_boot_path, 'rb') as f:
@@ -148,10 +150,50 @@ def get_clean_french_complete_shisho(fr_boot):
     dec = bytes(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
     return 0x0, len(dec), len(dec), dec
 
-def get_clean_french_mail(fr_boot):
-    raw = fr_boot['mail.bin_c'][3]
-    dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
-    return 0x0, len(dec), len(dec), bytes(dec)
+MAIL_FR = {
+    'This is a test.': "C'est un test.",
+    "It's from Nishiki...": "C'est de Nishiki...",
+    '"724106" is code for, "Whatcha up to?"': '"724106" signifie: "Quoi de neuf ?"',
+    "That's the Dojima Family office number.": "C'est le numero du bureau Dojima.",
+    'The "49" in front means it\'s urgent...': 'Le "49" devant veut dire urgent...',
+    "That's not a number I recognize. Who is it?": "Je ne reconnais pas ce numero. C'est qui ?",
+    '"89" is "all set" and "01104" is "come by."': '"89" veut dire pret, "01104" viens voir.',
+    "Guess he's done cleaning the Sugita Building.": "Le nettoyage du Sugita doit etre fini.",
+    '"106" would be "phone" and "0-9-" is... "OK."': '"106" pour tel et "0-9-"... "OK."',
+    'I guess the call came in?': "L'appel est arrive ?",
+    "That's not a number I know. Guess I'll have to": "Je ne connais pas ce numero. Je dois rappeler",
+    'call back and see who it is.': "pour voir de qui il s'agit.",
+    '109... 8... 910... "The time... has... come."': '109... 8... 910... "L\'heure est venue."',
+    '...Time for what?': "L'heure de quoi?",
+    '"10940" must be the bullfighting arena, and "51"': '"10940" doit etre les arenes et "51" veut dire ',
+    'would be "come." Straightforward enough.': '"viens". C\'est assez direct comme ca.',
+    '"1-60-0" ..."Am" and "on", maybe?': '"1-60-0"... "Am" et "on" alors ?',
+    "I don't get it.": "Je ne pige pas.",
+    '109... 8... And 910. "Nine pitches?"': '109... 8... Et 910. "Neuf lancers ?"',
+    'Three batters in nine pitches? Good pitcher!': '3 batteurs en 9 lancers ? Bon lanceur !',
+    '"10940". That\'d be... "pitching place." and 51': '"10940". Ce serait... "batting cages", 51',
+    'is "come." Huh. The batting cages, maybe?': 'est "viens". Les batting cages alors ?',
+    '1-60-0? The hell? "Am-o-re"? Isn\'t that, like,': '1-60-0 ? Bordel ? "A-mo-re" ? C\'est pas du',
+    'Italian for "love"?': 'amour en italien ?',
+    '"65810" and "29" make "Dragon," "Tiger" and': '"65810" et "29" font Dragon, Tigre et arme',
+    '"equipment." Somethin\' musta come in.': 'Un truc a du arriver en boutique.',
+    '"65810" and "51"... That\'s "Dragon," "Tiger,"': '"65810" et "51"... C\'est Dragon, Tigre et',
+    'and "come." Guess I\'ll swing by if I can.': '"viens". J\'irai voir si je peux.',
+    '"Come to the shrine" and "Bob"? I don\'t know': '"Viens au sanctuaire" et "Bob" ? Je connais',
+    'anyone named Bob...': 'personne nomme Bob.',
+}
+
+def get_clean_french_mail_calibrated(clean_par):
+    raw = decompress_sllz(clean_par['mail.bin_c'][3])
+    clean = apply_in_place_clean(raw, MAIL_FR, 'mail.bin_c')
+    comp = compress_sllz(clean)
+    assert len(clean) == 2816, f"Length altered for mail.bin_c: {len(clean)} != 2816"
+    return 0x80000000, len(clean), len(comp), comp
+
+def get_clean_french_string_tbl_bin(clean_par):
+    raw = clean_par['string_tbl.bin_c'][3]
+    comp, u_sz = rebuild_string_tbl(raw)
+    return 0x80000000, u_sz, len(comp), comp
 
 def get_clean_french_restaurant_menu(fr_boot):
     raw = fr_boot['restaurant_menu.bin_c'][3]
@@ -179,15 +221,34 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
 
     epm_entry = get_clean_french_encounter_popup_bin()
     item_entry = get_clean_french_item_bin()
+    substory_entry = get_clean_french_substory_bin()
+    ability_entry = get_clean_french_ability_bin()
+    tips_entry = get_clean_french_tips_tutorial_bin()
+
+    with open('par_original/boot_steam_fr.par', 'rb') as f:
+        fr_boot_files = parse_par(f.read())
+    heat_entry = get_clean_french_complete_heat(fr_boot_files)
+    shisho_entry = get_clean_french_complete_shisho(fr_boot_files)
+    restaurant_entry = get_clean_french_restaurant_menu(fr_boot_files)
+    money_result_entry = get_clean_french_money_result(fr_boot_files)
+    mail_entry = get_clean_french_mail_calibrated(clean_par)
+    string_tbl_entry = get_clean_french_string_tbl_bin(clean_par)
 
     TARGET_FILES = {
         'caption.bin_c': ref_par['caption.bin_c'],
         'explanation_main_scenario.bin_c': ref_par['explanation_main_scenario.bin_c'],
-        'explanation_sub_story.bin_c': ref_par['explanation_sub_story.bin_c'],
+        'explanation_sub_story.bin_c': substory_entry,
         'item.bin_c': item_entry,
-        'string_tbl.bin_c': ref_par['string_tbl.bin_c'],
+        'string_tbl.bin_c': string_tbl_entry,
         'battle_deck_list.bin_c': ref_par['battle_deck_list.bin_c'],
         'encounter_pupup_message.bin_c': epm_entry,
+        'ability.bin_c': ability_entry,
+        'complete_heat.bin_c': heat_entry,
+        'complete_shisho.bin_c': shisho_entry,
+        'tips_tutorial.bin_c': tips_entry,
+        'restaurant_menu.bin_c': restaurant_entry,
+        'money_result.bin_c': money_result_entry,
+        'mail.bin_c': mail_entry,
     }
 
     folder_count, folder_table_offset, file_count, file_table_offset = struct.unpack('>4I', clean_boot_bytes[16:32])

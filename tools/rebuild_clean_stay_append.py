@@ -115,6 +115,8 @@ def get_clean_controller_explain_bin(clean_par):
     raw = clean_par['controller_explain.bin_c'][3]
     clean = raw.replace(b'How to Play', b'Commandes  ')
     clean = clean.replace(b'Back to Title', b'Ecran titre  ')
+    clean = clean.replace(b'Cancel Close Window', b'Annuler Fermer Fen.')
+    clean = clean.replace(b'Finish/Back', b'Fin /Retour')
     assert len(clean) == len(raw), f"Length mismatch in controller_explain: {len(clean)} != {len(raw)}"
     assert clean.count(b'\x00') == raw.count(b'\x00'), "Null count diff in controller_explain!"
     return 0x0, len(clean), len(clean), clean
@@ -171,6 +173,91 @@ def get_clean_search_arms_result_picture_bin(clean_par):
     comp = compress_sllz(clean)
     return 0x80000000, len(clean), len(comp), comp
 
+VIRTUE_SHOP_FR = {
+    # Names
+    'Gotta Go Fast Lv. 1': 'Plein gaz ! Niv. 1',
+    'Card Watcher': 'Radar cartes',
+    'Gotta Go Fast Lv. 2': 'Plein gaz ! Niv. 2',
+    'Disposable Income 1': 'Argent de poche 1',
+    'Gotta Go Fast Lv. 3': 'Plein gaz ! Niv. 3',
+    'Disposable Income 2': 'Argent de poche 2',
+    'Bottomless Stomach': 'Estomac sans fond',
+    'Gotta Go Fast Lv. 4': 'Plein gaz ! Niv. 4',
+    'Disposable Income 3': 'Argent de poche 3',
+    "You Can't Stop Me": "Rien m'arrete !",
+    "Can't Stop Me": "Inarretable !",
+    'Money Magnet 1': 'Aimant a sous 1',
+    'Sweet Dreams, Mr. Shakedown': 'Bonne nuit M. Shakedown',
+    'Nouveau Riche Influx': 'Afflux de flambeurs',
+    'Money Magnet 2': 'Aimant a sous 2',
+    'Always in Style': 'Toujours style',
+    "Mr. Shakedown's Deep Pockets": "Poches pleines Shakedown",
+    'Money Magnet 3': 'Aimant a sous 3',
+    'Wealthy Aroma': 'Arome de riche',
+    'Limit Breaker': 'Brise-limites',
+    'The Golden Pistol': "Le pistolet d'or",
+    'Treasure Hunter Boost 1': 'Bonus chasseur tresor 1',
+    'Repairs Discount': 'Rabais reparat.',
+    'Socks of Fortune': 'Chaussettes Ebisu',
+    'Treasure Hunter Boost 2': 'Bonus chasseur tresor 2',
+    'The Golden Shotgun': 'Le fusil a pompe or',
+    'God of War': 'Dieu combat',
+    'Quick Collection Lv. 1': 'Recolte vite Niv. 1',
+    'Office Feng Shui 1': 'Feng Shui bureau 1',
+    'Quick Collection Lv. 2': 'Recolte vite Niv. 2',
+    'Office Feng Shui 2': 'Feng Shui bureau 2',
+    'Quick Collection Lv. 3': 'Recolte vite Niv. 3',
+    'Office Feng Shui 3': 'Feng Shui bureau 3',
+    'Quick Collection Lv. 4': 'Recolte vite Niv. 4',
+    'Casting Call 1': 'Recrutement 1',
+    'Casting Call 2': 'Recrutement 2',
+    'Casting Call 3': 'Recrutement 3',
+    'Casting Call 4': 'Recrutement 4',
+    'Casting Call 5': 'Recrutement 5',
+    'Club Makeover 1': 'Decor club 1',
+    'Casting Call 6': 'Recrutement 6',
+    'Casting Call 7': 'Recrutement 7',
+    'Casting Call 8': 'Recrutement 8',
+    'Casting Call 9': 'Recrutement 9',
+    'Casting Call 10': 'Recrutement 10',
+    'Club Makeover 2': 'Decor club 2',
+
+    # Details
+    'Dash for longer, recover more quickly.': 'Courez plus longtemps, recuperez vite.',
+    'Get the Card Watcher accessory.': "Obtenez l'accessoire radar.",
+    'Throw money over a larger area.\n*Only works if you have the Cash Confetti ability.': "Lancez de l'argent plus largement.\n*Requis: capacite Confettis en liquide.",
+    'People flock to your scattered money for a longer time.\n*Only works if you have the Cash Confetti ability.': "Les passants affluent plus longtemps vers l'argent.\n*Requis: capacite Confettis en liquide.",
+    'Enjoy food even when HP is full.': 'Mangez meme avec sante pleine.',
+    'Enemies picking up money drop items.\n*Only works if you have the Cash Confetti ability.': "Les ennemis ramassant l'argent lachent des objets.\n*Requis: capacite Confettis.",
+    'Dash without getting tired.': 'Courez sans vous fatiguer.',
+    'Gather more money from enemies.': "Plus d'argent sur les ennemis.",
+    'Mr. Shakedown more likely to take a nap in the park.': 'M. Shakedown fait plus souvent la sieste au parc.',
+    'Nouveau riche men start appearing around town.': 'Des hommes flambeurs apparaissent en ville.',
+    'Get Quick-Change Clothes.': 'Obtenez Habits de change.',
+    'Get more money when you defeat Mr. Shakedown.': "Gagnez plus d'argent contre M. Shakedown.",
+    'Get the Celebrity Perfume accessory.': 'Obtenez le Parfum de celebrite.',
+    'Enable upgrades to a certain battle style beyond its limits.': 'Ameliorez un certain style de combat au-dela des limites.',
+    'Get the Golden Pistol.': 'Obtenez le Pistolet or',
+    'Better value for your money when giving agents extra funds.': 'Meilleur rendement en donnant des fonds aux agents.',
+    'Weapon repairs cost half the original price.': "Reparations d'armes a moitie prix.",
+    'Get the Ebisu Socks accessory.': "Obtenez Chaussettes d'Ebisu.",
+    'Get the Golden Shotgun.': 'Obtenez Fusil pompe or.',
+    'Get the War God Talisman accessory.': 'Obtenez le Talisman Dieu du combat.',
+    'Reduces time it takes until revenue is ready for collection.\n*Must unlock Kamurocho Real Estate Royale first.': "Reduit le temps d'attente des revenus.\n*Requis: Immobilier sous cloche de Kamurocho.",
+    "A new look for Kiryu's office.": "Nouveau look bureau de Kiryu.",
+    'Reduces time it takes until revenue is ready for collection.': "Reduit le temps d'attente avant collecte des revenus.",
+    'Employ a new hostess at Club Sunshine.\n*Must unlock Sotenbori Cabaret Club Czar first.': 'Recrutez une hotesse au Club Sunshine.\n*Requis: Cabaret Club Czar de Sotenbori.',
+    'Employ a new hostess at Club Sunshine.': 'Recrutez une hotesse au Club Sunshine.',
+    'New interior decor for Club Sunshine.': 'Nouveau decor pour le Club Sunshine.',
+}
+
+def get_clean_virtue_shop_bin(clean_par):
+    raw = decompress_sllz(clean_par['virtue_shop.bin_c'][3])
+    clean = apply_in_place_clean(raw, VIRTUE_SHOP_FR, 'virtue_shop.bin_c')
+    comp = compress_sllz(clean)
+    assert len(clean) == 4800, f"Virtue shop length changed: {len(clean)} != 4800"
+    return 0x80000000, len(clean), len(comp), comp
+
 def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
                              ref_par_path='scratch/data/staypar/stay.par',
                              output_path='release_gog/data/staypar/stay.par'):
@@ -199,10 +286,6 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
         'correlation_person.bin_c',
         'money_island_tarent.bin_c',
         'response_roulette.bin_c',
-        'search_arms_agent.bin_c',
-        'search_arms_location.bin_c',
-        'search_arms_result_picture.bin_c',
-        'tougijyo_realtime_quest.bin_c',
         'ultimate.bin_c',
     ]
 

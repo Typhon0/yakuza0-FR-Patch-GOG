@@ -22,6 +22,7 @@ from tools.boot_dict_part1 import P1
 from tools.boot_dict_part2 import P2
 from tools.boot_dict_part3 import P3
 from tools.boot_dict_part4 import P4
+from tools.boot_dict_part5 import P5
 
 ACTION_VERBS = {
     'Check': 'Vérifier',
@@ -55,7 +56,7 @@ ACTION_VERBS = {
     'Weapons': 'Armes',
 }
 
-BOOT_DICT = {**P1, **P2, **P3, **P4, **ACTION_VERBS}
+BOOT_DICT = {**P1, **P2, **P3, **P4, **P5, **ACTION_VERBS}
 
 CAPTIONS_BOOT = {
     # Objectives / Scenario
@@ -311,7 +312,7 @@ ITEMS_BOOT = {
 }
 
 def clean_fr(s):
-    return s.replace('œ', 'oe').replace('Œ', 'OE').replace('Ça', 'Ca').replace('ÇA', 'CA').replace('Ç', 'C')
+    return s.replace('’', "'").replace('‘', "'").replace('«', '"').replace('»', '"').replace('œ', 'oe').replace('Œ', 'OE').replace('Ça', 'Ca').replace('ÇA', 'CA').replace('Ç', 'C')
 
 def translate_rgg_table(data_bytes, translations):
     num_cols = struct.unpack('>I', data_bytes[4:8])[0]
