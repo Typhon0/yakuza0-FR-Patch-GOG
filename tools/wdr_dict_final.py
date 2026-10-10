@@ -1229,8 +1229,6 @@ WDR_FINAL_DICT = {
         "a recu le plus d'eloges.",
     'like dried fruit that comes from\nthe sherry barrels in which it is aged.':
         'fruits secs des futs de xeres ou il a vieilli.',
-    "ne drinkin' for now.)":
-        ')',
     'ning, even after 50 years on the market.':
         'apres 50 ans sur le marche.',
     "\x81Akio, I'll get your game back for you. So don't cry, okay?":

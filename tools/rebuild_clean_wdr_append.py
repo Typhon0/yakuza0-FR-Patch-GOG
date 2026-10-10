@@ -52,6 +52,32 @@ def patch_with_pac_translations(data_bytes):
     assert len(out) == len(data_bytes), "File size changed!"
     return bytes(out), replacements_count
 
+def get_dialogue_candidates():
+    from tools.wdr_translations_data import WDR_TRANSLATIONS
+    from tools.wdr_dict_final import WDR_FINAL_DICT
+
+    combined = dict(WDR_TRANSLATIONS)
+    combined.update(WDR_FINAL_DICT)
+
+    MENU_EXCLUSIONS = {
+        'Cancel', 'Save', 'Yes', 'No', 'Back', 'Go Back', 'Play', 'Solo', 'Play Solo',
+        'Play again?', 'Play Again', 'Stop Here', 'Cacher', 'Rejouer', 'En solo', 'Retour'
+    }
+
+    candidates = []
+    for en, fr in combined.items():
+        if en in MENU_EXCLUSIONS:
+            continue
+        en_b = en.encode('latin1')
+        fr_clean = fr.replace('’', "'").replace('œ', 'oe').replace('Œ', 'OE').replace('Ça', 'Ca').replace('ÇA', 'CA').replace('Ç', 'C')
+        fr_b = fr_clean.encode('latin1')
+        diff = len(en_b) - len(fr_b)
+        if diff >= 2 and (b'\n' in fr_b or b'\r' in fr_b or len(fr_b) >= 20 or any(p in fr_b for p in [b'.', b'!', b'?', b':'])):
+            candidates.append((en, fr_b, diff))
+
+    candidates.sort(key=lambda x: len(x[1]), reverse=True)
+    return candidates
+
 def get_clean_french_ai_popup():
     common_path = 'release_gog/data/wdr_par_c/common.par'
     if os.path.exists(common_path):
@@ -137,6 +163,10 @@ def rebuild_clean_wdr_append(clean_par_path, curr_par_path, output_path):
 
     clean_files = parse_par(clean_bytes)
     curr_files = parse_par(curr_bytes)
+
+    print(f"[+] Loading safe dialogue candidates for typewriter space-padding...")
+    dialogue_candidates = get_dialogue_candidates()
+    print(f"[+] Loaded {len(dialogue_candidates)} safe dialogue candidates.")
 
     print(f"[+] Pre-generating clean French shops with preserved Pocket Circuit tables...")
     repaired_shops = generate_repaired_shops(clean_par_path, 'release_gog/data/bootpar/boot.par')
@@ -303,6 +333,27 @@ def rebuild_clean_wdr_append(clean_par_path, curr_par_path, output_path):
             curr_flags, curr_u, curr_c, curr_data = curr_item
             decomp_curr = decompress_sllz(curr_data) if curr_data.startswith(b'SLLZ') else curr_data
             decomp_orig = decompress_sllz(orig_data) if orig_data.startswith(b'SLLZ') else orig_data
+
+            # Guard against dialogue null-padding softlocks in .msg files (Dolce Kamiya, poker, tutorials, etc.)
+            if name.endswith('.msg'):
+                decomp_curr_ba = bytearray(decomp_curr)
+                for en_orig, fr_b, diff in dialogue_candidates:
+                    target = fr_b + (b'\x00' * diff)
+                    if target in decomp_curr_ba:
+                        rep = fr_b + (b' ' * diff)
+                        pos = 0
+                        while True:
+                            idx = decomp_curr_ba.find(target, pos)
+                            if idx == -1:
+                                break
+                            decomp_curr_ba[idx : idx + len(target)] = rep
+                            pos = idx + len(rep)
+
+                # Fallback check for Dolce Kamiya Substory 47 radio broadcast
+                dolce_null = b"prochaine !\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+                if dolce_null in decomp_curr_ba:
+                    decomp_curr_ba = bytearray(bytes(decomp_curr_ba).replace(dolce_null, b"prochaine !" + (b" " * 20)))
+                decomp_curr = bytes(decomp_curr_ba)
 
             if decomp_curr == decomp_orig:
                 stats['kept_orig'] += 1

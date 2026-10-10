@@ -613,4 +613,28 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
   2. **Affichage français 100% garanti** : les notifications de capture ("Vous avez obtenu : ...") et l'inventaire reposent sur `item.bin_c` (dans `boot.par`), où l'intégralité des 33 espèces de poissons et sacs sont traduites en français certifié.
   3. **Verrouillage du pipeline de build** : exclusion définitive de `fishing/` de tout redimensionnement dynamique dans `tools/translate_all_minigames.py`.
 
+---
+
+### 18. Softlock Radio Dolce Kamiya / Quête 47 (`wdr.par` - Null-Padding sur Dialogues `.msg`)
+* **Symptômes :** En écoutant l'émission de radio sur le poste du bureau de Kiryu (Substory 47 : *« L'animateur radio »* / Dolce Kamiya), la réplique finale de l'animateur s'affiche :  
+  *« Dolce Kamiya : Alors, restez a l'ecoute ! Au revoir et a la prochaine ! »*  
+  Le dialogue s'arrête, aucun glyphe d'avance `[A]` n'apparaît, Kiryu ne peut plus bouger et le monologue suivant n'est jamais déclenché : **softlock permanent**.
+* **Cause Racine (Règle 2 d'AGENTS.md & Section 3/4b) :**
+  1. La réplique originale Sega contenait 75 caractères (`"All right then, make sure to tune in again! Goodbye, and\r\nsee you next time!"`).
+  2. La traduction raccourcie ne faisait que 55 caractères (`"Alors, restez a l'ecoute ! Au revoir et a la\nprochaine !"`).
+  3. L'ancien traducteur avait complété la différence avec **20 octets nuls (`\x00 * 20`)** au lieu d'espaces.
+  4. La routine de machine à écrire Sega (`0x140396783`) s'arrête immédiatement dès qu'elle lit le premier `\x00` à la place du caractère 56, sans jamais atteindre les 75 caractères requis par le nœud de dialogue. L'événement « fin de réplique » n'est jamais émis, bloquant indéfiniment la machine d'état.
+* **Solution Pérenne & Traitement Systématique des Dialogues :**
+  1. **Remplacement chirurgical pour Dolce Kamiya :** Remplacement strict des 20 octets nuls par **20 espaces (`b' ' * 20`)** dans les 8 fichiers de la quête radio (`uid000c169e.msg`, `uid010c16e4.msg`, `uid010c16e8.msg`, `uid010c16ec.msg`, `uid010c16fc.msg`, `uid010c16fe.msg`, `uid010c1703.msg`, `uid010c1705.msg`).
+  2. **Généralisation chirurgicale à l'ensemble de `wdr.par` :**
+     - Identification de **1 023 répliques de dialogues** issues des dictionnaires de traduction ayant `len(fr) < len(en)` avec des octets nuls terminaux (`\x00 * diff`).
+     - Remplacement exclusif du padding nul par du space-padding (`b' ' * diff`) sur les 1 197 occurrences réparties dans 203 fichiers `.msg` (tutoriels de casino poker/Texas Hold'em `uid01520004.msg`/`uid01770001.msg`, mini-jeux billard/karaoké, descriptions de boutiques et monologues).
+     - **Préservation stricte des mots-clés d'interface** (`Save`, `Cancel`, `Yes`, `No`, `Retour`, `En solo`...) qui restent dûment null-terminés en standard C.
+     - **0 modification aveugle** : seules les séquences exactes de padding générées par le traducteur sur des phrases de dialogue sont touchées, sans déplacer le moindre offset ni altérer les structures binaires.
+  3. **Intégration permanente dans le moteur de build :**
+     - Ajout de la routine `get_dialogue_candidates()` et application automatique du space-padding sur tous les scripts `.msg` dans [`tools/rebuild_clean_wdr_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_wdr_append.py).
+     - Recompilation de `release_gog/data/wdr_par_c/wdr.par` en modèle **Append-Only** avec alignement sectoriel strict de 2 048 octets.
+  4. **Validation intégrale :**
+     - [`tools/verify_patch.py release_gog`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/verify_patch.py) : **131/131 archives OK (100% PASS, 0 erreurs)**.
+     - [`tools/build_release.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/build_release.py) : Test End-to-End validé avec **SUCCÈS TOTAL**.
 
