@@ -226,6 +226,10 @@ pause
 README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.9
 
 ## Nouveautés v1.12.9
+- **Éradication des softlocks de dialogues (.msg) et tripot du Parc Ouest (Oicho-kabu, Cho-han, Cee-lo)** :
+  Généralisation du space-padding aux répliques avec delta unitaire (`diff >= 1`) dans les 1 655 scripts de `wdr.par` (169 répliques assainies, dont *« On joue a l'oicho-kabu. Tu viens jouer ? »* `uid00440141.msg`), permettant à la machine à écrire Sega de franchir la longueur requise sans blocage d'affichage ni disparition du menu de choix.
+- **Correction critique du crash au Cat Fight Club lors du martèlement de la touche [A] (`0x3A7CF6`)** :
+  Synchronisation bit-exacte des tokens de styles et compétences dans `catfight_human_info.bin` avec `catfight_string_matching.bin` et préservation rigoureuse des colonnes binaires de statistiques de combat RGG.
 - **Correction critique du crash au Chapitre 13 après le combat contre Oda (`uid01331415.msg`)** :
   Restauration de la cinématique et des dialogues avec Jun Oda bit-à-bit sur le bytecode Sega vanilla officiel, réinjection in-place des 62 répliques françaises calibrées sans altération des pointeurs ni de la taille de fichier (23 696 octets stricts).
 - **Correction critique du crash à la fin de la Quête #49 avec Fan-san (`Yakuza0.exe+0x9C4861`, `item.bin_c`)** :

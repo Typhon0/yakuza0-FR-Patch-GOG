@@ -627,14 +627,43 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
 * **Solution Pérenne & Traitement Systématique des Dialogues :**
   1. **Remplacement chirurgical pour Dolce Kamiya :** Remplacement strict des 20 octets nuls par **20 espaces (`b' ' * 20`)** dans les 8 fichiers de la quête radio (`uid000c169e.msg`, `uid010c16e4.msg`, `uid010c16e8.msg`, `uid010c16ec.msg`, `uid010c16fc.msg`, `uid010c16fe.msg`, `uid010c1703.msg`, `uid010c1705.msg`).
   2. **Généralisation chirurgicale à l'ensemble de `wdr.par` :**
-     - Identification de **1 023 répliques de dialogues** issues des dictionnaires de traduction ayant `len(fr) < len(en)` avec des octets nuls terminaux (`\x00 * diff`).
-     - Remplacement exclusif du padding nul par du space-padding (`b' ' * diff`) sur les 1 197 occurrences réparties dans 203 fichiers `.msg` (tutoriels de casino poker/Texas Hold'em `uid01520004.msg`/`uid01770001.msg`, mini-jeux billard/karaoké, descriptions de boutiques et monologues).
-     - **Préservation stricte des mots-clés d'interface** (`Save`, `Cancel`, `Yes`, `No`, `Retour`, `En solo`...) qui restent dûment null-terminés en standard C.
+     - Identification et inclusion de toutes les répliques de dialogues issues des dictionnaires de traduction ayant `len(fr) < len(en)` (`diff >= 1`) avec padding nul terminal.
+     - **Résolution du cas d'école Oicho-kabu (`uid00440141.msg`) et du Tripot du Parc Ouest :** Le seuil initial `diff >= 2` avait laissé de côté les répliques à delta unitaire (`diff == 1`), notamment *« We play oicho-kabu here. Want to join us? »* (41 o) $\rightarrow$ *« On joue a l'oicho-kabu. Tu viens jouer ? »* (40 o), provoquant un softlock permanent au Parc Ouest car la machine à écrire Sega s'arrêtait sur le 41e caractère nul.
+     - Remplacement exclusif du padding nul par du space-padding (`(b' ' * diff) + b'\x00'`) sur les 1 193 dialogues candidats à travers l'ensemble des 1 655 fichiers `.msg` (tripot Parc Ouest oicho-kabu/cho-han/cee-lo, poker, roulette, tutoriels et monologues).
+     - **Préservation stricte des mots-clés d'interface** (`Save`, `Cancel`, `Yes`, `No`, `Retour`, `En solo`, `Talk_Yes`, `dummy`...) qui restent dûment null-terminés en standard C.
      - **0 modification aveugle** : seules les séquences exactes de padding générées par le traducteur sur des phrases de dialogue sont touchées, sans déplacer le moindre offset ni altérer les structures binaires.
   3. **Intégration permanente dans le moteur de build :**
-     - Ajout de la routine `get_dialogue_candidates()` et application automatique du space-padding sur tous les scripts `.msg` dans [`tools/rebuild_clean_wdr_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_wdr_append.py).
+     - Généralisation de `get_dialogue_candidates()` avec seuil `diff >= 1` et application automatique du space-padding sur tous les scripts `.msg` dans [`tools/rebuild_clean_wdr_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_wdr_append.py).
      - Recompilation de `release_gog/data/wdr_par_c/wdr.par` en modèle **Append-Only** avec alignement sectoriel strict de 2 048 octets.
   4. **Validation intégrale :**
      - [`tools/verify_patch.py release_gog`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/verify_patch.py) : **131/131 archives OK (100% PASS, 0 erreurs)**.
      - [`tools/build_release.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/build_release.py) : Test End-to-End validé avec **SUCCÈS TOTAL**.
+
+---
+
+### 19. Crash Mini-jeu Catfight Club au Martèlement de Touche A (`0x1403A7CF6`, Enum Mismatch & Décalage Colonnes RGG)
+* **Symptômes :** Crash instantané `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) dans le mini-jeu **JCC (Japan Catfight Club)** à la fin d'une phase d'égalité (*clash / tie-break*), après avoir martelé la touche [A] au moment où le vainqueur est résolu et où l'animation/capacité de combat doit se déclencher.
+* **Adresse RIP du crash :** `Yakuza0.exe+0x3A7CF6h` (`0x1403A7CF6`, instruction `movzbl (%rdi,%rdx,1), %eax`).
+* **Analyse des registres au crash (`logs/crash/2026-10-11__11'55'31/crash.log`) :**
+  - `%rip = 0x1403a7cf6`, `%rsp = 0x00000014f8e0`, `%rbp = 0x0`
+  - `%rdx = 0x01be000001bd` (concaténation d'entiers 446 et 445, pointeur mémoire invalide)
+  - `%rsi = 0x0000ffffffff` (**code de retour `-1`** d'une recherche d'enum/string infructueuse)
+  - `%r9  = 0x140cce518` (chaîne de section `.rdata` **`"data/hact"`**, gestionnaire des animations Heat Actions/combats)
+  - `%r15 = 0x7ff4d442a7a0`
+* **Cause Racine Bit-Exact :**
+  1. Lors de la fin du martèlement d'une égalité, la routine `0x140349776` prépare l'animation de combat en évaluant le style et la compétence spéciale de la combattante.
+  2. Elle interroge la table d'association `catfight_string_matching.bin` qui établit la correspondance 1:1 entre les identifiants internes C++ (`CTF_MATCHING_*`) et les chaînes de référence :
+     `Initiative`, `Vitality`, `Endurance`, `Comeback`, `Power`, `Agility`, `Technique`, `Elegant`, `Cool`, `Cute`, `Quirky`.
+  3. L'ancien traducteur dynamique de tables avait traduit les colonnes 9 (`SKILL`), 10 (`STYLE`) et 11 (`PERSONALITY`) de `catfight_human_info.bin` en français (`Vitalité`, `Puissance`, `Agilité`, `Décalée`...).
+  4. La recherche dans `catfight_string_matching.bin` échouait, renvoyant `-1` (`%rsi = 0xFFFFFFFF`). Non vérifié, ce code d'erreur injectait des octets résiduels corrompus (`0x01be000001bd`) dans `%rdx`, provoquant le crash immédiat dans le déréférencement de chaîne à `0x1403A7CE0` (`0x1403A7CF6`).
+  5. De surcroît, le redimensionnement dynamique des colonnes texte par `translate_rgg_table` avait décalé de +52 octets les colonnes numériques de combat : `RATIO_SKILL`, `STABILITY` (régissant spécifiquement la récupération de jauge au martèlement de [A]), `SCORE_GU`, `SCORE_CHOKI` et `SCORE_PA`.
+* **Solution Pérenne :**
+  1. **Création de [`tools/rebuild_catfight_clean.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_catfight_clean.py) :**
+     - Restauration des tokens canoniques dans les colonnes 9, 10 et 11 de `catfight_human_info.bin` (`Initiative`, `Vitality`, `Endurance`, `Comeback`, `Power`, `Agility`, `Technique`, `Quirky`, `Cool`, `Cute`, `Elegant`).
+     - Préservation stricte de la structure binaire RGG et alignement 4-octets des colonnes.
+     - Génération synchrone des versions jumelles `catfight_human_info.bin` et `catfight_human_info.bin_c` au format binaire brut non compressé (`0x20070319`).
+  2. **Audit de cohérence 1:1 :** Contrôle automatisé certifiant que 100% des tokens de colonnes 9, 10 et 11 correspondent exactement aux entrées de `catfight_string_matching.bin`.
+  3. **Verrouillage du pipeline de build :**
+     - Intégration de l'appel à `rebuild_catfight_clean.py` dans [`tools/translate_all_minigames.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/translate_all_minigames.py) avec exclusion du redimensionnement dynamique.
+     - Inclusion garantie dans `PRECOMPILED_DATA` de [`tools/build_release.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/build_release.py).
 

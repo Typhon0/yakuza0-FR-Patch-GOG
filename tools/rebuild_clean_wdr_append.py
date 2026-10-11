@@ -61,7 +61,8 @@ def get_dialogue_candidates():
 
     MENU_EXCLUSIONS = {
         'Cancel', 'Save', 'Yes', 'No', 'Back', 'Go Back', 'Play', 'Solo', 'Play Solo',
-        'Play again?', 'Play Again', 'Stop Here', 'Cacher', 'Rejouer', 'En solo', 'Retour'
+        'Play again?', 'Play Again', 'Stop Here', 'Cacher', 'Rejouer', 'En solo', 'Retour',
+        'Talk_Yes', 'Talk_No', 'dummy', 'Player', 'Joueer', 'Talk_Info_L'
     }
 
     candidates = []
@@ -72,7 +73,7 @@ def get_dialogue_candidates():
         fr_clean = fr.replace('’', "'").replace('œ', 'oe').replace('Œ', 'OE').replace('Ça', 'Ca').replace('ÇA', 'CA').replace('Ç', 'C')
         fr_b = fr_clean.encode('latin1')
         diff = len(en_b) - len(fr_b)
-        if diff >= 2 and (b'\n' in fr_b or b'\r' in fr_b or len(fr_b) >= 20 or any(p in fr_b for p in [b'.', b'!', b'?', b':'])):
+        if diff >= 1 and (b'\n' in fr_b or b'\r' in fr_b or len(fr_b) >= 10 or any(p in fr_b for p in [b'.', b'!', b'?', b':', b',', b' '])):
             candidates.append((en, fr_b, diff))
 
     candidates.sort(key=lambda x: len(x[1]), reverse=True)
@@ -338,9 +339,9 @@ def rebuild_clean_wdr_append(clean_par_path, curr_par_path, output_path):
             if name.endswith('.msg'):
                 decomp_curr_ba = bytearray(decomp_curr)
                 for en_orig, fr_b, diff in dialogue_candidates:
-                    target = fr_b + (b'\x00' * diff)
+                    target = fr_b + (b'\x00' * (diff + 1))
                     if target in decomp_curr_ba:
-                        rep = fr_b + (b' ' * diff)
+                        rep = fr_b + (b' ' * diff) + b'\x00'
                         pos = 0
                         while True:
                             idx = decomp_curr_ba.find(target, pos)

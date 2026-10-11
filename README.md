@@ -38,8 +38,8 @@ The original community patch was compiled strictly for the Steam release:
 * **Hardened Anti-Crash Engine & Bit-Exact Verification**:
   - **131/131 PAR Archives Certified**: 100% PASS via [`tools/verify_patch.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/verify_patch.py).
   - **Zero Sectorial Drift**: 2,048-byte sector alignment strictly enforced across all archives, eliminating Kotobuki Drugstore crash `0x234B0` and save-load crash `0xA4526`.
-  - **27 Standalone Loose Minigame Tables Normalized**: Raw RGG binary format (`0x20070319`) with twin `.bin` and `.bin_c` files, eliminating fishing crash `0x37177C` and strike crash `0x1093A4`.
-  - **Length-Safe Scripts**: Space-padding and byte-exact offsets for telephone save booths (58 ASCII chars) and Bob Utsunomiya (27,575 bytes), preventing softlocks.
+  - **27 Standalone Loose Minigame Tables Normalized**: Raw RGG binary format (`0x20070319`) with twin `.bin` and `.bin_c` files, eliminating fishing crash `0x37177C`, strike crash `0x1093A4`, and Catfight Club clash mash crash `0x3A7CF6`.
+  - **Zero Dialogue Softlock Protection**: Space-padding (`diff >= 1`) across all 1,655 `.msg` scripts in `wdr.par` (fixing West Park gambling den Oicho-kabu `uid00440141.msg`, Cho-han, Cee-lo, and 169 single-byte delta lines), plus byte-exact offsets for telephone save booths (58 ASCII chars) and Bob Utsunomiya (27,575 bytes).
 * **1-Click Portable Launcher**: Windows batch script with embedded standalone Python 3.12 (no Python installation required by the user) and Linux / Steam Deck shell script.
 
 ---
@@ -134,8 +134,8 @@ La traduction originale avait été compilée exclusivement pour la version Stea
 * **Blindage Anti-Crash et Validation Bit-Exacte** :
   - **131/131 archives PAR certifiées conformes** (100% PASS via `tools/verify_patch.py`).
   - **Alignement sectoriel 2 048 octets strict** : élimine définitivement les crashs de streaming asynchrone (`0x234B0` en pharmacie, `0xA4526` au chargement).
-  - **27 tables de mini-jeux isolées normalisées** : format binaire RGG brut (`0x20070319`) avec versions jumelles `.bin` et `.bin_c` (anti-crash pêche `0x37177C` et ferrage `0x1093A4`).
-  - **Scripts à longueur protégée** : padding par espaces pour les cabines téléphoniques (58 caractères ASCII) et Bob Utsunomiya (27 575 octets), évitant les softlocks de machine à écrire Sega.
+  - **27 tables de mini-jeux isolées normalisées** : format binaire RGG brut (`0x20070319`) avec versions jumelles `.bin` et `.bin_c` (anti-crash pêche `0x37177C`, ferrage `0x1093A4`, et duel de catch féminin `0x3A7CF6`).
+  - **Protection Absolue Anti-Softlock Dialogue** : Remplacement systématique du padding nul par du space-padding (`diff >= 1`) sur l'intégralité des 1 655 scripts `.msg` de `wdr.par` (résolution du tripot du Parc Ouest oicho-kabu `uid00440141.msg`, cho-han, cee-lo, et 169 répliques à delta unitaire), plus padding par espaces pour les cabines téléphoniques (58 caractères ASCII) et Bob Utsunomiya (27 575 octets).
 * **Lanceurs 1-clic** : Fichier batch Windows autonome (avec Python 3.12 portable embarqué, rien à installer) et script shell Linux / Steam Deck.
 
 ---
@@ -156,7 +156,7 @@ Pour respecter la fidélité au lore, les licences officielles et la stabilité 
 2. **Morceaux musicaux sous licence** : Les chansons sous licence du Disco (*I Wanna Take You Home*, *Friday Night*, etc.) conservent leurs titres originaux.
 3. **Terminologie officielle des jeux traditionnels** : Les annonces et combinaisons officielles de Mahjong (*Riichi, Ippatsu, Ron, Tsumo, Dora*) et les règles de Shogi.
 4. **Cartes d'Idoles réelles (AV)** : Les cartes de collection et fiches conservent les véritables noms de scène japonais des actrices.
-5. **Tables sécurisées anti-crash** : Les tables internes de gestion du Cabaret Sunshine (`caba_cast_info.bin_c`, `cabaret_island_area.bin_c` dans `stay.par`) et les paramètres physiques des poissons (`fishing_fish_info.bin`) conservent leurs gabarits Sega d'origine pour éliminer définitivement les violations d'accès mémoire (`0x37177C`, `0x3711DB`, `0x1093A4`).
+5. **Tables sécurisées anti-crash** : Les tables internes de gestion du Cabaret Sunshine (`caba_cast_info.bin_c`, `cabaret_island_area.bin_c` dans `stay.par`), les paramètres physiques des poissons (`fishing_fish_info.bin`) et les tokens de combat du Cat Fight Club (`catfight_human_info.bin`) conservent leurs gabarits Sega d'origine pour éliminer définitivement les violations d'accès mémoire (`0x37177C`, `0x3711DB`, `0x1093A4`, `0x3A7CF6`).
 
 ---
 

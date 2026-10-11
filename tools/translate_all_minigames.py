@@ -88,6 +88,8 @@ def repack_par(orig_bytes, file_replacements={}):
     return bytes(rebuilt)
 
 def process_table_file(file_path, compress=True):
+    if not os.path.exists(file_path):
+        return
     bak_path = file_path + '.bak'
     if not os.path.exists(bak_path):
         shutil.copyfile(file_path, bak_path)
@@ -173,10 +175,13 @@ def main():
     print("\n[2/7] Cabaret Makeover:")
     process_table_file(os.path.join(mg_dir, 'cabaret', 'caba_item_list.bin_c'), compress=False)
     
-    # 3. Catfight
+    # 3. Catfight Club (Pre-calibrated clean Sega RGG tables with canonical enums, no dynamic resizing to prevent crash 0x3A7CF6)
     print("\n[3/7] Catfight Club:")
-    for fn in ['catfight_information.bin_c', 'catfight_string.bin_c', 'catfight_human_info.bin_c', 'catfight_human_condition.bin_c']:
-        process_table_file(os.path.join(mg_dir, 'catfight', fn), compress=False)
+    try:
+        import tools.rebuild_catfight_clean as rebuild_cf
+        rebuild_cf.main()
+    except Exception as e:
+        print(f"  [!] Note calibration Catfight: {e}")
     
     # 4. Baccarat
     print("\n[4/7] Baccarat Casino:")
