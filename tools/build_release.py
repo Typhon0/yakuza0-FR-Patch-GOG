@@ -28,11 +28,15 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.9"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.11"
 
 # Files to include from tools/ (strictly user-facing)
 TOOL_FILES = [
     "tools/verify_patch.py",
+    "tools/patch_sound_par.py",
+    "tools/sound_subtitles_data.py",
+    "tools/sllz.py",
+    "tools/__init__.py",
 ]
 
 # Pre-compiled verified archives to include directly
@@ -43,10 +47,10 @@ PRECOMPILED_DATA = [
     ("release_gog/data/staypar/stay.par", "data/staypar/stay.par"),
 ]
 
-# Automatically include all standalone loose minigame tables (.bin and .bin_c)
+# Automatically include all standalone loose minigame tables (.bin, .bin_c, and minigame textures .dds)
 for _root, _dirs, _files in os.walk("release_gog/data/minigame"):
     for _f in sorted(_files):
-        if _f.endswith(".bin") or _f.endswith(".bin_c"):
+        if _f.endswith(".bin") or _f.endswith(".bin_c") or _f.endswith(".dds"):
             _src = os.path.join(_root, _f)
             _rel = os.path.relpath(_src, "release_gog")
             PRECOMPILED_DATA.append((_src, _rel))
@@ -60,7 +64,7 @@ ROOT_FILES = [
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
 echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.9
+echo   Yakuza 0 - Patch VOSTFR GOG v1.12.11
 echo   Par RGG Yakuza Rev / Typhon0
 echo ========================================================
 echo.
@@ -223,9 +227,17 @@ if not exist "%PYTHON%" (
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.9
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.11
 
-## Nouveautés v1.12.9
+## Nouveautés v1.12.11
+- **Correction Critique Crash Ponts d'Osaka / Sous-titres Voix de Rue (0x19CAC0 — CMfp::Initialize)** :
+  Correction du crash mémoire (`EXCEPTION_ACCESS_VIOLATION` à `0x14019CAC0`) survenant lors de la traversée des ponts de Sotenbori (Osaka) ou lors de scènes de rue à l'affichage des sous-titres d'ambiance et de détresse. Restauration de l'automate `CMfp::Initialize` dans `sound.par`, réinjection de répliques en français parlé naturel 100% bit-exact et alignement sectoriel strict de 2 048 octets.
+
+## Historique v1.12.10
+- **Éradication Universelle des Softlocks et Coupures de Dialogue (.msg Bytecode Synchronization)** :
+  Synchronisation bit-exacte in-place du compteur de machine à écrire Sega (`word 0 >> 16`) sur **14 078 nœuds de dialogue** à travers **1 105 fichiers `.msg`** de `wdr.par`. Élimination définitive à 100% du softlock de Kamoji / Drunk (`uid01261727.msg`), des tripots (Cee-lo, Blackjack, Cho-han, Oicho-kabu), des maîtres d'arts martiaux et des coupures de répliques prématurées, sans altération de la taille de fichier ni décalage de pointeurs.
+
+## Historique v1.12.9
 - **Éradication des softlocks de dialogues (.msg) et tripot du Parc Ouest (Oicho-kabu, Cho-han, Cee-lo)** :
   Généralisation du space-padding aux répliques avec delta unitaire (`diff >= 1`) dans les 1 655 scripts de `wdr.par` (169 répliques assainies, dont *« On joue a l'oicho-kabu. Tu viens jouer ? »* `uid00440141.msg`), permettant à la machine à écrire Sega de franchir la longueur requise sans blocage d'affichage ni disparition du menu de choix.
 - **Correction critique du crash au Cat Fight Club lors du martèlement de la touche [A] (`0x3A7CF6`)** :
@@ -259,7 +271,7 @@ Certains termes techniques ou officiels sont volontairement conservés en versio
 - **Identifiants internes Sega** : Noms de variables et d'animations du moteur qui causeraient des crashs mémoire s'ils étaient altérés.
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.9.zip`.
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.11.zip`.
 2. Lancez `patch_fr.bat` (en faisant un clic droit -> « Exécuter en tant qu'administrateur »).
 3. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
 
@@ -390,7 +402,10 @@ def build_release():
     # Copier data, patch_gog.py, font table, LISEZMOI, verify_patch
     shutil.copytree(os.path.join(stage, "data"), os.path.join(stage_no_py, "data"))
     os.makedirs(os.path.join(stage_no_py, "tools"), exist_ok=True)
-    shutil.copy2(os.path.join(stage, "tools", "verify_patch.py"), os.path.join(stage_no_py, "tools", "verify_patch.py"))
+    for tf in ["verify_patch.py", "patch_sound_par.py", "sound_subtitles_data.py", "sllz.py", "__init__.py"]:
+        src_tf = os.path.join(stage, "tools", tf)
+        if os.path.isfile(src_tf):
+            shutil.copy2(src_tf, os.path.join(stage_no_py, "tools", tf))
     shutil.copy2(os.path.join(stage, "patch_gog.py"), os.path.join(stage_no_py, "patch_gog.py"))
     shutil.copy2(os.path.join(stage, "font_table_french.bin"), os.path.join(stage_no_py, "font_table_french.bin"))
     shutil.copy2(os.path.join(stage, "LISEZMOI.txt"), os.path.join(stage_no_py, "LISEZMOI.txt"))

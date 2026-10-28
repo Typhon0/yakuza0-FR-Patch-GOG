@@ -134,6 +134,32 @@ def audit_rgg_table(fname, data, rel_par):
 
     return issues
 
+def audit_translation_syntax():
+    issues = []
+    import re
+    fmt_regex = re.compile(r'%[0-9]*\.?[0-9]*[sdifuoxXgGce%]')
+    try:
+        from tools.wdr_translations_data import WDR_TRANSLATIONS
+        from tools.wdr_dict_final import WDR_FINAL_DICT
+        from tools.stay_translations_data import STAY_TRANSLATIONS
+        combined = dict(WDR_TRANSLATIONS)
+        combined.update(WDR_FINAL_DICT)
+        combined.update(STAY_TRANSLATIONS)
+        for en, fr in combined.items():
+            if not isinstance(en, str) or not isinstance(fr, str):
+                continue
+            en_fmts = [f for f in fmt_regex.findall(en) if f != '%%']
+            fr_fmts = [f for f in fmt_regex.findall(fr) if f != '%%']
+            if en_fmts != fr_fmts:
+                issues.append(f"Format specifier mismatch: {en[:30]!r} ({en_fmts}) vs {fr[:30]!r} ({fr_fmts})")
+            if fr.count('(') != fr.count(')'):
+                issues.append(f"Unbalanced parentheses: {fr[:40]!r}")
+            if ('<' in fr and '>' not in fr) or fr.count('<') != fr.count('>'):
+                issues.append(f"Unbalanced tag brackets: {fr[:40]!r}")
+    except Exception as e:
+        issues.append(f"Erreur chargement dictionnaires traductions: {e}")
+    return issues
+
 def run_deep_audit(data_root='release_gog/data'):
     print("=" * 75)
     print(f"  AUDIT APPROFONDI DE SÉCURITÉ ET D'INTÉGRITÉ DU PATCH FR")
@@ -155,8 +181,14 @@ def run_deep_audit(data_root='release_gog/data'):
         'shops': 0,
         'phone_booths': 0,
         'bob_files': 0,
+        'syntax_checked': 0,
         'issues': []
     }
+
+    # Audit syntax & format specifiers across translation dictionaries
+    syntax_errs = audit_translation_syntax()
+    for se in syntax_errs:
+        stats['issues'].append(f"[Syntax/Linter] {se}")
 
     for p in par_paths:
         rel_p = os.path.relpath(p, data_root).replace('\\', '/')
@@ -217,10 +249,16 @@ def run_deep_audit(data_root='release_gog/data'):
             # 2. Dialogue Scripts (.msg)
             elif fname.endswith('.msg'):
                 stats['msg_files'] += 1
-                if len(decomp) >= 16 and decomp[:4] == b'\x20\xf7\x1a\x02':
-                    h_sz, str_off = struct.unpack('>2I', decomp[4:12])
-                    if str_off > len(decomp):
-                        stats['issues'].append(f"[{rel_p}] {fname}: Offset de chaîne {hex(str_off)} hors limites ({hex(len(decomp))})")
+                if len(decomp) >= 24 and decomp[0] == 0x20:
+                    tbl_off = struct.unpack('>I', decomp[0x14:0x18])[0]
+                    if tbl_off >= len(decomp):
+                        stats['issues'].append(f"[{rel_p}] {fname}: tbl_off {hex(tbl_off)} dépasse la taille du fichier ({hex(len(decomp))})")
+                    elif tbl_off + 4 <= len(decomp):
+                        cnt = struct.unpack('>I', decomp[tbl_off:tbl_off+4])[0]
+                        if cnt > 100:
+                            stats['issues'].append(f"[{rel_p}] {fname}: Compte de table corrompu {cnt} (0x{cnt:x}) à {hex(tbl_off)} (Risque boucle bswap/crash 0x6EA32C)")
+                        if tbl_off > 0 and decomp[tbl_off-1:tbl_off] == b' ':
+                            stats['issues'].append(f"[{rel_p}] {fname}: Espace résiduel 0x20 à la frontière de table {hex(tbl_off-1)}")
 
                 # Check phone booth files
                 if fname in PHONE_FILE_NAMES:
@@ -239,6 +277,13 @@ def run_deep_audit(data_root='release_gog/data'):
                     stats['bob_files'] += 1
                     if len(decomp) != 27575:
                         stats['issues'].append(f"[{rel_p}] {fname}: Taille décompressée {len(decomp)} != 27575 octets stricts (Risque softlock)")
+
+                # Check Kamoji Drunk node (uid01261727.msg)
+                if fname == 'uid01261727.msg':
+                    w0_drunk = struct.unpack('>I', decomp[0x884:0x888])[0]
+                    enc_drunk = (w0_drunk >> 16) & 0xFFFF
+                    if enc_drunk != 98:
+                        stats['issues'].append(f"[{rel_p}] {fname}: Nœud Drunk à 0x884 désynchronisé ({enc_drunk} != 98, risque softlock Kamoji)")
 
             # 3. Shop files (shop*.bin)
             elif fname.startswith('shop') and fname.endswith('.bin'):
@@ -260,10 +305,35 @@ def run_deep_audit(data_root='release_gog/data'):
                         if extra_table != DAIKOKU_20B:
                             stats['issues'].append(f"[{rel_p}] {fname}: Table Pocket Circuit Daikoku (20B) corrompue!")
 
+    # 4. Verification des tables de mini-jeux isolees (loose files dans data/minigame)
+    minigame_dir = os.path.join(data_root, 'minigame')
+    stats['minigame_tables'] = 0
+    if os.path.isdir(minigame_dir):
+        for root, dirs, files in os.walk(minigame_dir):
+            for f in sorted(files):
+                if f.endswith('.bak'):
+                    stats['issues'].append(f"[minigame] Fichier résiduel .bak non désiré : {os.path.join(root, f)}")
+                elif f.endswith('.bin'):
+                    stats['minigame_tables'] += 1
+                    f_path = os.path.join(root, f)
+                    with open(f_path, 'rb') as mf:
+                        m_data = mf.read()
+                    if len(m_data) < 16 or m_data[:4] != b'\x20\x07\x03\x19':
+                        stats['issues'].append(f"[minigame] {f}: En-tête RGG invalide ou compressé en SLLZ ({m_data[:4]})")
+                    twin_path = f_path + '_c'
+                    if not os.path.exists(twin_path):
+                        stats['issues'].append(f"[minigame] {f}: Fichier jumeau .bin_c manquant!")
+                    else:
+                        with open(twin_path, 'rb') as tf:
+                            t_data = tf.read()
+                        if m_data != t_data:
+                            stats['issues'].append(f"[minigame] {f}: Incohérence entre .bin et .bin_c ({len(m_data)} vs {len(t_data)} octets)")
+
     print(f"\n[*] Résumé de l'audit approfondi :")
     print(f"  - Archives PAR examinées       : {stats['archives']}")
     print(f"  - Fichiers logiques inspectés  : {stats['files_checked']}")
     print(f"  - Tables RGG binaires vérifiées: {stats['rgg_tables']}")
+    print(f"  - Tables mini-jeux isolées (.bin): {stats['minigame_tables']}")
     print(f"  - Scripts de dialogue (.msg)   : {stats['msg_files']}")
     print(f"  - Fichiers de boutique vérifiés: {stats['shops']}")
     print(f"  - Cabines téléphoniques        : {stats['phone_booths']}")

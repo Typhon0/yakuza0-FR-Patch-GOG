@@ -977,9 +977,9 @@ WDR_TRANSLATIONS = {
     "2-4-6? That's going to be 4 for the last player.":
         '2-4-6 compte pour 4 pour ce joueur.',
     "A\x03\x9eThe wireless controller's light bar is %s for Player 1\r\nand %s for Player 2.":
-        'La barre lumineuse est %s pour le Joueur 1',
+        "A\x03\x9eBarre lumineuse : %s pour le J1\r\net %s pour le J2.",
     "A\x03\x9fThe wireless controller's light bar is %s for Player 1\r\nand %s for Player 2.":
-        'La barre lumineuse est %s pour le Joueur 1',
+        "A\x03\x9fBarre lumineuse : %s pour le J1\r\net %s pour le J2.",
     'A 1-3-5 rolled by the banker counts as 3.':
         '1-3-5 compte pour 3 pour ce joueur.',
     'A 1-3-5 rolled by the first player counts as 3.':
@@ -999,7 +999,7 @@ WDR_TRANSLATIONS = {
     "Let's do this again, but this time we bet \\400,000. I'll\r\nbuy the drinks, too. Are ya game?":
         'On remet ca a 400 000 yens ! Je vous paie un coup !',
     "Let's get the dice rolling.":
-        'Lacons les des.',
+        'Lancons les des.',
     "Looks like you're done for now.":
         'Vous semblez en avoir termine.',
     "One last game! We'll bet \\10,000,000 this time. I'll buy you\r\ndrinks too. How's that sound?":
@@ -1021,7 +1021,7 @@ WDR_TRANSLATIONS = {
     'The first player rolled 1-3-5, which is a 3 in this case.':
         '1-3-5 compte pour 3 pour ce joueur.',
     "The wireless controller's light bar is %s for Player 1\r\nand %s for Player 2.":
-        'La barre lumineuse est %s pour le Joueur 1',
+        "Barre lumineuse : %s pour le J1 et %s pour le J2.",
     'Two 2-4-6 rolls in a row mean you all get the same as\r\nmy roll.':
         '2-4-6 donne le score du joueur suivant.',
     'Two players got 2-4-6 in a row, so you all get the same as\r\nmy roll.':

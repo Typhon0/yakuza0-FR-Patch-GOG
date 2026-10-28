@@ -117,6 +117,22 @@ KNOWN_CRASH_PATTERNS = {
         "cause": "Une chaîne de format utilise '%s' au lieu de '%d' pour un prix ou un montant.",
         "decode": lambda regs: "  - Format string mismatch",
         "fix": "Remplacer '%s' par '%d' dans le dictionnaire de traduction correspondant."
+    },
+    0x19cac0: {
+        "subsystem": "CMfp::Initialize / Sous-titres Voix de Rue (.mfp)",
+        "description": "Crash d'accès mémoire (%r9) lors de la boucle de conversion d'endianness (bswap) d'un fichier .mfp (sous-titres de répliques vocales d'ambiance).",
+        "cause": (
+            "Un fichier .mfp dans sound.par a subi un remplacement de sous-titre de longueur inégale (+1 ou +2 octets), "
+            "ce qui a décalé les pointeurs et tables 32-bit situés après la chaîne. L'offset relatif lu à l'offset 0x14 "
+            "est faussé et envoie %r9 dans de la mémoire non allouée."
+        ),
+        "decode": lambda regs: (
+            f"  - Base buffer (%rdx)      : {hex(regs.get('rdx', 0)) if isinstance(regs.get('rdx'), int) else regs.get('rdx')}\n"
+            f"  - Offset relatif (%rcx)   : {hex(regs.get('rcx', 0)) if isinstance(regs.get('rcx'), int) else regs.get('rcx')}\n"
+            f"  - Pointeur calculé (%r9)  : {hex(regs.get('r9', 0)) if isinstance(regs.get('r9'), int) else regs.get('r9')}\n"
+            f"  - Compteur bswap (%r10)   : {hex(regs.get('r10', 0)) if isinstance(regs.get('r10'), int) else regs.get('r10')}"
+        ),
+        "fix": "Reconstruire sound.par avec tools/patch_sound_par.py en respectant impérativement des longueurs de chaînes 100% bit-exactes."
     }
 }
 

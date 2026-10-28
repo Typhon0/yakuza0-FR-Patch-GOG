@@ -682,7 +682,7 @@ WDR_FINAL_DICT = {
     "In yer dreams, maybe! You're so dead!":
         "Dans tes reves ! T'es mort !",
     'Is this place okay?)':
-        'Ce coin convient ?)',
+        '(Ce coin convient ?)',
     "Isn't that great?":
         "C'est pas super ?",
     'It happens to everyone.':
@@ -1424,7 +1424,7 @@ WDR_FINAL_DICT = {
     "I'm starving.":
         'Faim de loup.',
     "I'm still hung over.":
-        'Gueule de bois la...',
+        'Gueule de bois...',
     "I've had enough.":
         "J'en ai assez.",
     "It's all right!":
@@ -1790,7 +1790,7 @@ WDR_FINAL_DICT = {
     "You're so silly.":
         'Tu es si bete.',
     "You've got balls and more than your fair share of luck.":
-        "T'en as dans le pantalon et une sacrce chance avec.",
+        "T'en as dans le pantalon et une sacree chance avec.",
     "You've got good hunches.":
         'Tu as du flair.',
     'Your insurance bet won. It was a good move.':

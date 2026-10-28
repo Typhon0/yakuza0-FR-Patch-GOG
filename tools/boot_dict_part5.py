@@ -170,4 +170,5 @@ P5 = {
     'Powerful enemy approaching': 'Un puissant ennemi approche',
     'Dime Store': 'Bazar',
     'Udon Shop': 'Restaurant d\'udon',
+    'Chapter Completion Bonus': 'Bonus de fin de chapitre',
 }

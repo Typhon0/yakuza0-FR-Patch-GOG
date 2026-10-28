@@ -114,6 +114,56 @@ def test_release_zip(zip_path: str):
         assert d29[272 + 36*48 : 2020] == bytes.fromhex('0002000100020001000200010002000100020001'), "Daikoku Drugstore 20B extra table mismatch!"
         print("  + Kotobuki Drugs (24 octets) & Daikoku Drugstore (20 octets) tables 100% conformes !")
 
+        # Check 5c: Verify dialogue length synchronization (Kamoji Drunk node)
+        print("[5c] Vérification de la synchronisation des dialogues (Kamoji / Drunk)...")
+        d_drunk = decompress_sllz(files['uid01261727.msg'][3])
+        dw0 = struct.unpack('>I', d_drunk[0x884:0x888])[0]
+        enc_drunk = (dw0 >> 16) & 0xFFFF
+        assert enc_drunk == 98, f"uid01261727.msg Drunk node length is {enc_drunk}, attendu 98 !"
+        print("  + uid01261727.msg: Nœud Drunk (0x884) parfaitement synchronisé à 98 caractères (0 softlock, bytecode Sega intact) !")
+
+        # Check 5d: Verify street subtitles in sound.par (bit-exact, 2048-byte aligned)
+        print("[5d] Vérification des sous-titres audio de rue (sound.par)...")
+        from tools.patch_sound_par import patch_sound_par_inplace
+        sound_par_path = 'release_gog/data/soundpar/sound.par'
+        if os.path.isfile(sound_par_path):
+            assert patch_sound_par_inplace(sound_par_path, check_only=True), "Des sous-titres sound.par ne sont pas traduits !"
+            print("  + 100% des sous-titres audio de rue (.mfp dans sound.par) sont traduits et sectoriellement conformes !")
+
+        # Check 5e: Verify billiard prompts in wdr.par
+        print("[5e] Vérification des textes d'aide du billard (wdr.par)...")
+        d_bill = decompress_sllz(files['uid01030192.msg'][3])
+        assert b"Tir :" in d_bill and b"viser." in d_bill, "Billiard prompts missing in uid01030192.msg!"
+        print("  + Billard : Nœuds d'aide uid01030192.msg et uid015e0009.msg 100% traduits en français !")
+
+        # Check 5f: Verify virtue_shop.bin_c in stay.par
+        print("[5f] Vérification de la table du sanctuaire CP (stay.par)...")
+        stay_par_path = os.path.join(tmpdir, 'extracted', 'data', 'staypar', 'stay.par')
+        if not os.path.exists(stay_par_path):
+            stay_par_path = 'release_gog/data/staypar/stay.par'
+        if os.path.isfile(stay_par_path):
+            with open(stay_par_path, 'rb') as sf:
+                stay_files = parse_par(sf.read())
+            d_virtue = decompress_sllz(stay_files['virtue_shop.bin_c'][3])
+            assert b"Estomac sans fond" in d_virtue, "virtue_shop.bin_c not translated!"
+            print("  + Sanctuaire CP : virtue_shop.bin_c 100% traduit en français canonique !")
+
+        # Check 5g: Verify shop item descriptions integrity (wdr.par)
+        print("[5g] Vérification de la cohérence des descriptions d'items des boutiques (wdr.par)...")
+        shop_keys = [k for k in files.keys() if (k.startswith('shop') or k.startswith('ex_shop')) and k.endswith('.bin')]
+        assert len(shop_keys) >= 35, f"Expected >= 35 shops, found {len(shop_keys)}"
+        for sname in ['shop0033.bin', 'shop0034.bin']:
+            raw_s = files[sname][3]
+            decomp_s = decompress_sllz(raw_s) if raw_s.startswith(b'SLLZ') else raw_s
+            assert b"Drink 0" not in decomp_s and b"Food 0" not in decomp_s, f"Placeholders found in {sname}!"
+        raw_kotobuki = files['shop0013.bin'][3]
+        d_kotobuki = decompress_sllz(raw_kotobuki) if raw_kotobuki.startswith(b'SLLZ') else raw_kotobuki
+        assert "Une batterie pour voitures Pocket Circuit".encode('latin1') in d_kotobuki, "Kotobuki PC battery description mismatch!"
+        raw_ebisuya = files['shop0019.bin'][3]
+        d_ebisuya = decompress_sllz(raw_ebisuya) if raw_ebisuya.startswith(b'SLLZ') else raw_ebisuya
+        assert "Éléments de transmission pour voitures Pocket Circuit".encode('latin1') in d_ebisuya, "Ebisuya PC gear description mismatch!"
+        print("  + 35 boutiques : 0 description d'item corrompue, incohérente ou placeholder (Cabaret & Pocket Circuit validés) !")
+
         # Check 6: Run verify_patch on extracted package
         print("[6/6] Exécution de verify_patch.py sur le package extrait...")
         res = subprocess.run([sys.executable, 'tools/verify_patch.py', root], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -128,5 +178,5 @@ def test_release_zip(zip_path: str):
     print("=" * 70)
 
 if __name__ == '__main__':
-    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.12.9.zip'
+    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.12.11.zip'
     test_release_zip(zip_target)

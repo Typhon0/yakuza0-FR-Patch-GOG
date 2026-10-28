@@ -493,7 +493,7 @@ STAY_TRANSLATIONS = {
     'I Wanna Take You Home 2': 'I Wanna Take You Home 2',
     'I Wanna Take You Home 3': 'I Wanna Take You Home 3',
     'I can see the future... My advice is never wrong,\nthough it is expensive.': "Je vois l'avenir... Mes visions ne mentent jamais,\nmême si mes services sont coûteux.",
-    "I get all the gossip at Earth Angel! I'll put it\nall to good use for you, Kiryu-chanâ\x9d¤": "J'entends tous les ragots à l'Earth Angel ! Je mettrai tout ça\nà profit pour toi, Kiryu-chou <3",
+    "I get all the gossip at Earth Angel! I'll put it\nall to good use for you, Kiryu-chanâ\x9d¤": "J'entends tous les ragots à l'Earth Angel ! Je mettrai tout ça\nà profit pour toi, Kiryu-chou !",
     "I got mugged last time I was in Mongolia.\nI'm good at arguing.": 'Je me suis fait détrousser la dernière fois en Mongolie.\nMais je sais très bien argumenter.',
     "I have experience dealing with problematic\ncustomers, so I'm sure I can help you out.": "J'ai l'habitude de gérer les clients difficiles,\nje suis certain de pouvoir t'aider.",
     'I help create unique interior designs.\nMy focus is on artistic and modern designs.': "Je conçois des aménagements intérieurs uniques.\nMon crédo, c'est l'artistique et le moderne.",

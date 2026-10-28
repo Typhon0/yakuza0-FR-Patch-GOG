@@ -110,6 +110,7 @@ FRENCH_UI_TRANSLATIONS = {
     "CHAPTER 14 : Unbreakable Bond": "CHAPITRE 14 : Lien indéfectible",
     "CHAPTER 15 : Scattered Light": "CHAPITRE 15 : Lumière dispersée",
     "CHAPTER 16 : Proof of Love": "CHAPITRE 16 : Preuve d'amour",
+    "Chapter Completion Bonus": "Bonus de fin de chapitre",
 }
 
 
@@ -258,14 +259,33 @@ def install_data_archives(game_dir):
             except Exception as e:
                 print(f"    [AVERTISSEMENT] Impossible de supprimer {parasite}: {e}")
 
-    archives = [
+    core_archives = [
         ("data/wdr_par_c/wdr.par", 7000000),
         ("data/wdr_par_c/common.par", 10000),
         ("data/bootpar/boot.par", 1500000),
         ("data/staypar/stay.par", 500000),
     ]
 
-    for rel_path, min_size in archives:
+    data_files = list(core_archives)
+
+    # Decouverte dynamique des tables et textures de mini-jeux fournies par le patch
+    minigame_src_dir = os.path.join(script_dir, "data", "minigame")
+    if os.path.isdir(minigame_src_dir):
+        patch_minigame_dirs = {"catfight", "fishing", "poker", "cabaret", "teleclub"}
+        for root, dirs, files in os.walk(minigame_src_dir):
+            rel_dir = os.path.relpath(root, minigame_src_dir).replace('\\', '/')
+            sub_folder = rel_dir.split('/')[0] if rel_dir != '.' else ''
+            if sub_folder and sub_folder not in patch_minigame_dirs:
+                continue
+            for f in sorted(files):
+                if f.endswith('.bak'):
+                    continue
+                if f.endswith('.bin') or f.endswith('.bin_c') or f.endswith('.dds'):
+                    src_f = os.path.join(root, f)
+                    rel_f = os.path.relpath(src_f, script_dir).replace('\\', '/')
+                    data_files.append((rel_f, 1))
+
+    for rel_path, min_size in data_files:
         src = os.path.normpath(os.path.join(script_dir, rel_path.replace('/', os.sep)))
         dst = os.path.normpath(os.path.join(game_dir, rel_path.replace('/', os.sep)))
 
@@ -335,6 +355,20 @@ def install_data_archives(game_dir):
             print(f"[ERREUR CRITIQUE] Fichier copie incomplet: '{dst}' ({actual_size} octets, attendu: >{min_size})")
             return False
         print(f"  + {rel_path} installe avec succes ({actual_size} octets)")
+
+    # Patch des sous-titres audio d'ambiance si sound.par existe dans le jeu
+    user_sound_par = os.path.join(game_dir, "data", "soundpar", "sound.par")
+    if os.path.isfile(user_sound_par):
+        patch_sound_script = os.path.join(script_dir, "tools", "patch_sound_par.py")
+        if os.path.isfile(patch_sound_script):
+            try:
+                import importlib.util
+                spec = importlib.util.spec_from_file_location("patch_sound_par", patch_sound_script)
+                mod = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(mod)
+                mod.patch_sound_par_inplace(user_sound_par)
+            except Exception as e:
+                print(f"  [AVERTISSEMENT] Patching sound.par: {e}")
 
     return True
 

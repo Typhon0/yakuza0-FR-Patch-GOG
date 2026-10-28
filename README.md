@@ -1,7 +1,7 @@
 # Yakuza 0 - French Translation (VOSTFR) for GOG Edition
 
 [![Platform](https://img.shields.io/badge/Platform-GOG_Galaxy_%7C_Windows_%7C_Linux_%7C_Steam_Deck-blue.svg)](#)
-[![Version](https://img.shields.io/badge/Patch_Version-v1.12.9--gog-green.svg)](#)
+[![Version](https://img.shields.io/badge/Patch_Version-v1.12.11--gog-green.svg)](#)
 [![Status](https://img.shields.io/badge/Status-100%25_Playable_%26_Crash--Free-success.svg)](#)
 [![PAR Verification](https://img.shields.io/badge/PAR_Integrity-131%2F131_PASS-brightgreen.svg)](#)
 [![Original Mod](https://img.shields.io/badge/Original_Translation-Byce61_%2F_Yakuza_RGG_France-orange.svg)](https://www.youtube.com/channel/UCVhH_lJSjvyH_njkHQNxfBA)
@@ -39,12 +39,13 @@ The original community patch was compiled strictly for the Steam release:
   - **131/131 PAR Archives Certified**: 100% PASS via [`tools/verify_patch.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/verify_patch.py).
   - **Zero Sectorial Drift**: 2,048-byte sector alignment strictly enforced across all archives, eliminating Kotobuki Drugstore crash `0x234B0` and save-load crash `0xA4526`.
   - **27 Standalone Loose Minigame Tables Normalized**: Raw RGG binary format (`0x20070319`) with twin `.bin` and `.bin_c` files, eliminating fishing crash `0x37177C`, strike crash `0x1093A4`, and Catfight Club clash mash crash `0x3A7CF6`.
-  - **Zero Dialogue Softlock Protection**: Space-padding (`diff >= 1`) across all 1,655 `.msg` scripts in `wdr.par` (fixing West Park gambling den Oicho-kabu `uid00440141.msg`, Cho-han, Cee-lo, and 169 single-byte delta lines), plus byte-exact offsets for telephone save booths (58 ASCII chars) and Bob Utsunomiya (27,575 bytes).
+  - **Zero Dialogue Softlock Protection & Bytecode Synchronization**: Space-padding across all 1,655 `.msg` scripts in `wdr.par` with strict typewriter counter synchronization (`word 0 >> 16`), completely eliminating softlocks with Kamoji / Drunk (`uid01261727.msg`), gambling dens (Cho-han `uid00440140.msg`, Oicho-kabu, Cee-lo), telephone save booths (58 ASCII chars), and Bob Utsunomiya (27,575 bytes).
+  - **Sotenbori Bridges & Street Subtitles Crash Elimination**: Fixed crash `0x19CAC0` (`CMfp::Initialize`) by strictly calibrating ambient audio subtitles in `sound.par` to bit-exact lengths with 2,048-byte sector alignment.
 * **1-Click Portable Launcher**: Windows batch script with embedded standalone Python 3.12 (no Python installation required by the user) and Linux / Steam Deck shell script.
 
 ---
 
-### 🎮 Translated Content (v1.12.9)
+### 🎮 Translated Content (v1.12.11)
 
 * **Main Story & Cutscenes**: 100% of story cutscenes, prerendered cinematics, and dialogues subtitled in natural French.
 * **Combat & Progression**: 100% of abilities, battle styles (Brawler, Rush, Beast, Dragon of Dojima / Thug, Slugger, Breaker, Mad Dog of Shimano), all Heat Actions (*Essence of...*), masters, and combat evaluation ranks.

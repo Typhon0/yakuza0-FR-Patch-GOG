@@ -37,10 +37,13 @@ from tools.calibrate_stay_tables import (
     SEARCH_ARMS_LOCATION_CALIBRATED,
     ACTIVITY_LIST_CALIBRATED,
 )
+from tools.tutorial_translations_data import TUTORIAL_TRANSLATIONS
 
 def apply_in_place_clean(raw_data, trans_dict, table_name=''):
     out = bytearray(raw_data)
-    for en, fr in trans_dict.items():
+    # Sort items by descending length of English key so composite strings match before substrings
+    sorted_items = sorted(trans_dict.items(), key=lambda x: len(x[0]), reverse=True)
+    for en, fr in sorted_items:
         en_b = en.encode('latin1')
         fr_clean = fr.replace('’', "'").replace('‘', "'").replace('«', '"').replace('»', '"').replace('œ', 'oe').replace('Œ', 'OE')
         fr_b = fr_clean.encode('latin1')
@@ -186,22 +189,25 @@ VIRTUE_SHOP_FR = {
     'Disposable Income 3': 'Argent de poche 3',
     "You Can't Stop Me": "Rien m'arrete !",
     "Can't Stop Me": "Inarretable !",
-    'Money Magnet 1': 'Aimant a sous 1',
+    'Adventure': 'Aventure',
+    'Battle': 'Combat',
+    'Business': 'Affaires',
+    'Money Magnet 1': 'Aimant sous 1',
     'Sweet Dreams, Mr. Shakedown': 'Bonne nuit M. Shakedown',
     'Nouveau Riche Influx': 'Afflux de flambeurs',
-    'Money Magnet 2': 'Aimant a sous 2',
+    'Money Magnet 2': 'Aimant sous 2',
     'Always in Style': 'Toujours style',
     "Mr. Shakedown's Deep Pockets": "Poches pleines Shakedown",
-    'Money Magnet 3': 'Aimant a sous 3',
-    'Wealthy Aroma': 'Arome de riche',
+    'Money Magnet 3': 'Aimant sous 3',
+    'Wealthy Aroma': 'Arome de luxe',
     'Limit Breaker': 'Brise-limites',
     'The Golden Pistol': "Le pistolet d'or",
     'Treasure Hunter Boost 1': 'Bonus chasseur tresor 1',
     'Repairs Discount': 'Rabais reparat.',
-    'Socks of Fortune': 'Chaussettes Ebisu',
+    'Socks of Fortune': 'Bas de fortune',
     'Treasure Hunter Boost 2': 'Bonus chasseur tresor 2',
-    'The Golden Shotgun': 'Le fusil a pompe or',
-    'God of War': 'Dieu combat',
+    'The Golden Shotgun': 'Fusil a pompe or',
+    'God of War': 'Combattant',
     'Quick Collection Lv. 1': 'Recolte vite Niv. 1',
     'Office Feng Shui 1': 'Feng Shui bureau 1',
     'Quick Collection Lv. 2': 'Recolte vite Niv. 2',
@@ -258,6 +264,13 @@ def get_clean_virtue_shop_bin(clean_par):
     assert len(clean) == 4800, f"Virtue shop length changed: {len(clean)} != 4800"
     return 0x80000000, len(clean), len(comp), comp
 
+def get_clean_tutorial_bin(clean_par):
+    raw = decompress_sllz(clean_par['tutorial.bin_c'][3])
+    clean = apply_in_place_clean(raw, TUTORIAL_TRANSLATIONS, 'tutorial.bin_c')
+    comp = compress_sllz(clean)
+    assert len(clean) == 18908, f"Tutorial length changed: {len(clean)} != 18908"
+    return 0x80000000, len(clean), len(comp), comp
+
 def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
                              ref_par_path='scratch/data/staypar/stay.par',
                              output_path='release_gog/data/staypar/stay.par'):
@@ -286,7 +299,9 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
         'correlation_person.bin_c',
         'money_island_tarent.bin_c',
         'response_roulette.bin_c',
+        'tutorial.bin_c',
         'ultimate.bin_c',
+        'virtue_shop.bin_c',
     ]
 
     modified_count = 0
@@ -321,6 +336,10 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
                 r_flags, r_u, r_c, r_data = get_clean_tougijyo_realtime_quest_bin(clean_par)
             elif name == 'ultimate.bin_c':
                 r_flags, r_u, r_c, r_data = get_clean_ultimate_bin(clean_par)
+            elif name == 'tutorial.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_tutorial_bin(clean_par)
+            elif name == 'virtue_shop.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_virtue_shop_bin(clean_par)
             elif name in ref_par:
                 r_flags, r_u, r_c, r_data = ref_par[name]
             else:

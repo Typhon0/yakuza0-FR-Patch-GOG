@@ -667,3 +667,120 @@ Ce chapitre répertorie les erreurs méthodologiques récurrentes constatées lo
      - Intégration de l'appel à `rebuild_catfight_clean.py` dans [`tools/translate_all_minigames.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/translate_all_minigames.py) avec exclusion du redimensionnement dynamique.
      - Inclusion garantie dans `PRECOMPILED_DATA` de [`tools/build_release.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/build_release.py).
 
+---
+
+### 20. Crash Lecteur de Dialogue .msg au Tripot du Parc Ouest (`0x1406EA32C`, Cho-han `uid00440140.msg`)
+* **Symptômes :** Crash brutal `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) à `Yakuza0.exe+0x6EA32Ch` (`0x1406EA32C`, instruction `mov %eax, -0x4(%r9)`) en parlant au croupier/SDF du Cho-han au Parc Ouest après avoir joué ou en explorant le tripot.
+* **Adresse RIP du crash :** `Yakuza0.exe+0x6EA32Ch` (`0x1406EA32C`).
+* **Analyse des registres au crash (`logs/crash.log`) :**
+  - `%rip = 0x1406ea32c`, `%rsp = 0x00000014f8d0`, `%rbp = 0x7ff4d442d2e0`
+  - `%r10 = 0x0000181c56f5` (décrémentation en boucle de 4 en 4 sur des millions de tours)
+  - `%r9  = 0x7ff4fdec0004` (dépassement mémoire jusqu'à une page non allouée)
+  - `%r13 = 0x7ff4de5d4c00` (adresse de base du script décompressé)
+  - `%r14 = 0x7ff4de5d5bc4` (`%r13 + 0xFC4` = offset exact 4 036 du fichier `uid00440140.msg`)
+* **Cause Racine Bit-Exact :**
+  1. Dans `uid00440140.msg` (Cho-han), les options de menu *« About Other Gamblers »* et *« The Other Gamblers »* partageaient la même traduction française *« Les autres joueurs »*.
+  2. *« The Other Gamblers »* (18 caractères) était situé à l'offset 4 017, immédiatement avant la table de nœuds à l'offset 4 036 (`0xFC4`, dont l'en-tête natif est `0x00000001`).
+  3. L'ancien filtre de space-padding incluait les mots-clés d'interface et ciblait `fr_b + (b'\x00' * (diff + 1))`. Avec `diff = 2` pour *About Other Gamblers*, la recherche a mordu sur le premier octet nul de l'en-tête de table à l'offset 4 036, le remplaçant par un espace ASCII `0x20`.
+  4. L'en-tête `0x00000001` est ainsi devenu `0x20000001`. Lors du chargement, la routine Sega `0x1406f21d0` a bswappé cette valeur en `0x01000020` (16,7 millions d'itérations), entraînant la boucle infinie dans `0x1406ea300` et le crash instantané à `0x1406ea32c`.
+* **Solution Pérenne :**
+  1. **Filtrage Strict des Dialogues (`is_dialogue`) :** Le space-padding est réservé exclusivement aux phrases de dialogue parlé possédant une ponctuation de phrase (`.?!\n\r:…~`), excluant à 100% les options de menu et boutons d'interface.
+  2. **Verrou de Frontière Table (`tbl_off`) :** Dans `tools/rebuild_clean_wdr_append.py`, aucune substitution ne peut atteindre ou dépasser l'offset de table (`idx + len(target) <= tbl_off`).
+  3. **Restauration Bit-Exacte de `uid00440140.msg` :** Rétablissement garanti de `b'\x00\x00\x00\x01'` à l'offset 4 036.
+  4. **Audit Automatique Post-Rebuild :** Contrôle systématique des 1 655 fichiers `.msg` lors de la recompilation pour certifier l'absence absolue de corruption d'en-tête (`count <= 10000`).
+
+---
+
+### 21. Échec d'Installation `patch_gog.py` en Extraction Directe In-Place (`profiles_custom.cfg` < 50 octets)
+* **Symptômes :** Erreur bloquante lors de l'exécution de `patch_fr.bat` :  
+  `[ERREUR CRITIQUE] Fichier present incomplet: 'D:\GOG Games\Yakuza 0\data\profiles_custom.cfg' (17 octets, attendu: >50)`
+* **Cause Racine :**
+  1. Lorsque le joueur extrait l'archive de patch directement à la racine du jeu (`D:\GOG Games\Yakuza 0\`), `script_dir == game_dir`.
+  2. L'ancienne boucle de découverte exécutait `os.walk(data_dir)` sur la totalité du dossier `data/` du jeu, énumérant des fichiers de configuration natifs vanilla (ex: `profiles_custom.cfg` qui ne pèse que 17 octets dans le jeu de base).
+  3. Le contrôle de taille minimale par défaut (`min_sz = 50`) rejetait ce fichier natif de 17 octets comme s'il s'agissait d'une archive tronquée du patch.
+* **Solution Pérenne :**
+  1. Cibler strictement la liste fermée des 4 archives PAR modifiées (`wdr.par`, `common.par`, `boot.par`, `stay.par`).
+  2. Restreindre la découverte dynamique de fichiers loose exclusivement aux sous-dossiers de mini-jeux fournis par le patch (`catfight`, `fishing`, `poker`, `cabaret`, `teleclub`) avec filtre sur `.bin`, `.bin_c`, `.dds` et `min_size = 1`.
+  3. Ne jamais énumérer la racine de `data/` du jeu.
+
+---
+
+### 22. Softlocks & Coupures de Phrases dans les Scripts de Dialogue `.msg` (`word 0 >> 16` non synchronisé)
+* **Symptômes :** 
+  - Lors d'une réplique de dialogue ou cinématique (ex: rencontre avec *Drunk* lors de l'entraînement Rush de Kamoji dans `uid01261727.msg` : *« Argh , impossible de te toucher ! Tu esquives bien ! Ca m'a fait faire de l'exercice. Merci. »*, ou jeux de tripot Cee-lo/Blackjack), le texte finit de s'afficher mais aucun bouton d'avance (flèche `▼` ou invite (A)/Entrée) n'apparaît. Le joueur et le PNJ restent figés indéfiniment (**Softlock permanent**).
+  - Dans d'autres dialogues, la phrase française est interrompue brutalement au milieu de son déroulement (**Coupure de texte**).
+* **Cause Racine Bit-Exact :**
+  1. **Format d'instruction de dialogue (12 octets) :**  
+     Chaque nœud de dialogue du script `.msg` encode sur 3 entiers 32-bit big-endian `(word 0, word 1, word 2)` :
+     - `word 0` : `(expected_length << 16) | dialogue_flags`. Les 16 bits de poids fort définissent le nombre exact de pas de machine à écrire attendus par l'automate Sega (`0x140397350`).
+     - `word 1` : Déplacement absolu (`string_offset`) de la chaîne terminée par `\x00` dans la table de texte.
+     - `word 2` : Déplacement du nœud d'action suivant.
+  2. **Désynchronisation historique des outils de traduction :**  
+     Les anciens outils communautaires ont injecté les chaînes françaises et mis à jour le pointeur `word 1`, mais **ont omis de recalculer `word 0 >> 16`**.  
+     - Pour *Drunk* à l'offset `0x884` : `word 0` réclamait toujours **98** caractères (longueur de la phrase anglaise d'origine), alors que la réplique française ne comportait que **92** caractères.  
+     - L'automate Sega affiche les 92 caractères, s'arrête à `\x00`, mais son compteur n'atteignant jamais 98, l'événement « fin de réplique » n'est jamais émis $\rightarrow$ softlock total.  
+     - Si la phrase française était plus longue que l'anglaise, le moteur coupait l'affichage au nombre de caractères de l'anglaise.
+  3. **Ampleur systémique :** 14 078 nœuds de dialogue étaient désynchronisés à travers 1 105 fichiers `.msg` de `wdr.par`.
+* **Solution Pérenne :**
+  1. **Outil dédié `tools/fix_all_msg_dialogue_lengths.py` :** Implémentation fidèle de l'algorithme de décompte Sega `sega_char_count(b_str)` simulant la routine `0x140397350` de l'exécutable.
+  2. **Synchronisation In-Place Bit-Exacte :** Mise à jour automatique de `(target_count << 16) | flags` dans `word 0` pour l'ensemble des instructions de dialogue vérifiées.  
+     - Zéro changement de taille de fichier décompressée (`u_sz` bit-exact).  
+     - Zéro décalage de pointeurs ou de structure de tables.  
+     - 100% de la traduction française conservée.
+  3. **Intégration au Rebuild & Audit Automatisé :** Synchronisation intégrée dans [`tools/rebuild_clean_wdr_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_wdr_append.py) et contrôlée automatiquement dans [`tools/deep_audit.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/deep_audit.py) et [`tools/test_release_e2e.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/test_release_e2e.py).
+
+---
+
+### 23. Corruption d'Opcodes Bytecode dans les Scripts .msg par Recherche Aveugle de Valeurs (Softlock Entraînement Rush Kamoji `uid01261727.msg`)
+* **Symptômes :** 
+  - Lors de l'entraînement au Style Rush auprès de Kamoji (Chinatown / Kamurocho), après le round contre le challenger ivrogne (*Drunk*), la réplique s'affiche :  
+    *« Argh, impossible de te toucher ! Tu esquives bien ! Ca m'a fait faire de l'exercice. Merci. »*  
+    Le dialogue se fige indéfiniment sans afficher de flèche `▼` ni d'invite d'action (A), même lorsque `word 0 >> 16` est synchronisé à la longueur du texte (**Softlock permanent**).
+* **Cause Racine Bit-Exacte :**
+  1. Dans les anciens outils communautaires (`translate_msg_phase4.py` / commit `e012599`), la fonction `translate_msg_pool` scannait aveuglément tous les entiers 32-bit big-endian du fichier de 0 jusqu'au début du pool de chaînes, cherchant les valeurs comprises dans `[0x5DE8, 0x7BB8]` pour les remplacer par les offsets réalloués du nouveau pool de texte.
+  2. Dans `uid01261727.msg`, **83 entiers dans la section de bytecode (`0x18..0x5DD5`)** n'étaient PAS des pointeurs de texte, mais des opcodes, des cibles de branchement conditionnel, des offsets de sauts et des paramètres d'animation qui tombaient par hasard dans cet intervalle numérique.
+  3. En particulier, l'instruction à l'offset `0x87C` (précédant immédiatement le nœud de Drunk à `0x880`/`0x884`) a été corrompue de `0x0000780A` (adresse de saut de fin de séquence vers Kamoji) en `0x00005E97` (offset arbitraire dans le pool de texte).
+  4. Dès la fin du dialogue de Drunk, la machine virtuelle de script Sega branchait sur un offset corrompu dans la table de chaînes au lieu d'exécuter la transition vers Kamoji (`0x88C`), laissant la séquence en attente indéfinie.
+* **Solution Pérenne :**
+  1. **Restauration In-Place depuis le Vanilla Pur ([`tools/repair_kamoji_inplace.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/repair_kamoji_inplace.py)) :**  
+     - Extraction du `uid01261727.msg` d'origine depuis `par_original/wdr.par` (44 076 octets décompressés).
+     - Conservation 100% bit-exacte des 83 instructions du bytecode (`0x18..0x5DD5`) et de la table de relocalisation (`0x838C..`).
+     - Traduction française in-place des 100 chaînes avec space-padding strict (`len(FR) <= len(EN)`).
+     - Nœud Drunk complété par 6 espaces pour atteindre exactement 98 caractères ASCII, en parfaite harmonie avec `word 0 >> 16 = 98` natif Sega.
+  2. **Injection Append-Only dans `wdr.par` :** Intégration prioritaire dans [`tools/rebuild_clean_wdr_append.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/rebuild_clean_wdr_append.py).
+  3. **Vérification Automatique End-to-End :** Contrôle systématique dans `test_release_e2e.py` de l'offset `0x87C == 0x780A` et de `word 0 >> 16 == 98`.
+
+---
+
+### 24. Crash Traversée des Ponts d'Osaka & Sous-titres Voix de Rue (`0x19CAC0`, `CMfp::Initialize`, `sound.par`)
+* **Symptômes :** Crash intermittent brutal `EXCEPTION_ACCESS_VIOLATION` (`0xC0000005`) à `Yakuza0.exe+0x19CAC0h` (`0x14019CAC0`, instruction `mov %r8d, (%r9)`) en se déplaçant dans Sotenbori (Osaka), en particulier lors de la traversée des ponts (Pont Iwao, Pont Bishamon), au moment où une voix de passant ou d'agression de rue commence à s'exprimer et que les sous-titres s'affichent au bas de l'écran.
+* **Adresse RIP du crash :** `Yakuza0.exe+0x19CAC0h` (`0x14019CAC0`).
+* **Analyse des registres au crash (`logs/crash.log`) :**
+  - `%rip = 0x14019cac0` (`mov %r8d, (%r9)` dans `CMfp::Initialize`)
+  - `%rax = 0x7ff4da4107b4` (adresse de base du bloc de données `.mfp` décompressé)
+  - `%rcx = 0xffffffff9e00d099` (offset relatif 32-bit signé lu depuis l'en-tête, corrompu)
+  - `%r9  = 0x7ff47841d84d` (`%rax + %rcx`, adresse virtuelle pointant 1,6 Go en amont en mémoire non allouée)
+  - `%r10 = 0x00001906` (compteur de mots à traiter)
+* **Cause Racine Bit-Exacte :**
+  1. La routine à `0x14019CA20` est `CMfp::Initialize(void* buffer)`, le constructeur Sega chargé d'initialiser les fichiers `.mfp` (*Movie/Sound Flash Presentation*) qui synchronisent l'affichage des sous-titres avec le streaming audio déclenché par `CWandererSoundStreamer` (`0x14084B447`, `wdr_talk_dist`, `data/sound/%s.mfp`).
+  2. Les fichiers `.mfp` contiennent les chaînes de caractères suivies directement d'une table d'offsets 32-bit et d'horodatages.
+  3. L'ancien script de traduction [`tools/patch_sound_par.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/patch_sound_par.py) avait remplacé les sous-titres anglais par des chaînes françaises de longueur variable (+1 à +2 octets, ex: `"Please stop this..."` 19 octets remplacé par `"De grâce, arrêtez !"` 21 octets).
+  4. Ce décalage d'octets a désaligné tous les entiers 32-bit situés après le texte. L'offset situé à `0x14` a lu des octets arbitraires `0x9E00D099`. L'instruction `movsxd %ecx, %ecx` a étendu le signe en `0xFFFFFFFF9E00D099`, menant à un calcul d'adresse hors-limite (`%r9 = %rax + %rcx`) et au crash immédiat au premier accès mémoire `mov %r8d, (%r9)`.
+* **Solution Pérenne :**
+  1. **Remplacement Strictement Bit-Exact (`len(FR) == len(EN)`) :**  
+     Dans [`tools/patch_sound_par.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/patch_sound_par.py), toutes les traductions françaises de sous-titres `.mfp` sont calibrées au nombre d'octets exact de la version originale anglaise (avec complétion par des espaces si nécessaire) dans un registre parlé naturel :
+     - `"Please stop this..."` (19o) $\rightarrow$ `"Pitié, arrêtez ça !"` (19o)
+     - `"No! Please, stop this..."` (24o) $\rightarrow$ `"Non ! Pitié, arrêtez !  "` (24o)
+     - `"No! Stop this."` (14o) $\rightarrow$ `"Non, arrêtez !"` (14o)
+     - `"P-Please stop..."` (16o) $\rightarrow$ `"P-Pitié, pitié !"` (16o)
+     - `"Please stop..."` (14o) $\rightarrow$ `"Arrêtez ça !  "` (14o)
+     - `"Please stop. Leave us alone..."` (30o) $\rightarrow$ `"Laissez-nous en paix, pitié ! "` (30o)
+     - `"N-Now hold on a second! Stop this!"` (34o) $\rightarrow$ `"A-Attendez une seconde ! Arrêtez !"` (34o)
+     - `"Please stop."` (12o) $\rightarrow$ `"Arrêtez ça !"` (12o)
+  2. **Assertion de Longueur Décompressée (`u_sz`) :**  
+     Le script vérifie impérativement `len(modified) == len(dec)` avant toute compression.
+  3. **Compression SLLZ Conforme & Alignement Sectoriel 2048 Octets :**  
+     Utilisation exclusive de [`tools/sllz.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/sllz.py) et alignement des 16 fichiers modifiés sur des frontières de 2 048 octets (`(curr_off + 2047) & ~2047`).
+  4. **Diagnostic Automatisé :**  
+     Signature `0x19cac0` intégrée dans [`tools/crash_analyzer.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/crash_analyzer.py) avec diagnostic automatique et suggestion de correction.
+
