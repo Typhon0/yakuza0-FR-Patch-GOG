@@ -100,3 +100,54 @@ entries:
     en: "Bomb"
     fr: "Bombe"
     max_len: 8
+
+  # Options & Configuration des commandes (Zone A & C)
+  - id: remap_gamepad
+    offset: "0xD83CB8"
+    en: "Remap Gamepad Controls"
+    fr: "Reconfigurer manette"
+    max_len: 24
+
+  - id: remap_keyboard_mouse
+    offset: "0xD83CD0"
+    en: "Remap Keyboard & Mouse Controls"
+    fr: "Reconfigurer clavier/souris"
+    max_len: 32
+
+  - id: prompt_rebind
+    offset: "0xD851E0"
+    en: "Press a button on your gamepad or key on your keyboard to rebind your controls\nPress [Esc] to cancel"
+    fr: "Appuyez sur une touche pour réassigner la commande\nAppuyez sur [Échap] pour annuler"
+    max_len: 104
+
+  - id: controller_disconnected
+    offset: "0xD85468"
+    en: "Controller disconnected"
+    fr: "Manette déconnectée"
+    max_len: 24
+
+  - id: camera_reset
+    offset: "0xD831D0"
+    en: "Camera Reset"
+    fr: "Centrer caméra"
+    max_len: 16
+
+  - id: grab_cancel
+    offset: "0xD831C0"
+    en: "Grab / Cancel"
+    fr: "Saisie / Annul."
+    max_len: 16
+
+  - id: fast_forward_sign
+    offset: "0xD85400"
+    en: "Press <Sign:60> to fast forward."
+    fr: "Appuyez sur <Sign:60> pour avancer."
+    max_len: 40
+
+  - id: close_info_sign
+    offset: "0xD85AE0"
+    en: "Press <Sign:C> to close detailed information.\nUse <Sign:59> or <Sign:60> to view other information pages"
+    fr: "<Sign:C> : Fermer les informations détaillées.\n<Sign:59>/<Sign:60> : Parcourir les autres pages d'infos."
+    max_len: 112
+
+

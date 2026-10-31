@@ -114,25 +114,205 @@ def get_clean_search_arms_location_bin(clean_par):
     comp = compress_sllz(clean)
     return 0x80000000, len(clean), len(comp), comp
 
+EXPLAIN_EXTRA = {
+    'Cancel\nClose Window': 'Annuler\nFermer Fen.',
+    'Rapid Press\nSelect Move': 'Pression\nChoisir Cou ',
+    'Show/Hide Action\nCommands': 'Aff/Masq\nCommandes action',
+    'Hold <Sign:73> PullBack / Release\nMove Camera': 'Maint <Sign:73> Tirer / Relacher\nDepl camera ',
+    'Confirm Bet Amount\nThrow Dice': 'Valider mise\nLancer des    ',
+    'Cast/Bring Pole Back\nOK': 'Lancer/Ramener ligne\nOK',
+    'Before bet: Same Bet\nAfter: Collect Chips': 'Mise: Meme mise     \nFin : Recup jetons  ',
+    'Position/Select Ball\nAdjust Spin': 'Pos./Choix de bille\nRegler effet',
+    'Place Ball & Adjust Direction\n<Sign:3> /': 'Placer bille & Regler direct.\n<Sign:3> /',
+    'Charge Beam\n<Sign:73>/': 'Tir charge\n<Sign:73>/ ',
+    'Aim\n<Sign:78>/': 'Tir\n<Sign:78>/',
+    'Quit\n(Only between games)': 'Quitter\n(Entre parties)  ',
+    'Grab/Cancel': 'Prise/Annul',
+    'Light Attack': 'Attaque leg.',
+    'Move Hand': 'Depl main',
+    'Heat Eye': 'Vue Heat',
+    'Guard': 'Garde',
+    'Style Action': 'Action style',
+    'Throw Power <Sign:73>': 'Puiss. jet  <Sign:73>',
+    'How to Play': 'Commandes  ',
+    'Back to Title': 'Ecran titre  ',
+    'Finish/Back': 'Fin /Retour',
+    'Hands List': 'Liste main',
+    'Super Take Back': 'Super annulat. ',
+    'Take Back': 'Annuler  ',
+    'Fighting Styles': 'Styles combat  ',
+    'Piece Explanations': 'Explicat. pieces  ',
+    'Show Rules': 'Voir regle',
+    'Show Discards': 'Defausses    ',
+    'Show Roll History': 'Hist. des lancers',
+    'One-roll Triple': 'Triple 1er jet ',
+    'Select Pole': 'Choix canne',
+    'Set Direction/Power': 'Direct./Puissance  ',
+    'Confirm Bet Amount': 'Valider mise      ',
+    'Change Bet Amount': 'Modifier la mise ',
+    'Finish Betting/Cancel': 'Fin des mises/Annuler',
+    'Throw Dice': 'Lancer des',
+    'Select Tile/Navigate': 'Choix tuile/Naviguer',
+    'Position/Select Ball': 'Position/Choix bille',
+    'Select Action': 'Choix action ',
+    'Select Move': 'Choisir Cou',
+    'Aiming Mode': 'Mode Visee ',
+    'Shooting Mode': 'Mode de tir  ',
+    'Select Darts': 'Choix flech.',
+    'Switch Camera': 'Changer vue  ',
+    'Camera Controls': 'Contr. camera  ',
+    'Camera Reset': 'Reset camera',
+    'Reset Camera': 'Reset camera',
+    'Move Camera': 'Depl camera',
+    'View Controls/Skip': 'Commandes / Passer',
+    'View Controls': 'Voir command.',
+    'Show/Hide Action': 'Aff/Masq Action ',
+    'Toggle Info Display': 'Affich. infos      ',
+    'Toggle Score Display': 'Afficher score      ',
+    'Show Ball Number': 'Numero de bille ',
+    'Reverse Controls': 'Controles invers',
+    'Zoom on Table/Fast Forward': 'Zoom table/Avance rapide  ',
+    'Zoom on Wheel': 'Zoom roulette',
+    '(Hold) Hang Up': '(Maint.)Raccro',
+    '(Only between games)': '(Entre parties seul)',
+    'OK/Answer Phone': 'OK/Repondre Tel',
+    'Answer Phone': 'Repondre Tel',
+    'OK/Next Message': 'OK/Msg suivant ',
+    'Give Up': 'Abandon',
+    # Invites résiduelles mini-jeux (Zone B)
+    'Move Results Sheet': 'Feuille resultats ',
+    'Reload/Hide': 'Abri/Rech. ',
+    'Move Cursor': 'Depl. curs.',
+    'Fast Forward': 'Avance rap. ',
+    'Heat Attack': 'Attaq. Heat',
+    'Dance Fever': 'Mode Fievre',
+    'Squeeze Card': 'Plier carte ',
+    'Sing Along': 'Chanter   ',
+    'Tambourine': 'Tambourin ',
+    'Movement': 'Mouvem. ',
+    'Stabilize': 'Stabil.  ',
+    'Lock On': 'Verrou ',
+    'Cancel': 'Annul.',
+    'Shoot': 'Tirer',
+    'Swing': 'Taper',
+    'Back': 'Prec',
+    'Bait': 'Leur',
+    'Step': 'Pas ',
+}
+
 def get_clean_controller_explain_bin(clean_par):
     raw = clean_par['controller_explain.bin_c'][3]
-    clean = raw.replace(b'How to Play', b'Commandes  ')
-    clean = clean.replace(b'Back to Title', b'Ecran titre  ')
-    clean = clean.replace(b'Cancel Close Window', b'Annuler Fermer Fen.')
-    clean = clean.replace(b'Finish/Back', b'Fin /Retour')
+    clean = bytearray(raw)
+    for en, fr in sorted(EXPLAIN_EXTRA.items(), key=lambda x: len(x[0]), reverse=True):
+        en_b = en.encode('latin1')
+        fr_b = fr.encode('latin1')
+        diff = len(en_b) - len(fr_b)
+        assert diff >= 0, f"Overflow for explain {en}"
+        rep = fr_b + (b' ' * diff)
+        pos = 0
+        while True:
+            idx = clean.find(en_b, pos)
+            if idx == -1:
+                break
+            clean[idx : idx + len(en_b)] = rep
+            pos = idx + len(en_b)
     assert len(clean) == len(raw), f"Length mismatch in controller_explain: {len(clean)} != {len(raw)}"
     assert clean.count(b'\x00') == raw.count(b'\x00'), "Null count diff in controller_explain!"
-    return 0x0, len(clean), len(clean), clean
+    return 0x0, len(clean), len(clean), bytes(clean)
+
+ROULETTE_ALL = {
+    'Hello, hello!': 'Salut salut !',
+    'See ya.': 'A plus.',
+    "Let's do this!": "C'est parti !",
+    'Look at that!': 'Regarde ca ! ',
+    'Dang it.': 'Zut !   ',
+    'Oh yes!': 'Oh oui!',
+    'Shit!': 'Mince',
+    'Gonna pass.': 'Je passe.  ',
+    'This one!': 'Celui-ci!',
+    'Hope I get it.': 'Pourvu que... ',
+    'Hello.': 'Salut.',
+    'Goodbye.': 'Adieu.  ',
+    "I'm ready.": 'Pret !    ',
+    'My win.': 'Gagne !',
+    'I lost.': 'Perdu. ',
+    'Here.': 'Ici. ',
+    'Good to go.': 'Pret !     ',
+    'Here we go.': "C'est parti",
+    "Let's begin!": 'Commencons !',
+    'A big bet for <!--Name-->-san.': 'Grosse mise: <!--Name-->-san. ',
+    'Better luck next time, <!--Name-->-san.': 'Plus de chance la prochaine fois...   ',
+    'Later.': 'A plus',
+    "Let's roll!": 'En avant ! ',
+    'Great!': 'Super!',
+    'Augh!': 'Argh!',
+    'Woohoo!': 'Youhou!',
+    'Ugh, this sucks.': 'Pff, la poisse. ',
+    "I'll just watch.": 'Je regarde juste',
+    'This is it!': "C'est ca ! ",
+    'Time to pray.': 'Faut prier.  ',
+    "This'll be fun.": 'Ca va etre bien',
+    'Farewell.': 'Adieu.   ',
+    "Let's see...": 'Voyons...   ',
+    'As it should be.': 'Comme il faut.  ',
+    'Next time...': 'La prochaine',
+    'Feeling good!': 'En forme !   ',
+    "I'll stand by.": 'Je reste la.  ',
+    "Let's try this!": 'Essayons ca !  ',
+    "Well, I'm ready.": 'Bien, pret !    ',
+    "Let's start.": 'Commencons. ',
+    'Come on...': 'Allez...  ',
+    'Well, obviously.': 'Evidemment.     ',
+    'You kidding?': 'Sans blague?',
+    'This one.': 'Celui-ci.',
+    "Let's do it!": "C'est parti!",
+    "Let's begin.": 'Commencons. ',
+    'Here I go!': "J'y vais !",
+    'Yes!': 'Oui!',
+    'Awesome!': 'Genial !',
+    'No way...': 'Pas vrai.',
+    'Here!': 'Ici !',
+    "This'll do.": 'Ca ira.    ',
+}
 
 def get_clean_response_roulette_bin(clean_par):
     raw = clean_par['response_roulette.bin_c'][3]
-    clean = raw.replace(b'Good to go.', b'Pret !     ')
-    clean = clean.replace(b'A big bet for <!--Name-->-san.', b'Grosse mise: <!--Name-->-san. ')
-    clean = clean.replace(b'Ugh, this sucks.', b'Pff, la poisse. ')
-    clean = clean.replace(b'Time to pray.', b'Faut prier.  ')
+    clean = bytearray(raw)
+    for en, fr in sorted(ROULETTE_ALL.items(), key=lambda x: len(x[0]), reverse=True):
+        en_b = en.encode('latin1')
+        fr_b = fr.encode('latin1')
+        diff = len(en_b) - len(fr_b)
+        assert diff >= 0, f"Overflow for roulette {en}"
+        rep = fr_b + (b' ' * diff)
+        pos = 0
+        while True:
+            idx = clean.find(en_b, pos)
+            if idx == -1:
+                break
+            clean[idx : idx + len(en_b)] = rep
+            pos = idx + len(en_b)
     assert len(clean) == len(raw), f"Length mismatch in response_roulette: {len(clean)} != {len(raw)}"
     assert clean.count(b'\x00') == raw.count(b'\x00'), "Null count diff in response_roulette!"
-    return 0x0, len(clean), len(clean), clean
+    return 0x0, len(clean), len(clean), bytes(clean)
+
+def get_clean_tougijyo_regulation_set_bin(clean_par):
+    flags, u_sz, c_sz, data_reg = clean_par['tougijyo_regulation_set.bin_c']
+    raw_reg = decompress_sllz(data_reg) if flags == 0x80000000 else data_reg
+    clean_reg = bytearray(raw_reg)
+    REG_MAP = {
+        'Coliseum Style': 'Style Colisee ',
+        'Any Style': 'Libre    ',
+    }
+    for en, fr in REG_MAP.items():
+        en_b = en.encode('latin1')
+        fr_b = fr.encode('latin1')
+        assert len(en_b) == len(fr_b)
+        assert en_b in clean_reg
+        clean_reg = clean_reg.replace(en_b, fr_b)
+    assert len(clean_reg) == len(raw_reg)
+    assert clean_reg.count(b'\x00') == raw_reg.count(b'\x00')
+    comp = compress_sllz(bytes(clean_reg))
+    return 0x80000000, len(clean_reg), len(comp), comp
 
 def get_clean_tougijyo_realtime_quest_bin(clean_par):
     raw = decompress_sllz(clean_par['tougijyo_realtime_quest.bin_c'][3])
@@ -299,6 +479,11 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
         'correlation_person.bin_c',
         'money_island_tarent.bin_c',
         'response_roulette.bin_c',
+        'search_arms_agent.bin_c',
+        'search_arms_location.bin_c',
+        'search_arms_result_picture.bin_c',
+        'tougijyo_realtime_quest.bin_c',
+        'tougijyo_regulation_set.bin_c',
         'tutorial.bin_c',
         'ultimate.bin_c',
         'virtue_shop.bin_c',
@@ -334,6 +519,8 @@ def rebuild_clean_stay_append(clean_par_path='par_original/stay.par',
                 r_flags, r_u, r_c, r_data = get_clean_search_arms_result_picture_bin(clean_par)
             elif name == 'tougijyo_realtime_quest.bin_c':
                 r_flags, r_u, r_c, r_data = get_clean_tougijyo_realtime_quest_bin(clean_par)
+            elif name == 'tougijyo_regulation_set.bin_c':
+                r_flags, r_u, r_c, r_data = get_clean_tougijyo_regulation_set_bin(clean_par)
             elif name == 'ultimate.bin_c':
                 r_flags, r_u, r_c, r_data = get_clean_ultimate_bin(clean_par)
             elif name == 'tutorial.bin_c':

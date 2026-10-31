@@ -145,6 +145,15 @@ GOG_DIRECT_WORDS = [
     (0xD84520, b'Changer vitesse\x00', "Shift Gears -> Changer vitesse (0xD84520)"),
     (0xD84530, b'Activer Turbo\x00', "Switch Turbo -> Activer Turbo (0xD84530)"),
     (0xD84540, b'Bombe\x00', "Bomb -> Bombe (0xD84540)"),
+    # Options & Configuration des commandes (Zone A & Zone C)
+    (0xD831C0, b'Saisie / Annul.\x00', "Grab / Cancel -> Saisie / Annul. (0xD831C0)"),
+    (0xD831D0, b'Centrer cam\xe9ra\x00', "Camera Reset -> Centrer caméra (0xD831D0)"),
+    (0xD83CB8, b'Reconfigurer manette\x00', "Remap Gamepad Controls -> Reconfigurer manette (0xD83CB8)"),
+    (0xD83CD0, b'Reconfigurer clavier/souris\x00', "Remap Keyboard & Mouse Controls -> Reconfigurer clavier/souris (0xD83CD0)"),
+    (0xD851E0, b'Appuyez sur une touche pour r\xe9assigner la commande\nAppuyez sur [\xc9chap] pour annuler\x00', "Press a button to rebind -> Appuyez sur une touche (0xD851E0)"),
+    (0xD85400, b'Appuyez sur <Sign:60> pour avancer.\x00', "Press <Sign:60> to fast forward -> Appuyez sur <Sign:60> (0xD85400)"),
+    (0xD85468, b'Manette d\xe9connect\xe9e\x00', "Controller disconnected -> Manette déconnectée (0xD85468)"),
+    (0xD85AE0, b"<Sign:C> : Fermer les informations d\xe9taill\xe9es.\n<Sign:59>/<Sign:60> : Parcourir les autres pages d'infos.\x00", "Press <Sign:C> to close -> Fermer les informations (0xD85AE0)"),
 ]
 
 # French strings mapped to original English strings in .rdata
