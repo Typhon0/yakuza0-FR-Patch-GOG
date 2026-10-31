@@ -575,10 +575,9 @@ def patch_yakuza0_gog(exe_path="Yakuza0.exe", output_path=None, interactive=True
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Patch clean GOG Yakuza 0 executable for French Fan-Translation.")
-    parser.add_argument("input_exe", nargs="?", default="Yakuza0.exe", help="Path to clean GOG Yakuza0.exe (default: auto-detected)")
+    parser.add_argument("input_exe", nargs="?", default=None, help="Path to clean GOG Yakuza0.exe (default: auto-detected)")
     parser.add_argument("output_exe", nargs="?", default=None, help="Output path (default: overwrite input_exe with backup)")
     args = parser.parse_args()
 
-    input_target = args.input_exe if args.input_exe else "Yakuza0.exe"
-    success = patch_yakuza0_gog(input_target, args.output_exe)
+    success = patch_yakuza0_gog(args.input_exe, args.output_exe)
     sys.exit(0 if success else 1)

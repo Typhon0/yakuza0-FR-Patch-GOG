@@ -407,7 +407,7 @@ def build_release():
     # Copier data, patch_gog.py, font table, LISEZMOI, verify_patch
     shutil.copytree(os.path.join(stage, "data"), os.path.join(stage_no_py, "data"))
     os.makedirs(os.path.join(stage_no_py, "tools"), exist_ok=True)
-    for tf in ["verify_patch.py", "patch_sound_par.py", "sound_subtitles_data.py", "sllz.py", "__init__.py"]:
+    for tf in ["console_ui.py", "verify_patch.py", "patch_sound_par.py", "sound_subtitles_data.py", "sllz.py", "__init__.py"]:
         src_tf = os.path.join(stage, "tools", tf)
         if os.path.isfile(src_tf):
             shutil.copy2(src_tf, os.path.join(stage_no_py, "tools", tf))
@@ -418,8 +418,8 @@ def build_release():
     with open(os.path.join(stage_no_py, "patch_gog.bat"), 'w', encoding='utf-8') as f:
         f.write(r'''@echo off
 chcp 65001 >nul
-echo Patch Yakuza 0 GOG FR...
-python patch_gog.py Yakuza0.exe
+title Yakuza 0 GOG — Patch FR par Typhon0
+python patch_gog.py %*
 pause
 ''')
 

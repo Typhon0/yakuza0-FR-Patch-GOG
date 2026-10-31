@@ -243,21 +243,24 @@ def resolve_game_directory(initial_path: str = None, interactive: bool = True) -
         sanitized = sanitize_path(initial_path)
         if validate_game_directory(sanitized):
             return sanitized
-        # If user passed a file pointing to Yakuza0.exe
-        if os.path.isfile(sanitized) and os.path.basename(sanitized).lower() == "yakuza0.exe":
-            parent = os.path.dirname(sanitized)
+        # If user passed a file pointing to Yakuza0.exe (relative or absolute)
+        abs_sanitized = os.path.abspath(sanitized)
+        if os.path.isfile(abs_sanitized) and os.path.basename(abs_sanitized).lower() == "yakuza0.exe":
+            parent = os.path.dirname(abs_sanitized)
             if validate_game_directory(parent):
                 return parent
-        # An explicit invalid path was provided: do not silently use candidate_locations
-        if not can_interact:
-            return None
-        card_start("CHEMIN SPÉCIFIÉ INVALIDE", width=76)
-        card_line(f"Le chemin spécifié ne contient pas Yakuza0.exe :", status="err")
-        card_line(f"  '{sanitized}'", status="none")
-        card_end(width=76)
 
-    # If no initial path was provided, check common relative and installation paths
-    if not initial_path:
+        # If user provided a specific non-default path that is invalid:
+        if sanitized.lower() not in ("yakuza0.exe", ".\\yakuza0.exe", "./yakuza0.exe"):
+            if not can_interact:
+                return None
+            card_start("CHEMIN SPÉCIFIÉ INVALIDE", width=76)
+            card_line(f"Le chemin spécifié ne contient pas Yakuza0.exe :", status="err")
+            card_line(f"  '{sanitized}'", status="none")
+            card_end(width=76)
+
+    # If no initial path was provided (or default "Yakuza0.exe"), check common relative and installation paths
+    if not initial_path or sanitized.lower() in ("yakuza0.exe", ".\\yakuza0.exe", "./yakuza0.exe"):
         candidate_locations = [
             os.getcwd(),
             os.path.join(os.getcwd(), ".."),
