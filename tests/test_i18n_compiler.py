@@ -89,6 +89,11 @@ entries:
         item_id, desc = mod.SHOP_ITEM_TRANSLATIONS[('shop0000.bin', 0)]
         self.assertEqual(item_id, 12)
         self.assertEqual(desc, "Le Staminan X recharge légèrement la santé.")
+        # Verify ITEM_ID_TRANSLATIONS fallback dictionary required by rebuild_all_shops_clean.py
+        self.assertIn(12, mod.ITEM_ID_TRANSLATIONS)
+        self.assertEqual(mod.ITEM_ID_TRANSLATIONS[12], "Le Staminan X recharge légèrement la santé.")
+        self.assertIn(481, mod.ITEM_ID_TRANSLATIONS)
+        self.assertEqual(mod.ITEM_ID_TRANSLATIONS[481], "Simple morceau de bois.")
 
     def test_compile_subtitles(self):
         yaml_content = """# Subtitles catalog

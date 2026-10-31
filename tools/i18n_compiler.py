@@ -77,6 +77,20 @@ def compile_shops(catalog_path: str, output_path: str) -> bool:
     lines.append("}")
     lines.append("")
 
+    # Also generate ITEM_ID_TRANSLATIONS fallback dictionary required by rebuild_all_shops_clean.py
+    item_id_map = {}
+    for entry in entries:
+        item_id = entry.get("item_id")
+        fr_text = entry.get("fr", "")
+        if item_id and item_id not in item_id_map:
+            item_id_map[item_id] = fr_text
+
+    lines.append("ITEM_ID_TRANSLATIONS = {")
+    for item_id in sorted(item_id_map.keys()):
+        lines.append(f"    {item_id}: {repr(item_id_map[item_id])},")
+    lines.append("}")
+    lines.append("")
+
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
 
