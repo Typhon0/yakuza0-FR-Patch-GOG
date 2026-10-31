@@ -58,8 +58,11 @@ class TestConsoleUI(unittest.TestCase):
         lines = [strip_ansi(line) for line in captured.getvalue().splitlines() if line.strip()]
         self.assertTrue(lines[0].startswith("╭─") or lines[0].startswith("+--"))
         self.assertTrue(lines[-1].startswith("╰─") or lines[-1].startswith("+--"))
+        for line in lines:
+            self.assertEqual(len(line), 60, f"Line does not match exact card width 60: '{line}'")
         for line in lines[1:-1]:
             self.assertTrue(line.startswith("│") or line.startswith("|"))
+            self.assertTrue(line.endswith("│") or line.endswith("|"))
 
     def test_format_progress(self):
         p0 = format_progress(0, 100, width=10)

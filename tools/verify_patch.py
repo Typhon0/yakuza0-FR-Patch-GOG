@@ -24,6 +24,14 @@ import sys
 import struct
 import time
 
+# Ensure tools directory is in sys.path so console_ui is always discoverable
+_tools_dir = os.path.dirname(os.path.abspath(__file__))
+if _tools_dir not in sys.path:
+    sys.path.insert(0, _tools_dir)
+_parent_dir = os.path.join(_tools_dir, "..")
+if _parent_dir not in sys.path:
+    sys.path.insert(0, _parent_dir)
+
 try:
     from tools.console_ui import (
         Colors,
@@ -58,14 +66,14 @@ except ImportError:
             GRAY = ""
 
         def strip_ansi(t): return t
-        def print_banner(v="v1.13.0"):
+        def print_banner(version="v1.13.0", *args, **kwargs):
             print("=========================================================")
-            print(f"  YAKUZA 0 — VÉRIFICATEUR D'INTÉGRITÉ DU PATCH FR ({v})")
+            print(f"  YAKUZA 0 — VÉRIFICATEUR D'INTÉGRITÉ DU PATCH FR ({version})")
             print("  Par Typhon0 (basé sur les traductions initiales de RGG FR)")
             print("=========================================================\n")
-        def card_start(t, w=76): print(f"\n--- [ {t} ] ---")
-        def card_line(t, s="info", w=76): print(f"  [{s.upper()}] {t}")
-        def card_end(w=76): print("-" * w)
+        def card_start(t, width=76, *args, **kwargs): print(f"\n--- [ {t} ] ---")
+        def card_line(t, status="info", width=76, *args, **kwargs): print(f"  [{status.upper()}] {t}")
+        def card_end(width=76, *args, **kwargs): print("-" * width)
 
 # ── SLLZ Decompressor (self-contained, proven Sega bit-flag format) ─────────
 def decompress_sllz(data):

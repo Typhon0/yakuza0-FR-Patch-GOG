@@ -123,6 +123,7 @@ def card_line(text: str, status: str = "info", width: int = 76):
     """
     Prints a formatted card content line with a colored status badge.
     Status can be: 'ok', 'action', 'info', 'warn', 'err', or 'none'.
+    Guarantees strict column alignment matching the card borders.
     """
     badges = {
         "ok": c(Colors.GREEN + Colors.BOLD, " [✓] "),
@@ -134,11 +135,18 @@ def card_line(text: str, status: str = "info", width: int = 76):
     }
     badge = badges.get(status, badges["info"])
     
-    # Calculate visible length
-    raw_content = f"{strip_ansi(badge)}{strip_ansi(text)}"
-    pad_len = max(0, width - 2 - len(raw_content))
+    # Border width: "│ " (2) on left, " │" (2) on right
+    inside_width = width - 4
+    badge_len = len(strip_ansi(badge))
+    max_text_len = inside_width - badge_len
     
-    print(c(Colors.CYAN, "│ ") + badge + text + " " * pad_len + c(Colors.CYAN, "│"))
+    raw_text = strip_ansi(text)
+    if len(raw_text) > max_text_len:
+        text = raw_text[:max_text_len - 1] + "…"
+        raw_text = strip_ansi(text)
+    
+    pad_len = max(0, max_text_len - len(raw_text))
+    print(c(Colors.CYAN, "│ ") + badge + text + (" " * pad_len) + c(Colors.CYAN, " │"))
 
 
 def card_end(width: int = 76):
@@ -146,8 +154,8 @@ def card_end(width: int = 76):
     print(c(Colors.CYAN, "╰" + "─" * (width - 2) + "╯"))
 
 
-def format_progress(current: int, total: int, width: int = 20) -> str:
-    """Returns a visual progress bar string: [████████░░] 80%"""
+def format_progress(current: int, total: int, width: int = 16) -> str:
+    """Returns a visual progress bar string: [████████────────]  80%"""
     if total <= 0:
         pct = 100
         filled = width
@@ -156,7 +164,7 @@ def format_progress(current: int, total: int, width: int = 20) -> str:
         filled = int(width * (pct / 100))
     empty = max(0, width - filled)
     
-    bar = c(Colors.GREEN, "█" * filled) + c(Colors.GRAY, "░" * empty)
+    bar = c(Colors.GREEN, "█" * filled) + c(Colors.GRAY, "─" * empty)
     return f"[{bar}] {c(Colors.WHITE + Colors.BOLD, f'{pct:>3}%')}"
 
 

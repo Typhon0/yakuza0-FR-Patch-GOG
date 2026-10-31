@@ -73,16 +73,17 @@ except ImportError:
             GRAY = ""
 
         def strip_ansi(t): return t
-        def print_banner(v="v1.13.0"):
+        def print_banner(version="v1.13.0", *args, **kwargs):
             print("=========================================================")
-            print(f"  YAKUZA 0 — PATCH DE TRADUCTION FRANÇAISE ({v})")
+            print(f"  YAKUZA 0 — PATCH DE TRADUCTION FRANÇAISE ({version})")
             print("  Par Typhon0 (basé sur les traductions initiales de RGG FR)")
             print("=========================================================\n")
-        def card_start(t, w=76): print(f"\n--- [ {t} ] ---")
-        def card_line(t, s="info", w=76): print(f"  [{s.upper()}] {t}")
-        def card_end(w=76): print("-" * w)
-        def format_progress(c, tot, w=20):
+        def card_start(t, width=76, *args, **kwargs): print(f"\n--- [ {t} ] ---")
+        def card_line(t, status="info", width=76, *args, **kwargs): print(f"  [{status.upper()}] {t}")
+        def card_end(width=76, *args, **kwargs): print("-" * width)
+        def format_progress(c, tot, width=16, *args, **kwargs):
             pct = int((c / tot) * 100) if tot > 0 else 100
+            return f"[{pct:>3}%]"
             return f"[{pct:>3}%]"
         def validate_game_directory(d):
             return bool(d and os.path.isfile(os.path.join(d, "Yakuza0.exe")))
@@ -320,40 +321,21 @@ def install_data_archives(game_dir):
                 card_line(f"Impossible de supprimer {parasite}: {e}", status="warn")
 
     core_archives = [
-        ("data/wdr_par_c/wdr.par", 7000000),
-        ("data/wdr_par_c/common.par", 10000),
-        ("data/bootpar/boot.par", 1500000),
-        ("data/staypar/stay.par", 500000),
+        ("wdr.par", "data/wdr_par_c/wdr.par", 7000000),
+        ("boot.par", "data/bootpar/boot.par", 1500000),
+        ("stay.par", "data/staypar/stay.par", 500000),
+        ("common.par", "data/wdr_par_c/common.par", 10000),
     ]
 
-    data_files = list(core_archives)
+    p_bar_full = format_progress(100, 100, width=16)
 
-    # Decouverte dynamique des tables et textures de mini-jeux fournies par le patch
-    minigame_src_dir = os.path.join(script_dir, "data", "minigame")
-    if os.path.isdir(minigame_src_dir):
-        patch_minigame_dirs = {"catfight", "fishing", "poker", "cabaret", "teleclub"}
-        for root, dirs, files in os.walk(minigame_src_dir):
-            rel_dir = os.path.relpath(root, minigame_src_dir).replace('\\', '/')
-            sub_folder = rel_dir.split('/')[0] if rel_dir != '.' else ''
-            if sub_folder and sub_folder not in patch_minigame_dirs:
-                continue
-            for f in sorted(files):
-                if f.endswith('.bak'):
-                    continue
-                if f.endswith('.bin') or f.endswith('.bin_c') or f.endswith('.dds'):
-                    src_f = os.path.join(root, f)
-                    rel_f = os.path.relpath(src_f, script_dir).replace('\\', '/')
-                    data_files.append((rel_f, 1))
-
-    total_files = len(data_files)
-    for idx, (rel_path, min_size) in enumerate(data_files, 1):
+    for label, rel_path, min_size in core_archives:
         src = os.path.normpath(os.path.join(script_dir, rel_path.replace('/', os.sep)))
         dst = os.path.normpath(os.path.join(game_dir, rel_path.replace('/', os.sep)))
 
         if not os.path.isfile(src):
             continue
 
-        # Check if source and destination point to the exact same file
         is_same = False
         try:
             if os.path.exists(dst) and os.path.samefile(src, dst):
@@ -374,17 +356,14 @@ def install_data_archives(game_dir):
                 pass
             actual_size = os.path.getsize(dst)
             if actual_size < min_size:
-                card_line(f"Fichier présent incomplet: '{dst}' ({actual_size} o, attendu >{min_size})", status="err")
+                card_line(f"Archive présente incomplète: {label} ({actual_size} o)", status="err")
                 card_end(width=76)
                 return False
             size_mb = f"{actual_size / (1024*1024):.1f} Mo" if actual_size > 500000 else f"{actual_size / 1024:.0f} Ko"
-            p_bar = format_progress(idx, total_files, width=15)
-            fname = os.path.basename(rel_path)
-            card_line(f"{fname:<16} {p_bar}  (déjà présent, {size_mb})", status="ok")
+            card_line(f"{label:<16} {p_bar_full}  ({size_mb})", status="ok")
             continue
 
         os.makedirs(os.path.dirname(dst), exist_ok=True)
-
         if os.path.isfile(dst):
             bak = dst + ".bak"
             if not os.path.exists(bak):
@@ -414,14 +393,53 @@ def install_data_archives(game_dir):
 
         actual_size = os.path.getsize(dst)
         if actual_size < min_size:
-            card_line(f"Fichier copié incomplet: '{dst}' ({actual_size} o, attendu >{min_size})", status="err")
+            card_line(f"Archive copiée incomplète: {label} ({actual_size} o)", status="err")
             card_end(width=76)
             return False
-        
+
         size_mb = f"{actual_size / (1024*1024):.1f} Mo" if actual_size > 500000 else f"{actual_size / 1024:.0f} Ko"
-        p_bar = format_progress(idx, total_files, width=15)
-        fname = os.path.basename(rel_path)
-        card_line(f"{fname:<16} {p_bar}  ({size_mb})", status="ok")
+        card_line(f"{label:<16} {p_bar_full}  ({size_mb})", status="ok")
+
+    # Déploiement groupé et élégant des tables et textures de mini-jeux
+    minigame_src_dir = os.path.join(script_dir, "data", "minigame")
+    tables_copied = 0
+    textures_copied = 0
+    if os.path.isdir(minigame_src_dir):
+        patch_minigame_dirs = {"catfight", "fishing", "poker", "cabaret", "teleclub"}
+        for root, dirs, files in os.walk(minigame_src_dir):
+            rel_dir = os.path.relpath(root, minigame_src_dir).replace('\\', '/')
+            sub_folder = rel_dir.split('/')[0] if rel_dir != '.' else ''
+            if sub_folder and sub_folder not in patch_minigame_dirs:
+                continue
+            for f in sorted(files):
+                if f.endswith('.bak'):
+                    continue
+                is_tbl = f.endswith('.bin') or f.endswith('.bin_c')
+                is_tex = f.endswith('.dds')
+                if is_tbl or is_tex:
+                    src_f = os.path.join(root, f)
+                    rel_f = os.path.relpath(src_f, script_dir)
+                    dst_f = os.path.normpath(os.path.join(game_dir, rel_f))
+                    os.makedirs(os.path.dirname(dst_f), exist_ok=True)
+                    if os.path.isfile(dst_f):
+                        try:
+                            os.chmod(dst_f, stat.S_IWRITE | stat.S_IREAD)
+                        except Exception:
+                            pass
+                    try:
+                        shutil.copy2(src_f, dst_f)
+                        os.chmod(dst_f, stat.S_IWRITE | stat.S_IREAD)
+                        if is_tbl:
+                            tables_copied += 1
+                        else:
+                            textures_copied += 1
+                    except Exception:
+                        pass
+
+    if tables_copied > 0:
+        card_line(f"{'Tables mini-jeux':<16} {p_bar_full}  ({tables_copied} fichiers)", status="ok")
+    if textures_copied > 0:
+        card_line(f"{'Textures 2D UI':<16} {p_bar_full}  ({textures_copied} textures)", status="ok")
 
     # Patch des sous-titres audio d'ambiance si sound.par existe dans le jeu
     user_sound_par = os.path.join(game_dir, "data", "soundpar", "sound.par")
@@ -434,7 +452,7 @@ def install_data_archives(game_dir):
                 mod = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(mod)
                 mod.patch_sound_par_inplace(user_sound_par)
-                card_line("Sous-titres audio d'ambiance (sound.par) synchronisés", status="ok")
+                card_line(f"{'Sous-titres audio':<16} {p_bar_full}  (sound.par)", status="ok")
             except Exception as e:
                 card_line(f"Avertissement patching sound.par: {e}", status="warn")
 
