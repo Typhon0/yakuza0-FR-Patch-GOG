@@ -1,0 +1,102 @@
+# translations/system/arcade_controls.yaml
+# Commandes d'émulateur des bornes d'arcade Club SEGA (Yakuza0.exe)
+category: system
+domain: arcade_controls
+target_offsets: "0xD84468 - 0xD84540"
+
+entries:
+  - id: arcade_fire
+    offset: "0xD84468"
+    en: "Fire"
+    fr: "Tir"
+    max_len: 8
+
+  - id: arcade_rapid_fire
+    offset: "0xD84470"
+    en: "Rapid-Fire"
+    fr: "Tir rapide"
+    max_len: 16
+
+  - id: arcade_insert_credit
+    offset: "0xD84480"
+    en: "Insert Credit"
+    fr: "Insérer crédit"
+    max_len: 16
+
+  - id: arcade_controls
+    offset: "0xD84490"
+    en: "Controls"
+    fr: "Commandes"
+    max_len: 12
+
+  - id: arcade_fly
+    offset: "0xD8449C"
+    en: "Fly"
+    fr: "Vol"
+    max_len: 4
+
+  - id: arcade_pause_quit
+    offset: "0xD844A0"
+    en: "Pause/Quit"
+    fr: "Pause/Quitter"
+    max_len: 16
+
+  - id: arcade_start_controls
+    offset: "0xD844B0"
+    en: "Start/Controls"
+    fr: "Start/Commandes"
+    max_len: 16
+
+  - id: arcade_accelerate_confirm
+    offset: "0xD844C0"
+    en: "Accelerate/Confirm"
+    fr: "Accélérer/Confirmer"
+    max_len: 24
+
+  - id: arcade_switch_screen_type
+    offset: "0xD844D8"
+    en: "Switch Screen Type"
+    fr: "Changer affichage"
+    max_len: 24
+
+  - id: arcade_invert_controls
+    offset: "0xD844F0"
+    en: "Invert Controls"
+    fr: "Inverser axes"
+    max_len: 16
+
+  - id: arcade_brake
+    offset: "0xD84500"
+    en: "Brake"
+    fr: "Frein"
+    max_len: 8
+
+  - id: arcade_steer
+    offset: "0xD84508"
+    en: "Steer"
+    fr: "Volant"
+    max_len: 8
+
+  - id: arcade_fire_select
+    offset: "0xD84510"
+    en: "Fire/Select"
+    fr: "Tir/Sélection"
+    max_len: 16
+
+  - id: arcade_shift_gears
+    offset: "0xD84520"
+    en: "Shift Gears"
+    fr: "Changer vitesse"
+    max_len: 16
+
+  - id: arcade_switch_turbo
+    offset: "0xD84530"
+    en: "Switch Turbo"
+    fr: "Activer Turbo"
+    max_len: 16
+
+  - id: arcade_bomb
+    offset: "0xD84540"
+    en: "Bomb"
+    fr: "Bombe"
+    max_len: 8

@@ -128,6 +128,23 @@ GOG_DIRECT_WORDS = [
     (0xDC5308, b'NIV\x00', "LV -> NIV (0xDC5308)"),
     (0xDC5338, b'Information\x00', "Information (0xDC5338)"),
     (0xE69C00, b'N\xb0 \x00', "No. -> N° (0xE69C00)"),
+    # Commandes bornes d'arcade Club SEGA (Space Harrier, Out Run, Fantasy Zone, Super Hang-On)
+    (0xD84468, b'Tir\x00', "Fire -> Tir (0xD84468)"),
+    (0xD84470, b'Tir rapide\x00', "Rapid-Fire -> Tir rapide (0xD84470)"),
+    (0xD84480, b'Ins\xe9rer cr\xe9dit\x00', "Insert Credit -> Insérer crédit (0xD84480)"),
+    (0xD84490, b'Commandes\x00', "Controls -> Commandes (0xD84490)"),
+    (0xD8449C, b'Vol\x00', "Fly -> Vol (0xD8449C)"),
+    (0xD844A0, b'Pause/Quitter\x00', "Pause/Quit -> Pause/Quitter (0xD844A0)"),
+    (0xD844B0, b'Start/Commandes\x00', "Start/Controls -> Start/Commandes (0xD844B0)"),
+    (0xD844C0, b'Acc\xe9l\xe9rer/Confirmer\x00', "Accelerate/Confirm -> Accélérer/Confirmer (0xD844C0)"),
+    (0xD844D8, b'Changer affichage\x00', "Switch Screen Type -> Changer affichage (0xD844D8)"),
+    (0xD844F0, b'Inverser axes\x00', "Invert Controls -> Inverser axes (0xD844F0)"),
+    (0xD84500, b'Frein\x00', "Brake -> Frein (0xD84500)"),
+    (0xD84508, b'Volant\x00', "Steer -> Volant (0xD84508)"),
+    (0xD84510, b'Tir/S\xe9lection\x00', "Fire/Select -> Tir/Sélection (0xD84510)"),
+    (0xD84520, b'Changer vitesse\x00', "Shift Gears -> Changer vitesse (0xD84520)"),
+    (0xD84530, b'Activer Turbo\x00', "Switch Turbo -> Activer Turbo (0xD84530)"),
+    (0xD84540, b'Bombe\x00', "Bomb -> Bombe (0xD84540)"),
 ]
 
 # French strings mapped to original English strings in .rdata
