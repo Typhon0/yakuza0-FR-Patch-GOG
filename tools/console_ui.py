@@ -236,6 +236,9 @@ def resolve_game_directory(initial_path: str = None, interactive: bool = True) -
     Resolves and strictly validates the Yakuza 0 game directory (Rule 6).
     If not found and interactive is True, prompts user for selection.
     """
+    is_tty = hasattr(sys.stdin, 'isatty') and sys.stdin.isatty()
+    can_interact = interactive and is_tty
+
     if initial_path:
         sanitized = sanitize_path(initial_path)
         if validate_game_directory(sanitized):
@@ -245,26 +248,34 @@ def resolve_game_directory(initial_path: str = None, interactive: bool = True) -
             parent = os.path.dirname(sanitized)
             if validate_game_directory(parent):
                 return parent
+        # An explicit invalid path was provided: do not silently use candidate_locations
+        if not can_interact:
+            return None
+        card_start("CHEMIN SPÉCIFIÉ INVALIDE", width=76)
+        card_line(f"Le chemin spécifié ne contient pas Yakuza0.exe :", status="err")
+        card_line(f"  '{sanitized}'", status="none")
+        card_end(width=76)
 
-    # Common relative paths relative to current script/working directory
-    candidate_locations = [
-        os.getcwd(),
-        os.path.join(os.getcwd(), ".."),
-        os.path.join(os.getcwd(), "..", ".."),
-        os.path.dirname(os.path.abspath(__file__)),
-        os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),
-        "C:\\GOG Games\\Yakuza 0",
-        "D:\\GOG Games\\Yakuza 0",
-        "E:\\GOG Games\\Yakuza 0",
-        "C:\\Program Files (x86)\\GOG Galaxy\\Games\\Yakuza 0",
-    ]
-    
-    for cand in candidate_locations:
-        norm = os.path.normpath(cand)
-        if validate_game_directory(norm):
-            return norm
+    # If no initial path was provided, check common relative and installation paths
+    if not initial_path:
+        candidate_locations = [
+            os.getcwd(),
+            os.path.join(os.getcwd(), ".."),
+            os.path.join(os.getcwd(), "..", ".."),
+            os.path.dirname(os.path.abspath(__file__)),
+            os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."),
+            "C:\\GOG Games\\Yakuza 0",
+            "D:\\GOG Games\\Yakuza 0",
+            "E:\\GOG Games\\Yakuza 0",
+            "C:\\Program Files (x86)\\GOG Galaxy\\Games\\Yakuza 0",
+        ]
+        
+        for cand in candidate_locations:
+            norm = os.path.normpath(cand)
+            if validate_game_directory(norm):
+                return norm
 
-    if not interactive:
+    if not can_interact:
         return None
 
     # Interactive flow

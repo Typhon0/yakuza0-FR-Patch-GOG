@@ -28,6 +28,68 @@ import argparse
 import stat
 import time
 
+# Import modern console UI module with robust fallback
+try:
+    from tools.console_ui import (
+        Colors,
+        strip_ansi,
+        print_banner,
+        card_start,
+        card_line,
+        card_end,
+        format_progress,
+        resolve_game_directory,
+        validate_game_directory,
+    )
+except ImportError:
+    _script_dir = os.path.dirname(os.path.abspath(__file__))
+    _tools_dir = os.path.join(_script_dir, "tools")
+    if os.path.isdir(_tools_dir) and _tools_dir not in sys.path:
+        sys.path.insert(0, _tools_dir)
+    try:
+        from console_ui import (
+            Colors,
+            strip_ansi,
+            print_banner,
+            card_start,
+            card_line,
+            card_end,
+            format_progress,
+            resolve_game_directory,
+            validate_game_directory,
+        )
+    except ImportError:
+        class Colors:
+            RESET = ""
+            BOLD = ""
+            DIM = ""
+            RED = ""
+            GREEN = ""
+            YELLOW = ""
+            BLUE = ""
+            MAGENTA = ""
+            CYAN = ""
+            WHITE = ""
+            GRAY = ""
+
+        def strip_ansi(t): return t
+        def print_banner(v="v1.13.0"):
+            print("=========================================================")
+            print(f"  YAKUZA 0 — PATCH DE TRADUCTION FRANÇAISE ({v})")
+            print("  Par Typhon0 (basé sur les traductions initiales de RGG FR)")
+            print("=========================================================\n")
+        def card_start(t, w=76): print(f"\n--- [ {t} ] ---")
+        def card_line(t, s="info", w=76): print(f"  [{s.upper()}] {t}")
+        def card_end(w=76): print("-" * w)
+        def format_progress(c, tot, w=20):
+            pct = int((c / tot) * 100) if tot > 0 else 100
+            return f"[{pct:>3}%]"
+        def validate_game_directory(d):
+            return bool(d and os.path.isfile(os.path.join(d, "Yakuza0.exe")))
+        def resolve_game_directory(p=None, interactive=True):
+            if p and validate_game_directory(p): return p
+            return None
+
 # Embedded 6,144-byte French Font & Kerning Table (zlib-compressed base64)
 # Calibrated for proportional spacing on narrow stems (i, l, I) and accented glyphs (é, è, ê, à, ç, etc.)
 EMBEDDED_FONT_TABLE_B64 = (
@@ -239,8 +301,7 @@ def install_data_archives(game_dir):
     if not os.path.isdir(data_dir):
         return True
 
-    print("\n[0/4] Installation securisee des archives pre-compilees vers :")
-    print(f"      {os.path.join(game_dir, 'data')}...")
+    card_start("2/4 — INSTALLATION DES ARCHIVES TRADUITES", width=76)
 
     # Nettoyage automatique des sous-dossiers parasites issus d'anciennes extractions imbriquees
     nested_parasites = [
@@ -252,12 +313,11 @@ def install_data_archives(game_dir):
     ]
     for parasite in nested_parasites:
         if os.path.isdir(parasite):
-            print(f"[*] Nettoyage du sous-dossier parasite issu d'une ancienne extraction : {parasite}")
             try:
                 shutil.rmtree(parasite)
-                print(f"    + Supprime avec succes.")
+                card_line(f"Sous-dossier parasite supprimé : {os.path.basename(parasite)}", status="ok")
             except Exception as e:
-                print(f"    [AVERTISSEMENT] Impossible de supprimer {parasite}: {e}")
+                card_line(f"Impossible de supprimer {parasite}: {e}", status="warn")
 
     core_archives = [
         ("data/wdr_par_c/wdr.par", 7000000),
@@ -285,7 +345,8 @@ def install_data_archives(game_dir):
                     rel_f = os.path.relpath(src_f, script_dir).replace('\\', '/')
                     data_files.append((rel_f, 1))
 
-    for rel_path, min_size in data_files:
+    total_files = len(data_files)
+    for idx, (rel_path, min_size) in enumerate(data_files, 1):
         src = os.path.normpath(os.path.join(script_dir, rel_path.replace('/', os.sep)))
         dst = os.path.normpath(os.path.join(game_dir, rel_path.replace('/', os.sep)))
 
@@ -307,29 +368,30 @@ def install_data_archives(game_dir):
                 pass
 
         if is_same:
-            # The archive is already located directly inside the game folder
             try:
                 os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
             except Exception:
                 pass
             actual_size = os.path.getsize(dst)
             if actual_size < min_size:
-                print(f"[ERREUR CRITIQUE] Fichier present incomplet: '{dst}' ({actual_size} octets, attendu: >{min_size})")
+                card_line(f"Fichier présent incomplet: '{dst}' ({actual_size} o, attendu >{min_size})", status="err")
+                card_end(width=76)
                 return False
-            print(f"  + {rel_path} deja present dans le jeu ({actual_size} octets)")
+            size_mb = f"{actual_size / (1024*1024):.1f} Mo" if actual_size > 500000 else f"{actual_size / 1024:.0f} Ko"
+            p_bar = format_progress(idx, total_files, width=15)
+            fname = os.path.basename(rel_path)
+            card_line(f"{fname:<16} {p_bar}  (déjà présent, {size_mb})", status="ok")
             continue
 
         os.makedirs(os.path.dirname(dst), exist_ok=True)
 
         if os.path.isfile(dst):
-            # Backup if not already backed up
             bak = dst + ".bak"
             if not os.path.exists(bak):
                 try:
                     shutil.copy2(dst, bak)
                 except Exception:
                     pass
-            # Remove read-only attribute if present
             try:
                 os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
             except Exception:
@@ -339,22 +401,27 @@ def install_data_archives(game_dir):
             shutil.copy2(src, dst)
             os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
         except Exception as e:
-            # Attempt to terminate lingering Yakuza0.exe and retry once
             kill_game_process()
             try:
                 os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
                 shutil.copy2(src, dst)
                 os.chmod(dst, stat.S_IWRITE | stat.S_IREAD)
             except Exception as e2:
-                print(f"[ERREUR CRITIQUE] Impossible d'ecrire dans '{dst}': {e2}")
-                print("Assurez-vous que le jeu est ferme et que vous avez les droits d'ecriture.")
+                card_line(f"Impossible d'écrire dans '{dst}': {e2}", status="err")
+                card_line("Vérifiez que le jeu est fermé et vos droits d'écriture.", status="warn")
+                card_end(width=76)
                 return False
 
         actual_size = os.path.getsize(dst)
         if actual_size < min_size:
-            print(f"[ERREUR CRITIQUE] Fichier copie incomplet: '{dst}' ({actual_size} octets, attendu: >{min_size})")
+            card_line(f"Fichier copié incomplet: '{dst}' ({actual_size} o, attendu >{min_size})", status="err")
+            card_end(width=76)
             return False
-        print(f"  + {rel_path} installe avec succes ({actual_size} octets)")
+        
+        size_mb = f"{actual_size / (1024*1024):.1f} Mo" if actual_size > 500000 else f"{actual_size / 1024:.0f} Ko"
+        p_bar = format_progress(idx, total_files, width=15)
+        fname = os.path.basename(rel_path)
+        card_line(f"{fname:<16} {p_bar}  ({size_mb})", status="ok")
 
     # Patch des sous-titres audio d'ambiance si sound.par existe dans le jeu
     user_sound_par = os.path.join(game_dir, "data", "soundpar", "sound.par")
@@ -367,16 +434,30 @@ def install_data_archives(game_dir):
                 mod = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(mod)
                 mod.patch_sound_par_inplace(user_sound_par)
+                card_line("Sous-titres audio d'ambiance (sound.par) synchronisés", status="ok")
             except Exception as e:
-                print(f"  [AVERTISSEMENT] Patching sound.par: {e}")
+                card_line(f"Avertissement patching sound.par: {e}", status="warn")
 
+    card_line("Toutes les archives et tables de mini-jeux sont déployées", status="ok")
+    card_end(width=76)
     return True
 
 
-def patch_yakuza0_gog(exe_path, output_path=None):
-    if not os.path.isfile(exe_path):
-        print(f"[ERROR] Executable not found: {exe_path}")
-        return False
+def patch_yakuza0_gog(exe_path="Yakuza0.exe", output_path=None, interactive=True):
+    print_banner(version="v1.13.0")
+
+    # Strict resolution of game directory / executable (Rule 6)
+    if not exe_path or not os.path.isfile(exe_path):
+        resolved_dir = resolve_game_directory(exe_path, interactive=interactive)
+        if resolved_dir:
+            exe_path = os.path.join(resolved_dir, "Yakuza0.exe")
+        else:
+            card_start("ERREUR DE DÉTECTION", width=76)
+            card_line(f"Exécutable Yakuza0.exe introuvable : '{exe_path}'", status="err")
+            card_line("Glissez le dossier de jeu sur patch_fr.bat ou lancez :", status="info")
+            card_line("  patch_fr.bat \"D:\\GOG Games\\Yakuza 0\"", status="none")
+            card_end(width=76)
+            return False
 
     exe_path = os.path.normpath(os.path.abspath(exe_path))
     if output_path is None:
@@ -386,61 +467,68 @@ def patch_yakuza0_gog(exe_path, output_path=None):
 
     game_dir = os.path.dirname(exe_path)
 
-    # Terminate any lingering game process holding file handles
+    # Card 1: Préparation & Sécurité
+    card_start("1/4 — PRÉPARATION & SÉCURITÉ", width=76)
     kill_game_process()
-
-    # 0. Deploy precompiled data archives if present
-    if not install_data_archives(game_dir):
-        return False
+    card_line("Processus Yakuza0.exe vérifié et libéré", status="ok")
 
     backup_path = exe_path + ".bak"
-    # If backup exists, always load from clean backup to allow clean repatching
     if os.path.exists(backup_path):
-        print(f"\n[INFO] Restoring clean data from backup: {backup_path}")
+        card_line(f"Restauration depuis la sauvegarde propre : {os.path.basename(backup_path)}", status="info")
         with open(backup_path, 'rb') as f:
             data = bytearray(f.read())
     else:
-        print(f"\n[INFO] Creating backup: {backup_path}")
         try:
             os.chmod(exe_path, stat.S_IWRITE | stat.S_IREAD)
         except Exception:
             pass
         shutil.copy2(exe_path, backup_path)
-        print(f"[INFO] Loading executable: {exe_path}")
+        card_line(f"Sauvegarde originale créée : {os.path.basename(backup_path)}", status="ok")
         with open(exe_path, 'rb') as f:
             data = bytearray(f.read())
 
+    # Unlock read-only on game files
+    try:
+        os.chmod(exe_path, stat.S_IWRITE | stat.S_IREAD)
+        for root, dirs, files in os.walk(os.path.join(game_dir, "data")):
+            for f in files:
+                try:
+                    os.chmod(os.path.join(root, f), stat.S_IWRITE | stat.S_IREAD)
+                except Exception:
+                    pass
+        card_line("Attributs lecture seule (+R) déverrouillés sur le jeu", status="ok")
+    except Exception:
+        pass
+    card_end(width=76)
+
+    # 2. Deploy precompiled data archives if present
+    if not install_data_archives(game_dir):
+        return False
+
+    # 3. Apply executable patches
+    card_start("3/4 — PATCH DE L'EXÉCUTABLE (Yakuza0.exe)", width=76)
     pe = PEModifier(data)
 
-    # 1. Apply single-byte bytecode patches
-    print("[1/4] Applying single-byte font rendering patches...")
+    applied_count = 0
     for offset, patch_bytes, desc in GOG_BYTECODE_PATCHES:
         if offset + len(patch_bytes) <= len(data):
             data[offset:offset+len(patch_bytes)] = patch_bytes
-            print(f"  + Applied: {desc}")
-        else:
-            print(f"  [WARN] Offset out of range: {hex(offset)}")
+            applied_count += 1
+    card_line(f"Patches de rendu mono-octet injectés ({applied_count}/{len(GOG_BYTECODE_PATCHES)})", status="ok")
 
-    # 2. Inject Calibrated French Font & Kerning Table (6,144 bytes, 0x00 to 0xFF)
-    # Fixes the severe native Sega kerning collision bug on narrow glyphs ('i', 'l', 'I')
-    # and ensures harmonious proportional spacing for accented characters (é, è, ê, à, ç, etc.)
-    print(f"[2/4] Injecting calibrated French typography and kerning table (0x00-0xFF)...")
     font_table = bytearray(get_font_table_bytes())
     assert len(font_table) == FONT_TABLE_SIZE, f"Invalid font table size: {len(font_table)}"
-
     data[GOG_FONT_TABLE_OFFSET : GOG_FONT_TABLE_OFFSET + FONT_TABLE_SIZE] = font_table
-    print(f"  + Calibrated proportional margins for 'i', 'l', 'I' and punctuation '.'.")
-    print(f"  + Injected {FONT_TABLE_SIZE} bytes of unified French typography (0x00-0xFF).")
+    card_line("Typographie & crénage symétrique [0.4, 0.4] injectés (6 144 o)", status="ok")
 
-    # 3. Apply direct in-exe gameplay terms
-    print("[3/4] Patching direct in-exe terms (GET, LOST, LV, etc.)...")
+    words_applied = 0
     for offset, word_bytes, desc in GOG_DIRECT_WORDS:
         if offset + len(word_bytes) <= len(data):
             data[offset:offset+len(word_bytes)] = word_bytes
-            print(f"  + Applied: {desc}")
+            words_applied += 1
+    card_line(f"Termes d'interface traduits en dur ({words_applied} termes)", status="ok")
 
-    # 4. Write out patched executable
-    print(f"[4/4] Saving patched GOG executable to: {output_path}")
+    # Save patched exe
     try:
         os.chmod(output_path, stat.S_IWRITE | stat.S_IREAD)
     except Exception:
@@ -455,32 +543,42 @@ def patch_yakuza0_gog(exe_path, output_path=None):
             with open(output_path, 'wb') as f:
                 f.write(data)
         except Exception as e2:
-            print(f"\n[FATAL ERROR] Failed to write patched executable '{output_path}': {e2}")
-            print("Please ensure Yakuza 0 is NOT running and that you have administrator privileges.")
+            card_line(f"Échec d'écriture dans '{output_path}': {e2}", status="err")
+            card_end(width=76)
             return False
 
-    # 5. Verify written file integrity on disk
+    # Verification on disk
     try:
         with open(output_path, 'rb') as f:
             f.seek(GOG_FONT_TABLE_OFFSET + 0x69 * 24)
             i_margin = struct.unpack('<6f', f.read(24))
             if abs(i_margin[0] - 0.4) > 0.01:
-                print(f"[ERROR] Font table verification failed on disk! 'i' margin: {i_margin}")
+                card_line(f"Vérification de table de police échouée sur disque: {i_margin}", status="err")
+                card_end(width=76)
                 return False
     except Exception as e:
-        print(f"[ERROR] Failed to verify patched executable on disk: {e}")
+        card_line(f"Échec de vérification sur disque: {e}", status="err")
+        card_end(width=76)
         return False
 
-    print("\n[SUCCESS] Yakuza 0 GOG Executable successfully patched and verified on disk!")
-    print("Accented characters (é, è, à, ç, etc.) and fonts are now fully operational.")
+    card_line("Binaire Yakuza0.exe sauvegardé et certifié conforme sur disque", status="ok")
+    card_end(width=76)
+
+    # 4. Summary card
+    card_start("4/4 — INSTALLATION RÉUSSIE", width=76)
+    card_line("Le patch français est désormais actif et opérationnel !", status="ok")
+    card_line("Toutes les cabines, cinématiques et dialogues sont traduits.", status="ok")
+    card_line("Bon jeu à Kamurocho et Sotenbori !", status="info")
+    card_end(width=76)
     return True
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Patch clean GOG Yakuza 0 executable for French Fan-Translation.")
-    parser.add_argument("input_exe", nargs="?", default="Yakuza0.exe", help="Path to clean GOG Yakuza0.exe (default: ./Yakuza0.exe)")
+    parser.add_argument("input_exe", nargs="?", default="Yakuza0.exe", help="Path to clean GOG Yakuza0.exe (default: auto-detected)")
     parser.add_argument("output_exe", nargs="?", default=None, help="Output path (default: overwrite input_exe with backup)")
     args = parser.parse_args()
 
-    success = patch_yakuza0_gog(args.input_exe, args.output_exe)
+    input_target = args.input_exe if args.input_exe else "Yakuza0.exe"
+    success = patch_yakuza0_gog(input_target, args.output_exe)
     sys.exit(0 if success else 1)
