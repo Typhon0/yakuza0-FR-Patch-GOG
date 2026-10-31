@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+"""
+Yakuza 0 GOG - Cabaret Club & Dragon and Tiger translations
+Par Typhon0 (basé sur les traductions initiales de RGG FR).
+Generated automatically from cabaret_and_tiger.yaml by tools/i18n.py.
+"""
+
 STAY_TRANSLATIONS = {
     '"Famous big cities and tourist\ndestinations with mafia families\npulling strings from the shadows.': '"Grandes métropoles célèbres et destinations\ntouristiques où des familles mafieuses tirent\nles ficelles dans l\'ombre.',
     '"Kak Dela"': '« Kak Dela »',

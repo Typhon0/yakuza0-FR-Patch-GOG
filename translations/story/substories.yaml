@@ -1,0 +1,1509 @@
+# Yakuza 0 GOG - Story, Substories & Street NPCs Catalog
+
+domain: story
+total_entries: 420
+entries:
+- id: wdr_you_smell_really_goodcolor255200200255colordefault
+  en: |-
+    You smell really good.<Color:255,200,200,255>§<Color:Default> Majima-san, are you
+    wearing cologne?
+  fr: |-
+    Tu sens si bon.<Color:255,200,200,255>§<Color:Default> Majima-san, vous
+    avez du parfum ?
+- id: wdr_youre_looking_pretty_hot
+  en: You're looking pretty hot! I love your outfit.<Color:255,200,200,255>§<Color:Default>
+  fr: Vous etes tres seduisant ! Super look.<Color:255,200,200,255>§<Color:Default>
+- id: wdr_you_look_nice_todaycolor255200200255colordefault
+  en: You look nice today.<Color:255,200,200,255>§<Color:Default>
+  fr: Tres elegant.<Color:255,200,200,255>§<Color:Default>
+- id: wdr_majimasan_youre_always_dressed
+  en: Majima-san, you're always dressed the same.
+  fr: Majima-san, toujours la meme tenue.
+- id: wdr_im_sorry_but_that
+  en: I'm sorry, but that look is really awful.
+  fr: Desolee, mais ce style est affreux.
+- id: wdr_wow_are_you_kidding
+  en: |-
+    Wow, are you kidding me? If I were dressed like that,
+    I'd kill myself right here, right now.
+  fr: |-
+    Non mais serieux ? Fringuee de la sorte,
+    je mourrais de honte ici meme sur-le-champ.
+- id: wdr_what_would_you_like
+  en: What would you like to order?
+  fr: Que voulez-vous commander ?
+- id: wdr_ill_have_this
+  en: I'll have this.
+  fr: Je prends ceci.
+- id: wdr_seriously_wow_you_must
+  en: Seriously? Wow, you must be loaded, Majima-san!
+  fr: Serieux ? Ouah, vous etes blinde de fric !
+- id: wdr_what_seriously
+  en: What? Seriously?
+  fr: Quoi ? Serieux ?
+- id: wdr_we_have_an_order
+  en: We have an order for Gold!
+  fr: Commande d'Or recue !
+- id: wdr_oh_you_want_to
+  en: Oh, you want to try the gacha?
+  fr: Oh, vous tentez le gacha ?
+- id: wdr_okay_well_keep_your
+  en: Okay. We'll keep your bottle for you, Majima-san.
+  fr: D'accord. On conserve votre bouteille.
+- id: wdr_we_have_a_bottle
+  en: We have a bottle order!
+  fr: Bouteille commandee !
+- id: wdr_okay_well_get_the
+  en: Okay. We'll get the house bottle for you.
+  fr: D'accord. Voici la bouteille maison.
+- id: wdr_can_you_bring_out
+  en: Can you bring out my bottle?
+  fr: Apporte ma bouteille.
+- id: wdr_can_i_have_some
+  en: Can I have some, too?
+  fr: Je peux en avoir ?
+- id: wdr_thank_you
+  en: Thank you!
+  fr: Merci !
+- id: wdr_oh_im_sorry
+  en: Oh, I'm sorry.
+  fr: Oh, pardon.
+- id: wdr_oh_your_glass_is
+  en: Oh, your glass is empty. What would you like next?
+  fr: Verre vide. Que prendrez-vous ensuite ?
+- id: wdr_can_i_have_another
+  en: Can I have another drink, too?
+  fr: Puis-je reprendre un verre ?
+- id: wdr_can_i_have_one
+  en: Can I have one more drink, too?
+  fr: Puis-je avoir un autre verre ?
+- id: wdr_damn_i_dont_have
+  en: (Damn, I don't have enough money.)
+  fr: (Mince, je n'ai plus un sou.)
+- id: wdr_damn_im_out_of
+  en: (Damn, I'm out of money.)
+  fr: (Mince, plus un sou.)
+- id: wdr_im_getting_a_little
+  en: I'm getting a little hungry.
+  fr: J'ai un petit creux.
+- id: wdr_okay_just_let_me
+  en: Okay, just let me know if you want something.
+  fr: Dites-moi si vous desirez quelque chose.
+- id: wdr_oh_hey_do_you
+  en: Oh, hey, do you want to play the chocolate stick game?
+  fr: Oh, dis, on joue au jeu du baton chocolat ?
+- id: wdr_hehe_i_guess_thats
+  en: Hehe, I guess that's fun every once in a while.
+  fr: Hehe, c'est amusant de temps en temps.
+- id: wdr_okay_let_me_feed
+  en: Okay, let me feed you then.<Color:255,200,200,255>§<Color:Default>
+  fr: Mangez donc.<Color:255,200,200,255>§<Color:Default>
+- id: wdr_oh_for_real
+  en: Oh, for real?
+  fr: Sans blague ?
+- id: wdr_ill_make_it_for
+  en: I'll make it for you right now.
+  fr: Je vous prepare ca de suite.
+- id: wdr_wow_youre_a_good
+  en: Wow, you're a good drinker!
+  fr: Ouah, vous tenez l'alcool !
+- id: wdr_your_glass_is_empty
+  en: Your glass is empty, so I'll make you another one.
+  fr: Verre vide, je vous en sers un autre.
+- id: wdr_cheers
+  en: Cheers!
+  fr: Sante !
+- id: wdr_thank_you_for_comingcolor255200200255colordefault
+  en: Thank you for coming.<Color:255,200,200,255>§<Color:Default>
+  fr: Merci d'etre venu.<Color:255,200,200,255>§<Color:Default>
+- id: wdr_im_gonna_call_it
+  en: I'm gonna call it a day.
+  fr: Je m'arrete la.
+- id: wdr_in_that_case_can
+  en: |-
+    In that case, can you hang out somewhere? I'll give you
+    a call later.
+  fr: |-
+    Dans ce cas, baladez-vous dehors.
+    Je vous appelle plus tard.
+- id: wdr_okay_well_get_your
+  en: Okay. We'll get your check.
+  fr: Voici votre addition.
+- id: wdr_over_here_please
+  en: Over here, please.
+  fr: Par ici, merci.
+- id: wdr_youre_going_home_already
+  en: You're going home already?
+  fr: Vous rentrez deja ?
+- id: wdr_no_im_going_to
+  en: No, I'm going to head out.
+  fr: Non, je m'en vais.
+- id: wdr_ive_run_out_of
+  en: |-
+    (I've run out of things to talk about. It's time for me
+    to leave.)
+  fr: |-
+    (A court de sujets. Il est temps pour moi
+    de m'en aller.)
+- id: wdr_how_about_a_date
+  en: How about a date after your shift?
+  fr: Un rencard apres ton service ?
+- id: wdr_i_said_no_already
+  en: I said no already. You're so persistent...
+  fr: J'ai deja dit non. Quel insistant...
+- id: wdr_haha_no_matter_how
+  en: Haha, no matter how many times you ask, no means no.
+  fr: Haha, peu importe vos demandes, c'est non.
+- id: wdr_i_guess_that_didnt
+  en: I guess that didn't work.
+  fr: Ca n'a pas marche.
+- id: wdr_you_mean_later_today
+  en: You mean later today?
+  fr: Tu dis plus tard ?
+- id: wdr_oh_i_already_have
+  en: Oh, I already have plans today. Ask me again sometime, okay?
+  fr: Oh, j'ai deja des projets. Redemandez une autre fois !
+- id: wdr_oh_thats_a_shame
+  en: Oh, that's a shame.
+  fr: Oh, dommage.
+- id: wdr_you_know_im_not
+  en: You know, I'm not really in the mood today.
+  fr: Tu sais, je ne suis pas trop d'humeur.
+- id: wdr_all_right_maybe_next
+  en: All right. Maybe next time.
+  fr: D'accord. A la prochaine.
+- id: wdr_oh_maybe_after_we
+  en: Oh, maybe after we get to know each other better.
+  fr: Peut-etre quand on se connaitra mieux.
+- id: wdr_youre_really_persistent_okay
+  en: |-
+    You're really persistent! Okay, just for a little while
+    then. Anything to get you off my back...
+  fr: |-
+    Quel acharne ! D'accord, juste un moment,
+    histoire que vous me lachiez la grappe...
+- id: wdr_hey_i_did_it
+  en: Hey, I did it.
+  fr: Eh, reussi !
+- id: wdr_haha_you_want_to
+  en: |-
+    Haha, you want to go out with me that badly? Okay, just for
+    a little while then.
+  fr: |-
+    Haha, vous tenez tant a sortir avec moi ? D'accord, un bref
+    instant alors.
+- id: wdr_sure_id_like_to
+  en: Sure, I'd like to spend some more time with you, too.
+  fr: Bien sur, j'aimerais rester avec vous.
+- id: wdr_heh_thats_great
+  en: Heh, that's great.
+  fr: Heh, parfait.
+- id: wdr_of_course_id_love
+  en: Of course, I'd love to! I'd never turn you down, Majima-san!
+  fr: Avec plaisir ! Je ne vous refuserais rien, Majima-san !
+- id: wdr_thats_great
+  en: That's great.
+  fr: C'est super.
+- id: wdr_sure_i_have_free
+  en: Sure, I have free time!
+  fr: Oui, je suis libre !
+- id: wdr_whats_the_matter
+  en: What's the matter?
+  fr: Un souci ?
+- id: wdr_i_really_love_thiscolor255200200255colordefault
+  en: |-
+    I really love this.<Color:255,200,200,255>§<Color:Default> You know me so well,
+    don't you, Majima-san?
+  fr: |-
+    J'adore ceci.<Color:255,200,200,255>§<Color:Default> Vous me connaissez bien,
+    Majima-san !
+- id: wdr_what_really_i_really
+  en: What, really? I really wanted this! Thank you!
+  fr: Vraiment ? J'en revais tant ! Merci !
+- id: wdr_are_you_sure_ill
+  en: Are you sure? I'll take good care of it!
+  fr: C'est vrai ? J'en prendrai grand soin !
+- id: wdr_are_you_serious_i
+  en: Are you serious? I don't know what to do with this.
+  fr: C'est une blague ? Je ne sais pas quoi en faire.
+- id: wdr_huh_youre_giving_me
+  en: Huh? You're giving me that again?
+  fr: Hein ? Vous m'offrez encore ca ?
+- id: wdr_dont_you_remember_you
+  en: Don't you remember? You gave me that already.
+  fr: Vous oubliez ? Vous me l'avez deja donne.
+- id: wdr_majimasan_come_and_visit
+  en: Majima-san, come and visit me again, okay?
+  fr: Majima-san, revenez me voir vite !
+- id: wdr_ill_request_you_next
+  en: I'll request you next time.
+  fr: Je te demanderai au retour.
+- id: wdr_really_ill_be_waiting
+  en: Really? I'll be waiting for you!
+  fr: Vrai ? Je vous attendrai !
+- id: wdr_thanks_for_coming_today
+  en: Thanks for coming today! See you again!
+  fr: Merci d'etre venu ! A bientot !
+- id: wdr_i_had_a_lot
+  en: I had a lot of fun today!
+  fr: Je me suis bien amusee !
+- id: wdr_come_back_again_soon
+  en: Come back again soon!
+  fr: Revenez me voir !
+- id: wdr_ill_see_you_later
+  en: I'll see you later, then.<Color:255,200,200,255>§<Color:Default>
+  fr: A plus tard, alors.<Color:255,200,200,255>§<Color:Default>
+- id: wdr_i_wonder_what_youre
+  en: I wonder what you're going to get!
+  fr: Voyons ce que vous tirez !
+- id: wdr_you_won_the_color8staminan
+  en: You won the "<Color:8>Staminan X<Color:Default>"!
+  fr: 'Gagne : "<Color:8>Staminan X<Color:Default>" !'
+- id: wdr_haha_everyone_gets_that
+  en: |-
+    Haha, everyone gets that one. You barely got your money's
+    worth.
+  fr: |-
+    Haha, classique. Vous rentrez a peine
+    dans vos frais.
+- id: wdr_hey_dont_say_things
+  en: Hey, don't say things like that. It makes me sad.
+  fr: Ne dis pas ca, ca me rend triste.
+- id: wdr_oh_thats_not_bad
+  en: Oh, that's not bad. I think you got your money's worth.
+  fr: Oh, pas mal. Vous rentrez dans vos frais.
+- id: wdr_this_isnt_about_the
+  en: This isn't about the money, you know.
+  fr: Ce n'est pas pour l'argent, tu sais.
+- id: wdr_wow_thats_a_pretty
+  en: Wow! That's a pretty rare one! Can I have one, too?
+  fr: Ouah ! C'est tres rare ! J'en veux un !
+- id: wdr_oh_really_i_cant
+  en: Oh, really? I can't give it up that easily, then.
+  fr: Ah bon ? Je ne peux le ceder si vite.
+- id: wdr_whoa_thats_awesome_you
+  en: Whoa, that's awesome! You hit the jackpot!
+  fr: Ouah, genial ! C'est le jackpot !
+- id: wdr_i_guess_a_good
+  en: I guess a good man has good luck, too.<Color:255,200,200,255>§<Color:Default>
+  fr: La chance sourit aux braves.<Color:255,200,200,255>§<Color:Default>
+- id: wdr_chocolate_stick_game
+  en: Chocolate stick game!
+  fr: Baton de chocolat !
+- id: wdr_champagne_call
+  en: Champagne call!
+  fr: Au champagne !
+- id: wdr_champagne_tower
+  en: Champagne tower!
+  fr: Tour champagne !
+- id: wdr_bienvenue_la_table_de
+  en: "Bienvenue à la table de roulette. Would you like to play\r\nagainst the house,\
+    \ one-on-one?"
+  fr: "Bienvenue à la roulette. Voulez-vous jouer en duel\r\ncontre la maison ?"
+- id: wdr_bienvenue_la_table_de_1
+  en: |-
+    Bienvenue à la table de roulette. Would you like to play
+    against the house, one-on-one?
+  fr: |-
+    Bienvenue à la roulette. Voulez-vous jouer en duel
+    contre la maison ?
+- id: wdr_you_seem_to_be
+  en: You seem to be short on chips. Please come again soon.
+  fr: Vous manquez de jetons. Revenez tres bientot.
+- id: wdr_the_house_lost_that
+  en: The house lost that one.
+  fr: La maison a perdu.
+- id: wdr_its_a_tie
+  en: It's a tie.
+  fr: Egalite.
+- id: wdr_the_house_won_that
+  en: The house won that one.
+  fr: La maison l'emporte.
+- id: wdr_please_come_play_again
+  en: Please come play again soon.
+  fr: Revenez jouer bientot.
+- id: wdr_lets_get_started
+  en: Let's get started.
+  fr: A vos jeux.
+- id: wdr_all_player_bets_are
+  en: All player bets are in.
+  fr: Les jeux sont faits.
+- id: wdr_here_goes
+  en: Here goes...
+  fr: C'est parti.
+- id: wdr_how_many_chips_will
+  en: How many chips will you bet?
+  fr: Combien misez-vous ?
+- id: wdr_ill_go_with_low
+  en: I'll go with low stakes.
+  fr: Je prends petites mises.
+- id: wdr_in_low_stakes_poker
+  en: "In low stakes poker, you can bet 5 chips at a time in\r\nthe first two rounds\
+    \ and 10 chips at a time in rounds three\r\nand four."
+  fr: "En petites mises : 5 jetons aux deux premiers tours\r\net 10 jetons aux tours\
+    \ trois et quatre."
+- id: wdr_im_afraid_youll_need
+  en: "I'm afraid you'll need at least 100 chips to play low\r\nstakes poker."
+  fr: Il vous faut 100 jetons pour les petites mises.
+- id: wdr_ill_go_with_medium
+  en: I'll go with medium stakes.
+  fr: Je choisis mises moyennes.
+- id: wdr_in_medium_stakes_poker
+  en: "In medium stakes poker, you can bet 10 chips at a time in\r\nthe first two\
+    \ rounds and 20 chips at a time in rounds three\r\nand four."
+  fr: "En mises moyennes : 10 jetons aux deux premiers tours\r\net 20 jetons aux tours\
+    \ trois et quatre."
+- id: wdr_im_afraid_you_need
+  en: "I'm afraid you need at least 500 chips to play medium\r\nstakes poker."
+  fr: Il vous faut 500 jetons pour les moyennes mises.
+- id: wdr_ill_go_with_high
+  en: I'll go with high stakes.
+  fr: Je choisis grosses mises.
+- id: wdr_in_high_stakes_poker
+  en: "In high stakes poker, you can bet 50 chips at a time in\r\nthe first two rounds\
+    \ and 100 chips at a time in rounds three\r\nand four."
+  fr: "En grosses mises : 50 jetons au depart et 100 aux tours\r\nsuivants."
+- id: wdr_im_afraid_you_need_1
+  en: "I'm afraid you need at least 1,000 chips to play high\r\nstakes poker."
+  fr: Il vous faut 1 000 jetons pour les grosses mises.
+- id: wdr_ill_go_for_ultra
+  en: I'll go for ultra high stakes.
+  fr: Je tente les ultra mises.
+- id: wdr_in_ultra_high_stakes
+  en: "In ultra high stakes poker, you can bet 500 chips at a\r\ntime in the first\
+    \ two rounds and 1,000 chips at a time in\r\nrounds three and four."
+  fr: "En ultra mises : 500 jetons d'entree et 1 000 jetons\r\naux tours suivants."
+- id: wdr_im_afraid_you_need_2
+  en: "I'm afraid you need at least 10,000 chips to play ultra\r\nhigh stakes poker."
+  fr: Il faut 10 000 jetons pour jouer en ultra mises.
+- id: wdr_welcome_lets_start_with
+  en: "Welcome. Let's start with a tutorial on how to play. It will\r\ninclude three\
+    \ practice games that will help you learn."
+  fr: "Bienvenue. Voici le didacticiel pas a pas. Il propose\r\ntrois manches d'entrainement\
+    \ pour vous guider."
+- id: wdr_welcome_lets_start_with_1
+  en: |-
+    Welcome. Let's start with a tutorial on how to play. It will
+    include three practice games that will help you learn.
+  fr: |-
+    Bienvenue. Voici le didacticiel pas a pas. Il propose
+    trois manches d'entrainement pour vous guider.
+- id: wdr_in_blackjack_you_try
+  en: "In blackjack, you try to get as close as you can to a total\r\nof 21 with cards\
+    \ dealt to you without going over."
+  fr: "Au blackjack, tentez d'atteindre 21 points avec les cartes\r\ndistribuees sans\
+    \ jamais depasser ce total."
+- id: wdr_in_blackjack_you_try_1
+  en: |-
+    In blackjack, you try to get as close as you can to a total
+    of 21 with cards dealt to you without going over.
+  fr: |-
+    Au blackjack, tentez d'atteindre 21 points avec les cartes
+    distribuees sans jamais depasser ce total.
+- id: wdr_ill_teach_you_the
+  en: "I'll teach you the rules of Pineapple Hold'em, a variant\r\nof poker."
+  fr: "Voici les regles du Pineapple Hold'em,\r\nvariante du poker."
+- id: wdr_welcome_ill_explain_the
+  en: "Welcome. I'll explain the rules for Super 6 baccarat\r\nas we play."
+  fr: "Bienvenue. Voici les regles du Baccarat\r\nSuper 6 en jouant."
+- id: wdr_ill_teach_you_the_1
+  en: "I'll teach you the rules of Omaha Hold'em, a variation of\r\nTexas Hold'em."
+  fr: "Voici les regles de l'Omaha Hold'em,\r\nvariante du Texas."
+- id: wdr_ill_teach_you_the_2
+  en: "I'll teach you the rules of Texas Hold'em, a type of poker\r\nplayed with community\
+    \ cards."
+  fr: "Voici les regles du Texas Hold'em,\r\npoker a cartes communes."
+- id: wdr_how_to_play_nineball
+  en: How to Play Nine-Ball
+  fr: Regles du 9-Ball
+- id: wdr_how_to_play_eightball
+  en: How to Play Eight-Ball
+  fr: Regles du 8-Ball
+- id: wdr_how_to_play_rotation
+  en: How to Play Rotation
+  fr: Regles Rotation
+- id: wdr_tilt_the_right_stick
+  en: Tilt the right stick back to pull back the cue stick.
+  fr: Inclinez le joystick droit vers l'arriere.
+- id: wdr_the_farther_back_you
+  en: "The farther back you pull it, the stronger the\r\nshot will be."
+  fr: Plus vous tirez, plus le coup sera puissant.
+- id: wdr_the_farther_back_you_1
+  en: |-
+    The farther back you pull it, the stronger the
+    shot will be.
+  fr: Plus vous tirez, plus le coup sera puissant.
+- id: wdr_release_the_right_stick
+  en: Release the right stick to strike.
+  fr: Relachez le stick pour frapper.
+- id: wdr_first_select_the_angle
+  en: First, select the angle from which to strike the cue ball.
+  fr: D'abord, choisissez l'angle de frappe de la bille.
+- id: wdr_use_the_left_stick
+  en: Use the left stick to adjust the angle.
+  fr: Utilisez le stick gauche pour l'angle.
+- id: wdr_while_adjusting_the_shot
+  en: "While adjusting the shot angle, you can use the right stick\r\nto change the\
+    \ camera angle."
+  fr: "En reglant l'angle, utilisez le stick droit\r\npour changer la vue de la camera."
+- id: wdr_while_adjusting_the_shot_1
+  en: |-
+    While adjusting the shot angle, you can use the right stick
+    to change the camera angle.
+  fr: |-
+    En reglant l'angle, utilisez le stick droit
+    pour changer la vue de la camera.
+- id: wdr_adjust_the_camera_to
+  en: Adjust the camera to find the best shot angle.
+  fr: Ajustez la vue pour trouver la bonne visee.
+- id: wdr_once_you_have_decided
+  en: Once you have decided on a shot angle, press
+  fr: Une fois l'angle determine, appuyez sur
+- id: wdr_as_before_adjust_the
+  en: As before, adjust the shot power with the right stick.
+  fr: Comme avant, reglez la puissance au stick droit.
+- id: wdr_in_shot_mode_you
+  en: In shot mode, you can use the left stick to adjust
+  fr: En mode tir, utilisez le stick gauche pour l'effet
+- id: wdr_if_the_impact_point
+  en: "If the impact point is off center, the strike will put\r\na spin on the ball.\
+    \ It can come in handy at times."
+  fr: "Decentrer l'impact donne de l'effet a la bille.\r\nTres utile dans certaines\
+    \ situations."
+- id: wdr_if_the_impact_point_1
+  en: |-
+    If the impact point is off center, the strike will put
+    a spin on the ball. It can come in handy at times.
+  fr: |-
+    Decentrer l'impact donne de l'effet a la bille.
+    Tres utile dans certaines situations.
+- id: wdr_how_many_wireless_controllers
+  en: How many wireless controllers will you use?
+  fr: Nombre de manettes sans fil utilisees ?
+- id: wdr_select_a_game_to
+  en: Select a game to play.
+  fr: Choisissez un jeu.
+- id: wdr_the_player_with_the
+  en: "The player with the highest score at the end of the\r\ndesignated number of\
+    \ rounds wins."
+  fr: Le joueur ayant le plus haut score a la fin l'emporte.
+- id: wdr_you_can_also_win
+  en: "You can also win if you close all the numbers before the end\r\nof the assigned\
+    \ number of rounds and your score is higher\r\nthan your opponent's."
+  fr: "Fermez tous les chiffres avec un score superieur pour\r\ngagner la partie d'avance."
+- id: wdr_to_celebrate_the_defeat
+  en: "To celebrate the defeat of the Five Billionaires and the\r\nliberation of Kamurocho,\
+    \ you can install a gold statue of\r\nKiryu for 10 billion yen. (The statue does\
+    \ not grant any\r\nbenefits except to celebrate your victory.)"
+  fr: "Pour feter la chute des Cinq Milliardaires et liberer\r\nKamurocho, erigez\
+    \ une statue d'or de Kiryu pour\r\n10 milliards de yens. (Purement honorifique.)"
+- id: wdr_to_celebrate_the_defeat_1
+  en: "To celebrate the defeat of the Five Stars and the domination\r\nof Sotenbori's\
+    \ cabaret club scene, you can install a gold\r\nstatue of Majima for 10 billion\
+    \ yen. (The statue does not\r\ngrant any benefits except to celebrate your victory.)"
+  fr: "Pour feter la defaite des Cinq Etoiles et regner sur\r\nSotenbori, erigez une\
+    \ statue d'or de Majima pour\r\n10 milliards de yens. (Purement honorifique.)"
+- id: wdr_its_the_magazine_rack
+  en: (It's the magazine rack. Maybe I'll take a look.)
+  fr: (Le rayon presse. Jetons un oeil.)
+- id: wdr_which_magazine_do_you
+  en: Which magazine do you want to read?
+  fr: Quel magazine lire ?
+- id: wdr_which_magazine_do_i
+  en: Which magazine do I want to read?
+  fr: Quel magazine lire ?
+- id: wdr_kodanshas_magazine_for_men
+  en: "(Kodansha's magazine for men, packed with practical advice\r\nand the latest\
+    \ news on fashion, business, and leisure.)"
+  fr: "(Magazine masculin de Kodansha, plein de conseils pratiques\r\net des actus\
+    \ sur la mode, le business et les loisirs.)"
+- id: wdr_a_biweekly_tv_guide
+  en: "(A biweekly TV guide published by the Tokyo News Service.\r\nIt is popular\
+    \ for its articles, such as in-depth features\r\nfor avid fans, plus up-to-date\
+    \ programming schedules.)"
+  fr: "(Guide TV bimensuel publie par le Tokyo News Service.\r\nPrise pour ses articles\
+    \ de fond et ses grilles de programmes.)"
+- id: wdr_a_gossip_and_photo
+  en: "(A gossip and photo magazine published every Friday by\r\nKodansha. It's full\
+    \ of the most recent political scandals\r\nand the latest love affairs of trendsetting\
+    \ celebrities.)"
+  fr: "(Hebdo people publie le vendredi par Kodansha.\r\nPlein de scandales politiques\
+    \ et de ragots sur les stars.)"
+- id: wdr_a_magazine_about_games
+  en: "(A magazine about games for all sorts of hardware. It's full\r\nof information\
+    \ about upcoming games and top developers, as\r\nwell as popular columns, previews,\
+    \ and video game reviews.)"
+  fr: "(Revue dediee aux jeux video sur toutes consoles.\r\nBourree d'infos sur les\
+    \ nouveautes et tests de jeux.)"
+- id: wdr_a_monthly_boys_manga
+  en: "(A monthly boys' manga magazine published by Akita Shoten.\r\nIt's got popular\
+    \ series like \"Osu! Ganba,\" \"Victory Run!\"\r\nand \"Miracle Lingerie.\" That\
+    \ last one sounds... unique.)"
+  fr: "(Mensuel shonen d'Akita Shoten avec des series cultes\r\ncomme Osu Ganba, Victory\
+    \ Run et Miracle Lingerie.\r\nCe dernier sonne... particulier.)"
+- id: wdr_a_monthly_music_magazine
+  en: "(A monthly music magazine published by M-ON! Entertainment\r\nwith features\
+    \ about J-Pop bands like TM NETWORK, reports\r\nfrom concerts, and other updates\
+    \ from the music scene.)"
+  fr: "(Mensuel musical de M-ON! dedie a la J-Pop avec des\r\ndossiers sur TM NETWORK\
+    \ et des chroniques de concerts.)"
+- id: wdr_fusoshas_weekly_magazine_targeted
+  en: "(Fusosha's weekly magazine targeted at white-collar workers.\r\nIt appeals\
+    \ to young men with its ambitious features and its\r\nseries of topical articles.)"
+  fr: "(Hebdo de Fusosha destine aux jeunes cadres dynamiques.\r\nTrenche par ses\
+    \ articles de societe percutants.)"
+- id: wdr_oh_my_a_panther
+  en: "Oh, my. A panther pose? Do I really have to?\r\nThis is so embarrassing."
+  fr: "Oh la la. La pose panthere ? C'est oblige ?\r\nC'est tellement genant."
+- id: wdr_ive_got_to_do
+  en: "I've got to do a panther pose? That's such a lewd thing\r\nto ask of a girl!"
+  fr: "La pose de la panthere ? C'est tellement indecent\r\nde demander ca !"
+- id: wdr_haruka_says_its_going
+  en: "Haruka says it's going to be even. Should I go with her\r\nhunch?"
+  fr: Haruka dit pair. Suivre son intuition ?
+- id: wdr_haruka_says_its_going_1
+  en: "Haruka says it's going to be odd. Should I go with her\r\nhunch?"
+  fr: Haruka dit impair. Suivre son intuition ?
+- id: wdr_haruka_thinks_itll_be
+  en: Haruka thinks it'll be evens. What should I do?
+  fr: Haruka pense a pair. Que faire ?
+- id: wdr_haruka_thinks_itll_be_1
+  en: Haruka thinks it'll be odds. What should I do?
+  fr: Haruka pense a impair. Que faire ?
+- id: wdr_banker_rolled_135_thats
+  en: Banker rolled 1-3-5... That's a 3.
+  fr: Banque a 1-3-5... C'est un 3.
+- id: wdr_first_player_rolled_135
+  en: First player rolled 1-3-5. That counts as a 3.
+  fr: 1er joueur fait 1-3-5. Ca compte 3.
+- id: wdr_135_gets_you_the
+  en: 1-3-5 gets you the previous player's roll.
+  fr: 1-3-5 donne le tirage precedent.
+- id: wdr_banker_rolled_246_thats
+  en: Banker rolled 2-4-6. That's a 4.
+  fr: Banque a 2-4-6. C'est un 4.
+- id: wdr_crap_i_got_no
+  en: Crap, I got no more tags. That's it for me!
+  fr: Mince, plus de jetons. J'arrete la !
+- id: wdr_you_broke_pal_too
+  en: You broke, pal? Too bad. See you next time!
+  fr: Fauche, l'ami ? Dommage. A la prochaine !
+- id: wdr_thank_you_for_taking
+  en: Thank you for taking care of those thugs! Here, take this.
+  fr: Merci pour ces voyous ! Tenez, prenez ca.
+- id: wdr_whatre_you_staring_at
+  en: What're you staring at, huh? You looking for trouble?
+  fr: Tu mates quoi ? Tu cherches les embrouilles ?
+- id: wdr_picking_on_the_weak
+  en: Picking on the weak? Come on, then. I'll take you all on.
+  fr: S'en prendre aux faibles ? Venez tous, je vous attends.
+- id: wdr_bullying_the_innocent_pick
+  en: Bullying the innocent? Pick on someone your own size.
+  fr: S'en prendre aux faibles ? Battez-vous avec des durs.
+- id: wdr_im_victim_1_you
+  en: I'm Victim 1. You saved my life!
+  fr: Vous m'avez sauve la vie !
+- id: wdr_im_the_bodyguard_good
+  en: I'm the bodyguard. Good job!
+  fr: Beau travail, monsieur !
+- id: wdr_ssorry_man_i_wont
+  en: S-Sorry, man. I won't be tryin' that again, I swear!
+  fr: P-Pardon mec ! Je recommencerai plus, promis !
+- id: wdr_welcome_i_hope_you
+  en: Welcome. I hope you enjoy the game.
+  fr: Bienvenue. Amusez-vous bien.
+- id: wdr_youre_really_good
+  en: You're really good!
+  fr: Tu es tres doue !
+- id: wdr_ha_i_knew_youd
+  en: Ha, I knew you'd get it!
+  fr: Ha, je le savais !
+- id: wdr_better_luck_next_time
+  en: Better luck next time.
+  fr: Courage, a la suite.
+- id: wdr_too_bad_say_is
+  en: "Too bad. Say, is something wrong? It's not like you to be\r\nlosing like this."
+  fr: Dommage. Un souci ? Ce n'est pas ton genre de perdre.
+- id: wdr_will_you_try_your
+  en: Will you try your luck again?
+  fr: Veux-tu retenter ta chance ?
+- id: wdr_whoa_there_you_aint
+  en: Whoa there. You ain't tryin' to cheat, are ya?
+  fr: Hola l'ami. Tu ne tricherais pas, par hasard ?
+- id: wdr_fantasy_zones_100_do
+  en: Fantasy Zone's \100. Do I want to play?
+  fr: Fantasy Zone est a 100 yens. On joue ?
+- id: wdr_out_run_is_100
+  en: Out Run is \100. Do I want to play?
+  fr: Out Run est a 100 yens. On joue ?
+- id: wdr_space_harriers_100_do
+  en: Space Harrier's \100. Do I want to play?
+  fr: Space Harrier est a 100 yens. On joue ?
+- id: wdr_super_hangon_is_100
+  en: Super Hang-On is \100. Do I want to play?
+  fr: Super Hang-On est a 100 yens. On joue ?
+- id: wdr_i_dont_even_have
+  en: "...I don't even have that much. I really need to get some\r\nmoney first."
+  fr: '...Je n''ai meme pas assez. Il me faut de l''argent.'
+- id: wdr_ill_pass_for_now
+  en: I'll pass for now.
+  fr: Je passe mon tour.
+- id: wdr_thats_what_i_call
+  en: That's what I call singing. You outdid the original singer.
+  fr: Ca c'est chanter ! Meilleur que l'original.
+- id: wdr_only_because_you_were
+  en: Only because you were helping me! So, thank you!
+  fr: Grace a ton soutien ! Alors grand merci !
+- id: wdr_but_you_know_now
+  en: "But you know, now I'm dying to hear you sing! Will you\r\nsing me a song?"
+  fr: Mais je meurs d'envie de t'entendre ! Tu chantes ?
+- id: wdr_yay_so_happy
+  en: Yay! So happy!
+  fr: Trop contente!
+- id: wdr_eh_that_was_okay
+  en: Eh, that was okay.
+  fr: Bof, passable.
+- id: wdr_no_you_were_very
+  en: No, you were very good! I loved it!
+  fr: Non, tu as assure ! J'ai adore !
+- id: wdr_if_wielded_properly_the
+  en: "If wielded properly, the nunchaku can slip past the enemy's\r\ndefenses. The\
+    \ trick is to hook it around them."
+  fr: "Bien manie, le nunchaku contourne la garde.\r\nL'astuce est de crocheter l'ennemi."
+- id: wdr_you_were_able_to
+  en: You were able to buy a shrink-wrapped magazine!
+  fr: Vous avez achete le magazine sous plastique !
+- id: wdr_all_thats_left_to
+  en: All that's left to do is to give it to the innocent lad.
+  fr: Reste plus qu'a le donner au jeune garcon.
+- id: wdr_theres_a_talisman_to
+  en: There's a talisman to ward off evil behind this calendar.
+  fr: Un talisman protecteur est derriere ce calendrier.
+- id: wdr_ca_vient_du_the
+  en: Ca vient du the Dragon & Tiger.
+  fr: Ca vient du Dragon & Tigre.
+- id: wdr_in_blackjack_you_try_2
+  en: "In blackjack, you try to get as close as you can to a total\r\nof 21 with the\
+    \ cards in your hand."
+  fr: "Au blackjack, tentez d'atteindre 21 points avec vos\r\ncartes sans jamais depasser\
+    \ ce total."
+- id: wdr_if_your_cards_add
+  en: "If your cards add up to 22 or more, you automatically lose.\r\nThis is called\
+    \ busting."
+  fr: "Si votre total depasse 21, vous perdez d'office.\r\nC'est ce qu'on appelle\
+    \ sauter."
+- id: wdr_the_value_you_see
+  en: "The value you see for Total here is the total value of\r\nyour cards."
+  fr: La valeur indiquee pour Total est la somme de vos cartes.
+- id: wdr_when_your_total_is
+  en: "When your total is 11 or less, there is no chance of\r\nbusting, so you should\
+    \ always draw another card."
+  fr: "A 11 ou moins, aucun risque de sauter.\r\nVous devriez toujours tirer une carte."
+- id: wdr_select_hit_to_draw
+  en: Select Hit to draw a card.
+  fr: Tirez une carte.
+- id: wdr_double_down_will_also
+  en: "Double Down will also draw a card, but you'll have to play\r\nwith the cards\
+    \ in your hand at that point. It will also\r\ndouble your bet."
+  fr: "Doubler tire une unique carte tout en doublant votre mise.\r\nVous devez ensuite\
+    \ garder cette main sans pouvoir tirer a\r\nnouveau."
+- id: wdr_select_hit_or_double
+  en: Select Hit or Double Down to draw another card.
+  fr: Choisissez Tirer ou Doubler.
+- id: wdr_if_youre_worried_that
+  en: "If you're worried that drawing another card will take you\r\nover 21, you should\
+    \ select Stand."
+  fr: Si vous craignez de depasser 21, choisissez Rester.
+- id: wdr_its_your_turn_oh
+  en: "It's your turn. Oh, you have two Queens. All face cards\r\nhave a value of\
+    \ 10."
+  fr: "A vous. Vous avez deux Dames. Toutes les tetes valent\r\n10 points."
+- id: wdr_when_you_have_two
+  en: "When you have two cards of the same value, you can split\r\nyour hand. Go ahead\
+    \ and try it now."
+  fr: "Avec deux cartes de meme valeur, vous pouvez separer\r\nvotre main. Essayez\
+    \ maintenant."
+- id: wdr_splitting_allows_you_to
+  en: "Splitting allows you to separate your cards into two hands\r\nthat you can\
+    \ play simultaneously. The value of the bet\r\nalso doubles."
+  fr: "Separer divise vos cartes en deux mains distinctes jouees\r\nen parallele.\
+    \ La mise totale est egalement doublee."
+- id: wdr_the_results_of_each
+  en: "The results of each hand will be reflected in the chip\r\ncount."
+  fr: Le resultat de chaque main est calcule separement.
+- id: wdr_the_dealers_open_card
+  en: "The dealer's open card is an Ace. If the second one is a 10,\r\nJack, Queen,\
+    \ or King, he has a blackjack."
+  fr: "La carte visible du croupier est un As. S'il a une buche,\r\nil a un blackjack."
+- id: wdr_youll_most_likely_lose
+  en: "You'll most likely lose if the dealer gets a blackjack, but\r\nyou can lower\
+    \ your potential losses by setting half the bet\r\namount as insurance."
+  fr: "En cas de blackjack adverse, reduisez vos pertes en misant\r\nla moitie de\
+    \ la mise de depart en assurance."
+- id: wdr_try_taking_insurance_this
+  en: Try taking insurance this time.
+  fr: Prenez l'assurance cette fois.
+- id: wdr_if_the_insurance_bet
+  en: "If the insurance bet wins, you will get back the same amount\r\nas you wagered."
+  fr: Si l'assurance gagne, vous recuperez votre mise initiale.
+- id: wdr_if_you_take_insurance
+  en: "If you take insurance and the dealer ends up not having\r\na blackjack, the\
+    \ game will continue."
+  fr: Si le croupier n'a pas de blackjack, la manche se poursuit.
+- id: wdr_if_you_decide_you
+  en: "If you decide you have little or no chance of winning, you\r\ncan select Surrender\
+    \ to retire from the game, losing only\r\nhalf the amount you bet."
+  fr: "En cas de mauvaise donne, choisissez Abandonner pour\r\nquitter le coup en\
+    \ ne perdant que la moitie de la mise."
+- id: wdr_if_you_keep_hitting
+  en: "If you keep hitting until you have six cards without\r\nbusting, you automatically\
+    \ win the game, but keep in mind\r\nthat risk increases with each new card."
+  fr: "Tirer 6 cartes sans sauter vous fait gagner d'office.\r\nMais le risque augmente\
+    \ a chaque carte !"
+- id: wdr_this_concludes_the_tutorial
+  en: "This concludes the tutorial. Please enjoy playing all\r\nthe games of skill\
+    \ and chance our casino has to offer!"
+  fr: "Fin du didacticiel. Profitez bien de tous les jeux de\r\nnotre casino !"
+- id: wdr_select_bet_to_set
+  en: Select Bet to set the number of chips to wager.
+  fr: Choisissez Miser pour fixer les jetons.
+- id: wdr_lets_play_the_second
+  en: "Let's play the second game. Select Bet or Re-Bet, and then\r\nset the number\
+    \ of chips to wager."
+  fr: Seconde manche. Choisissez Miser pour placer vos jetons.
+- id: wdr_this_is_the_final
+  en: "This is the final game in the tutorial. Select Bet or\r\nRe-Bet, and then set\
+    \ the number of chips to wager."
+  fr: Derniere manche du didacticiel. Choisissez Miser pour jouer.
+- id: wdr_ill_teach_you_the_3
+  en: "I'll teach you the rules of Pineapple Hold'em, a variant\r\nof Texas Hold'em,\
+    \ as we play."
+  fr: "Voici les regles du Pineapple Hold'em, variante du\r\nTexas Hold'em, en jouant."
+- id: wdr_in_texas_holdem_you
+  en: "In Texas Hold'em, you build a five-card hand from two hole\r\ncards (your own\
+    \ cards) and five community cards."
+  fr: "Au Texas Hold'em, composez 5 cartes avec 2 cartes en main\r\net 5 cartes communes\
+    \ sur la table."
+- id: wdr_in_pineapple_holdem_you
+  en: "In Pineapple Hold'em, you are dealt three cards instead of\r\ntwo, but you\
+    \ must discard one of them."
+  fr: "Au Pineapple, vous recevez 3 cartes en main et devez en\r\ndefausser une au\
+    \ debut."
+- id: wdr_lets_see_how_things
+  en: Let's see how things develop. Select Check to end your turn.
+  fr: Voyons la suite. Choisissez Parole pour passer.
+- id: wdr_all_players_have_bet
+  en: "All players have bet the same amount, so we'll go on to the\r\nnext round."
+  fr: Mises egales, passons au tour suivant.
+- id: wdr_community_cards_are_dealt
+  en: "Community cards are dealt from the second round. Take a look\r\nat them."
+  fr: Les cartes communes arrivent au tour 2. Observez-les bien.
+- id: wdr_one_of_your_cards
+  en: "One of your cards has the same value as a community card,\r\nmeaning you have\
+    \ one pair."
+  fr: "Une de vos cartes s'accorde avec le tapis : vous avez une\r\npaire."
+- id: wdr_the_player_to_your
+  en: "The player to your right has selected Bet and increased\r\nthe wager. He may\
+    \ have a good hand."
+  fr: Votre voisin relance la mise. Il a sans doute du jeu.
+- id: wdr_if_you_think_you
+  en: "If you think you have a good hand, select Raise. Or, you\r\ncan select Call\
+    \ to bet the same as the previous player.\r\n(Fold is currently disabled.)"
+  fr: "Pour relancer, choisissez Relancer. Pour suivre, prenez\r\nSuivre. (Coucher\
+    \ est desactive)."
+- id: wdr_all_players_have_bet_1
+  en: "All players have bet the same amount, so we go on to the\r\nnext round."
+  fr: Mises egales, passons au tour suivant.
+- id: wdr_this_is_the_third
+  en: "This is the third round. Another community card has been\r\ndealt."
+  fr: Troisieme tour. Une autre carte commune arrive.
+- id: wdr_however_you_still_only
+  en: However, you still only have one pair.
+  fr: Cependant, vous n'avez qu'une paire.
+- id: wdr_at_this_point_you
+  en: "At this point, you could select Fold to drop out if you\r\ndidn't like your\
+    \ cards."
+  fr: Vous pourriez vous coucher si le jeu ne vous plaisait pas.
+- id: wdr_but_it_would_be
+  en: "But it would be a shame to waste your pair, so let's stay in\r\nthe game.\r\
+    \n(Fold is currently disabled.)"
+  fr: "Mais gardons cette belle paire, restons dans le coup.\r\n(Coucher est desactive)."
+- id: wdr_if_youre_feeling_confident
+  en: "If you're feeling confident, select Raise. Or you can select\r\nCall to wager\
+    \ the same as the previous player.\r\n(Fold is currently disabled.)"
+  fr: "En confiance ? Choisissez Relancer ou Suivre pour miser\r\ncomme les autres.\
+    \ (Coucher desactive)."
+- id: wdr_this_is_the_final_1
+  en: This is the final round. All the cards have been dealt.
+  fr: Dernier tour. Toutes les cartes sont sur la table.
+- id: wdr_notice_that_you_now
+  en: "Notice that you now have another pair. That's a two pair\r\nhand. Let's heat\
+    \ things up by selecting Raise."
+  fr: 'Vous avez une seconde paire : deux paires ! Relancez !'
+- id: wdr_congratulations_you_have_the
+  en: "Congratulations! You have the stronger hand, which means\r\nyou win all the\
+    \ chips that were bet in this game."
+  fr: "Bravo ! Vous avez la meilleure main et remportez tout le\r\npot de la table."
+- id: wdr_remember_you_can_bet
+  en: "Remember you can Bet or Raise when you think you have\r\na good hand, and Check\
+    \ or Call when you want to assess\r\nthe situation. If you'd rather retire, select\
+    \ Fold."
+  fr: "Misez ou Relancez avec du jeu, Parole ou Suivre pour voir.\r\nPour abandonner,\
+    \ choisissez Coucher."
+- id: wdr_this_concludes_the_practice
+  en: "This concludes the practice game. Please enjoy playing\r\nall the games of\
+    \ skill and chance our casino has to offer!"
+  fr: Fin de l'entrainement. Profitez des jeux de notre casino !
+- id: wdr_put_simply_baccarat_is
+  en: "Put simply, baccarat is a game in which you bet on whether\r\nthe player or\
+    \ the banker will win by getting the closest\r\nto a score of 9."
+  fr: "Au baccarat, pariez sur la victoire du joueur ou de la\r\nbanque pour approcher\
+    \ 9 points."
+- id: wdr_there_are_six_spots
+  en: "There are six spots on which you can bet. For now, try\r\nbetting on either\
+    \ the banker or the player."
+  fr: Il y a 6 zones de paris. Pariez sur joueur ou banque.
+- id: wdr_bet_on_the_banker
+  en: Bet on the banker or the player.
+  fr: Pariez sur joueur ou banque.
+- id: wdr_refer_to_the_bet
+  en: "Refer to the bet limit to see how many chips you can bet.\r\nUse the Ã\x97\
+    \ button to change your bet."
+  fr: Voyez la limite de mise. Utilisez la touche pour changer.
+- id: wdr_use_the_right_stick
+  en: "Use the right stick to squeeze the second card of the side\r\nyou bet on. Go\
+    \ ahead."
+  fr: Inclinez le stick droit pour decouvrir la seconde carte.
+- id: wdr_if_either_the_player
+  en: "If either the player or the banker has an 8 or 9\r\n(a natural), the winner\
+    \ is decided at that point."
+  fr: Un 8 ou 9 d'entree (naturel) donne la victoire immediate.
+- id: wdr_a_winning_bet_on
+  en: "A winning bet on the player pays 1:1, while a winning bet on\r\nthe banker\
+    \ pays 0.95:1."
+  fr: 'Pari gagnant sur joueur : 1:1. Sur banque : 0,95:1.'
+- id: wdr_you_can_also_bet
+  en: "You can also bet that the player and banker will tie, and if\r\nyou're right,\
+    \ the payout will be 8:1."
+  fr: Parier sur une egalite rapporte 8 contre 1.
+- id: wdr_now_try_betting_on
+  en: "Now, try betting on a pair. This means you think that the\r\nface value of\
+    \ the first cards dealt will be the same."
+  fr: "Parier sur une paire signifie que les 2 cartes auront la\r\nmeme valeur."
+- id: wdr_select_who_you_think
+  en: "Select who you think will get a pair--the player or the\r\nbanker."
+  fr: Choisissez qui obtiendra une paire (joueur ou banque).
+- id: wdr_when_you_bet_on
+  en: "When you bet on a player pair, you're guessing that the\r\nfirst two cards\
+    \ dealt to the player will have the same\r\nface value."
+  fr: "Paire joueur : les 2 premieres cartes du joueur ont le\r\nmeme rang."
+- id: wdr_when_you_bet_on_1
+  en: "When you bet on a banker pair, you're guessing that the\r\nfirst two cards\
+    \ dealt to the banker will have the same\r\nface value."
+  fr: "Paire banque : les 2 premieres cartes de la banque ont le\r\nmeme rang."
+- id: wdr_bet_on_who_you
+  en: Bet on who you think will get a pair.
+  fr: Pariez sur qui obtiendra une paire.
+- id: wdr_when_you_bet_on_2
+  en: "When you bet on a pair, the game is decided as soon as\r\nthe first two cards\
+    \ of each side are opened."
+  fr: Le pari paire est tranche des l'ouverture des cartes.
+- id: wdr_last_but_not_least
+  en: "Last but not least, I'll explain how to bet on Super 6.\r\nThe best way to\
+    \ learn is by practice, so try betting on\r\nSuper 6 now."
+  fr: Voici le Super 6. Essayez de parier dessus maintenant.
+- id: wdr_super_6_refers_to
+  en: "Super 6 refers to the banker beating the player with a 6.\r\nA winning bet\
+    \ pays up to 12:1."
+  fr: "Super 6 : la banque bat le joueur avec un score de 6.\r\nRapporte 12 contre\
+    \ 1 !"
+- id: wdr_the_payout_is_only
+  en: "The payout is only 0.5:1 if you simply bet on the banker\r\nwinning when a\
+    \ Super 6 results."
+  fr: Payer sur la banque simple en cas de 6 ne paie que 0,5:1.
+- id: wdr_ill_teach_you_the_4
+  en: "I'll teach you the rules of Omaha Hold'em, a variation of\r\nTexas Hold'em,\
+    \ as we play."
+  fr: Voici les regles de l'Omaha Hold'em, variante du Texas.
+- id: wdr_omaha_holdem_is_basically
+  en: "Omaha Hold'em is basically the same as regular Texas\r\nHold'em, except you\
+    \ are dealt four cards instead of two."
+  fr: L'Omaha est similaire au Texas, mais avec 4 cartes en main.
+- id: wdr_you_then_try_to
+  en: "You then try to make the best hand you can using your own\r\nfour cards and\
+    \ the five community cards."
+  fr: Combinez 4 cartes en main avec 5 cartes communes.
+- id: wdr_at_the_end_of
+  en: "At the end of the game, you must use two of your own\r\ncards and three of\
+    \ the community cards to create a hand."
+  fr: "Vous devez utiliser exactement 2 cartes en main et 3 du\r\ntapis."
+- id: wdr_you_have_two_fives
+  en: You have two fives. That's one pair.
+  fr: 'Vous avez deux cinq : une paire.'
+- id: wdr_in_this_game_players
+  en: "In this game, players strike the white cue ball with a cue\r\nstick so that\
+    \ it hits other balls (object balls), knocking\r\nthem into pockets."
+  fr: "Frappez la blanche avec la queue pour empocher les\r\nbilles cibles."
+- id: wdr_banking_before_the_game
+  en: "\x01Banking:\r\nBefore the game can start, you must determine who goes first."
+  fr: "\x01Tir de bande :\r\nDeterminez qui commence la partie."
+- id: wdr_each_player_strikes_a
+  en: "Each player strikes a cue ball and the one whose cue\r\nball ends up nearest\
+    \ to them will get the first turn."
+  fr: La blanche revenant le plus pres de soi donne le tour.
+- id: wdr_however_it_will_only
+  en: "However, it will only count if the ball hits the opposite\r\ncushion."
+  fr: La bille doit obligatoirement toucher la bande opposee.
+- id: wdr_pocket_the_object_balls
+  en: "Pocket the object balls in order, starting with the lowest\r\nnumber, by hitting\
+    \ them with the cue ball."
+  fr: Empochez les billes dans l'ordre croissant avec la blanche.
+- id: wdr_your_turn_continues_until
+  en: Your turn continues until you fail to pocket a ball.
+  fr: Votre tour dure tant que vous empochez une bille.
+- id: wdr_the_player_who_sinks
+  en: The player who sinks the 9 ball first wins the game.
+  fr: Le premier a empocher la 9 gagne la partie.
+- id: wdr_a_foul_results_if
+  en: "A foul results if the cue ball falls into a pocket or does\r\nnot strike an\
+    \ object ball."
+  fr: Faute si la blanche est empochee ou ne touche aucune bille.
+- id: wdr_the_opposing_player_may
+  en: "The opposing player may then take a shot by placing the cue\r\nball anywhere\
+    \ on the table."
+  fr: L'adversaire peut placer la blanche ou il veut sur le tapis.
+- id: wdr_now_that_you_know
+  en: Now that you know the basics, try playing the game.
+  fr: Vous connaissez les bases, a vous de jouer !
+- id: wdr_rotation_uses_balls_number
+  en: Rotation uses balls number 1 through 15.
+  fr: La Rotation utilise les billes 1 a 15.
+- id: wdr_pocketing_a_ball_awards
+  en: "Pocketing a ball awards the player with the same number of\r\npoints as the\
+    \ ball's number."
+  fr: Chaque bille empochee rapporte son numero en points.
+- id: wdr_the_first_player_to
+  en: The first player to exceed 61 points wins.
+  fr: Depasser 61 points donne la victoire.
+- id: wdr_eightball_uses_balls_number
+  en: Eight-Ball uses balls number 1 through 15.
+  fr: Le 8-Ball utilise les billes de 1 a 15.
+- id: wdr_the_object_balls_are
+  en: "The object balls are divided into two groups:\r\nlow balls (1-7) and high balls\
+    \ (9-15)."
+  fr: 'Deux groupes de billes : pleines (1-7) et rayees (9-15).'
+- id: wdr_the_first_ball_a
+  en: "The first ball a player sinks after the break shot decides\r\nwhich group will\
+    \ be theirs."
+  fr: La premiere bille empochee attribue le groupe au joueur.
+- id: wdr_to_win_sink_the
+  en: To win, sink the 8 ball after all the balls in your group.
+  fr: Empochez la 8 apres toutes vos billes pour gagner.
+- id: wdr_the_order_of_balls
+  en: The order of balls you sink from your group does not matter.
+  fr: L'ordre d'empochage des billes de votre groupe est libre.
+- id: wdr_before_sinking_the_8
+  en: "Before sinking the 8 ball, you must specify which pocket\r\nyou are aiming\
+    \ for."
+  fr: Annoncez la poche visee avant d'empocher la 8.
+- id: wdr_pocketing_the_8_ball
+  en: "Pocketing the 8 ball before all of the balls in your group\r\nhave been sunk\
+    \ also counts as a loss."
+  fr: Empocher la 8 trop tot constitue une defaite immediate.
+- id: wdr_show_the_cue_balls
+  en: "Show the cue ball's predicted path?\r\n(Showing it makes the game easier to\
+    \ play.)"
+  fr: "Afficher la trajectoire prevue de la bille ?\r\n(Facilite grandement la visee.)"
+- id: wdr_place_your_marker_chips
+  en: Place your marker chips on the table.
+  fr: Placez vos jetons sur la table.
+- id: wdr_now_the_house_will
+  en: Now the house will place its marker chips.
+  fr: La maison place ses jetons.
+- id: wdr_you_first_sir_please
+  en: You first, sir. Please launch the ball.
+  fr: A vous d'abord. Lancez la bille.
+- id: wdr_now_its_the_houses
+  en: Now it's the house's turn.
+  fr: Au tour de la maison.
+- id: wdr_betting_starts_as_soon
+  en: "Betting starts as soon as the ball is launched. Place your\r\nbets before the\
+    \ time is up. You can bet up to 10,000 chips\r\nwith each spin."
+  fr: "Misez des le lancer. Placez vos jeux avant la fin du temps.\r\nJusqu'a 10 000\
+    \ jetons par tour."
+- id: wdr_depending_on_where_you
+  en: "Depending on where you place your chips, you can bet on\r\none to six numbers\
+    \ or the colors red or black, or make a\r\nnumber of other wagers."
+  fr: "Misez sur des numeros simples, des transversales, rouge\r\nou noir, colonnes\
+    \ ou douzaines."
+- id: wdr_you_can_remove_the
+  en: "You can remove the chips you bet or move them to make\r\nanother wager before\
+    \ the dealer says \"no more bets.\""
+  fr: Deplacez ou retirez vos jetons avant le 'rien ne va plus'.
+- id: wdr_to_remove_chips_you
+  en: "To remove chips you wagered, press <Sign:2> at the location\r\nyou placed the\
+    \ chips."
+  fr: Pour retirer des jetons, appuyez sur <Sign:2> sur la case.
+- id: wdr_to_bet_the_same
+  en: "To bet the same amount as your last bet, press <Sign:2>\r\nat a location where\
+    \ no chips have yet been placed."
+  fr: Pour repeter la mise precedente, appuyez sur <Sign:2>.
+- id: wdr_keep_in_mind_you
+  en: "Keep in mind you only have a limited time to place your\r\nbets."
+  fr: Le temps imparti pour miser est limite.
+- id: wdr_the_dealer_calls_no
+  en: "The dealer calls \"no more bets\" when the time is up.\r\nTo finish placing\
+    \ bets before that, press <Sign:C>."
+  fr: "Fin des jeux a l'expiration du temps. Pour valider avant,\r\nappuyez sur <Sign:C>."
+- id: wdr_if_the_ball_lands
+  en: "If the ball lands in a slot on which you bet, you win the\r\npayouts for all\
+    \ your wagers that include that slot.\r\nOtherwise, you lose your bets."
+  fr: "Si la bille s'arrete sur votre numero, vous touchez vos\r\ngains selon les\
+    \ cotes."
+- id: wdr_that_is_how_you
+  en: "That is how you play roulette. Please enjoy playing all the\r\ngames of skill\
+    \ and chance our casino has to offer!"
+  fr: Voila pour la roulette. Amusez-vous bien dans notre casino !
+- id: wdr_the_marker_chips_have
+  en: The marker chips have been placed.
+  fr: Les jetons sont places.
+- id: wdr_in_this_game_the
+  en: "In this game, the value of the sections you hit\r\nis deducted from your score."
+  fr: Dans ce mode, les points touches sont deduits du score.
+- id: wdr_the_goal_is_to
+  en: "The goal is to reach zero.\r\n\r\nBoth bullseye and double bullseye hits\r\n\
+    are worth 50 points."
+  fr: "Le but est d'atteindre zero.\r\n\r\nLe centre de la cible vaut 50 points."
+- id: wdr_going_below_zero_is
+  en: "Going below zero is called busting.\r\n\r\nIt becomes your opponent's turn\
+    \ if you bust and\r\nyour score goes back to what it was before the bust."
+  fr: "Depasser zero est une faute (bust).\r\n\r\nVotre score revient a son etat d'avant\
+    \ la volee."
+- id: wdr_the_first_player_to_1
+  en: "The first player to reach exactly zero before the end\r\nof the designated\
+    \ number of rounds wins.\r\n\r\nIf neither player reaches zero during the designated\
+    \ number\r\nof rounds, the one with the fewest points remaining wins."
+  fr: "Le premier a atteindre exactement zero l'emporte.\r\n\r\nSinon, le joueur au\
+    \ score restant le plus bas gagne."
+- id: wdr_in_this_game_mode
+  en: "In this game mode, the value of sections you hit\r\nare added to your score."
+  fr: Dans ce mode, les points touches s'ajoutent au score.
+- id: wdr_only_the_numbers_from
+  en: "Only the numbers from 15 to 20, and the bullseye,\r\nare used in this game."
+  fr: Seuls les numéros 15 a 20 et le centre sont utilises.
+- id: wdr_press_right_and_left
+  en: "Press right and left on the directional buttons or the left\r\nstick before\
+    \ releasing the ball to adjust the spin."
+  fr: Ajustez l'effet de la boule a gauche ou a droite.
+- id: wdr_press_signd_to_adjust
+  en: Press <Sign:D> to adjust throwing power.
+  fr: <Sign:D> pour la puissance de lancer.
+- id: wdr_press_signd_to_determine
+  en: Press <Sign:D> to determine the direction.
+  fr: <Sign:D> pour fixer la direction.
+- id: wdr_when_selecting_the_ball
+  en: "When selecting the ball, you also choose where to stand with\r\nright/left\
+    \ on the directional buttons or the left stick, and\r\nthen press <Sign:D> to\
+    \ confirm."
+  fr: "Choisissez la boule et votre placement sur la piste,\r\npuis confirmez avec\
+    \ <Sign:D>."
+- id: wdr_select_the_ball_with
+  en: "Select the ball with up/down on the directional buttons or\r\nthe left stick."
+  fr: Choisissez votre boule avec haut/bas.
+- id: wdr_attention_all_bowlers_its
+  en: "Attention all bowlers! It's time for Midnight Madness!\r\nBut you only get\
+    \ one chance! Will you strike it rich?"
+  fr: "Avis aux joueurs ! C'est l'heure du Midnight Madness !\r\nUne seule chance\
+    \ de toucher le jackpot !"
+- id: wdr_congratulations_you_get_2000000
+  en: Congratulations! You get \2,000,000!
+  fr: 'Gagne : 2 000 000 de yens !'
+- id: wdr_perfect_game
+  en: Perfect Game!
+  fr: Partie 300 !
+- id: wdr_select_the_number_of
+  en: Select the number of frames to play.
+  fr: Nombre de frames a jouer.
+- id: wdr_would_you_like_to
+  en: Would you like to play again?
+  fr: Voulez-vous rejouer ?
+- id: wdr_knives_take_lives_you
+  en: "\"Knives take lives! You wanna do some harm, prepare to lose an arm!\"\r\n\
+    En gros : \"Les couteaux prennent des vies ! Si vous voulez faire du mal,\r\n\
+    préparez-vous à perdre un bras !\""
+  fr: '"Les couteaux tuent ! Vouloir du sang, c''est perdre un bras !"'
+- id: wdr_aint_ready_to_call
+  en: "(Ain't ready to call it a night just yet. Maybe I'll hit the\r\ncity for a\
+    \ bit.)"
+  fr: (Pas pret d'aller dormir. Allons faire un tour en ville.)
+- id: wdr_but_man_this_statue
+  en: (But man, this statue came out pretty good. I look awesome!)
+  fr: (Cette statue a de la gueule. J'ai trop la classe !)
+- id: wdr_cant_go_back_the
+  en: "(Can't go back the way I came.\r\nI've gotta get through Pink Street.)"
+  fr: (Impossible de rebrousser chemin. Je dois passer par Pink Street.)
+- id: wdr_cant_go_back_the_1
+  en: "(Can't go back the way I came.\r\nMy best bet's going to Pink Street.)"
+  fr: (Impossible de rebrousser chemin. Je dois passer par Pink Street.)
+- id: wdr_cool_i_was_able
+  en: "(Cool, I was able to solve the problem. Now all I've got\r\nto do is wait for\
+    \ the profits to start reeling back in.)"
+  fr: (Impeccable, souci regle. Les profits vont revenir.)
+- id: wdr_dont_have_enough_money
+  en: (Don't have enough money.)
+  fr: (Pas assez d'argent.)
+- id: wdr_heh_it_aint_the
+  en: "(Heh. It ain't the most modest thing I ever done, but I\r\nworked damn hard\
+    \ to get here. I deserve it.)"
+  fr: (Heh. Pas tres modeste, mais j'ai bosse dur pour ca.)
+- id: wdr_hmm_this_isnt_where
+  en: "(Hmm, this isn't where\r\nNishiki's meeting me.)"
+  fr: (Hmm, ce n'est pas la que Nishiki m'attend.)
+- id: wdr_i_dont_got_enough
+  en: (I don't got enough money to bet.)
+  fr: (Pas assez d'argent pour parier.)
+- id: wdr_i_dont_have_enough
+  en: (I don't have enough money for that.)
+  fr: (Je n'ai pas assez d'argent pour ca.)
+- id: wdr_i_dont_have_the
+  en: (I don't have the money, though.)
+  fr: (Je n'ai pas l'argent pour ca.)
+- id: wdr_i_got_the_winnings
+  en: "(I got the winnings from before, so I'll be down \\3,000,000\r\nif I lose.)"
+  fr: (Avec mes gains, je perdrai 3 000 000 yens en cas de defaite...)
+- id: wdr_i_shouldnt_be_seen
+  en: "(I shouldn't be seen at the scene of the crime right now.\r\nIt'll be bad if\
+    \ the police are still around. Better keep\r\nmy distance.)"
+  fr: (Mieux vaut ne pas etre vu sur la scene de crime.)
+- id: wdr_i_wasnt_able_to
+  en: (I wasn't able to fix the problem.)
+  fr: (Impossible de resoudre le souci.)
+- id: wdr_ive_got_the_winnings
+  en: "(I've got the winnings from before, so I'll be down \\300,000\r\nif I lose.)"
+  fr: (Avec mes gains, je perdrai 300 000 yens en cas de defaite...)
+- id: wdr_ive_won_5000000_so
+  en: "(I've won \\5,000,000 so far. If I lose the next one, I'll be\r\ndown by \\\
+    5,000,000...)"
+  fr: (J'ai gagne 5 000 000 yens. Si je perds, je serai dans le rouge...)
+- id: wdr_ive_won_500000_so
+  en: "(I've won \\500,000 so far. If I lose the next one, I'll be\r\ndown by \\500,000...)"
+  fr: (J'ai gagne 500 000 yens. Si je perds, je serai dans le rouge...)
+- id: wdr_ive_won_500000_so_1
+  en: "(I've won \\500,000 so far. So if I lose the next one, I'll\r\nbe down \\500,000...)"
+  fr: (J'ai gagne 500 000 yens. Si je perds, je serai dans le rouge...)
+- id: wdr_main_roads_are_too
+  en: "(Main roads are too risky. I should\r\ntake back alleys to Pink Street.)"
+  fr: (Impossible de rebrousser chemin. Je dois passer par Pink Street.)
+- id: wdr_sweet_i_was_able
+  en: "(Sweet, I was able to solve the problem. Now all I have\r\nto do is wait for\
+    \ the profits to come turning back on.)"
+  fr: (Super, probleme regle. Les benefices vont repartir.)
+- id: wdr_the_agents_causing_problems
+  en: "(The agents causing problems in this area are here. Should\r\nI deal with them\
+    \ now? They'll probably put up a good fight.)"
+  fr: Les fauteurs de troubles sont la. S'en occuper ?
+- id: wdr_the_agents_causing_problems_1
+  en: "(The agents causing problems in this area are here. Should I\r\ndeal with them\
+    \ now? I doubt they'll put up much of a fight.)"
+  fr: Les fauteurs de troubles sont la. S'en occuper ?
+- id: wdr_this_ways_dangerous_gotta
+  en: "(This way's dangerous.\r\nGotta get away from here.)"
+  fr: (Ce chemin est dangereux. Faisons demi-tour.)
+- id: wdr_this_whole_place_is
+  en: "(This whole place is mafia turf. I shouldn't go poking\r\naround... Better\
+    \ stick with Oda for now.)"
+  fr: (Territoire de la mafia. Ne pas trainer ici.)
+- id: wdr_those_hooligans_are_making
+  en: "(Those hooligans are making problems in this area. Should I\r\ndeal with them\
+    \ now? I doubt they'll put up much of a fight.)"
+  fr: Ces voyous causent des ennuis ici. Regler leur compte ?
+- id: wdr_we_built_up_club
+  en: "(We built up Club Sunshine and made it the top cabaret club\r\nin town. Gotta\
+    \ celebrate somehow... A gold statue'd be just\r\nthe thing!)"
+  fr: (Le Sunshine est au sommet de Sotenbori. Fini de rigoler.)
+- id: wdr_we_took_down_the
+  en: "(We took down the Finance King and saved Kamurocho. I guess\r\nwe should put\
+    \ something here to celebrate.)"
+  fr: (Le Roi de la Finance est tombe. Kamurocho respire.)
+- id: wdr_135_counts_as_3
+  en: 1-3-5 counts as 3 for the first player.
+  fr: 1-3-5 compte pour 3 pour ce joueur.
+- id: wdr_135_counts_as_the
+  en: 1-3-5 counts as the same as the previous player's roll.
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_135_counts_the_same
+  en: 1-3-5 counts the same as the previous player's roll.
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_135_gets_you_the_1
+  en: 1-3-5 gets you the same as the previous player's roll.
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_135_gives_the_same
+  en: 1-3-5 gives the same result as the previous player's roll.
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_135_means_the_same
+  en: 1-3-5 means the same result as the player before you got.
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_135_huh_you_get
+  en: "1-3-5, huh? You get the same score as the player\r\nbefore you."
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_135_for_the_banker
+  en: 1-3-5... For the banker, that's a 3.
+  fr: 1-3-5 compte pour 3 pour ce joueur.
+- id: wdr_135_for_the_first
+  en: 1-3-5... For the first player, that's a 3.
+  fr: 1-3-5 compte pour 3 pour ce joueur.
+- id: wdr_135_that_gets_the
+  en: 1-3-5... That gets the same score as the previous player.
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_135_thats_going_to
+  en: "1-3-5? That's going to be the same score as the previous\r\nplayer's."
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_246_counts_as_4
+  en: 2-4-6 counts as 4 for the last player.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_246_counts_as_a
+  en: 2-4-6 counts as a 4 for the banker.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_246_counts_as_the
+  en: 2-4-6 counts as the same as what the next player rolls.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_gets_you_the
+  en: 2-4-6 gets you the same as the next player's roll.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_is_going_to
+  en: 2-4-6 is going to be the same as the next player's roll.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_means_the_same
+  en: 2-4-6 means the same result as the next player.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_means_you_get
+  en: 2-4-6 means you get the same score as the next player.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_rolled_by_the
+  en: 2-4-6 rolled by the banker counts as 4.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_246_rolled_by_the_1
+  en: 2-4-6 rolled by the last player counts as a 4.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_246_rolled_by_the_2
+  en: 2-4-6 rolled by the last player... That's a 4.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_246_turns_into_whatever
+  en: 2-4-6 turns into whatever the next player rolls.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_will_count_as
+  en: 2-4-6 will count as whatever the next player rolls.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_twice_in_a
+  en: "2-4-6, twice in a row... That means you all get the same as\r\nmy roll."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_for_the_banker
+  en: 2-4-6... For the banker, that's a 4.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_246_for_the_last
+  en: 2-4-6... For the last player, that's a 4.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_246_that_gets_the
+  en: 2-4-6... That gets the same score as the next player.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_you_get_the
+  en: 2-4-6... You get the same as the next player's roll.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_thats_going_to
+  en: 2-4-6? That's going to be 4 for the last player.
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_athe_wireless_controllers_light
+  en: "A\x03\x9EThe wireless controller's light bar is %s for Player 1\r\nand %s for\
+    \ Player 2."
+  fr: "A\x03\x9EBarre lumineuse : %s pour le J1\r\net %s pour le J2."
+- id: wdr_athe_wireless_controllers_light_1
+  en: "A\x03\x9FThe wireless controller's light bar is %s for Player 1\r\nand %s for\
+    \ Player 2."
+  fr: "A\x03\x9FBarre lumineuse : %s pour le J1\r\net %s pour le J2."
+- id: wdr_a_135_rolled_by
+  en: A 1-3-5 rolled by the banker counts as 3.
+  fr: 1-3-5 compte pour 3 pour ce joueur.
+- id: wdr_a_135_rolled_by_1
+  en: A 1-3-5 rolled by the first player counts as 3.
+  fr: 1-3-5 compte pour 3 pour ce joueur.
+- id: wdr_blackjack_using_a_deck
+  en: "Blackjack using a deck with no 2, 3, or 4 cards.\r\nBonus: 2,500 chips."
+  fr: Blackjack sans les cartes 2, 3 et 4.
+- id: wdr_blackjack_using_a_deck_1
+  en: "Blackjack using a deck with no 7, 8, or 9 cards.\r\nBonus: 2,000 chips."
+  fr: Blackjack sans les cartes 7, 8 et 9.
+- id: wdr_gimme_the_dice
+  en: Gimme the dice.
+  fr: Donne les des.
+- id: wdr_i_rolled_135_and
+  en: I rolled 1-3-5, and that counts as 3 for the banker.
+  fr: 1-3-5 compte pour 3 pour ce joueur.
+- id: wdr_i_rolled_246_and
+  en: "I rolled 2-4-6 and I'm the banker, so...\r\nThat's a 4."
+  fr: 2-4-6 compte pour 4 pour ce joueur.
+- id: wdr_it_costs_1000_chips
+  en: "It costs 1,000 chips to play the house. The payouts depend\r\non the deck used."
+  fr: Misez 1 000 jetons contre la banque. Gains selon le duel.
+- id: wdr_lets_do_this_again
+  en: "Let's do this again, but this time we bet \\400,000. I'll\r\nbuy the drinks,\
+    \ too. Are ya game?"
+  fr: On remet ca a 400 000 yens ! Je vous paie un coup !
+- id: wdr_lets_get_the_dice
+  en: Let's get the dice rolling.
+  fr: Lancons les des.
+- id: wdr_looks_like_youre_done
+  en: Looks like you're done for now.
+  fr: Vous semblez en avoir termine.
+- id: wdr_one_last_game_well
+  en: "One last game! We'll bet \\10,000,000 this time. I'll buy you\r\ndrinks too.\
+    \ How's that sound?"
+  fr: Derniere manche a 10 000 000 yens ! Je vous invite apres !
+- id: wdr_one_more_well_make
+  en: "One more! We'll make it \\4,000,000 this time! I'll pay for\r\ndrinks. How's\
+    \ that?"
+  fr: Encore une ! A 4 000 000 yens ce coup-ci ! Je regale apres !
+- id: wdr_pplay_me_again_one
+  en: "P-Play me again! One more game, for \\1,000,000 this time!\r\nAnd... I'll pay\
+    \ for your drinks!"
+  fr: Rejouez avec moi ! Une a 1 000 000 yens ! Un bon verre offert !
+- id: wdr_set_half_the_bet
+  en: "Set half the bet amount as insurance against the dealer\r\ngetting a blackjack."
+  fr: Prenez une assurance valant la moitie contre un blackjack.
+- id: wdr_the_electronics_kings_men
+  en: "The Electronics King's men are on his turf. If you defeat\r\nthem, your share\
+    \ of the area increases by 1^. Take them on?"
+  fr: "Les hommes du Roi de l'Electronique sont la. Battez-les\r\npour reduire son\
+    \ emprise sur la zone."
+- id: wdr_the_gambling_kings_men
+  en: "The Gambling King's men are on his turf. If you defeat them,\r\nyour share\
+    \ of the area increases by 1^. Take them on now?"
+  fr: "Les hommes du Roi du Jeu sont ici. Battez-les pour\r\naffaiblir son emprise\
+    \ sur ce quartier."
+- id: wdr_the_media_kings_men
+  en: "The Media King's men are on his turf. If you defeat them,\r\nyour share of\
+    \ the area increases by 1^. Take them on now?"
+  fr: "Les hommes du Roi des Medias sont la. Battez-les pour\r\naffaiblir son emprise\
+    \ sur ce secteur."
+- id: wdr_the_pleasure_kings_men
+  en: "The Pleasure King's men are on his turf. If you defeat them,\r\nyour share\
+    \ of the area increases by 1^. Take them on?"
+  fr: "Les hommes du Roi des Plaisirs sont ici. Battez-les\r\npour affaiblir son emprise\
+    \ sur la zone."
+- id: wdr_the_first_player_rolled
+  en: The first player rolled 1-3-5, which is a 3 in this case.
+  fr: 1-3-5 compte pour 3 pour ce joueur.
+- id: wdr_the_wireless_controllers_light
+  en: "The wireless controller's light bar is %s for Player 1\r\nand %s for Player\
+    \ 2."
+  fr: 'Barre lumineuse : %s pour le J1 et %s pour le J2.'
+- id: wdr_two_246_rolls_in
+  en: "Two 2-4-6 rolls in a row mean you all get the same as\r\nmy roll."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_players_got_246
+  en: "Two players got 2-4-6 in a row, so you all get the same as\r\nmy roll."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_players_rolled_246
+  en: "Two players rolled 2-4-6 in a row, and that means everyone\r\ngets the same\
+    \ score as mine."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_players_rolled_246_1
+  en: "Two players rolled 2-4-6 in a row, so all of you will share\r\nmy score."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_players_rolled_246_2
+  en: "Two players rolled 2-4-6 in a row, so everyone gets the same\r\nscore as my\
+    \ roll."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_players_rolled_246_3
+  en: "Two players rolled 2-4-6 in a row. All players get the same\r\nas my roll."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_players_rolled_246_4
+  en: "Two players rolled 2-4-6 one after another, so everyone\r\ngets the same as\
+    \ the third player's roll."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_players_rolled_246_5
+  en: "Two players rolled 2-4-6 one after another, so everyone\r\ngets the same result\
+    \ as my roll."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_two_wireless_controllers_are
+  en: Two wireless controllers are required for this mode.
+  fr: Deux manettes sans fil sont requises pour ce mode.
+- id: wdr_you_can_bet_on
+  en: "You can bet on a number from 1 to 6 to show on one of the\r\ntwo dice. If you\
+    \ guess right, you can win more than by\r\nsimply guessing odd or even."
+  fr: Pariez sur un chiffre de 1 a 6 sur l'un des des.
+- id: wdr_you_can_bet_on_1
+  en: "You can bet on a number to show on one of the two dice.\r\nIf you guess right,\
+    \ you can win more than by simply guessing\r\nodd or even."
+  fr: Pariez sur un chiffre apparaissant sur l'un des des.
+- id: wdr_you_can_double_your
+  en: You can double your bet, but you must draw one more card.
+  fr: Doublez la mise, mais vous devez tirer une seule carte.
+- id: wdr_you_rolled_246_so
+  en: "You rolled 2-4-6, so you get the same score as the\r\nnext player."
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_amusement_game_you_this
+  en: "(AMUSEMENT GAME YOU... This place is crawling with gamers,\r\nespecially arcade\
+    \ fighting game fans. What should I do?)"
+  fr: (AMUSEMENT GAME YOU... Un bien immobilier interessant.)
+- id: wdr_kamuro_hot_springs_this
+  en: "(Kamuro Hot Springs... This is a public bathhouse that's\r\npopular with both\
+    \ young and old folk. What should I do?)"
+  fr: (Kamuro Hot Springs... Un bien immobilier interessant.)
+- id: wdr_kamuro_la_scala_cinema
+  en: "(Kamuro La Scala Cinema... They show popular films from the\r\nwest, as well\
+    \ as artsy Japanese films. What should I do?)"
+  fr: (Kamuro La Scala Cinema... Un bien immobilier interessant.)
+- id: wdr_kamuro_world_theater_wow
+  en: "(Kamuro World Theater... Wow, all the movie titles sound\r\nkind of sketchy.\
+    \ What should I do?)"
+  fr: (Kamuro World Theater... Un bien immobilier interessant.)
+- id: wdr_kamurocho_health_plaza_this
+  en: "(Kamurocho Health Plaza... This place is famous for having\r\nlots of attractive\
+    \ young women on staff. What should I do?)"
+  fr: (Kamurocho Health Plaza... Un bien immobilier interessant.)
+- id: wdr_little_asia_a_part
+  en: "(Little Asia... A part of town out of Dojima's reach. It\r\nwould be the perfect\
+    \ place to hide, but I can understand\r\nwhy they're not thrilled to have an ex-Dojima\
+    \ guy there.)"
+  fr: (Little Asia... Un bien immobilier interessant.)
+- id: wdr_ny_hot_dog_students
+  en: "(NY Hot Dog... Students seem to hang out here all the time.\r\nWhat should\
+    \ I do?)"
+  fr: (NY Hot Dog... Un bien immobilier interessant.)
+- id: wdr_new_montmartre_the_sauna
+  en: "(New Montmartre... The sauna is good here, and their\r\nmassages are popular,\
+    \ too. What should I do?)"
+  fr: (New Montmartre... Un bien immobilier interessant.)
+- id: wdr_pachinko_aloha_i_heard
+  en: "(Pachinko Aloha... I heard the machines here are loose,\r\nbut I wonder if\
+    \ that's true. What should I do?)"
+  fr: (Pachinko Aloha... Un bien immobilier interessant.)
+- id: wdr_quartier_latin_this_telephone
+  en: "(Quartier Latin... This telephone club's main draw is their\r\ncheap rates.\
+    \ What should I do?)"
+  fr: (Quartier Latin... Un bien immobilier interessant.)
+- id: wdr_sanwa_leisure_hall_this
+  en: "(Sanwa Leisure Hall... This place contains a lot of\r\ndifferent entertainment\
+    \ facilities. What should I do?)"
+  fr: (Sanwa Leisure Hall... Un bien immobilier interessant.)
+- id: wdr_sexual_harassment_cop_weird
+  en: "(Sexual Harassment Cop... Weird name, but it seems like a\r\npretty popular\
+    \ erotic massage parlor. What should I do?)"
+  fr: (Sexual Harassment Cop... Un bien immobilier interessant.)
+- id: wdr_shokichi_camera_this_place
+  en: "(Shokichi Camera... This place sells all kinds of home\r\nelectronics. What\
+    \ should I do?)"
+  fr: (Shokichi Camera... Un bien immobilier interessant.)
+- id: wdr_tokyo_popuri_they_say
+  en: "(TOKYO POPURI... They say lots of couples come here for\r\ndates. What should\
+    \ I do?)"
+  fr: (TOKYO POPURI... Un bien immobilier interessant.)
+- id: wdr_135_counts_as_the_1
+  en: 1-3-5 counts as the previous player's roll.
+  fr: 1-3-5 donne le score du tour precedent.
+- id: wdr_246_counts_as_the_1
+  en: 2-4-6 counts as the next player's roll.
+  fr: 2-4-6 donne le score du joueur suivant.
+- id: wdr_246_will_equal_the
+  en: 2-4-6 will equal the next player's roll.
+  fr: 2-4-6 donne le score du joueur suivant.

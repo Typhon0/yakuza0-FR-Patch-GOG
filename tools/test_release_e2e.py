@@ -178,5 +178,5 @@ def test_release_zip(zip_path: str):
     print("=" * 70)
 
 if __name__ == '__main__':
-    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.12.11.zip'
+    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.13.0.zip'
     test_release_zip(zip_target)

@@ -97,3 +97,4 @@ class TestI18nExtractor(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

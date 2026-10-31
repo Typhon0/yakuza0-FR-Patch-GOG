@@ -1,0 +1,22 @@
+# Yakuza 0 GOG - Phone Booth Save Prompts Catalog
+# Golden Rule 2: Strictly 58 ASCII characters with space padding.
+# Never use accented characters (é, è) - multi-byte UTF-8 breaks Sega
+# typewriter routine (0x140396783) and causes game softlock at 0x08F8.
+
+domain: story
+total_entries: 2
+entries:
+- id: phone_booth_save_telephones
+  context: Phone booth save prompt (Chapter 1-17)
+  exact_len: 58
+  ascii_only: true
+  pad_type: space
+  en: "You can save the game and use the Item Box at\r\ntelephones."
+  fr: "Sauvegardez et utilisez le coffre depuis une\r\ncabine.     "
+- id: phone_booth_save_payphones
+  context: Phone booth save prompt variant (pay phones)
+  exact_len: 58
+  ascii_only: true
+  pad_type: space
+  en: "You can save the game and use the Item Box at\r\npay phones."
+  fr: "Sauvegardez et utilisez le coffre depuis une\r\ncabine.     "

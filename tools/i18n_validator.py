@@ -21,9 +21,9 @@ except ImportError:
     import json
 
 # Extended French characters mapped in font_table_french.bin (0x80 - 0xFF)
-# and verified in-game texts.
+# and verified in-game texts (including Sega RGG control glyphs: § for heart, etc.).
 SUPPORTED_EXTENDED_CHARS = set(
-    "éèêëàâäçîïôöùûüÉÈÊËÀÂÄÇÎÏÔÖÙÛÜ«»°¥ò„†‡¸¼½"
+    "éèêëàâäçîïôöùûüÉÈÊËÀÂÄÇÎÏÔÖÙÛÜ«»°¥ò„†‡¸¼½§žŸ"
 )
 
 # Common forbidden Unicode characters that must be converted or avoided
@@ -45,8 +45,9 @@ def is_char_supported_by_font(char: str) -> bool:
     """
     Checks if a character is supported by the Yakuza 0 GOG single-byte rendering engine:
       - Standard ASCII printable (0x20 to 0x7E)
-      - Control characters: \\n, \\r, \\t
+      - Control characters: \\n, \\r, \\t, and Sega RGG inline formatting codes (\\x01..\\x06)
       - Verified French extended characters mapped in font_table_french.bin
+      - Sega special symbols (0xA7: § heart icon, 0x9E/0x9F: controller glyphs)
     """
     if len(char) != 1:
         return False
@@ -56,7 +57,11 @@ def is_char_supported_by_font(char: str) -> bool:
     if (0x20 <= code <= 0x7E) or char in ('\n', '\r', '\t'):
         return True
 
-    # Extended French font table characters
+    # Sega RGG inline formatting bytes (\x01 - \x06, \x9e, \x9f controller glyphs)
+    if (1 <= code <= 6) or code in (0x9E, 0x9F):
+        return True
+
+    # Extended French font table characters & Sega symbols
     if char in SUPPORTED_EXTENDED_CHARS:
         return True
 

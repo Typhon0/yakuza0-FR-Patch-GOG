@@ -1,0 +1,643 @@
+# Yakuza 0 GOG - Combat Abilities, Heat Actions & Style Names Catalog
+
+domain: combat
+total_entries: 93
+entries:
+- id: boot_tsukasa_sagawa_patriarch_of
+  en: |-
+    Tsukasa Sagawa
+    Patriarch of the Sagawa Family,
+    Retainer to the Omi Alliance Chairman
+  fr: |-
+    Tsukasa Sagawa
+    Patriarche de la famille Sagawa,
+    Vassal du president de l'Alliance Omi
+- id: boot_osamu_kashiwagi_captain_of
+  en: |-
+    Osamu Kashiwagi
+    Captain of the Kazama Family,
+    A Dojima Family Subsidiary
+  fr: |-
+    Osamu Kashiwagi
+    Capitaine de la famille Kazama,
+    Affiliee a la famille Dojima
+- id: boot_takashi_nihara_acting_second
+  en: |-
+    Takashi Nihara
+    Acting Second Chairman of the Tojo Clan
+  fr: |-
+    Takashi Nihara
+    President par interim du clan Tojo
+- id: boot_add_extra_funds_extra
+  en: "Add extra funds. \nExtra funds increase the success rate and shorten exploration\
+    \ time."
+  fr: |-
+    Ajouter des fonds.
+    Les fonds augmentent le succes et reduisent le temps.
+- id: boot_you_dont_have_sufficient
+  en: You don't have sufficient funds.
+  fr: Vous n'avez pas assez de fonds.
+- id: boot_invest_in_this_property
+  en: Invest in this property?
+  fr: Investir dans ce bien ?
+- id: boot_purchase_this_property
+  en: Purchase this property?
+  fr: Acheter cette propriete ?
+- id: boot_youve_gained_control_of
+  en: You've gained control of the area.
+  fr: Zone sous controle !
+- id: boot_join_the_battle
+  en: Join the battle?
+  fr: Rejoindre le combat ?
+- id: boot_conduct_business_with_this
+  en: Conduct business with this set-up?
+  fr: Lancer avec cette equipe ?
+- id: boot_you_failed_to_gain
+  en: You failed to gain control.
+  fr: Echec de prise de controle.
+- id: boot_you_failed_to_protect
+  en: You failed to protect your properties.
+  fr: Echec de protection des biens.
+- id: boot_you_won_the_money
+  en: You won the money battle.
+  fr: Bataille financiere gagnee !
+- id: boot_payout_collection_stopped_until
+  en: |-
+    Payout collection stopped until you
+    resolve problems in the area.
+  fr: |-
+    Recolte suspendue tant que
+    les litiges persistent.
+- id: boot_time_to_payout
+  en: Time to Payout
+  fr: Recolte des benefices
+- id: boot_about_the_agency_menu
+  en: About the Agency Menu
+  fr: Menu de gestion
+- id: boot_view_the_menu_controls
+  en: View the menu controls.
+  fr: Commandes du menu
+- id: boot_win_a_total_of
+  en: |-
+    Win a total of 10,000 Tokens.
+    Bonus: %s x%s
+    (Note: there are no further goals beyond this)
+  fr: |-
+    Gagner 10 000 jetons au total.
+    Bonus : %s x%s
+    (Aucun autre objectif au-dela)
+- id: boot_get_s_for_each
+  en: |-
+    Get \%s for each game played.
+    That's \%s!
+  fr: |-
+    Recevez \%s par partie jouee.
+    Soit \%s !
+- id: boot_get_s_for_each_1
+  en: |-
+    Get \%s for each point scored.
+    That's \%s!
+  fr: |-
+    Recevez \%s par point marque.
+    Soit \%s !
+- id: boot_get_s_for_each_2
+  en: |-
+    Get \%s for each stage completed.
+    That's \%s!
+  fr: |-
+    Recevez \%s par niveau fini.
+    Soit \%s !
+- id: boot_get_s_for_each_3
+  en: |-
+    Get \%s for each banana collected.
+    That's \%s!
+  fr: |-
+    Recevez \%s par banane prise.
+    Soit \%s !
+- id: boot_get_s_for_each_4
+  en: |-
+    Get \%s for each time you completed World 1
+    after using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Monde 1 fini
+    avec des continues.
+    Soit \%s !
+- id: boot_get_s_for_each_5
+  en: |-
+    Get \%s for each time you completed World 2
+    after using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Monde 2 fini
+    avec des continues.
+    Soit \%s !
+- id: boot_get_s_for_each_6
+  en: |-
+    Get \%s for each time you completed World 3
+    after using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Monde 3 fini
+    avec des continues.
+    Soit \%s !
+- id: boot_get_s_for_each_7
+  en: |-
+    Get \%s for each time you completed World 1
+    without using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Monde 1 fini
+    sans continue.
+    Soit \%s !
+- id: boot_get_s_for_each_8
+  en: |-
+    Get \%s for each time you completed World 2
+    without using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Monde 2 fini
+    sans continue.
+    Soit \%s !
+- id: boot_get_s_for_each_9
+  en: |-
+    Get \%s for each time you completed World 3
+    without using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Monde 3 fini
+    sans continue.
+    Soit \%s !
+- id: boot_get_s_for_each_10
+  en: |-
+    Get \%s for each point.
+    That's \%s!
+    *No bonus for zero or negative points.
+  fr: |-
+    Recevez \%s par point.
+    Soit \%s !
+    *Pas de bonus pour zero ou moins.
+- id: boot_get_s_for_each_11
+  en: |-
+    Get \%s for each time you ranked first in
+    4-player mahjong.
+    That's \%s!
+  fr: |-
+    Recevez \%s par 1re place
+    au mahjong a 4.
+    Soit \%s !
+- id: boot_get_s_for_each_12
+  en: |-
+    Get \%s for each time you ranked second in
+    4-player mahjong.
+    That's \%s!
+  fr: |-
+    Recevez \%s par 2e place
+    au mahjong a 4.
+    Soit \%s !
+- id: boot_get_s_for_each_13
+  en: |-
+    Get \%s for each time you ranked third in
+    4-player mahjong.
+    That's \%s!
+  fr: |-
+    Recevez \%s par 3e place
+    au mahjong a 4.
+    Soit \%s !
+- id: boot_get_s_for_each_14
+  en: |-
+    Get \%s for each time you ranked first in
+    3-player mahjong.
+    That's \%s!
+  fr: |-
+    Recevez \%s par 1re place
+    au mahjong a 3.
+    Soit \%s !
+- id: boot_get_s_for_each_15
+  en: |-
+    Get \%s for each time you ranked second in
+    3-player mahjong.
+    That's \%s!
+  fr: |-
+    Recevez \%s par 2e place
+    au mahjong a 3.
+    Soit \%s !
+- id: boot_get_s_the_first
+  en: |-
+    Get \%s the first time you reach 9th kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 9e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_1
+  en: |-
+    Get \%s the first time you reach 9th kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 9e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_2
+  en: |-
+    Get \%s the first time you reach 8th kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 8e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_3
+  en: |-
+    Get \%s the first time you reach 8th kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 8e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_4
+  en: |-
+    Get \%s the first time you reach 7th kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 7e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_5
+  en: |-
+    Get \%s the first time you reach 7th kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 7e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_6
+  en: |-
+    Get \%s the first time you reach 6th kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 6e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_7
+  en: |-
+    Get \%s the first time you reach 6th kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 6e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_8
+  en: |-
+    Get \%s the first time you reach 5th kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 5e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_9
+  en: |-
+    Get \%s the first time you reach 5th kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 5e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_10
+  en: |-
+    Get \%s the first time you reach 4th kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 4e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_11
+  en: |-
+    Get \%s the first time you reach 4th kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 4e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_12
+  en: |-
+    Get \%s the first time you reach 3rd kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 3e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_13
+  en: |-
+    Get \%s the first time you reach 3rd kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 3e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_14
+  en: |-
+    Get \%s the first time you reach 2nd kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 2e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_15
+  en: |-
+    Get \%s the first time you reach 2nd kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 2e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_16
+  en: |-
+    Get \%s the first time you reach 1st kyu in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 1e kyu atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_17
+  en: |-
+    Get \%s the first time you reach 1st kyu in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 1e kyu atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_18
+  en: |-
+    Get \%s the first time you reach 1st dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 1e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_19
+  en: |-
+    Get \%s the first time you reach 1st dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 1e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_20
+  en: |-
+    Get \%s the first time you reach 2nd dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 2e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_21
+  en: |-
+    Get \%s the first time you reach 2nd dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 2e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_22
+  en: |-
+    Get \%s the first time you reach 3rd dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 3e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_23
+  en: |-
+    Get \%s the first time you reach 3rd dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 3e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_24
+  en: |-
+    Get \%s the first time you reach 4th dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 4e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_25
+  en: |-
+    Get \%s the first time you reach 4th dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 4e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_26
+  en: |-
+    Get \%s the first time you reach 5th dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 5e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_27
+  en: |-
+    Get \%s the first time you reach 5th dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 5e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_28
+  en: |-
+    Get \%s the first time you reach 6th dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 6e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_29
+  en: |-
+    Get \%s the first time you reach 6th dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 6e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_30
+  en: |-
+    Get \%s the first time you reach 7th dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 7e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_31
+  en: |-
+    Get \%s the first time you reach 7th dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 7e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_32
+  en: |-
+    Get \%s the first time you reach 8th dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 8e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_33
+  en: |-
+    Get \%s the first time you reach 8th dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 8e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_34
+  en: |-
+    Get \%s the first time you reach 9th dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 9e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_35
+  en: |-
+    Get \%s the first time you reach 9th dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 9e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_36
+  en: |-
+    Get \%s the first time you reach 10th dan in
+    4-player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 10e dan atteint
+    au mahjong a 4, avec Kiryu ou Majima.
+- id: boot_get_s_the_first_37
+  en: |-
+    Get \%s the first time you reach 10th dan in
+    3-Player mahjong, using either Kiryu or Majima.
+  fr: |-
+    Recevez \%s la 1re fois le rang 10e dan atteint
+    au mahjong a 3, avec Kiryu ou Majima.
+- id: boot_score_adjusted_for_level
+  en: Score (Adjusted for Level)
+  fr: Score (selon niveau)
+- id: boot_get_s_for_each_16
+  en: |-
+    Get \%s for each point scored. That's \%s!
+    *MEDIUM: -20,000 points x times played
+     HARD: -50,000 points x times played
+  fr: |-
+    Recevez \%s par point marque. Soit \%s !
+    *MOYEN: -20 000 pts x parties
+     DIFFICILE: -50 000 pts x parties
+- id: boot_get_s_for_each_17
+  en: |-
+    Get \%s for each removed gem.
+    That's \%s!
+    *Up to 9999 gems per game.
+  fr: |-
+    Recevez \%s par gemme retiree.
+    Soit \%s !
+    *Jusqu'a 9999 gemmes par jeu.
+- id: boot_get_s_for_each_18
+  en: |-
+    Get \%s for each level in the highest
+    level reached in a game.
+    That's \%s!
+  fr: |-
+    Recevez \%s par niveau atteint
+    au plus haut niveau en partie.
+    Soit \%s !
+- id: boot_completions_from_area_1
+  en: Completions From Area 1
+  fr: Finis depuis la Zone 1
+- id: boot_completions_from_area_4
+  en: Completions From Area 4
+  fr: Finis depuis la Zone 4
+- id: boot_completions_from_area_7
+  en: Completions From Area 7
+  fr: Finis depuis la Zone 7
+- id: boot_get_s_for_each_19
+  en: |-
+    Get \%s for each time you completed Area 1.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Zone 1 terminee.
+    Soit \%s !
+- id: boot_get_s_for_each_20
+  en: |-
+    Get \%s for each time you completed Area 2.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Zone 2 terminee.
+    Soit \%s !
+- id: boot_get_s_for_each_21
+  en: |-
+    Get \%s for each time you completed Area 3.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Zone 3 terminee.
+    Soit \%s !
+- id: boot_get_s_for_each_22
+  en: |-
+    Get \%s for each time you completed Area 4.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Zone 4 terminee.
+    Soit \%s !
+- id: boot_get_s_for_each_23
+  en: |-
+    Get \%s for each time you completed Area 5.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Zone 5 terminee.
+    Soit \%s !
+- id: boot_get_s_for_each_24
+  en: |-
+    Get \%s for each time you completed Area 6.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Zone 6 terminee.
+    Soit \%s !
+- id: boot_get_s_for_each_25
+  en: |-
+    Get \%s for each time you completed Area 7.
+    That's \%s!
+  fr: |-
+    Recevez \%s par Zone 7 terminee.
+    Soit \%s !
+- id: boot_get_s_for_each_26
+  en: |-
+    Get \%s for each time you completed the game.
+    That's \%s!
+  fr: |-
+    Recevez \%s par jeu termine.
+    Soit \%s !
+- id: boot_get_s_for_each_27
+  en: |-
+    Get \%s for each time you completed the game
+    starting from Area 1 without using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par jeu fini depuis Zone 1
+    sans utiliser de continue.
+    Soit \%s !
+- id: boot_get_s_for_each_28
+  en: |-
+    Get \%s for each time you completed the game
+    starting from Area 4 without using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par jeu fini depuis Zone 4
+    sans utiliser de continue.
+    Soit \%s !
+- id: boot_get_s_for_each_29
+  en: |-
+    Get \%s for each time you completed the game
+    starting from Area 7 without using continues.
+    That's \%s!
+  fr: |-
+    Recevez \%s par jeu fini depuis Zone 7
+    sans utiliser de continue.
+    Soit \%s !
+- id: boot_get_s_for_each_30
+  en: |-
+    Get \%s for each life remaining after
+    completing the game.
+    That's \%s!
+  fr: |-
+    Recevez \%s par vie restante apres
+    avoir termine le jeu.
+    Soit \%s !
+- id: boot_heat_eye_slows_down
+  en: |-
+    Heat Eye slows down the action. Using it
+    depletes the Heat Eye gauge shown under
+    your HP bar. The gauge refills over time.
+  fr: |-
+    L'Oeil Heat ralentit le temps. L'utiliser
+    vide la jauge Heat sous vos PV.
+    La jauge se remplit avec le temps.
+- id: boot_withdraw_into_the_car
+  en: |-
+    Withdraw into the car to reload.
+    Hold <Sign:3> to stay inside the car.
+    While inside, Kiryu will not get hit,
+    but the car will take damage instead.
+    It's game over if the car's HP reaches 0.
+  fr: |-
+    S'abriter dans la voiture pour recharger.
+    Maintenir <Sign:3> pour rester a l'abri.
+    Kiryu sera protege mais la voiture
+    subira les degats a sa place.
+    Fin de partie si les PV tombent a 0.

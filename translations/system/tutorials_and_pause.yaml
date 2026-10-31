@@ -1,0 +1,2904 @@
+# Yakuza 0 GOG - Pause Menus, Tutorials & Tooltips Catalog
+
+domain: system
+total_entries: 592
+entries:
+- id: sys_defeat_bruno
+  en: Defeat Bruno!
+  fr: Battez Bruno!
+- id: sys_mr_shakedown
+  en: Mr. Shakedown
+  fr: M. Shakedown
+- id: sys_rolling_snake
+  en: Rolling Snake
+  fr: Serpent agile
+- id: sys_beast_learned
+  en: Beast learned!
+  fr: Beast acquis!
+- id: sys_break_it_down
+  en: Break It Down!
+  fr: Cassez tout !
+- id: sys_dash_pirouette
+  en: Dash Pirouette
+  fr: Pirouette élan
+- id: sys_defeat_fei_hu
+  en: Defeat Fei Hu!
+  fr: Battez Fei Hu!
+- id: sys_mr_shakedown_1
+  en: Mr. Shakedown!
+  fr: M. Shakedown !
+- id: sys_u_more_times
+  en: '%u more time(s)'
+  fr: Encore %u fois
+- id: sys_breaker_learned
+  en: Breaker learned!
+  fr: Danseur appris !
+- id: sys_slugger_learned
+  en: Slugger learned!
+  fr: Batteur appris !
+- id: sys_the_health_gauge
+  en: The Health Gauge
+  fr: Jauge de santé
+- id: sys_defeat_the_enemy
+  en: Defeat the enemy!
+  fr: Battez l'ennemi !
+- id: sys_defeat_the_hitman
+  en: Defeat the Hitman!
+  fr: Battez l'assassin!
+- id: sys_defeat_the_cowards
+  en: Defeat the Cowards!
+  fr: Battez les lâches !
+- id: sys_essence_of_disarming
+  en: Essence of Disarming
+  fr: Essence du désarm.
+- id: sys_guard_using_your_bat
+  en: Guard Using Your Bat!
+  fr: Gardez avec batte !
+- id: sys_poke_him_in_the
+  en: Poke Him in the Eyes!
+  fr: Doigts dans les yeux!
+- id: sys_switch_to_rush_style
+  en: Switch to Rush Style!
+  fr: 'Style Rush : activez'
+- id: sys_watch_the_heat_gauge
+  en: Watch the Heat Gauge!
+  fr: Observez jauge Furia
+- id: sys_show_your_hospitality
+  en: Show Your Hospitality!
+  fr: Montrez hospitalité !
+- id: sys_switch_to_beast_style
+  en: Switch to Beast Style!
+  fr: 'Style Beast : changez'
+- id: sys_defeat_all_the_enemies
+  en: Defeat all the enemies!
+  fr: Battez tous ennemis !
+- id: sys_essence_of_blade_biting
+  en: Essence of Blade Biting
+  fr: Essence morsure lame
+- id: sys_hold_sign6_to_guard
+  en: Hold <Sign:6> to guard.
+  fr: Garde via <Sign:6>.
+- id: sys_pull_off_a_freeze
+  en: Pull Off a Freeze Pose!
+  fr: Faites pose figée !
+- id: sys_attack_with_rush_combos
+  en: Attack with Rush Combos!
+  fr: Combos style Rush !
+- id: sys_essence_of_face_twisting
+  en: Essence of Face Twisting
+  fr: Essence torsion tête
+- id: sys_essence_of_friendly_fire
+  en: Essence of Friendly Fire
+  fr: 'Essence tir allié  '
+- id: sys_essence_of_wall_smashing
+  en: Essence of Wall Smashing
+  fr: Essence mur fracassé
+- id: sys_switch_to_breaker_style
+  en: Switch to Breaker Style!
+  fr: 'Style Danseur : go !'
+- id: sys_switch_to_slugger_style
+  en: Switch to Slugger Style!
+  fr: 'Style Batteur : go !'
+- id: sys_powerful_resolute_counter
+  en: Powerful Resolute Counter
+  fr: Riposte résolue forte
+- id: sys_sober_up_these_drunkards
+  en: Sober Up These Drunkards!
+  fr: Dessoûlez ces ivrognes
+- id: sys_essence_of_finishing_blows
+  en: Essence of Finishing Blows
+  fr: Essence coups finaux
+- id: sys_grab_and_attack_the
+  en: Grab and Attack the Enemy!
+  fr: Saisir et attaquer !
+- id: sys_pose_soul_finishing_move
+  en: Pose Soul (Finishing Move)
+  fr: Pose âme (Coup final)
+- id: sys_teach_these_punks_a
+  en: Teach These Punks a Lesson!
+  fr: Donnez-leur une leçon !
+- id: sys_use_heat_actions_to
+  en: Use Heat Actions to Attack!
+  fr: Attaquez via Furia !
+- id: sys_you_learned_the_rush
+  en: You Learned the Rush Style!
+  fr: Style Rush débloqué !
+- id: sys_you_learned_the_rush_1
+  en: You learned the Rush style!
+  fr: Style Rush débloqué !
+- id: sys_withstand_the_enemy_attacks
+  en: Withstand the Enemy Attacks!
+  fr: Résistez aux attaques !
+- id: sys_you_learned_the_beast
+  en: You Learned the Beast Style!
+  fr: Style Beast débloqué !
+- id: sys_avoid_the_customers_attacks
+  en: Avoid the Customer's Attacks!
+  fr: Évitez coups clients !
+- id: sys_press_sign1_while_running
+  en: Press <Sign:1> while running.
+  fr: Pressez <Sign:1> en courant
+- id: sys_press_sign3_then_sign1
+  en: Press <Sign:3>, then <Sign:1>.
+  fr: Tapez <Sign:3> puis <Sign:1>.
+- id: sys_show_komeki_you_mean
+  en: Show Komeki You Mean Business!
+  fr: Prouvez valeur à Komeki
+- id: sys_you_learned_the_breaker
+  en: You Learned the Breaker Style!
+  fr: Style Danseur débloqué !
+- id: sys_you_learned_the_slugger
+  en: You Learned the Slugger Style!
+  fr: Style Batteur débloqué !
+- id: sys_defeat_fei_hu_to
+  en: Defeat Fei Hu to Pass the Test!
+  fr: Battez Fei Hu pour réussir !
+- id: sys_evade_with_multiple_quicksteps
+  en: Evade with Multiple Quicksteps!
+  fr: Esquivez d'affilée (<Sign:3>)!
+- id: sys_pull_off_the_essence
+  en: Pull Off the Essence of Choking!
+  fr: Lancez Essence étranglement !
+- id: sys_knock_down_with_a
+  en: Knock Down with a Finishing Blow!
+  fr: Renversez d'un coup de grâce!
+- id: sys_you_learned_a_new
+  en: You Learned a New Thug Style Move!
+  fr: Nouvelle prise style Voyou !
+- id: sys_attack_to_build_up
+  en: Attack to build up your Heat Gauge!
+  fr: Attaquez pour charger la Furia !
+- id: sys_attack_with_a_weapon
+  en: Attack with a Weapon Automatically!
+  fr: Attaquez avec arme automatique !
+- id: sys_use_your_new_move
+  en: Use Your New Move to Defeat Komeki!
+  fr: Utilisez coup vs Komeki !
+- id: sys_press_sign2sign2sign2sign2
+  en: Press <Sign:2><Sign:2><Sign:2><Sign:2>.
+  fr: Tapez <Sign:2><Sign:2><Sign:2><Sign:2>
+- id: sys_hold_sign6_to_guard_1
+  en: Hold <Sign:6> to guard while barehanded.
+  fr: Maintenez <Sign:6> en garde mains nues.
+- id: sys_press_sign0_when_grabbed
+  en: Press <Sign:0> when grabbed by an enemy.
+  fr: Pressez <Sign:0> si empoigné par ennemi.
+- id: sys_press_sign1_with_your
+  en: Press <Sign:1> with your back to a wall.
+  fr: 'Pressez <Sign:1> avec dos vers un mur. '
+- id: sys_press_sign2_sign2_then
+  en: Press <Sign:2>, <Sign:2>, then <Sign:1>.
+  fr: Tapez <Sign:2>, <Sign:2>, puis <Sign:1>.
+- id: sys_press_sign31_to_switch
+  en: Press <Sign:31> to switch to Rush style.
+  fr: Pressez <Sign:31> pour le style Rush.
+- id: sys_press_sign32_to_switch
+  en: Press <Sign:32> to switch to Beast style.
+  fr: Pressez <Sign:32> pour style Beast.
+- id: sys_press_sign1_near_an
+  en: |-
+    Press <Sign:1> near an enemy on the
+    ground.
+  fr: |-
+    Pressez <Sign:1> près d'un ennemi au
+    sol.
+- id: sys_press_sign31_to_switch_1
+  en: Press <Sign:31> to switch to Breaker style.
+  fr: Pressez <Sign:31> pour style Danseur.
+- id: sys_press_sign32_to_switch_1
+  en: Press <Sign:32> to switch to Slugger style.
+  fr: Pressez <Sign:32> pour style Batteur.
+- id: sys_press_sign1_during_a
+  en: Press <Sign:1> during a <Sign:2> Rush Combo.
+  fr: Pressez <Sign:1> durant un combo <Sign:2>.
+- id: sys_the_game_ends_when
+  en: |-
+    The game ends when you lose
+    all your health.
+  fr: |-
+    La partie prend fin si votre santé
+    est vide.
+- id: sys_evade_the_customers_attacks
+  en: 'Evade the customer''s attacks using <Sign:3>.
+
+    '
+  fr: 'Esquivez les coups du client avec <Sign:3>.
+
+    '
+- id: sys_use_sign3_to_perform
+  en: |-
+    Use <Sign:3> to perform a string of
+    Quicksteps.
+  fr: |-
+    Utilisez <Sign:3> pour enchaîner les
+    esquives.
+- id: sys_you_can_switch_to
+  en: You can switch to Rush style by pressing <Sign:31>
+  fr: 'Passez en style Rush en pressant <Sign:31>    '
+- id: sys_hold_down_sign2_or
+  en: |-
+    Hold down <Sign:2> or <Sign:1> after being
+    attacked.
+  fr: |-
+    Maintenez <Sign:2> ou <Sign:1> après une
+    attaque.
+- id: sys_press_sign1_in_front
+  en: |-
+    Press <Sign:1> in front of an enemy
+    wielding a sword.
+  fr: |-
+    Pressez <Sign:1> face à un ennemi armé
+    d'un katana.
+- id: sys_use_breaker_style_to
+  en: Use Breaker style to finish off the enemy with flair.
+  fr: 'Style Danseur pour achever l''ennemi avec classe.  '
+- id: sys_use_slugger_style_to
+  en: |-
+    Use Slugger style to defeat Fei Hu and
+    pass the test.
+  fr: |-
+    Battez Fei Hu avec le style Batteur pour
+    réussir.
+- id: sys_hold_sign6_to_guard_2
+  en: |-
+    Hold <Sign:6> to guard with the Heat Gauge at
+    1st bar.
+  fr: |-
+    Gardez avec <Sign:6> avec 1 barre de Furia
+    pleine.
+- id: sys_tap_sign1_repeatedly_while
+  en: |-
+    Tap <Sign:1> repeatedly while attacking
+    with <Sign:2>.
+  fr: |-
+    Appuyez sur <Sign:1> en attaquant avec
+    <Sign:2>.
+- id: sys_use_beast_style_moves
+  en: |-
+    Use Beast style moves to pulverize the pack of
+    cowards.
+  fr: 'Pulvérisez cette bande de lâches en style
+
+    Beast.  '
+- id: sys_press_sign1_in_front_1
+  en: |-
+    Press <Sign:1> in front of an enemy
+    with their guard up.
+  fr: |-
+    Pressez <Sign:1> face à un ennemi qui
+    se protège.
+- id: sys_press_sign2_sign2_sign2
+  en: Press <Sign:2>, <Sign:2>, <Sign:2>, <Sign:1>, then <Sign:1>.
+  fr: Tapez <Sign:2>, <Sign:2>, <Sign:2>, <Sign:1>, puis <Sign:1>.
+- id: sys_press_sign1_without_sign4
+  en: |-
+    Press <Sign:1> without <Sign:4> stance
+    when an enemy attacks.
+  fr: |-
+    Pressez <Sign:1> sans garde <Sign:4>
+    quand l'ennemi attaque.
+- id: sys_press_sign1_while_an
+  en: |-
+    Press <Sign:1> while an enemy attacks
+    with a one-handed blade.
+  fr: |-
+    Pressez <Sign:1> quand l'ennemi attaque
+    avec une lame.
+- id: sys_press_sign2_or_sign1
+  en: |-
+    Press <Sign:2> or <Sign:1> after being
+    attacked while in Heat Mode.
+  fr: 'Pressez <Sign:2> ou <Sign:1> après un coup
+
+    reçu en mode Furia.    '
+- id: sys_press_sign1_in_front_2
+  en: |-
+    Press <Sign:1> in front of an enemy with a sword
+    while in Heat Mode.
+  fr: |-
+    Pressez <Sign:1> face à une épée en
+    étant en mode Furia.
+- id: sys_use_sign2_near_a
+  en: |-
+    Use <Sign:2> near a <Sign:23> mark to perform
+    an auto weapon attack.
+  fr: |-
+    Pressez <Sign:2> près d'un signe <Sign:23>
+    pour frapper avec l'arme.
+- id: sys_hitting_enemies_using_sign2
+  en: |-
+    Hitting enemies using <Sign:2> or <Sign:1> will
+    eventually stun them.
+  fr: 'Frapper avec <Sign:2> ou <Sign:1> finira
+
+    par étourdir l''ennemi. '
+- id: sys_shatter_the_arm_of
+  en: |-
+    Shatter the arm of an enemy wielding a one-handed
+    blade. Show no mercy!
+  fr: |-
+    Brisez le bras de l'ennemi arme d'une lame a une
+    main. Sans pitie !
+- id: sys_press_sign1_while_running_1
+  en: |-
+    Press <Sign:1> while running to perform a
+    Dash Pirouette running attack.
+  fr: |-
+    Pressez <Sign:1> en courant pour lancer
+    une pirouette d'élan.
+- id: sys_your_training_is_now
+  en: |-
+    Your training is now complete.
+
+    Attack Komeki with everything you've got.
+  fr: |-
+    Entraînement terminé.
+
+    Attaquez Komeki de toutes vos forces.
+- id: sys_press_sign0_while_evading
+  en: |-
+    Press <Sign:0> while evading with <Sign:3>
+    when the Heat Gauge is at 2nd bar.
+  fr: |-
+    Pressez <Sign:0> en esquivant avec <Sign:3>
+    avec 2 barres de Furia.
+- id: sys_this_reckless_attack_is
+  en: |-
+    This reckless attack is executed after
+    performing a backhanded Finishing Blow.
+  fr: |-
+    Cette attaque brutale s'exécute après un
+    puissant coup de grâce du revers.
+- id: sys_switch_to_breaker_style_1
+  en: |-
+    Switch to Breaker style!
+
+    You can switch to Breaker style by pressing <Sign:31>
+  fr: 'Passez en style Danseur !
+
+
+    Vous pouvez l''activer en pressant <Sign:31>        '
+- id: sys_use_sign0_to_grab
+  en: |-
+    Use <Sign:0> to grab an enemy, then
+    attack with <Sign:2>, <Sign:1>, or <Sign:0>.
+  fr: |-
+    Saisissez l'ennemi (<Sign:0>), puis
+    attaquez via <Sign:2>, <Sign:1> ou <Sign:0>.
+- id: sys_with_the_heat_gauge
+  en: |-
+    With the Heat Gauge at 3rd, press <Sign:1>
+    when enemy attacks or when behind them.
+  fr: |-
+    À la 3e barre, pressez <Sign:1> si l'ennemi
+    attaque ou dans son dos.
+- id: sys_press_sign1_in_front_3
+  en: |-
+    Press <Sign:1> in front of the attacking
+    customer with the Heat Gauge at the 3rd bar.
+  fr: |-
+    Pressez <Sign:1> face au client hostile
+    avec la jauge Furia au niveau 3.
+- id: sys_use_sign4_and_sign45
+  en: |-
+    Use <Sign:4> and <Sign:45> to lock onto an enemy,
+    which helps when fighting single foes.
+  fr: |-
+    Verrouillez l'ennemi avec <Sign:4> et
+    <Sign:45>, utile en combat singulier.
+- id: sys_when_hit_press_sign2
+  en: |-
+    When hit, press <Sign:2>, <Sign:1>, or <Sign:0> to
+    counter (unless you're knocked down).
+  fr: |-
+    Si touché, ripostez vite avec <Sign:2>,
+    <Sign:1> ou <Sign:0> (sauf au sol).
+- id: sys_enter_sign4_stance_with
+  en: |-
+    Enter <Sign:4> stance with Heat Gauge at 3rd bar,
+    and press <Sign:0> when an enemy attacks.
+  fr: |-
+    En garde <Sign:4> avec 3 barres de Furia,
+    pressez <Sign:0> quand l'ennemi attaque.
+- id: sys_defeat_the_hitman_targeting
+  en: |-
+    Defeat the hitman targeting Bacchus!
+
+    Use your Brawler style moves to take out
+    the assassin.
+  fr: 'Éliminez le tueur ciblant Bacchus !
+
+
+    Utilisez le style Bagarreur pour battre
+
+    l''assassin.    '
+- id: sys_press_sign0_with_heat
+  en: |-
+    Press <Sign:0> with Heat Gauge at 2nd or 3rd bar
+    to grab enemies or objects, then press <Sign:1>.
+  fr: |-
+    Pressez <Sign:0> avec 2 ou 3 barres pour
+    saisir un ennemi, puis pressez <Sign:1>.
+- id: sys_press_sign2_repeatedly_to
+  en: |-
+    Press <Sign:2> repeatedly to perform a Rush Combo.
+
+    This is the most basic method of attack in battle.
+  fr: |-
+    Enchaînez <Sign:2> pour un combo d'attaque.
+
+    C'est la base de tout combat à mains nues.
+- id: sys_you_can_charge_up
+  en: |-
+    You can charge up a counterattack. The attack
+    is more powerful, and likely to knock the
+    opponent down.
+  fr: |-
+    Vous pouvez charger une riposte.
+    L'attaque est plus forte et renverse
+    souvent l'adversaire.
+- id: sys_switch_to_beast_style_1
+  en: |-
+    Switch to Beast style!
+
+    You can switch to Beast style by pressing <Sign:32>
+    Try changing to Beast style now.
+  fr: |-
+    Passez en style Beast !
+
+    Activez-le en pressant <Sign:32>.
+    Essayez de changer de style maintenant.
+- id: sys_slip_past_a_guarding
+  en: |-
+    Slip past a guarding enemy's arms, grab their face,
+    twist them to the ground, then stomp them to finish
+    the job.
+  fr: 'Passez la garde ennemie, saisissez sa tête,
+
+    plaquez-le au sol et piétinez-le pour
+
+    l''achever.  '
+- id: sys_switch_to_slugger_style_1
+  en: |-
+    Switch to Slugger style!
+
+    You can switch to Slugger style by pressing <Sign:32>
+    Try changing to Slugger style now.
+  fr: |-
+    Passez en style Batteur !
+
+    Activez-le en pressant <Sign:32>.
+    Essayez de changer de style maintenant.
+- id: sys_while_evading_with_sign3
+  en: |-
+    While evading with <Sign:3> when the Heat Gauge
+    is at 2nd bar, press <Sign:0> to coil around an enemy
+    and attack them.
+  fr: 'En esquivant avec <Sign:3> et 2 barres de Furia,
+
+    pressez <Sign:0> pour ceinturer l''ennemi et
+
+    l''attaquer.             '
+- id: sys_when_caught_between_two
+  en: |-
+    When caught between two enemies, press <Sign:1>
+    in time with the enemies' attacks. (Don't enter
+    a fighting stance with <Sign:4>.)
+  fr: 'Pris entre deux ennemis, pressez <Sign:1> au moment
+
+    de l''attaque. (Ne vous mettez pas en garde
+
+    avec <Sign:4>.)            '
+- id: sys_press_sign0_near_an
+  en: |-
+    Press <Sign:0> near an enemy to grab them.
+
+    If an enemy is guarding to block your attacks, grab
+    them and then attack to deal damage.
+  fr: |-
+    Pressez <Sign:0> près d'un ennemi pour le saisir.
+
+    S'il bloque vos attaques, attrapez-le puis
+    frappez pour lui infliger des dégâts.
+- id: sys_evade_an_enemys_attack
+  en: |-
+    Evade an enemy's attack, then smash the bones
+    in their leg. This strike is enough to make
+    any troublemaker regret getting out of bed.
+  fr: 'Esquivez l''attaque ennemie et brisez-lui la jambe.
+
+    Ce coup net et précis fera regretter à tout voyou
+
+    d''avoir cherché la bagarre.   '
+- id: sys_a_new_move_occurred
+  en: |-
+    A new move occurred to you during your bout with
+    Komeki! This precise strike is unleashed after a
+    Quickstep.
+
+    Practice it against Komeki.
+  fr: |-
+    Un nouveau coup vous vient face à Komeki !
+    Cette attaque précise se déclenche après une
+    esquive rapide.
+
+    Pratiquez-la sur Komeki.
+- id: sys_press_sign1_close_to
+  en: |-
+    Press <Sign:1> close to an enemy on the ground.
+    The time an enemy stays down varies depending on
+    the attack used, so choose your attacks carefully.
+  fr: 'Pressez <Sign:1> près d''un ennemi au sol.
+
+    Le temps au sol dépend du coup porté, choisissez
+
+    donc vos attaques avec discernement.         '
+- id: sys_practice_complete_however_your
+  en: |-
+    Practice complete!
+
+    However, your bout against Komeki is not over.
+    Use your new move and more to defeat Komeki
+    and perfect your mastery of the attack.
+  fr: |-
+    Entraînement réussi !
+
+    Mais le duel contre Komeki continue. Utilisez
+    ce nouveau coup pour vaincre Komeki et parfaire
+    votre maîtrise du combat.
+- id: sys_a_new_move_occurred_1
+  en: |-
+    A new move occurred to you during your bout with
+    Komeki!
+
+    Parry an enemy's attack and deal a solid chop
+    to their brainstem.
+
+    Practice it against Komeki.
+  fr: 'Un coup vous vient lors du duel avec Komeki !
+
+
+    Parez l''attaque et assénez un coup sec à la base
+
+    du crâne.
+
+
+    Pratiquez-le contre Komeki.        '
+- id: sys_a_new_move_occurred_2
+  en: |-
+    A new move occurred to you during your bout with
+    Komeki!
+
+    This move lets you escape from an enemy
+    grapple and launch a counterattack.
+
+    Practice it against Komeki.
+  fr: 'Un coup vous vient lors du duel avec Komeki !
+
+
+    Ce mouvement vous dégage d''une prise pour riposter
+
+    aussitôt.
+
+
+    Pratiquez-le contre Komeki.                 '
+- id: sys_a_new_move_occurred_3
+  en: |-
+    A new move occurred to you during your bout with
+    Komeki!
+
+    You can transition directly into an attack
+    after being struck by the enemy.
+
+
+    Practice it against Komeki.
+  fr: 'Un coup vous vient lors du duel avec Komeki !
+
+
+    Vous pouvez enchaîner directement sur une attaque
+
+    après avoir été touché par l''ennemi.
+
+
+    Pratiquez-le contre Komeki. '
+- id: sys_press_sign2_while_near
+  en: |-
+    Press <Sign:2> while near a large weapon showing a
+    <Sign:23> mark to automatically pick it up and
+    swing it. This is called an auto weapon attack.
+
+    Bash an enemy with an auto weapon attack.
+  fr: 'Pressez <Sign:2> près d''une arme lourde avec <Sign:23>
+
+    pour la ramasser et frapper automatiquement.
+
+    C''est l''attaque d''arme automatique.
+
+
+    Frappez un ennemi avec une arme auto.   '
+- id: sys_the_first_law_of
+  en: |-
+    The First Law of Management
+
+    "The Customer is King." Even if punched or kicked,
+    reprisal is out of the question.
+
+    For now, watch for the customer to make a move,
+    and evade their attacks using <Sign:3>.
+  fr: '1re règle de gestion
+
+
+    " Le client est roi. " Même frappé, toute riposte
+
+    est exclue.
+
+
+    Observez les mouvements du client et esquivez
+
+    ses attaques en utilisant <Sign:3>.       '
+- id: sys_thug_style_incorporates_a
+  en: |-
+    Thug style incorporates a number of merciless
+    attacks. One of these is the eye poke attack.
+
+    If you land an eye poke attack, the enemy will
+    turn their back to you in pain. Show Komeki
+    your Thug style moves.
+  fr: 'Le style Voyou compte des coups sans pitié.
+
+    Parmi eux, l''attaque aux yeux.
+
+
+    Si elle touche, l''ennemi se retourne de douleur.
+
+    Montrez vos mouvements de Voyou à Komeki.      '
+- id: sys_press_sign1_during_a_1
+  en: |-
+    Press <Sign:1> during a <Sign:2> combo attack to perform
+    a Finishing Blow that knocks the enemy down.
+    The knockdown effect varies depending on the number of
+    times <Sign:2> was pressed, so try it in a few ways.
+  fr: 'Pressez <Sign:1> pendant un combo <Sign:2> pour un coup
+
+    de grâce qui renverse l''ennemi.
+
+    L''effet varie selon le nombre de coups <Sign:2>,
+
+    essayez différentes combinaisons.          '
+- id: sys_try_mastering_the_strong
+  en: |-
+    Try mastering the strong defensive potential
+    that a bat offers.
+
+    When you guard using a weapon, you are less likely
+    to be staggered by an attack. Use a bat to protect
+    yourself against Fei Hu's vicious assault.
+  fr: 'Maîtrisez la grande défense qu''offre une batte.
+
+
+    En parant avec une arme, vous risquez moins d''être
+
+    déstabilisé. Utilisez la batte pour vous protéger
+
+    face aux assauts violents de Fei Hu.   '
+- id: sys_one_of_the_special
+  en: |-
+    One of the special moves of the Thug style
+    is a Heat Action called the Essence of Choking.
+
+    This Heat Action triggers when an enemy attacks you
+    or when you circle around behind them.
+
+    Show Komeki your Thug style special move.
+  fr: 'Un coup spécial du style Voyou est l''Action
+
+    Furia nommée Essence de l''étranglement.
+
+
+    Elle s''active quand l''ennemi attaque ou quand
+
+    vous passez dans son dos.
+
+
+    Montrez ce coup spécial à Komeki.        '
+- id: sys_you_learned_the_breaker_1
+  en: |-
+    You learned the Breaker style!
+
+    This fighting style focuses on spinning combo attacks
+    that incorporate breakdancing moves.
+
+    Many enemies will be caught off guard and felled by
+    your stylish steps before they know what hit them.
+  fr: 'Vous apprenez le style Danseur !
+
+
+    Ce style mise sur des combos tourbillonnants issus
+
+    du breakdance.
+
+
+    Les ennemis seront déroutés et terrassés par vos
+
+    pas rythmés avant même de réagir.            '
+- id: sys_a_new_move_occurred_4
+  en: |-
+    A new move occurred to you during your bout with
+    Komeki!
+
+    Successfully guarding with Heat Gauge at 1st bar
+    causes the Heat Gauge to rise, and you are not
+    staggered by anything but knives and bullets.
+
+
+    Practice it against Komeki.
+  fr: 'Un coup vous vient lors du duel avec Komeki !
+
+
+    Bloquer avec 1 barre de Furia augmente la jauge,
+
+    et rien sauf couteaux et balles ne peut vous
+
+    déstabiliser.
+
+
+    Pratiquez-le contre Komeki.        '
+- id: sys_one_advantage_of_the
+  en: |-
+    One advantage of the Rush style is you can evade with
+    a series of Quicksteps by pressing <Sign:3> repeatedly.
+    You can combo up to three of them together.
+
+    Use this to avoid enemy attacks and wipe them out
+    without taking any damage.
+  fr: 'L''atout du style Rush est d''esquiver en série via
+
+    <Sign:3>. Enchaînez jusqu''à trois esquives d''affilée.
+
+
+    Utilisez cela pour éviter les assauts ennemis et les
+
+    éliminer sans subir le moindre dégât.          '
+- id: sys_once_the_heat_gauge
+  en: |-
+    Once the Heat Gauge shifts to the 2nd or 3rd bar,
+    Kiryu's body begins to glow with a blue aura.
+
+    This is called Heat Mode, and it signals that you
+    can use special Heat Actions.
+
+    Try using Heat Actions while sobering up the
+    drunkards.
+  fr: 'À la 2e ou 3e barre de Furia, le corps de Kiryu
+
+    s''illumine d''une aura bleue.
+
+
+    C''est le Mode Furia, indiquant que vous pouvez
+
+    lancer des Actions Furia dévastatrices.
+
+
+    Testez les Actions Furia sur les ivrognes.    '
+- id: sys_the_second_law_of
+  en: |-
+    The Second Law of Management
+
+    "The Customer is King." Even in the worst of times,
+    you must never forget to provide only the finest
+    service possible.
+
+    Patience shall be rewarded, as now it is time to
+    show all your customers the ultimate in hospitality.
+  fr: '2e règle de gestion
+
+
+    " Le client est roi. " Même au pire moment, vous
+
+    devez offrir un service impeccable.
+
+
+    La patience est récompensée : offrez à vos clients
+
+    une hospitalité incomparable.                        '
+- id: sys_pull_off_an_extra
+  en: |-
+    Pull off an extra attack from a Freeze Pose!
+
+    Trigger a <Sign:2> attack followed by a <Sign:1> combo
+    attack to finish with a Freeze Pose.
+
+    From this pose you can unleash an additional attack--
+    a Finishing Blow called the Double Breaker.
+
+    See if you can pull off a Freeze Pose.
+  fr: 'Lancez une attaque bonus depuis une pose figée !
+
+
+    Enchaînez <Sign:2> puis <Sign:1> pour finir en pose
+
+    figée.
+
+
+    De là, portez un coup supplémentaire :
+
+    le coup de grâce Double Danseur.
+
+
+    Réussissez une pose figée.             '
+- id: sys_use_rush_style_moves
+  en: 'Use Rush style moves to crush Bruno and show him
+
+    who''s boss.
+
+
+    When using the Rush style, you can stun enemies by
+
+    hitting them a certain number of times.
+
+
+    Attacks on stunned enemies will knock them down
+
+    without fail, so <Sign:2> attacks are effective
+
+    against foes that are hard to knock to the ground. '
+  fr: 'Utilisez le style Rush pour corriger Bruno.
+
+
+    Le style Rush permet d''étourdir l''ennemi en le
+
+    touchant un certain nombre de fois.
+
+
+    Les coups sur ennemi étourdi le renversent à coup
+
+    sûr, les attaques <Sign:2> sont donc idéales contre
+
+    les adversaires durs à mettre à terre.           '
+- id: sys_you_learned_the_slugger_1
+  en: |-
+    You learned the Slugger style!
+    This fighting style focuses on the use of bats.
+    The bat boosts your offensive potential, while also
+    providing more defense than your bare hands.
+
+    The variety of swings, thrusts, and spins you can
+    perform with a bat gives you a range of options
+    that rivals or surpasses other weapons.
+  fr: 'Vous apprenez le style Batteur !
+
+    Ce style repose sur le maniement de la batte.
+
+    La batte décuple votre attaque tout en offrant
+
+    une meilleure défense que vos mains nues.
+
+
+    La variété de frappes et tourbillons à la batte
+
+    vous donne un éventail de coups surpassant bien
+
+    d''autres armes.                     '
+- id: sys_you_learned_the_rush_2
+  en: |-
+    You learned the Rush style!
+    This fighting style focuses on speed.
+    Run rings around the enemy with <Sign:2> attack combos
+    and <Sign:3> evasion combos.
+
+    You can stun enemies by striking them with a series of
+    swift, precise, Rush style attacks. Pummeling stunned
+    enemies with blows will do more damage to them than
+    usual.
+  fr: 'Vous apprenez le style Rush !
+
+    Ce style repose entièrement sur la vitesse.
+
+    Tournez autour de l''ennemi avec combos <Sign:2>
+
+    et esquives <Sign:3>.
+
+
+    Étourdissez l''ennemi d''une série de coups rapides.
+
+    Frapper un ennemi étourdi lui inflige bien plus
+
+    de dégâts que la normale.                      '
+- id: sys_the_three_blue_glowing
+  en: |-
+    The three blue, glowing bars on the top left are called
+    the Heat Gauge.
+
+    The Heat Gauge starts at 1st bar, and as your attacks
+    hit enemies, the gauge fills up, shifting to the 2nd
+    then 3rd bar.
+
+    At each level your speed increases. Some moves
+    require a certain level of Heat, so once you are
+    used to fighting, keep an eye on your Heat level.
+  fr: 'Les trois barres bleues en haut à gauche forment la
+
+    jauge de Furia.
+
+
+    Elle démarre à 1 et se remplit à mesure que vous
+
+    touchez l''ennemi, passant au niveau 2 puis 3.
+
+
+    Chaque niveau augmente votre vitesse. Certains coups
+
+    exigent un seuil de Furia, surveillez donc votre jauge
+
+    en combat régulier.                              '
+- id: sys_the_yellow_gauge_on
+  en: |-
+    The yellow gauge on the top left indicates your
+    health. The game will end if the yellow part is fully
+    depleted, so keep an eye on your health at all times.
+
+    If the gauge flashes red, it means you're in very bad
+    shape and should replenish your health immediately.
+
+    Health recovery methods:
+     - Use a recovery item
+     - Eat something at an eatery
+  fr: "La jauge jaune en haut à gauche indique votre santé.\nLa partie prend fin si\
+    \ elle est vide, gardez un oeil\ndessus en permanence.\n\nSi la jauge clignote\
+    \ en rouge, soignez-vous vite.\n\nMoyens de récupération :\n - Utiliser un soin\
+    \ de l'inventaire\n - Manger dans un restaurant                     "
+- id: sys_you_learned_the_beast_1
+  en: 'You learned the Beast style!
+
+    This fighting style focuses on power. It gets its
+
+    name from the animalistic fury unleashed as you
+
+    demolish all in your path, swinging enemy and weapon
+
+    alike.
+
+
+    It also adds extra resistance to the guard
+
+    ability, making you immune to knockdowns from
+
+    ordinary attacks. Use this style to wreak havoc
+
+    while staying on your feet. '
+  fr: 'Vous apprenez le style Beast !
+
+    Ce style repose sur la force brute et la furie
+
+    animale qui détruit tout sur son passage, projetant
+
+    ennemis et objets.
+
+
+    Il renforce aussi la garde, vous immunisant contre
+
+    les renversements des coups ordinaires. Semez le chaos
+
+    tout en restant debout.                                 '
+- id: sys_your_training_is_now_1
+  en: |-
+    Your training is now complete.
+    That concludes the explanation of the Heat Gauge
+    and special moves, but the two drunkards still need
+    some sobriety beaten into them.
+
+    If you take a fighting stance using <Sign:4>, movement
+    with <Sign:45> will center around the enemy in front of
+    you. This is effective when you want to focus your
+    attacks on a single enemy.
+  fr: 'Entraînement terminé.
+
+    Voilà pour la jauge de Furia et les coups spéciaux,
+
+    mais ces deux ivrognes ont encore besoin d''une bonne
+
+    leçon pour dessoûler.
+
+
+    En garde <Sign:4>, les déplacements <Sign:45> se
+
+    centrent sur l''ennemi en face de vous, idéal pour
+
+    concentrer vos attaques sur une seule cible.          '
+- id: sys_your_training_is_now_2
+  en: |-
+    Your training is now complete. It's time to wipe
+    the smirks off your opponents' faces.
+
+    If you get hit, you can strike back right away using
+    <Sign:2>, <Sign:1>, or <Sign:0>. This is called a Resolute Counter.
+
+    You can gain money by knocking down or defeating
+    enemies. Depending on how you do it, you might get a
+    bonus too, so try a range of different moves.
+  fr: |-
+    Entraînement terminé. Effacez ce sourire narquois du
+    visage de vos adversaires.
+
+    Si vous êtes touché, ripostez aussitôt avec <Sign:2>,
+    <Sign:1> ou <Sign:0>. C'est la Riposte résolue.
+
+    Terrasser un ennemi rapporte de l'argent avec des
+    bonus selon votre style de combat. Variez vos coups !
+- id: sys_mr_shakedown_is_an
+  en: |-
+    Mr. Shakedown is an arrogant bully who roams
+    around town. He overwhelms victims with his massive
+    physique and power, then robs them of their money
+    before disappearing.
+
+    When you battle Mr. Shakedown there are some
+    special rules. Each time you land a blow you'll
+    receive money, but each you get hit you'll lose some.
+    Be very careful when you go up against him!
+  fr: |-
+    M. Shakedown est un colosse arrogant qui écume la
+    ville. Il écrase ses victimes de sa force herculéenne
+    et leur dérobe tout leur argent avant de disparaître.
+
+    Le combat contre lui obéit à des règles spéciales :
+    chaque coup porté rapporte de l'argent, chaque coup
+    reçu vous en fait perdre. Soyez extrêmement prudent !
+- id: sys_when_using_beast_style
+  en: |-
+    When using Beast style, holding <Sign:6> to guard lets
+    you withstand enemy attacks with the Resist Guard.
+    You will take a certain amount of damage, but you are
+    protected against attacks coming from any direction.
+
+    Bolstering your defense by equipping gear in the
+    Pause menu further reduces the damage you take with
+    Resist Guard. Be sure to equip any gear you find.
+  fr: 'En style Beast, maintenir <Sign:6> déclenche la Garde
+
+    résistante. Vous subissez quelques dégâts légers mais
+
+    êtes protégé des attaques de toutes directions.
+
+
+    Équiper des protections via le menu Pause réduit encore
+
+    les dégâts subis en Garde résistante. Pensez à équiper
+
+    tout équipement trouvé en ville.                      '
+- id: sys_fought
+  en: ' fought'
+  fr: ' combats'
+- id: sys_lost
+  en: ' lost'
+  fr: ' défaites'
+- id: sys_won
+  en: ' won'
+  fr: ' victoires'
+- id: sys_licensed_assassinations
+  en: '"Licensed" Assassinations'
+  fr: Assassinats « officiels »
+- id: sys_no_body_no_crime
+  en: '"No Body, No Crime"'
+  fr: « Pas de corps, pas de crime »
+- id: sys_entry
+  en: '%'
+  fr: '%'
+- id: sys_1_defeat_opponents_in
+  en: '1. Defeat opponents in three fights to win the tournament.
+
+
+    2. 30% of max HP is restored in between fights.
+
+
+    3. Prize money is won for each defeated opponent.
+
+    '
+  fr: '1. Battez 3 adversaires consécutifs pour remporter le tournoi.
+
+
+    2. 30 % de vos PV max sont restaurés entre chaque combat.
+
+
+    3. Une prime est remportée pour chaque adversaire vaincu.
+
+    '
+- id: sys_1_you_can_continue
+  en: "1. You can continue fighting as long as you have HP left.\n\n2. You can pay\
+    \ to restore HP between fights.\n\n3. Prize money is won for each defeated opponent.\n\
+    \n4. After each five fights won, you can choose whether to continue.\n\n5. The\
+    \ rule set changes every five battles.\nã\x80\x80"
+  fr: '1. Vous continuez à combattre tant qu''il vous reste des PV.
+
+
+    2. Vous pouvez payer pour récupérer des PV entre les combats.
+
+
+    3. Une prime est remportée pour chaque adversaire vaincu.
+
+
+    4. Tous les 5 combats gagnés, vous pouvez choisir de continuer.
+
+
+    5. Les règles changent tous les 5 combats.
+
+    '
+- id: sys_10_counts_of_murder
+  en: 10 Counts of Murder
+  fr: 10 chefs de meurtre
+- id: sys_10_unproven_murders
+  en: 10 Unproven Murders
+  fr: 10 meurtres non prouvés
+- id: sys_1st_match
+  en: 1st Match
+  fr: 1er match
+- id: sys_20_counts_of_murder
+  en: 20 Counts of Murder
+  fr: 20 chefs de meurtre
+- id: sys_200_accidental_shootings
+  en: 200 "Accidental" Shootings
+  fr: 200 fusillades « accidentelles »
+- id: sys_3000_bicycle_thefts
+  en: 3000 Bicycle Thefts
+  fr: 3 000 vols de bicyclettes
+- id: sys_50_murder_attempts
+  en: 50 Murder Attempts
+  fr: 50 tentatives de meurtre
+- id: sys_entry_1
+  en: ???
+  fr: ???
+- id: sys_a_french_aristocrat_who
+  en: |-
+    A French aristocrat who claims to be a direct
+    descendant of the Marquis de Sade. He finds pleasure
+    in causing pain to others, and entered the Bed of Styx
+    specifically to satisfy his sadistic desires.
+  fr: |-
+    Un aristocrate français affirmant être le descendant
+    direct du marquis de Sade. Il ne tire son plaisir que
+    de la souffrance d'autrui et est entré au Lit du Styx
+    pour assouvir ses pulsions sadiques.
+- id: sys_a_bicycle_courier_who
+  en: |-
+    A bicycle courier who used his speed to commit
+    snatch-and-run robberies. Wajima became known as the
+    fastest thief in Tokyo.
+  fr: |-
+    Un coursier à vélo exploitant sa pointe de vitesse pour
+    commettre des vols à l'arraché. Wajima est vite devenu le
+    voleur le plus rapide de Tokyo.
+- id: sys_a_circus_filled_with
+  en: |-
+    A circus filled with the sort of clowns that give children nightmares. The shows staged
+    here display never-before-seen levels of aggression and unprecedented ultraviolence.
+  fr: |-
+    Un cirque rempli de bouffons tout droit sortis de cauchemars d'enfants.
+    Les spectacles donnés ici atteignent des sommets d'agressivité et d'ultraviolence inouïe.
+- id: sys_a_con_artist_who
+  en: |-
+    A con artist who targeted wealthy widows, marrying
+    them before murdering them for their fortunes.
+    Tatsuarashi was caught after his seventh victim.
+  fr: |-
+    Un escroc ciblant de riches veuves, les épousant avant
+    de les assassiner pour capter leur héritage.
+    Tatsuarashi a été démasqué après sa septième victime.
+- id: sys_a_con_man_and
+  en: |-
+    A con man and master of disguise who stole the
+    identities of over twenty high-ranking officials
+    before being captured.
+  fr: |-
+    Un escroc et maître du déguisement ayant usurpé
+    l'identité de plus d'une vingtaine de hauts dignitaires
+    avant d'être appréhendé.
+- id: sys_a_cook_who_used
+  en: |-
+    A cook who used his restaurant as a cover for
+    his cannibalistic meals. He served meat from his
+    victims to unsuspecting customers, until a skull
+    was found in the restaurant kitchen.
+  fr: |-
+    Un chef cuisinier utilisant son restaurant comme vitrine
+    pour ses repas cannibales. Il servait la chair de ses
+    victimes aux clients à leur insu, jusqu'à ce qu'un crâne
+    soit découvert dans les cuisines.
+- id: sys_a_doctor_who_used
+  en: |-
+    A doctor who used his patients as guinea pigs for
+    his experiments. He was also involved in black
+    market human organ trafficking, and used his profits
+    to build a vast fortune before being caught.
+  fr: |-
+    Un médecin utilisant ses patients comme cobayes
+    pour ses expériences. Il a également trempé dans le
+    trafic d'organes au marché noir, bâtissant une immense
+    fortune avant d'être finalement démasqué.
+- id: sys_a_former_cop_who
+  en: |-
+    A former cop who abused his power to shake down
+    innocent people. When a yakuza mob took revenge on
+    him by killing his family, Tsuji massacred them all
+    while drunk. Feared for his extreme ruthlessness.
+  fr: |-
+    Ex-policier ayant abusé de son pouvoir pour racketter
+    des innocents. Quand un clan yakuza s'est vengé en tuant
+    sa famille, Tsuji les a tous massacrés sous l'emprise
+    de l'alcool. Célèbre pour son impitoyable cruauté.
+- id: sys_a_former_cop_who_1
+  en: |-
+    A former cop who got his revenge by killing the
+    underworld gang that took the lives of his wife and
+    child. He is a master of escaping prison, having
+    broken out from every facility he was locked up in
+    up to now.
+  fr: |-
+    Un ex-policier s'étant vengé en éliminant le gang qui
+    avait ôté la vie à sa femme et son enfant. Passé maître
+    dans l'art de l'évasion, il s'est échappé de toutes
+    les prisons où il a été incarcéré jusqu'à présent.
+- id: sys_a_former_mystery_writer
+  en: |-
+    A former mystery writer who decided to commit the
+    crimes he wrote about in real life. Ogasawara claims
+    every crime he committed was a work of art.
+  fr: |-
+    Ancien auteur de romans policiers ayant décidé de
+    perpétrer ses crimes fictifs dans la vie réelle.
+    Ogasawara affirme que chacun de ses meurtres était
+    une véritable oeuvre d'art.
+- id: sys_a_former_superhero_tv
+  en: |-
+    A former superhero TV actor who developed a god
+    complex. He believes he is genuinely cleansing the
+    world of evil through violence.
+  fr: |-
+    Un ancien acteur de séries de super-héros ayant sombré
+    dans le complexe du messie. Il est convaincu de purifier
+    le monde du mal par la violence la plus pure.
+- id: sys_a_grave_robber_who
+  en: |-
+    A grave robber who collected parts from human
+    bodies. His house was found to be filled with
+    preserved body parts when police raided it.
+  fr: |-
+    Un pilleur de tombes collectionnant des morceaux de corps
+    humains. Lors de la perquisition policière, sa demeure
+    s'est révélée regorger d'organes conservés dans des bocaux.
+- id: sys_a_hellhole_forsaken_by
+  en: |-
+    A hellhole forsaken by heaven but not by the devil, who throws down helpful "gifts" to
+    the contenders. All he wants in return is to hear their mad screams of pain and anguish.
+  fr: |-
+    Un trou à rats abandonné des dieux mais pas du diable, qui octroie de précieux « cadeaux »
+    aux combattants. En échange, il ne réclame que leurs hurlements d'agonie et de terreur.
+- id: sys_a_hitman_who_works
+  en: |-
+    A hitman who works while disguised as a clown.
+    He is known to dance while shooting his victims,
+    treating assassinations as stage performances.
+  fr: |-
+    Un tueur à gages opérant sous les traits d'un clown.
+    Il est réputé pour danser tout en abattant ses victimes,
+    traitant chaque meurtre comme un spectacle de scène.
+- id: sys_a_legendary_undefeated_underground
+  en: |-
+    A legendary, undefeated underground fighter who was
+    sent to the Bed of Styx when he killed his opponent
+    in the ring. Puncher has an extremely high pain
+    threshold, and doesn't flinch even if stabbed.
+  fr: |-
+    Combattant clandestin de légende invaincu, envoyé au
+    Lit du Styx après avoir tué son adversaire sur le ring.
+    Puncher a une tolérance à la douleur si élevée qu'il
+    ne cille même pas sous les coups de couteau.
+- id: sys_a_mercenary_active_in
+  en: |-
+    A mercenary active in battlefields all around the
+    globe, G.J. hates all human beings equally. He has
+    killed so many people he lost count, and is wanted
+    in numerous countries. He is rumored to have entered
+    the Bed of Styx just to seek strong opponents.
+  fr: |-
+    Mercenaire ayant écumé les champs de bataille du monde
+    entier, G.J. voue une haine égale à tout le genre humain.
+    Ayant tué tellement de gens qu'il en a perdu le compte,
+    il est entré au Styx uniquement pour trouver des rivaux.
+- id: sys_a_mysterious_contender_with
+  en: |-
+    A mysterious contender with huge potential.
+    Nothing is known about the crimes he's guilty of,
+    and he doesn't seem to have a set fighting style
+    either. Like the dragon tattoo on his back, his
+    fighting skills still seem to be developing.
+  fr: |-
+    Un mystérieux combattant au potentiel titanesque.
+    On ignore tout des crimes dont il est coupable,
+    et il ne semble avoir aucun style prédéfini.
+    À l'image du dragon tatoué sur son dos, ses
+    talents martiaux semblent encore en plein essor.
+- id: sys_a_poacher_who_hunted
+  en: |-
+    A poacher who hunted endangered animals before
+    turning his attention to hunting human beings.
+    Gondo treats every fight like a safari hunt.
+  fr: |-
+    Un braconnier ayant traqué des espèces menacées avant
+    de se tourner vers la chasse à l'homme.
+    Gondo aborde chaque combat comme un safari grandeur nature.
+- id: sys_a_politician_who_used
+  en: |-
+    A politician who used bribery and violence to win
+    elections. When his crimes were brought to light,
+    he attempted to hire a hitman to kill the prosecutor
+    handling his case.
+  fr: |-
+    Un politicien ayant usé de corruption et de violence
+    pour remporter ses élections. Quand l'affaire a éclaté,
+    il a tenté d'engager un tueur à gages pour abattre
+    le procureur en charge du dossier.
+- id: sys_a_stage_for_seasoned
+  en: |-
+    A stage for seasoned fighters who have pleased the crowd with many brutal performances.
+    But even these tough contenders are known to beg for mercy when death approaches.
+  fr: |-
+    Une arène pour combattants chevronnés ayant conquis la foule par leur brutalité.
+    Pourtant, même ces durs à cuire supplient qu'on les épargne quand la mort approche.
+- id: sys_a_stage_for_weapon
+  en: |-
+    A stage for weapon connoisseurs. You may still fight bare-handed, of course, provided
+    you can dish out some moves that will make the audience (and your opponent) scream.
+  fr: |-
+    Une arène pour connaisseurs d'armes blanches. Le combat à mains nues reste permis,
+    à condition d'asséner des coups capables de faire hurler la foule et votre adversaire.
+- id: sys_a_thief_and_murderer
+  en: |-
+    A thief and murderer sentenced to death, he
+    somehow managed to survive the hanging. It was
+    legally impossible to repeat the execution, and
+    the police feared he'd go on another killing spree
+    if released, so they sent him here instead.
+  fr: |-
+    Voleur et meurtrier condamné à mort, il a miraculeusement
+    survécu à la pendaison. La loi interdisant une seconde
+    exécution et la police redoutant un nouveau carnage
+    s'il était libéré, il a été envoyé ici.
+- id: sys_a_weapons_supplier_who
+  en: |-
+    A weapons supplier who would sell to anyone, as
+    long as the price was right. He became hated by both
+    armies in an African civil war, who ended up teaming
+    up to sell him into the Bed of Styx. Abbas is an
+    experienced fighter who knows how to use every
+    weapon in his collection.
+  fr: |-
+    Un marchand d'armes prêt à vendre à quiconque au juste
+    prix. Haï par les deux camps d'une guerre civile africaine,
+    ces derniers se sont unis pour le vendre au Lit du Styx.
+    Abbas maîtrise parfaitement chaque arme de sa collection.
+- id: sys_abhorrent_assassin
+  en: Abhorrent Assassin
+  fr: Assassin abominable
+- id: sys_abyssal_romp
+  en: Abyssal Romp
+  fr: Ébat abyssal
+- id: sys_accidental_murder
+  en: Accidental(?) Murder
+  fr: Meurtre accidentel (?)
+- id: sys_adv_duelist_fiend_frolic
+  en: 'Adv. Duelist: Fiend Frolic'
+  fr: 'Duelliste avancé : Festin pernicieux'
+- id: sys_agent_of_vengeance
+  en: Agent of Vengeance
+  fr: Agent de la vengeance
+- id: sys_american_ninja
+  en: American Ninja
+  fr: Le ninja américain
+- id: sys_an_agent_employed_by
+  en: |-
+    An agent employed by an American security service,
+    Asagiri was arrested while executing an assassination
+    mission in Japan. Rumors say he is secretly supported
+    by his government, with the aim of taking over the
+    Bed of Styx from the inside.
+  fr: |-
+    Agent des services secrets américains, Asagiri a été
+    arrêté lors d'une mission d'assassinat au Japon.
+    Certains affirment qu'il est soutenu par son pays pour
+    prendre le contrôle du Lit du Styx de l'intérieur.
+- id: sys_an_assassin_belonging_to
+  en: |-
+    An assassin belonging to an Italian mafia family.
+    Arrested in Japan while trying to smuggle weapons
+    into the country, and subsequently brought to the
+    Bed of Styx. Valeno loves sweets and cannot do
+    without a mouthful of chocolate before a fight.
+  fr: |-
+    Un assassin de la mafia italienne. Arrêté au Japon
+    en tentant d'y faire entrer des armes clandestinement,
+    puis transféré au Lit du Styx. Valeno adore les sucreries
+    et ne combat jamais sans croquer un morceau de chocolat.
+- id: sys_an_exyakuza_expelled_from
+  en: |-
+    An ex-yakuza expelled from his clan for extreme
+    brutality. Yanai was known to bite off the fingers
+    of anyone who offended him.
+  fr: |-
+    Un ancien yakuza banni de sa famille pour son extrême
+    brutalité. Yanai était connu pour arracher avec ses dents
+    les doigts de quiconque lui manquait de respect.
+- id: sys_arowana
+  en: Arowana
+  fr: Arowana argenté
+- id: sys_assault_and_vandalism
+  en: Assault and Vandalism
+  fr: Agression et vandalisme
+- id: sys_attempts
+  en: Attempts
+  fr: Tentatives
+- id: sys_author_of_the_perfect
+  en: Author of the Perfect Crime
+  fr: Auteur du crime parfait
+- id: sys_axolotl
+  en: Axolotl
+  fr: Axolotl
+- id: sys_baccarat
+  en: Baccarat
+  fr: Baccara
+- id: sys_back
+  en: Back
+  fr: Retour
+- id: sys_balanced_frame
+  en: Balanced Frame
+  fr: Cadre équilibré
+- id: sys_balanced_frame_plus
+  en: Balanced Frame Plus
+  fr: Cadre équilibré Plus
+- id: sys_balanced_gears
+  en: Balanced Gears
+  fr: Transmission équilibrée
+- id: sys_balanced_gears_plus
+  en: Balanced Gears Plus
+  fr: Transmission équilibrée Plus
+- id: sys_balanced_motor
+  en: Balanced Motor
+  fr: Moteur équilibré
+- id: sys_balanced_motor_plus
+  en: Balanced Motor Plus
+  fr: Moteur équilibré Plus
+- id: sys_baoli_was_involved_in
+  en: |-
+    Baoli was involved in an attempted coup d'état
+    in his home country. When the coup failed, he fled
+    to Japan, where he was eventually arrested.
+  fr: |-
+    Baoli a trempé dans une tentative de coup d'État dans son
+    pays d'origine. Après l'échec de la révolte, il a fui au
+    Japon où il a finalement été interpellé.
+- id: sys_bare_fury_adv_devil
+  en: 'Bare Fury Adv.: Devil Frolic'
+  fr: 'Fureur avancé : Festin du diable'
+- id: sys_bare_fury_bgn_devil
+  en: 'Bare Fury Bgn.: Devil Spree'
+  fr: 'Fureur débutant : Déferlement démoniaque'
+- id: sys_bare_fury_int_devil
+  en: 'Bare Fury Int.: Devil Rout'
+  fr: 'Fureur moyen : Déroute du diable'
+- id: sys_bare_fury_ult_devil
+  en: 'Bare Fury Ult.: Devil Circus'
+  fr: 'Fureur ultime : Cirque démoniaque'
+- id: sys_basic_rules
+  en: Basic Rules
+  fr: Règles de base
+- id: sys_batting_center
+  en: Batting Center
+  fr: Centre de frappe
+- id: sys_battle_records
+  en: Battle Records
+  fr: Historique des combats
+- id: sys_before_he_landed_here
+  en: |-
+    Before he landed here, he was a professional
+    fighter who had not been defeated even once in 80
+    matches. All of his opponents died in the ring,
+    beaten to death by this murderous madman who
+    reveled in being able to kill with impunity. One
+    day he got on the bad side of the local mafia, who
+    decided that his place was in the Bed of Styx.
+  fr: |-
+    Avant d'échouer ici, il était un boxeur professionnel
+    invaincu en 80 combats. Tous ses adversaires ont péri sur le ring,
+    battus à mort par ce forcené sanguinaire jubilant de tuer en toute
+    impunité. Le jour où il s'est mis à dos la mafia locale, ces derniers
+    ont décidé que sa vraie place était au Lit du Styx.
+- id: sys_befriend_ayaka
+  en: Befriend Ayaka
+  fr: Se lier d'amitié avec Ayaka
+- id: sys_befriend_haruki
+  en: Befriend Haruki
+  fr: Se lier d'amitié avec Haruki
+- id: sys_befriend_riku
+  en: Befriend Riku
+  fr: Se lier d'amitié avec Riku
+- id: sys_beyond_the_reach_of
+  en: Beyond the Reach of Law
+  fr: Au-dessus des lois
+- id: sys_bgn_duelist_fiend_spree
+  en: 'Bgn. Duelist: Fiend Spree'
+  fr: 'Duelliste débutant : Déferlement pernicieux'
+- id: sys_big_bad_yakuza_reject
+  en: Big Bad Yakuza Reject
+  fr: Rebut de yakuza sanguinaire
+- id: sys_biting
+  en: Biting
+  fr: Morsures
+- id: sys_black_bass
+  en: Black Bass
+  fr: Achigan à grande bouche
+- id: sys_blackjack
+  en: Blackjack
+  fr: Blackjack
+- id: sys_body_crushing
+  en: Body Crushing
+  fr: Broyeur de corps
+- id: sys_boost_gears
+  en: Boost Gears
+  fr: Transmission suralimentée
+- id: sys_boost_gears_plus
+  en: Boost Gears Plus
+  fr: Transmission suralimentée Plus
+- id: sys_born_in_japan_raised
+  en: |-
+    Born in Japan, raised in America. Hanzo is
+    said to have killed over 50 people using various
+    ninjustu techniques he taught himself. His biggest
+    weakness is that he cannot keep his mouth shut, and
+    he was arrested after bragging about his crimes at a
+    local pub.
+  fr: |-
+    Né au Japon, élevé aux États-Unis. Hanzo aurait tué
+    plus de 50 personnes grâce aux techniques de ninjutsu
+    qu'il a apprises en autodidacte. Son point faible : ne pas
+    savoir tenir sa langue, ce qui lui valut d'être arrêté
+    après s'être vanté de ses forfaits dans un bar.
+- id: sys_bowling
+  en: Bowling
+  fr: Bowling
+- id: sys_brawling_punches
+  en: Brawling Punches
+  fr: Coups de poing de bagarreur
+- id: sys_brazil
+  en: Brazil
+  fr: Brésil
+- id: sys_bunchan_the_java_sparrow
+  en: Bunchan the Java Sparrow (Pink)
+  fr: Bunchan le moineau de Java (rose)
+- id: sys_bunchan_the_java_sparrow_1
+  en: Bunchan the Java Sparrow (White)
+  fr: Bunchan le moineau de Java (blanc)
+- id: sys_burning_dance_inferno_romp
+  en: 'Burning Dance: Inferno Romp'
+  fr: 'Danse brûlante : Ébat infernal'
+- id: sys_cancel
+  en: Cancel
+  fr: Annuler
+- id: sys_cannibalism
+  en: Cannibalism
+  fr: Cannibalisme
+- id: sys_cannibalistic_cook
+  en: Cannibalistic Cook
+  fr: Le cuisinier cannibale
+- id: sys_catch_each_type_of
+  en: Catch each type of freshwater fish.
+  fr: Pêchez chaque type de poisson d'eau douce.
+- id: sys_catch_each_type_of_1
+  en: Catch each type of saltwater fish.
+  fr: Pêchez chaque type de poisson d'eau de mer.
+- id: sys_catfights
+  en: Catfights
+  fr: Combats de catch
+- id: sys_ceelo
+  en: Cee-lo
+  fr: Cee-lo
+- id: sys_champions_cup
+  en: Champions' Cup
+  fr: Coupe des champions
+- id: sys_chapman_specialized_in_making
+  en: |-
+    Chapman specialized in making bodies disappear.
+    His motto was 'No body, no crime', until one of his
+    hiding spots was discovered by chance by a hiker.
+  fr: |-
+    Chapman était un spécialiste de la disparition de corps.
+    Sa devise : « Pas de corps, pas de crime », jusqu'à ce
+    qu'une de ses fosses soit découverte par un randonneur.
+- id: sys_chestnut_the_squirrel_blue
+  en: Chestnut the Squirrel (Blue)
+  fr: Châtaigne l'écureuil (bleu)
+- id: sys_chestnut_the_squirrel_red
+  en: Chestnut the Squirrel (Red)
+  fr: Châtaigne l'écureuil (rouge)
+- id: sys_chidori_suffers_from_a
+  en: |-
+    Chidori suffers from a severe personality disorder.
+    In his gentle state, he wouldn't hurt a fly, but
+    his aggressive personality is prone to violent,
+    uncontrollable outbursts.
+  fr: |-
+    Chidori souffre d'un trouble sévère de la personnalité.
+    Sous son jour doux, il ne ferait pas de mal à une mouche,
+    mais son alter ego est sujet à des crises de violence
+    totalement incontrôlables.
+- id: sys_china
+  en: China
+  fr: Chine
+- id: sys_chohan
+  en: Cho-han
+  fr: Cho-han
+- id: sys_clown_with_cops_in
+  en: Clown with Cops in His Pocket
+  fr: Clown aux flics corrompus
+- id: sys_coelacanth
+  en: Coelacanth
+  fr: Coelacanthe
+- id: sys_colombian_lord_of_fear
+  en: Colombian Lord of Fear
+  fr: Seigneur de la terreur colombien
+- id: sys_concealed_weapons
+  en: Concealed Weapons
+  fr: Armes dissimulées
+- id: sys_conger_eel
+  en: Conger Eel
+  fr: Congre
+- id: sys_connect_to_the_playstationnetwork
+  en: |-
+    Connect to the PlayStation~Network to access
+    the following features in Yakuza 0:
+
+    1. Special item packs
+    2. Online play for certain minigames
+
+    *Requires broadband connection.
+  fr: |-
+    Connectez-vous en ligne pour accéder aux fonctionnalités
+    suivantes dans Yakuza 0 :
+
+    1. Packs d'objets spéciaux
+    2. Jeu en ligne pour certains mini-jeux
+
+    *Connexion Internet requise.
+- id: sys_conspiracy
+  en: Conspiracy
+  fr: Conspiration
+- id: sys_contract_killing
+  en: Contract Killing
+  fr: Contrat d'assassinat
+- id: sys_controls
+  en: Controls
+  fr: Commandes
+- id: sys_corruption_and_match_fixing
+  en: Corruption and Match Fixing
+  fr: Corruption et matchs truqués
+- id: sys_coup_detat_instigator
+  en: Coup d'Etat Instigator
+  fr: Instigateur de coup d'État
+- id: sys_crafting_support_pack
+  en: Crafting Support Pack
+  fr: Pack Soutien Artisanat
+- id: sys_crayfish
+  en: Crayfish
+  fr: Écrevisse
+- id: sys_crucian
+  en: Crucian
+  fr: Carassin
+- id: sys_cruel_combos
+  en: Cruel Combos
+  fr: Combos cruels
+- id: sys_crushing_fist
+  en: Crushing Fist
+  fr: Poing broyeur
+- id: sys_darts
+  en: Darts
+  fr: Fléchettes
+- id: sys_date_all_girls_and
+  en: Date all girls and get their numbers.
+  fr: Rencontrez toutes les filles et obtenez leurs numéros.
+- id: sys_deadly_spear_hand
+  en: Deadly Spear Hand
+  fr: Main de lance mortelle
+- id: sys_death_cures_all_pain
+  en: Death Cures All Pain
+  fr: La mort guérit toute douleur
+- id: sys_demon_bear_became_infamous
+  en: |-
+    Demon Bear became infamous after killing and eating
+    a total of 30 women. Although he managed to avoid
+    arrest, he was captured by the bereaved families of
+    his victims and brought to the Bed of Styx.
+  fr: |-
+    Demon Bear est devenu tristement célèbre après avoir
+    tué et dévoré 30 femmes. Bien qu'ayant échappé à la police,
+    il fut capturé par les familles endeuillées de ses
+    victimes et jeté dans l'arène du Lit du Styx.
+- id: sys_demonic_romp
+  en: Demonic Romp
+  fr: Ébat des démons
+- id: sys_devil_circus
+  en: Devil Circus
+  fr: Cirque démoniaque
+- id: sys_devil_frolic
+  en: Devil Frolic
+  fr: Festin du diable
+- id: sys_devil_rout
+  en: Devil Rout
+  fr: Déroute du diable
+- id: sys_devil_spree
+  en: Devil Spree
+  fr: Déferlement démoniaque
+- id: sys_diabol_carried_out_surgery
+  en: |-
+    Diabol carried out surgery on himself to push his
+    body beyond human limits. He tested his power by
+    killing innocent people, until the families of
+    his victims pushed the police van carrying him
+    into the Sea of Okhotsk. He was later seen alive
+    in Hokkaido. Rumors say most of the reported bear
+    maulings in the area around that time were
+    actually his doing.
+  fr: |-
+    Diabol s'est opéré lui-même pour repousser les
+    limites de son corps. Il testait sa force en tuant
+    des innocents, jusqu'à ce que les familles de ses
+    victimes précipitent son fourgon pénitentiaire dans
+    la mer d'Okhotsk. Aperçu vivant plus tard à Hokkaido,
+    on murmure que la plupart des attaques d'ours dans
+    la région étaient en fait son oeuvre.
+- id: sys_difficulty
+  en: Difficulty
+  fr: Difficulté
+- id: sys_disco
+  en: Disco
+  fr: Disco
+- id: sys_dont_enter_a_tournament
+  en: Don't enter a tournament.
+  fr: Ne pas participer à un tournoi.
+- id: sys_dragon_strike
+  en: Dragon Strike
+  fr: Frappe du dragon
+- id: sys_dragon_of_dojima_pack
+  en: Dragon of Dojima Pack
+  fr: Pack Dragon de Dojima
+- id: sys_drunken_master
+  en: Drunken Master
+  fr: Maître ivre
+- id: sys_dueling_murder
+  en: Dueling & Murder
+  fr: Duel et meurtre
+- id: sys_eel
+  en: Eel
+  fr: Anguille
+- id: sys_endless_rout
+  en: Endless Rout
+  fr: Déroute infinie
+- id: sys_endless_rout_rules
+  en: Endless Rout Rules
+  fr: Règles de la Déroute infinie
+- id: sys_enter_tournament
+  en: Enter Tournament
+  fr: Participer au tournoi
+- id: sys_enter_a_standard_tournament
+  en: Enter a standard tournament.
+  fr: Participer à un tournoi standard.
+- id: sys_enter_an_endless_rout
+  en: Enter an Endless Rout tournament.
+  fr: Participer au tournoi de Déroute infinie.
+- id: sys_escaped_convict_impersonator
+  en: Escaped Convict & Impersonator
+  fr: Évadé et usurpateur
+- id: sys_experts_race
+  en: Experts' Race
+  fr: Course des experts
+- id: sys_explanation_of_the_games
+  en: Explanation of the game's online features.
+  fr: Explication des fonctionnalités en ligne du jeu.
+- id: sys_extra_balanced_frame
+  en: Extra Balanced Frame
+  fr: Cadre équilibré Extra
+- id: sys_extra_balanced_gears
+  en: Extra Balanced Gears
+  fr: Transmission équilibrée Extra
+- id: sys_extra_balanced_motor
+  en: Extra Balanced Motor
+  fr: Moteur équilibré Extra
+- id: sys_extra_boost_gears
+  en: Extra Boost Gears
+  fr: Transmission suralimentée Extra
+- id: sys_extra_godspeed_gears
+  en: Extra Godspeed Gears
+  fr: Transmission vitesse stellaire Extra
+- id: sys_extra_low_profile_tires
+  en: Extra Low Profile Tires
+  fr: Pneus à profil bas Extra
+- id: sys_extra_metal_frame
+  en: Extra Metal Frame
+  fr: Cadre en métal Extra
+- id: sys_extra_power_gears
+  en: Extra Power Gears
+  fr: Transmission puissante Extra
+- id: sys_extra_power_motor
+  en: Extra Power Motor
+  fr: Moteur puissant Extra
+- id: sys_extra_regular_gears
+  en: Extra Regular Gears
+  fr: Transmission standard Extra
+- id: sys_extra_rocket_frame
+  en: Extra Rocket Frame
+  fr: Cadre de fusée Extra
+- id: sys_extra_rubber_frame
+  en: Extra Rubber Frame
+  fr: Cadre en caoutchouc Extra
+- id: sys_extra_slick_tires
+  en: Extra Slick Tires
+  fr: Pneus slicks Extra
+- id: sys_extra_slim_tires
+  en: Extra Slim Tires
+  fr: Pneus fins Extra
+- id: sys_extra_soft_tires
+  en: Extra Soft Tires
+  fr: Pneus tendres Extra
+- id: sys_extra_speed_frame
+  en: Extra Speed Frame
+  fr: Cadre de vitesse Extra
+- id: sys_extra_speed_motor
+  en: Extra Speed Motor
+  fr: Moteur vitesse Extra
+- id: sys_extra_spiked_tires
+  en: Extra Spiked Tires
+  fr: Pneus cloutés Extra
+- id: sys_fantasy_zone
+  en: Fantasy Zone
+  fr: Fantasy Zone
+- id: sys_field_weapons_relic_romp
+  en: 'Field Weapons: Relic Romp'
+  fr: 'Armes au sol : Ébat de reliques'
+- id: sys_fiend_frolic
+  en: Fiend Frolic
+  fr: Festin pernicieux
+- id: sys_fiend_spree
+  en: Fiend Spree
+  fr: Déferlement pernicieux
+- id: sys_fierce_tackles
+  en: Fierce Tackles
+  fr: Plaquages féroces
+- id: sys_filefish
+  en: Filefish
+  fr: Monacanthe
+- id: sys_find_out_more_on
+  en: |-
+    Find out more on Yakuza 0's official website:
+
+
+
+    http://yakuza.sega.com/yakuza0/
+  fr: |-
+    Pour en savoir plus, consultez le site officiel de Yakuza 0 :
+
+
+
+    http://yakuza.sega.com/yakuza0/
+- id: sys_floor_crusher_abyssal_romp
+  en: 'Floor Crusher: Abyssal Romp'
+  fr: 'Sol destructible : Ébat abyssal'
+- id: sys_flounder
+  en: Flounder
+  fr: Flet
+- id: sys_flying_kicks
+  en: Flying Kicks
+  fr: Coups de pied sautés
+- id: sys_former_head_of_a
+  en: |-
+    Former head of a Colombian hit squad. Rumors say
+    Garcia wiped out entire families if given the
+    order. Feared even among his underworld peers, he
+    was betrayed and sold to the Bed of Styx by one
+    of his subordinates.
+  fr: |-
+    Ancien chef d'un commando colombien. On raconte que
+    Garcia massacrait des familles entières sur ordre.
+    Craint jusque dans la pègre, il a été trahi et vendu
+    au Lit du Styx par un de ses propres subordonnés.
+- id: sys_friday_night_easy
+  en: Friday Night (EASY)
+  fr: Friday Night (FACILE)
+- id: sys_friday_night_hard
+  en: Friday Night (HARD)
+  fr: Friday Night (DIFFICILE)
+- id: sys_friday_night_normal
+  en: Friday Night (NORMAL)
+  fr: Friday Night (NORMAL)
+- id: sys_frillnecked_lizard
+  en: Frill-necked Lizard
+  fr: Lézard à collerette
+- id: sys_fugu
+  en: Fugu
+  fr: Poisson-globe
+- id: sys_gale_lariat
+  en: Gale Lariat
+  fr: Lariat foudroyant
+- id: sys_get_a_certain_high
+  en: Get a certain high score.
+  fr: Obtenez un certain score élevé.
+- id: sys_get_at_least_90
+  en: Get at least 90 points for each song.
+  fr: Obtenez au moins 90 points pour chaque chanson.
+- id: sys_get_the_top_rank
+  en: Get the top rank for each song, on each difficulty.
+  fr: Obtenez le meilleur rang pour chaque chanson, dans chaque difficulté.
+- id: sys_ghost_koi
+  en: Ghost Koi
+  fr: Koï fantôme
+- id: sys_goby
+  en: Goby
+  fr: Gobie
+- id: sys_godkiller_blows
+  en: Godkiller Blows
+  fr: Coups pourfendeurs de dieux
+- id: sys_godspeed_gears
+  en: Godspeed Gears
+  fr: Transmission vitesse stellaire
+- id: sys_godspeed_gears_plus
+  en: Godspeed Gears Plus
+  fr: Transmission vitesse stellaire Plus
+- id: sys_godspeed_motor
+  en: Godspeed Motor
+  fr: Moteur vitesse stellaire
+- id: sys_godspeed_motor_mark_ii
+  en: Godspeed Motor Mark II
+  fr: Moteur vitesse stellaire Mark II
+- id: sys_grab_shoot
+  en: Grab & Shoot
+  fr: Prise et tir
+- id: sys_great_white
+  en: Great White
+  fr: Grand requin blanc
+- id: sys_gun_trade_robbery_murder
+  en: Gun Trade, Robbery, Murder
+  fr: Trafic d'armes, vol, meurtre
+- id: sys_hangman_romp
+  en: Hangman Romp
+  fr: Ébat du bourreau
+- id: sys_hells_gate_hangman_romp
+  en: 'Hell''s Gate: Hangman Romp'
+  fr: 'Porte de l''enfer : Ébat du bourreau'
+- id: sys_here_the_unfortunate_newcomers
+  en: |-
+    Here the unfortunate newcomers to the Bed of Styx are first tested. Only those who show
+    promise may move on to other stages. What happens to the unworthy? Better not to know.
+  fr: |-
+    C'est ici que les nouveaux arrivants au Lit du Styx passent leur premier baptême du feu.
+    Seuls les plus prometteurs accèdent aux arènes suivantes. Le sort des recalés ? Mieux vaut l'ignorer.
+- id: sys_here_youll_find_an
+  en: |-
+    Here you'll find an assortment of toys for grown-ups with a death sentence. Go wild
+    by using them to paint the stage red, and soak the floors in your opponents' blood.
+  fr: |-
+    Un assortiment d'engins mortels pour condamnés à mort. Déchaînez-vous,
+    repeignez l'arène en rouge et inondez le ring du sang de vos victimes.
+- id: sys_hero_by_day_villain
+  en: Hero by Day, Villain by Night
+  fr: Héros de jour, démon de nuit
+- id: sys_hidden_blades
+  en: Hidden Blades
+  fr: Lames cachées
+- id: sys_high_score
+  en: High Score
+  fr: Meilleur score
+- id: sys_high_torque_motor
+  en: High Torque Motor
+  fr: Moteur à couple élevé
+- id: sys_high_torque_motor_20
+  en: High Torque Motor 2.0
+  fr: Moteur à couple élevé 2.0
+- id: sys_howling_romp
+  en: Howling Romp
+  fr: Ébat hurlant
+- id: sys_humanityhating_mercenary
+  en: Humanity-Hating Mercenary
+  fr: Mercenaire misanthrope
+- id: sys_i_wanna_take_you
+  en: I Wanna Take You Home (EASY)
+  fr: I Wanna Take You Home (FACILE)
+- id: sys_i_wanna_take_you_1
+  en: I Wanna Take You Home (HARD)
+  fr: I Wanna Take You Home (DIFFICILE)
+- id: sys_i_wanna_take_you_2
+  en: I Wanna Take You Home (NORMAL)
+  fr: I Wanna Take You Home (NORMAL)
+- id: sys_im_gonna_make_her
+  en: I'm Gonna Make Her Mine (EASY)
+  fr: I'm Gonna Make Her Mine (FACILE)
+- id: sys_im_gonna_make_her_1
+  en: I'm Gonna Make Her Mine (HARD)
+  fr: I'm Gonna Make Her Mine (DIFFICILE)
+- id: sys_im_gonna_make_her_2
+  en: I'm Gonna Make Her Mine (NORMAL)
+  fr: I'm Gonna Make Her Mine (NORMAL)
+- id: sys_incitement_to_murder
+  en: Incitement to Murder
+  fr: Incitation au meurtre
+- id: sys_inferno_romp
+  en: Inferno Romp
+  fr: Ébat infernal
+- id: sys_introductory_race
+  en: Introductory Race
+  fr: Course d'initiation
+- id: sys_ito
+  en: Ito
+  fr: Ito
+- id: sys_japan
+  en: Japan
+  fr: Japon
+- id: sys_jekyll_and_hyde_personality
+  en: Jekyll and Hyde Personality
+  fr: Personnalité double
+- id: sys_jumbo_bunchan
+  en: Jumbo Bunchan
+  fr: Bunchan grande-taille
+- id: sys_jumbo_chestnut
+  en: Jumbo Chestnut
+  fr: Châtaigne grande-taille
+- id: sys_kamurocho_fun_pack
+  en: Kamurocho Fun Pack
+  fr: Pack Détente Kamurocho
+- id: sys_kamurocho_fun_pack_2
+  en: Kamurocho Fun Pack 2
+  fr: Pack Détente Kamurocho 2
+- id: sys_kara_kappa
+  en: Kara Kappa
+  fr: Kara Kappa
+- id: sys_karaoke
+  en: Karaoke
+  fr: Karaoké
+- id: sys_karate_chop
+  en: Karate Chop
+  fr: Tranchant de karaté
+- id: sys_kickboxing
+  en: Kickboxing
+  fr: Kickboxing
+- id: sys_killing_lunge
+  en: Killing Lunge
+  fr: Fente assassine
+- id: sys_king_of_speed_cup
+  en: King of Speed Cup
+  fr: Coupe du Roi de la Vitesse
+- id: sys_knew_too_much
+  en: Knew Too Much
+  fr: En savait trop
+- id: sys_koi_carp
+  en: Koi Carp
+  fr: Carpe koï
+- id: sys_koi_no_disco_queen
+  en: Koi no DISCO QUEEN (EASY)
+  fr: Koi no DISCO QUEEN (FACILE)
+- id: sys_koi_no_disco_queen_1
+  en: Koi no DISCO QUEEN (HARD)
+  fr: Koi no DISCO QUEEN (DIFFICILE)
+- id: sys_koi_no_disco_queen_2
+  en: Koi no DISCO QUEEN (NORMAL)
+  fr: Koi no DISCO QUEEN (NORMAL)
+- id: sys_koikoi
+  en: Koi-koi
+  fr: Koi-koi
+- id: sys_komeki_turned_up_at
+  en: |-
+    Komeki turned up at the Bed of Styx of his own
+    free will, eager to challenge anyone using a
+    bare-handed style all his own. Although he has
+    lost some battles, observant spectators claim he
+    did that on purpose to spare his opponent's life.
+  fr: |-
+    Komeki s'est présenté au Lit du Styx de son plein
+    gré, impatient de défier quiconque avec un style à
+    mains nues unique. Bien qu'il ait perdu quelques combats,
+    les spectateurs avisés affirment qu'il l'a fait exprès
+    pour épargner la vie de ses adversaires.
+- id: sys_korea
+  en: Korea
+  fr: Corée
+- id: sys_kyonbo
+  en: Kyon-bo
+  fr: Kyon-bo
+- id: sys_kyonchan
+  en: Kyon-chan
+  fr: Kyon-chan
+- id: sys_leader_of_a_violent
+  en: |-
+    Leader of a violent, heavily armed terrorist
+    group. He has killed plenty of people in
+    terrorist attacks and gang wars, but was finally
+    surrounded by the police and caught alive.
+  fr: |-
+    Chef d'un groupuscule terroriste armé et violent.
+    Auteur de nombreux attentats et guerres de gangs,
+    il a fini par être cerné par la police et capturé vivant.
+- id: sys_lightning_legwork
+  en: Lightning Legwork
+  fr: Jeu de jambes foudroyant
+- id: sys_lightspeed_combos
+  en: Lightspeed Combos
+  fr: Enchaînements luminiques
+- id: sys_little_racers_cup
+  en: Little Racers' Cup
+  fr: Coupe des petits bolides
+- id: sys_low_profile_tires
+  en: Low Profile Tires
+  fr: Pneus à profil bas
+- id: sys_low_profile_tires_plus
+  en: Low Profile Tires Plus
+  fr: Pneus à profil bas Plus
+- id: sys_lunatic_whip
+  en: Lunatic Whip
+  fr: Fouet forcené
+- id: sys_mad_dog_of_shimano
+  en: Mad Dog of Shimano Pack
+  fr: Pack Chien Enragé de Shimano
+- id: sys_mahjong
+  en: Mahjong
+  fr: Mah-jong
+- id: sys_make_use_of_a
+  en: |-
+    Make use of a prized collection of various weapons, each bearing bloodstains from
+    countless battles. Can you sate these demonic devices' thirst for fresh blood?
+  fr: |-
+    Profitez d'un arsenal d'armes maculées du sang d'innombrables combats.
+    Saurez-vous étancher la soif insatiable de sang frais de ces instruments démoniaques ?
+- id: sys_man_with_a_hannya
+  en: Man with a Hannya Tattoo
+  fr: L'homme au tatouage de Hannya
+- id: sys_man_with_an_incomplete
+  en: Man with an Incomplete Dragon
+  fr: L'homme au dragon inachevé
+- id: sys_marlin
+  en: Marlin
+  fr: Marlin
+- id: sys_marriage_fraud_assault
+  en: Marriage Fraud & Assault
+  fr: Escroquerie au mariage et agression
+- id: sys_marriage_fraud_specialist
+  en: Marriage Fraud Specialist
+  fr: Escroc en mariage
+- id: sys_mass_murder
+  en: Mass Murder
+  fr: Meurtre de masse
+- id: sys_match_fixing_politician
+  en: Match Fixing Politician
+  fr: Politicien aux matchs truqués
+- id: sys_max_endless_rout_wins
+  en: Max Endless Rout Wins
+  fr: Victoires max en Déroute infinie
+- id: sys_mega_drive_stuffed_toy
+  en: Mega Drive Stuffed Toy
+  fr: Jouet en peluche Mega Drive
+- id: sys_merchant_of_death
+  en: Merchant of Death
+  fr: Marchand de mort
+- id: sys_merciless_italian_hitman
+  en: Merciless Italian Hitman
+  fr: Tueur à gages italien impitoyable
+- id: sys_metal_frame
+  en: Metal Frame
+  fr: Cadre en métal
+- id: sys_metal_frame_plus
+  en: Metal Frame Plus
+  fr: Cadre en métal Plus
+- id: sys_misfortune_teller
+  en: Misfortune Teller
+  fr: Diseur de malheurs
+- id: sys_murder_while_drunk
+  en: Murder While Drunk
+  fr: Meurtre en état d'ébriété
+- id: sys_murder_and_bribery
+  en: Murder and Bribery
+  fr: Meurtre et corruption
+- id: sys_murderrobbery
+  en: Murder-Robbery
+  fr: Meurtre et vol
+- id: sys_mysterious_martial_arts_master
+  en: Mysterious Martial Arts Master
+  fr: Maître mystérieux des arts martiaux
+- id: sys_new_age_brawling
+  en: New Age Brawling
+  fr: Bagarre New Age
+- id: sys_nicknamed_birdman_tobiyama_has
+  en: |-
+    Nicknamed "Birdman," Tobiyama has possibly the
+    highest number of successful prison breaks on his
+    record. Prison escapes are something of a hobby
+    for him, so he commits crimes just to get in. When
+    a prison warden committed suicide, unable to bear
+    the ridicule after yet another escape, his peers
+    arranged to have Tobiyama sent to the Bed of Styx.
+  fr: |-
+    Surnommé « Birdman », Tobiyama détient sans doute le record
+    d'évasions réussies. S'évader est un passe-temps
+    pour lui, au point de commettre des délits juste pour être incarcéré.
+    Après le suicide d'un directeur de prison humilié par une
+    évasion de trop, les gardiens se sont arrangés pour
+    l'envoyer pourrir au Lit du Styx.
+- id: sys_nishiki_carp
+  en: Nishiki Carp
+  fr: Carpe Nishiki
+- id: sys_none
+  en: None
+  fr: Aucun
+- id: sys_ok
+  en: OK
+  fr: OK
+- id: sys_oarfish
+  en: Oarfish
+  fr: Régalec
+- id: sys_obtain_all_parts
+  en: Obtain all parts.
+  fr: Obtenez toutes les pièces.
+- id: sys_obtain_all_prizes
+  en: Obtain all prizes.
+  fr: Obtenez tous les prix.
+- id: sys_octopus
+  en: Octopus
+  fr: Pieuvre
+- id: sys_oichokabu
+  en: Oicho-kabu
+  fr: Oicho-kabu
+- id: sys_old_junk_fished_from
+  en: |-
+    Old junk fished from the river litters this stage. Opportunistic fighters use the deadly
+    debris to elicit piercing screams which reverberate all the way to the depths of hell.
+  fr: |-
+    De vieux débris repêchés dans le fleuve jonchent cette arène. Les combattants avisés s'en servent
+    pour arracher des cris déchirants qui résonnent jusque dans les entrailles de l'enfer.
+- id: sys_online_features
+  en: Online Features
+  fr: Fonctionnalités en ligne
+- id: sys_only_favorites_who_proved
+  en: |-
+    Only favorites who proved themselves on the Devil Spree stage may try their luck here.
+    Contenders would be wise not to disappoint their bloodthirsty audience, or else.
+  fr: |-
+    Seuls les favoris s'étant illustrés au Déferlement démoniaque peuvent tenter leur chance ici.
+    Les prétendants feraient bien de ne pas décevoir un public assoiffé de sang.
+- id: sys_opaopa_figure
+  en: Opa-Opa Figure
+  fr: Figurine Opa-Opa
+- id: sys_open_hand
+  en: Open Hand
+  fr: Paume ouverte
+- id: sys_opponents
+  en: Opponents
+  fr: Adversaires
+- id: sys_otake_used_to_be
+  en: |-
+    Otake used to be an elite military bodyguard who
+    failed to protect an important statesman from an
+    assassination attempt. The experience scarred him
+    so deeply he ended up murdering the politician who
+    hired the hitman, which led him here.
+  fr: |-
+    Otake était un garde du corps militaire d'élite qui
+    ne put empêcher l'assassinat d'un haut dirigeant.
+    Ce traumatisme le poussa à tuer le politicien ayant
+    commandité le meurtre, ce qui l'a conduit ici.
+- id: sys_out_run
+  en: Out Run
+  fr: Out Run
+- id: sys_philippines
+  en: Philippines
+  fr: Philippines
+- id: sys_picky_human_body_collector
+  en: Picky Human Body Collector
+  fr: Collectionneur de cadavres méticuleux
+- id: sys_pleasure_from_pain
+  en: Pleasure from Pain
+  fr: Le plaisir par la douleur
+- id: sys_poacher_hunter
+  en: Poacher Hunter
+  fr: Chasseur de braconniers
+- id: sys_pocket_circuit_parts
+  en: Pocket Circuit (Parts)
+  fr: Circuit de poche (Pièces)
+- id: sys_pocket_circuit_racing
+  en: Pocket Circuit (Racing)
+  fr: Circuit de poche (Courses)
+- id: sys_pocket_circuit_expert_pack
+  en: Pocket Circuit Expert Pack
+  fr: Pack Expert Circuit de poche
+- id: sys_pocket_circuit_starter_pack
+  en: Pocket Circuit Starter Pack
+  fr: Pack Débutant Circuit de poche
+- id: sys_poker
+  en: Poker
+  fr: Poker
+- id: sys_political_assassination
+  en: Political Assassination
+  fr: Assassinat politique
+- id: sys_pool
+  en: Pool
+  fr: Billard
+- id: sys_porcupinefish
+  en: Porcupinefish
+  fr: Diodon
+- id: sys_power_flask_howling_romp
+  en: 'Power Flask: Howling Romp'
+  fr: 'Fiole de puissance : Ébat hurlant'
+- id: sys_power_gears
+  en: Power Gears
+  fr: Transmission puissante
+- id: sys_power_gears_plus
+  en: Power Gears Plus
+  fr: Transmission puissante Plus
+- id: sys_power_motor
+  en: Power Motor
+  fr: Moteur puissant
+- id: sys_power_motor_plus
+  en: Power Motor Plus
+  fr: Moteur puissant Plus
+- id: sys_power_strikes
+  en: Power Strikes
+  fr: Coups dévastateurs
+- id: sys_prefer_to_attack_your
+  en: |-
+    Prefer to attack your opponent with bare fists or a sharp weapon? The choice is yours.
+    The only freedom Bed of Styx inmates are allowed is the hastening of their own deaths.
+  fr: |-
+    Attaquer à mains nues ou avec une lame acérée ? À vous de décider.
+    La seule liberté accordée aux détenus du Lit du Styx est de précipiter leur propre trépas.
+- id: sys_premeditated_assault
+  en: Premeditated Assault
+  fr: Agression préméditée
+- id: sys_premeditated_murder
+  en: Premeditated Murder
+  fr: Meurtre avec préméditation
+- id: sys_prison_escape_artist
+  en: Prison Escape Artist
+  fr: Virtuose de l'évasion
+- id: sys_prize
+  en: Prize
+  fr: Récompense
+- id: sys_proam_race
+  en: Pro-Am Race
+  fr: Course Pro-Am
+- id: sys_queen_of_passion_easy
+  en: Queen of Passion (EASY)
+  fr: Queen of Passion (FACILE)
+- id: sys_queen_of_passion_hard
+  en: Queen of Passion (HARD)
+  fr: Queen of Passion (DIFFICILE)
+- id: sys_queen_of_passion_normal
+  en: Queen of Passion (NORMAL)
+  fr: Queen of Passion (NORMAL)
+- id: sys_rainbow_trout
+  en: Rainbow Trout
+  fr: Truite arc-en-ciel
+- id: sys_rank
+  en: Rank
+  fr: Rang
+- id: sys_rate
+  en: Rate
+  fr: Taux
+- id: sys_reach_a_certain_total
+  en: Reach a certain total amount of money in winnings.
+  fr: Atteignez un certain montant total de gains.
+- id: sys_receive_from_bob_utsunomiya
+  en: |-
+    Receive from Bob Utsunomiya 0 at a shrine or temple.
+    *Only for Kiryu.
+  fr: |-
+    À récupérer auprès de Bob Utsunomiya 0 à un sanctuaire ou temple.
+    *Kiryu uniquement.
+- id: sys_receive_from_bob_utsunomiya_1
+  en: |-
+    Receive from Bob Utsunomiya 0 at a shrine or temple.
+    *Only for Majima.
+  fr: |-
+    À récupérer auprès de Bob Utsunomiya 0 à un sanctuaire ou temple.
+    *Majima uniquement.
+- id: sys_regular_gears
+  en: Regular Gears
+  fr: Transmission standard
+- id: sys_regular_gears_plus
+  en: Regular Gears Plus
+  fr: Transmission standard Plus
+- id: sys_relic_romp
+  en: Relic Romp
+  fr: Ébat de reliques
+- id: sys_repeated_prison_escapes
+  en: Repeated Prison Escapes
+  fr: Évasions de prison répétées
+- id: sys_results
+  en: Results
+  fr: Résultats
+- id: sys_revenge_murders
+  en: Revenge Murders
+  fr: Meurtres par vengeance
+- id: sys_right_to_bear_arms
+  en: Right to Bear Arms
+  fr: Armé jusqu'aux dents
+- id: sys_river_fishing
+  en: River Fishing
+  fr: Pêche en rivière
+- id: sys_rocket_frame
+  en: Rocket Frame
+  fr: Cadre de fusée
+- id: sys_rocket_frame_plus
+  en: Rocket Frame Plus
+  fr: Cadre de fusée Plus
+- id: sys_rookies_race
+  en: Rookies' Race
+  fr: Course des débutants
+- id: sys_roulette
+  en: Roulette
+  fr: Roulette
+- id: sys_rubber_frame
+  en: Rubber Frame
+  fr: Cadre en caoutchouc
+- id: sys_rubber_frame_plus
+  en: Rubber Frame Plus
+  fr: Cadre en caoutchouc Plus
+- id: sys_rumors_say_nijo_is
+  en: |-
+    Rumors say Nijo is in fact the son of a high
+    ranking police officer. Even when behind bars, he
+    would break out whenever he felt like brawling on
+    the streets. The Bed of Styx was chosen as the
+    one facility capable of keeping him locked up.
+  fr: |-
+    La rumeur prétend que Nijo est le fils d'un haut
+    gradé de la police. Même enfermé, il s'évadait dès
+    qu'il voulait se battre dans la rue. Le Lit du Styx
+    a été choisi comme le seul endroit capable de le retenir.
+- id: sys_rushing_kicks
+  en: Rushing Kicks
+  fr: Assaut de coups de pied
+- id: sys_russia
+  en: Russia
+  fr: Russie
+- id: sys_salmon
+  en: Salmon
+  fr: Saumon
+- id: sys_scorpionfish
+  en: Scorpionfish
+  fr: Rascasse
+- id: sys_sea_bream
+  en: Sea Bream
+  fr: Dorade
+- id: sys_sea_fishing
+  en: Sea Fishing
+  fr: Pêche en mer
+- id: sys_select_a_tournament_to
+  en: |-
+    Select a tournament to enter. The higher your rank, the more
+    standard tournaments you can enter.
+  fr: |-
+    Sélectionnez un tournoi. Plus votre rang est élevé,
+    plus vous débloquez de tournois.
+- id: sys_serial_murder
+  en: Serial Murder
+  fr: Meurtres en série
+- id: sys_shibata_was_a_blackmailer
+  en: |-
+    Shibata was a blackmailer who used wiretaps and
+    hidden cameras to extort powerful politicians and
+    celebrities until he targeted the wrong person.
+  fr: |-
+    Shibata faisait chanter politiciens et célébrités au
+    moyen d'écoutes et de caméras cachées, jusqu'au jour où
+    il s'en est pris à la mauvaise personne.
+- id: sys_shogi
+  en: Shogi
+  fr: Shogi
+- id: sys_slick_tires
+  en: Slick Tires
+  fr: Pneus slicks
+- id: sys_slick_tires_plus
+  en: Slick Tires Plus
+  fr: Pneus slicks Plus
+- id: sys_slim_tires
+  en: Slim Tires
+  fr: Pneus fins
+- id: sys_slim_tires_plus
+  en: Slim Tires Plus
+  fr: Pneus fins Plus
+- id: sys_snakehead
+  en: Snakehead
+  fr: Tête-de-serpent
+- id: sys_soft_tires
+  en: Soft Tires
+  fr: Pneus tendres
+- id: sys_soft_tires_plus
+  en: Soft Tires Plus
+  fr: Pneus tendres Plus
+- id: sys_softshell_turtle
+  en: Softshell Turtle
+  fr: Trionyx
+- id: sys_somersault_kicks
+  en: Somersault Kicks
+  fr: Coups de pied retournés
+- id: sys_sotenbori_fun_pack
+  en: Sotenbori Fun Pack
+  fr: Pack Détente Sotenbori
+- id: sys_sotenbori_fun_pack_2
+  en: Sotenbori Fun Pack 2
+  fr: Pack Détente Sotenbori 2
+- id: sys_space_harrier
+  en: Space Harrier
+  fr: Space Harrier
+- id: sys_special_item_packs_12
+  en: |-
+    Special Item Packs (1/2)
+
+    These DLC packs will be distributed with
+    periodic updates for Yakuza 0.
+  fr: |-
+    Packs d'objets spéciaux (1/2)
+
+    Ces packs DLC sont distribués avec les mises à jour
+    périodiques de Yakuza 0.
+- id: sys_speed_frame
+  en: Speed Frame
+  fr: Cadre de vitesse
+- id: sys_speed_frame_plus
+  en: Speed Frame Plus
+  fr: Cadre de vitesse Plus
+- id: sys_speed_motor
+  en: Speed Motor
+  fr: Moteur vitesse
+- id: sys_speed_motor_plus
+  en: Speed Motor Plus
+  fr: Moteur vitesse Plus
+- id: sys_speedy_murderthief
+  en: Speedy Murder-Thief
+  fr: Voleur-tueur ultra-rapide
+- id: sys_spider_crab
+  en: Spider Crab
+  fr: Crabe-araignée
+- id: sys_spiked_tires
+  en: Spiked Tires
+  fr: Pneus cloutés
+- id: sys_spiked_tires_plus
+  en: Spiked Tires Plus
+  fr: Pneus cloutés Plus
+- id: sys_squid
+  en: Squid
+  fr: Calamar
+- id: sys_standard
+  en: Standard
+  fr: Standard
+- id: sys_standard_mode
+  en: Standard Mode
+  fr: Mode Standard
+- id: sys_standard_rules
+  en: Standard Rules
+  fr: Règles standard
+- id: sys_straight_jabs
+  en: Straight Jabs
+  fr: Jabs directs
+- id: sys_super_balanced_frame
+  en: Super Balanced Frame
+  fr: Cadre équilibré Super
+- id: sys_super_balanced_gears
+  en: Super Balanced Gears
+  fr: Transmission équilibrée Super
+- id: sys_super_balanced_motor
+  en: Super Balanced Motor
+  fr: Moteur équilibré Super
+- id: sys_super_boost_gears
+  en: Super Boost Gears
+  fr: Transmission suralimentée Super
+- id: sys_super_godspeed_gears
+  en: Super Godspeed Gears
+  fr: Transmission vitesse stellaire Super
+- id: sys_super_hangon
+  en: Super Hang-On
+  fr: Super Hang-On
+- id: sys_super_low_profile_tires
+  en: Super Low Profile Tires
+  fr: Pneus à profil bas Super
+- id: sys_super_metal_frame
+  en: Super Metal Frame
+  fr: Cadre en métal Super
+- id: sys_super_power_gears
+  en: Super Power Gears
+  fr: Transmission puissante Super
+- id: sys_super_power_motor
+  en: Super Power Motor
+  fr: Moteur puissant Super
+- id: sys_super_rare_crafting_pack
+  en: Super Rare Crafting Pack
+  fr: Pack Artisanat Ultra Rare
+- id: sys_super_regular_gears
+  en: Super Regular Gears
+  fr: Transmission standard Super
+- id: sys_super_rocket_frame
+  en: Super Rocket Frame
+  fr: Cadre de fusée Super
+- id: sys_super_rubber_frame
+  en: Super Rubber Frame
+  fr: Cadre en caoutchouc Super
+- id: sys_super_slick_tires
+  en: Super Slick Tires
+  fr: Pneus slicks Super
+- id: sys_super_slim_tires
+  en: Super Slim Tires
+  fr: Pneus fins Super
+- id: sys_super_soft_tires
+  en: Super Soft Tires
+  fr: Pneus tendres Super
+- id: sys_super_speed_frame
+  en: Super Speed Frame
+  fr: Cadre de vitesse Super
+- id: sys_super_speed_motor
+  en: Super Speed Motor
+  fr: Moteur vitesse Super
+- id: sys_super_spiked_tires
+  en: Super Spiked Tires
+  fr: Pneus cloutés Super
+- id: sys_surprise_bullet
+  en: Surprise Bullet
+  fr: Balle surprise
+- id: sys_sweetfish
+  en: Sweetfish
+  fr: Ayu
+- id: sys_swinging_slash
+  en: Swinging Slash
+  fr: Entaille circulaire
+- id: sys_tamura_was_a_fortune
+  en: |-
+    Tamura was a fortune teller whose predictions always
+    brought misfortune to his clients, driving several
+    of them to ruin.
+  fr: |-
+    Tamura était un voyant dont les prédictions apportaient
+    systématiquement le malheur à ses clients, conduisant
+    plusieurs d'entre eux à la ruine.
+- id: sys_tangling_tackles
+  en: Tangling Tackles
+  fr: Plaquages étouffants
+- id: sys_telephone_club
+  en: Telephone Club
+  fr: Club Téléphone
+- id: sys_the_killing_machine
+  en: The Killing Machine
+  fr: La machine à tuer
+- id: sys_the_one_and_only
+  en: The One and Only Maneater
+  fr: L'unique mangeur d'hommes
+- id: sys_the_undying_convict
+  en: The Undying Convict
+  fr: Le condamné immortel
+- id: sys_the_beauty_of_this
+  en: |-
+    The beauty of this seemingly simple stage lies in the dark abyss which awaits sluggish
+    contenders. Here you must fight not only against your opponent, but against time itself.
+  fr: |-
+    La beauté de cette arène réside dans le gouffre béant guettant les combattants trop lents.
+    Ici, vous luttez non seulement contre votre adversaire, mais aussi contre le temps.
+- id: sys_this_contender_has_got
+  en: |-
+    This contender has got the makings of a new
+    champion. No one has managed to sniff out any info
+    about his criminal record as of yet, but despite
+    the lack of any juicy details, the audience is
+    crazy about this bad boy.
+  fr: |-
+    Ce combattant a l'étoffe d'un futur champion.
+    Personne n'a encore réussi à percer les secrets
+    de son casier judiciaire, mais malgré l'absence
+    de détails croustillants, le public est dingue
+    de ce mauvais garçon.
+- id: sys_this_grandfatherlylooking_gentleman_was
+  en: |-
+    This grandfatherly-looking gentleman was actually
+    one of the most dangerous hitmen in the East.
+    Little is known about him, except for the fact
+    that he likes fishing and goes to sleep early.
+  fr: |-
+    Ce monsieur aux allures de grand-père était en fait
+    l'un des tueurs à gages les plus redoutés d'Orient.
+    On sait peu de choses sur lui, si ce n'est qu'il aime
+    la pêche et se couche de bonne heure.
+- id: sys_this_item_pack_will
+  en: This item pack will be distributed as DLC.
+  fr: Ce pack d'objets est distribué en DLC.
+- id: sys_tiger_prawn
+  en: Tiger Prawn
+  fr: Crevette géante tigrée
+- id: sys_till_next_rank
+  en: Till next rank
+  fr: Jusqu'au rang suivant
+- id: sys_titles_earned
+  en: Titles Earned
+  fr: Titres obtenus
+- id: sys_too_nosy_to_live
+  en: Too Nosy to Live
+  fr: Trop curieux pour vivre
+- id: sys_total_catfight_winnings
+  en: Total Catfight Winnings
+  fr: Gains totaux au catch féminin
+- id: sys_total_winnings
+  en: Total Winnings
+  fr: Total des gains
+- id: sys_traitor_terrorist
+  en: Traitor & Terrorist
+  fr: Traître et terroriste
+- id: sys_treason
+  en: Treason
+  fr: Haute trahison
+- id: sys_tuna
+  en: Tuna
+  fr: Thon
+- id: sys_ufo_catcher
+  en: UFO Catcher
+  fr: UFO Catcher
+- id: sys_usa
+  en: USA
+  fr: États-Unis
+- id: sys_ultra_balanced_frame
+  en: Ultra Balanced Frame
+  fr: Cadre équilibré Ultra
+- id: sys_ultra_balanced_gears
+  en: Ultra Balanced Gears
+  fr: Transmission équilibrée Ultra
+- id: sys_ultra_balanced_motor
+  en: Ultra Balanced Motor
+  fr: Moteur équilibré Ultra
+- id: sys_ultra_boost_gears
+  en: Ultra Boost Gears
+  fr: Transmission suralimentée Ultra
+- id: sys_ultra_godspeed_gears
+  en: Ultra Godspeed Gears
+  fr: Transmission vitesse stellaire Ultra
+- id: sys_ultra_low_profile_tires
+  en: Ultra Low Profile Tires
+  fr: Pneus à profil bas Ultra
+- id: sys_ultra_metal_frame
+  en: Ultra Metal Frame
+  fr: Cadre en métal Ultra
+- id: sys_ultra_power_gears
+  en: Ultra Power Gears
+  fr: Transmission puissante Ultra
+- id: sys_ultra_power_motor
+  en: Ultra Power Motor
+  fr: Moteur puissant Ultra
+- id: sys_ultra_regular_gears
+  en: Ultra Regular Gears
+  fr: Transmission standard Ultra
+- id: sys_ultra_rocket_frame
+  en: Ultra Rocket Frame
+  fr: Cadre de fusée Ultra
+- id: sys_ultra_rubber_frame
+  en: Ultra Rubber Frame
+  fr: Cadre en caoutchouc Ultra
+- id: sys_ultra_slick_tires
+  en: Ultra Slick Tires
+  fr: Pneus slicks Ultra
+- id: sys_ultra_slim_tires
+  en: Ultra Slim Tires
+  fr: Pneus fins Ultra
+- id: sys_ultra_soft_tires
+  en: Ultra Soft Tires
+  fr: Pneus tendres Ultra
+- id: sys_ultra_speed_frame
+  en: Ultra Speed Frame
+  fr: Cadre de vitesse Ultra
+- id: sys_ultra_speed_motor
+  en: Ultra Speed Motor
+  fr: Moteur vitesse Ultra
+- id: sys_ultra_spiked_tires
+  en: Ultra Spiked Tires
+  fr: Pneus cloutés Ultra
+- id: sys_unknown
+  en: Unknown
+  fr: Inconnu
+- id: sys_unofficial_king_of_brawlers
+  en: Unofficial King of Brawlers
+  fr: Roi officieux des bagarreurs
+- id: sys_unspecified
+  en: Unspecified
+  fr: Non spécifié
+- id: sys_view_profiles_of_opponents
+  en: View profiles of opponents you've faced.
+  fr: Consultez les fiches des adversaires que vous avez affrontés.
+- id: sys_view_standard_and_endless
+  en: View standard and Endless Rout rules.
+  fr: Consultez les règles des tournois standard et de la Déroute infinie.
+- id: sys_view_the_total_amount
+  en: |-
+    View the total amount won, the number of wins and losses,
+    and other records.
+  fr: |-
+    Consultez les gains totaux, le nombre de victoires et défaites,
+    et d'autres records.
+- id: sys_village_butcher
+  en: Village Butcher
+  fr: Le boucher du village
+- id: sys_war_crimes
+  en: War Crimes
+  fr: Crimes de guerre
+- id: sys_weapon_select_demonic_romp
+  en: 'Weapon Select.: Demonic Romp'
+  fr: 'Choix des armes : Ébat des démons'
+- id: sys_weapon_smuggling
+  en: Weapon Smuggling
+  fr: Contrebande d'armes
+- id: sys_what_would_hell_be
+  en: |-
+    What would hell be without fire and brimstone? Salvation might await those who survive
+    the dance of death on this infernally blazing stage... if they can take the heat.
+  fr: |-
+    Que serait l'enfer sans feu ni soufre ? Le salut attend peut-être les survivants de cette danse
+    de mort sur une arène embrasée... à condition de pouvoir supporter la fournaise.
+- id: sys_whirling_death_endless_rout
+  en: 'Whirling Death: Endless Rout'
+  fr: 'Tourbillon de mort : Déroute infinie'
+- id: sys_whitebait
+  en: Whitebait
+  fr: Petit poisson blanc
+- id: sys_win_rate
+  en: Win Rate
+  fr: Taux de victoire
+- id: sys_win_a_certain_number
+  en: Win a certain number of times without take backs.
+  fr: Gagnez un certain nombre de fois sans reprise.
+- id: sys_win_all_races
+  en: Win all races.
+  fr: Remportez toutes les courses.
+- id: sys_wins
+  en: Wins
+  fr: Victoires
+- id: sys_wins_without_take_backs
+  en: Wins Without Take backs
+  fr: Victoires sans reprise
+- id: sys_with_a_license_to
+  en: With a License to Kill
+  fr: Permis de tuer
+- id: sys_woo_mama
+  en: Woo Mama
+  fr: Woo Mama
+- id: sys_woo_papa
+  en: Woo Papa
+  fr: Woo Papa
+- id: sys_wookun
+  en: Woo-kun
+  fr: Woo-kun
+- id: sys_you_dont_meet_the
+  en: You don't meet the requirements for this tournament.
+  fr: Vous ne remplissez pas les conditions requises pour ce tournoi.
+- id: sys_youll_lose_all_hope
+  en: |-
+    You'll lose all hope as opponents come at you one after another, with no end in sight.
+    How long can you last against the hordes of the damned, trapped in a berserker trance?
+  fr: |-
+    Tout espoir s'évanouira alors que les ennemis déferlent sans fin les uns après les autres.
+    Combien de temps tiendrez-vous face aux hordes de damnés pris de folie furieuse ?
+- id: sys_zeroinch_punch
+  en: Zero-Inch Punch
+  fr: Frappe à bout portant

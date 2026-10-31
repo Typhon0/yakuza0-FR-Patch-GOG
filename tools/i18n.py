@@ -40,31 +40,31 @@ from i18n_compiler import compile_all, load_catalog_file
 
 def cmd_extract(args: argparse.Namespace) -> int:
     print_banner(version="i18n-v1.0")
-    print(card_start("EXTRACTION DES CATALOGUES DE TRADUCTION"))
-    print(card_line(f"Dossier cible : {args.out}", status="info"))
+    card_start("EXTRACTION DES CATALOGUES DE TRADUCTION")
+    card_line(f"Dossier cible : {args.out}", status="info")
 
     results = extract_all(target_dir=args.out)
 
     for domain, count in results.items():
         if isinstance(count, int):
-            print(card_line(f"Domaine {domain:<18} : {count:>5} entrées extraites", status="ok"))
+            card_line(f"Domaine {domain:<18} : {count:>5} entrées extraites", status="ok")
         else:
-            print(card_line(f"Erreur domaine {domain} : {count}", status="fail"))
+            card_line(f"Erreur domaine {domain} : {count}", status="err")
 
     total = sum(v for v in results.values() if isinstance(v, int))
-    print(card_line(f"Total entrées cataloguées : {total}", status="ok"))
-    print(card_end())
+    card_line(f"Total entrées cataloguées : {total}", status="ok")
+    card_end()
     return 0
 
 
 def cmd_validate(args: argparse.Namespace) -> int:
     print_banner(version="i18n-v1.0")
-    print(card_start("VALIDATION DES CATALOGUES (LINTING)"))
-    print(card_line(f"Vérification du dossier : {args.dir}", status="info"))
+    card_start("VALIDATION DES CATALOGUES (LINTING)")
+    card_line(f"Vérification du dossier : {args.dir}", status="info")
 
     if not os.path.isdir(args.dir):
-        print(card_line(f"Dossier introuvable : {args.dir}", status="fail"))
-        print(card_end())
+        card_line(f"Dossier introuvable : {args.dir}", status="err")
+        card_end()
         return 1
 
     yaml_files = []
@@ -74,8 +74,8 @@ def cmd_validate(args: argparse.Namespace) -> int:
                 yaml_files.append(os.path.join(root, f))
 
     if not yaml_files:
-        print(card_line("Aucun fichier YAML trouvé dans le dossier.", status="warn"))
-        print(card_end())
+        card_line("Aucun fichier YAML trouvé dans le dossier.", status="warn")
+        card_end()
         return 0
 
     total_valid = 0
@@ -87,13 +87,13 @@ def cmd_validate(args: argparse.Namespace) -> int:
         total_valid += count
         if errors:
             total_errors.extend(errors)
-            print(card_line(f"{rel_path:<36} : {len(errors)} erreur(s)", status="fail"))
+            card_line(f"{rel_path:<36} : {len(errors)} erreur(s)", status="err")
         else:
-            print(card_line(f"{rel_path:<36} : {count:>5} entrées conformes", status="ok"))
+            card_line(f"{rel_path:<36} : {count:>5} entrées conformes", status="ok")
 
     if total_errors:
-        print(card_line(f"Total : {len(total_errors)} erreur(s) détectée(s)", status="fail"))
-        print(card_end())
+        card_line(f"Total : {len(total_errors)} erreur(s) détectée(s)", status="err")
+        card_end()
         print(f"\n{Colors.RED}{Colors.BOLD}Détails des erreurs :{Colors.RESET}")
         for err in total_errors[:15]:
             print(f"  {Colors.YELLOW}•{Colors.RESET} {err}")
@@ -101,43 +101,43 @@ def cmd_validate(args: argparse.Namespace) -> int:
             print(f"  ... et {len(total_errors) - 15} autres erreurs.")
         return 1
     else:
-        print(card_line(f"Validation réussie : {total_valid} entrées certifiées", status="ok"))
-        print(card_end())
+        card_line(f"Validation réussie : {total_valid} entrées certifiées", status="ok")
+        card_end()
         return 0
 
 
 def cmd_compile(args: argparse.Namespace) -> int:
     print_banner(version="i18n-v1.0")
-    print(card_start("COMPILATION DES CATALOGUES VERS PYTHON"))
-    print(card_line(f"Source : {args.dir} -> Destination : {args.out}", status="info"))
+    card_start("COMPILATION DES CATALOGUES VERS PYTHON")
+    card_line(f"Source : {args.dir} -> Destination : {args.out}", status="info")
 
     if not os.path.isdir(args.dir):
-        print(card_line(f"Dossier source introuvable : {args.dir}", status="fail"))
-        print(card_end())
+        card_line(f"Dossier source introuvable : {args.dir}", status="err")
+        card_end()
         return 1
 
     try:
         results = compile_all(translations_dir=args.dir, output_tools_dir=args.out)
     except Exception as e:
-        print(card_line(f"Échec de la compilation : {e}", status="fail"))
-        print(card_end())
+        card_line(f"Échec de la compilation : {e}", status="err")
+        card_end()
         return 1
 
     for mod_name, count in results.items():
-        print(card_line(f"Généré {mod_name:<28} : {count:>5} entrées", status="ok"))
+        card_line(f"Généré {mod_name:<28} : {count:>5} entrées", status="ok")
 
-    print(card_line("Tous les modules Python ont été synchronisés avec succès", status="ok"))
-    print(card_end())
+    card_line("Tous les modules Python ont été synchronisés avec succès", status="ok")
+    card_end()
     return 0
 
 
 def cmd_status(args: argparse.Namespace) -> int:
     print_banner(version="i18n-v1.0")
-    print(card_start("STATUT ET COUVERTURE DES TRADUCTIONS"))
+    card_start("STATUT ET COUVERTURE DES TRADUCTIONS")
 
     if not os.path.isdir(args.dir):
-        print(card_line(f"Dossier introuvable : {args.dir}", status="fail"))
-        print(card_end())
+        card_line(f"Dossier introuvable : {args.dir}", status="err")
+        card_end()
         return 1
 
     yaml_files = []
@@ -147,8 +147,8 @@ def cmd_status(args: argparse.Namespace) -> int:
                 yaml_files.append(os.path.join(root, f))
 
     if not yaml_files:
-        print(card_line("Aucun catalogue trouvé. Lancez 'python3 tools/i18n.py extract' d'abord.", status="warn"))
-        print(card_end())
+        card_line("Aucun catalogue trouvé. Lancez 'python3 tools/i18n.py extract' d'abord.", status="warn")
+        card_end()
         return 0
 
     total_strings = 0
@@ -176,13 +176,14 @@ def cmd_status(args: argparse.Namespace) -> int:
         total_translated += file_translated
         total_words_fr += file_words
 
-        pct = (file_translated / file_total * 100) if file_total > 0 else 100.0
-        bar = format_progress(file_translated, file_total, prefix=f"{domain_name:<30}", length=14)
-        print(card_line(bar))
+        bar = format_progress(file_translated, file_total, width=14)
+        line = f"{domain_name:<30} {bar} ({file_translated:>4}/{file_total:>4})"
+        status = "ok" if file_translated == file_total else "warn"
+        card_line(line, status=status)
 
     pct_global = (total_translated / total_strings * 100) if total_strings > 0 else 100.0
-    print(card_line(f"Total global : {total_translated}/{total_strings} ({pct_global:.1f}%) — {total_words_fr} mots", status="info"))
-    print(card_end())
+    card_line(f"Total global : {total_translated}/{total_strings} ({pct_global:.1f}%) — {total_words_fr} mots", status="info")
+    card_end()
     return 0
 
 

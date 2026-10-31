@@ -1,0 +1,3062 @@
+# Yakuza 0 GOG - Street Ambient Voice Subtitles Catalog
+# Calibrated French subtitles for 540 street voice encounters (.mfp in sound.par).
+# Requires len(FR) <= len(EN) for bit-exact in-place sound.par patching.
+
+domain: subtitles
+total_entries: 611
+entries:
+- id: sub_0000
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: '...So let''s have whatever you got.'
+  fr: '...Alors file-moi tout ce que t''as'
+- id: sub_0001
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: '...You already took all I got.'
+  fr: '...Vous m''avez déjà tout pris.'
+- id: sub_0002
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: A guy ain't just a face, sweetheart.
+  fr: Y a pas que la tête qui compte.
+- id: sub_0003
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: A guy's more'n just a face, baby.
+  fr: Y a pas que la gueule, bébé.
+- id: sub_0004
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: A-Au secours...
+  fr: A-Au secours...
+- id: sub_0005
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Aidez... Aidez-moi...
+  fr: Aidez... Aidez-moi...
+- id: sub_0006
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Ain't that funny? I'm in a hurry, too.
+  fr: C'est marrant, je suis pressé aussi.
+- id: sub_0007
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Ain't you taken enough already?
+  fr: T'en as pas déjà assez pris !?
+- id: sub_0008
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: All right, which bone are we breaking first?
+  fr: Quel os on te brise en premier ?
+- id: sub_0009
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Allez, ma belle. On va tripler ton plaisir.
+  fr: Allez, ma belle. On va tripler ton plaisir.
+- id: sub_0010
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Alright, fine. I'll make it hurt!
+  fr: Très bien. J'vais te faire mal !
+- id: sub_0011
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: And I wouldn't resist. For your own sake.
+  fr: Résiste pas, gamin. Pour ton bien.
+- id: sub_0012
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: And give us some screams and moans.
+  fr: Et pousse-nous de jolis petits cris
+- id: sub_0013
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Any idea what's gonna happen if you don't?
+  fr: Tu sais ce qui va t'arriver sinon ?
+- id: sub_0014
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: Are you giving the orders here now!?
+  fr: C'est toi qui donnes des ordres !?
+- id: sub_0015
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Are you stupid?
+  fr: T'es stupide ?
+- id: sub_0016
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Are you talking back to me? I'll kill you!
+  fr: Tu m'réponds !? J'vais te buter !
+- id: sub_0017
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Ass. Don't go getting ideas.
+  fr: Connard. Te fais pas d'illus
+- id: sub_0018
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Au secours...
+  fr: Au secours...
+- id: sub_0019
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 5
+  en: Augh!
+  fr: Argh!
+- id: sub_0020
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Augh...
+  fr: Aargh..
+- id: sub_0021
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Aw, ain't that a little harsh?
+  fr: Hé, c'est pas un peu dur ça ?
+- id: sub_0022
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Aw, don't be like that. Let's have fun.
+  fr: Fais pas la tête. On va s'éclater.
+- id: sub_0023
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Aw, stop. You'll embarrass them.
+  fr: 'Arrête, tu vas les mettre mal à '
+- id: sub_0024
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Aw, who left a cute thing like you all alone?
+  fr: Qui a laissé une jolie fille seule ici ?
+- id: sub_0025
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Aw, you'd love it, baby.
+  fr: Allez, tu vas adorer.
+- id: sub_0026
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Aw, you're gonna embarrass 'em.
+  fr: Arrête, tu vas les gêner.
+- id: sub_0027
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Aww, be honest. You know you want up on this.
+  fr: Allez, avoue ! Tu me veux, pas vrai ?
+- id: sub_0028
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: Aww, don't be mean to the poor kids.
+  fr: Sois pas méchant avec ces pauvres go
+- id: sub_0029
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Aww, it can't be that important.
+  fr: Allez, c'est pas si important.
+- id: sub_0030
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Bah quoi ? Ça fait trop mal ?
+  fr: Bah quoi ? Ça fait trop mal ?
+- id: sub_0031
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Be honest, now. You know you want this.
+  fr: Sois franche. Tu sais que t'en as envie
+- id: sub_0032
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Because you're wasting my time! Now pony up!
+  fr: 'Tu me fais perdre mon temps ! Crache le blé '
+- id: sub_0033
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: Bone's probly broke.
+  fr: L'os doit être cassé
+- id: sub_0034
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Bouge !
+  fr: Bouge !
+- id: sub_0035
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: But I want to see it, so get stripping!
+  fr: Moi je veux voir, alors à poil, vite !
+- id: sub_0036
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: But...
+  fr: Mais..
+- id: sub_0037
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Buuut I wanna watch, so get strippin', kids!
+  fr: Mais moi je veux voir, alors à poil !
+- id: sub_0038
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: C'mon already! Out with it!
+  fr: Allez, accouche ! Vite !
+- id: sub_0039
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: C'mon, be honest. You know you want this.
+  fr: Avoue ! Tu sais que t'en as trop envie.
+- id: sub_0040
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 11
+  en: C'mon, cow!
+  fr: Allez, vach
+- id: sub_0041
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: C'mon, keep it comin'!
+  fr: Allez, encore ! Vas-y
+- id: sub_0042
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: C'mon, let's see some more!
+  fr: 'Allez, montre-nous en plus '
+- id: sub_0043
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: C'mon, let's start with that top!
+  fr: Allez, commence par tomber le hau
+- id: sub_0044
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 12
+  en: C'mon, more!
+  fr: Encore, alle
+- id: sub_0045
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: C'mon, sugar. We're waitin'.
+  fr: Allez, ma jolie. On attend.
+- id: sub_0046
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Can't be THAT important.
+  fr: C'est pas SI important.
+- id: sub_0047
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Can't be that important anyhow.
+  fr: Ça peut pas être si important.
+- id: sub_0048
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Color me jealous.
+  fr: Je suis jaloux.
+- id: sub_0049
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Come play with us!
+  fr: Viens t'amuser !
+- id: sub_0050
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 10
+  en: Come play!
+  fr: Viens joue
+- id: sub_0051
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Comment oses-tu m'ignorer !?
+  fr: Comment oses-tu m'ignorer !?
+- id: sub_0052
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Creep! Why should I...
+  fr: Pervers ! Jamais je...
+- id: sub_0053
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: De quoi parlez-vous ?
+  fr: De quoi parlez-vous ?
+- id: sub_0054
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Did I ask if you CAN? I said DO it!
+  fr: J'ai pas dit SI TU PEUX. FAIS-LE !
+- id: sub_0055
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Didn't yer mama ever tell ya lyin' ain't right?
+  fr: Ta mère t'a pas dit que mentir c'est mal ?
+- id: sub_0056
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 48
+  en: Do we gotta work you over 'fore we start on her?
+  fr: On te défonce avant de s'occuper d'elle ?
+- id: sub_0057
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Do ya one better, we'll pay you double! Haha!
+  fr: 'Mieux : on te rend le double ! Haha !'
+- id: sub_0058
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Don't bother runnin'!
+  fr: Inutile de courir !
+- id: sub_0059
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: Don't die on me yet, pal. Hang in there.
+  fr: Crève pas tout de suite, l'ami. Tiens !
+- id: sub_0060
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Don't go getting mouthy on us, woman!
+  fr: Commence pas à l'ouvrir avec nous !
+- id: sub_0061
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Don't go thinkin' you can do whatever you want.
+  fr: Crois pas que tu peux faire n'importe quoi.
+- id: sub_0062
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: Don't you lie to me! You're holding out!
+  fr: Ne me mens pas ! T'as encore du fric !
+- id: sub_0063
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Eek...
+  fr: Eek...
+- id: sub_0064
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 5
+  en: Eep !
+  fr: Eep !
+- id: sub_0065
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Eep...
+  fr: Eep...
+- id: sub_0066
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: Either ya got money, or somethin' else...
+  fr: Soit t'as du fric, soit autre chose...
+- id: sub_0067
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Enough... Please, no more...
+  fr: Assez... Pitié, arrêtez...
+- id: sub_0068
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Er, that's not...
+  fr: Euh, c'est pas...
+- id: sub_0069
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Euh, quoi...?
+  fr: Euh, quoi...?
+- id: sub_0070
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Fais-le, ordure !
+  fr: Fais-le, ordure !
+- id: sub_0071
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Fall in love with this body!
+  fr: Admire un peu ce corps !
+- id: sub_0072
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Feelin' important with that girl on yer arm?
+  fr: Tu te sens fort avec cette fille au bras ?
+- id: sub_0073
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Feelin' pretty special, I bet?
+  fr: Tu te sens spécial, pas vrai ?
+- id: sub_0074
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: Ferme-la, connard !
+  fr: Ferme-la, connard !
+- id: sub_0075
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: Fine. Guess we'll start with a beatdown.
+  fr: Bon. On commence par te défoncer.
+- id: sub_0076
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: First off, let us borrow the girl awhile.
+  fr: Prête-nous d'abord ta fille un peu.
+- id: sub_0077
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: Forget about it. Get lost already.
+  fr: Laisse tomber. Dégage d'ici.
+- id: sub_0078
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: Forget about them. Give us a chance!
+  fr: Oublie-les. Laisse-nous notre chance
+- id: sub_0079
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Forget them. We're waitin' for ya, too.
+  fr: Oublie-les. Nous aussi on t'attend.
+- id: sub_0080
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Get to it. Strip.
+  fr: Allez. À poil.
+- id: sub_0081
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Get. Out. The way.
+  fr: Dégage. De. Là.
+- id: sub_0082
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Gngh...
+  fr: Gngh...
+- id: sub_0083
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Go make it up to yerself.
+  fr: Va te consoler tout seul.
+- id: sub_0084
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Go on, get to it.
+  fr: Allez, vas-y.
+- id: sub_0085
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: Go on, grab her top.
+  fr: Allez, prends son ha
+- id: sub_0086
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Gonna be stubborn, huh?
+  fr: T'es têtu, dis donc, he
+- id: sub_0087
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Got a lady friend, huh?
+  fr: T'es avec une fille, he
+- id: sub_0088
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Graah !
+  fr: Graah !
+- id: sub_0089
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 8
+  en: Grrnf...
+  fr: Grrnf...
+- id: sub_0090
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Guess he needs to hurt 'fore he learns.
+  fr: Faut qu'il souffre pour piger.
+- id: sub_0091
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Guh...
+  fr: Guh...
+- id: sub_0092
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 9
+  en: Gwaugh...
+  fr: Gwaugh...
+- id: sub_0093
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 9
+  en: Gwergh...
+  fr: Gwergh...
+- id: sub_0094
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: H-Hey! Stop it!
+  fr: 'H-Hé ! Arrêtez '
+- id: sub_0095
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: H-Hey, now wait just a minute here!
+  fr: H-Hé, attendez deux secondes !
+- id: sub_0096
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: H-Hey, now wait just a minute!
+  fr: H-Hé, attendez une minute !
+- id: sub_0097
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: H-Hey, stop it!
+  fr: H-Hé, arrêtez !
+- id: sub_0098
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: HAH! You outta yer damn mind?
+  fr: HAH ! T'es malade ou quoi ?
+- id: sub_0099
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: HAH. You think we're stupid!? I said ALL of it!
+  fr: HAH. Tu nous prends pour des cons ? TOUT !
+- id: sub_0100
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Hah, pitoyable.
+  fr: Hah, pitoyable.
+- id: sub_0101
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Hah, you're pathetic.
+  fr: Hah, t'es pathétique.
+- id: sub_0102
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Haha, keep kickin' him like that and he'll die.
+  fr: Haha, frappe encore et il va crever.
+- id: sub_0103
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Haha, maybe you'll get lucky and die quick.
+  fr: Haha, avec du bol tu vas crever vite.
+- id: sub_0104
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Haha, ouais !
+  fr: Haha, ouais !
+- id: sub_0105
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Haha, real bad.
+  fr: Haha, la poisse
+- id: sub_0106
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Haha, shoulda apologized sooner, buddy.
+  fr: Haha, fallait t'excuser avant, l'ami.
+- id: sub_0107
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Haha, won't he die if you keep that up?
+  fr: Haha, il va crever si tu continues !
+- id: sub_0108
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: Haha, you okay down there?
+  fr: Haha, ça va là par terre ?
+- id: sub_0109
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Haha, you should've apologized earlier.
+  fr: Haha, t'aurais dû t'excuser plus tôt.
+- id: sub_0110
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Haha, you still alive?
+  fr: Haha, t'es en vie ?
+- id: sub_0111
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Hang with me for a little bit. C'mon.
+  fr: Reste avec moi un peu. Viens.
+- id: sub_0112
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Have fun gettin' kicked around, buddy.
+  fr: Amuse-toi bien à te faire défoncer.
+- id: sub_0113
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Have you SEEN yer face?
+  fr: T'as VU ta sale tronche
+- id: sub_0114
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Have you seen these muscles?
+  fr: T'as vu un peu ces muscles ?
+- id: sub_0115
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Haven't ya taken enough already?
+  fr: T'en as pas déjà assez pris !?
+- id: sub_0116
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Haven't you taken enough already?
+  fr: T'en as pas déjà assez pris !?
+- id: sub_0117
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: He's got guts, huh?
+  fr: 'Il a du cran, hein '
+- id: sub_0118
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Hear me out, sweetheart. I'm serious here!
+  fr: Écoute, ma belle. Je suis très sérieux !
+- id: sub_0119
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 12
+  en: Hein ? Er...
+  fr: Hein ? Er...
+- id: sub_0120
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Hell, we'll pay you back double! Haha!
+  fr: 'On te rendra le double, promis ! Haha '
+- id: sub_0121
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Hey now, let's not...
+  fr: Hé là, du calme...
+- id: sub_0122
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Hey yourself, sweetheart.
+  fr: Salut à toi aussi, ma jol
+- id: sub_0123
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 4
+  en: Hey!
+  fr: Hé !
+- id: sub_0124
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Hey! Where the hell are you going!?
+  fr: Hé ! Où tu crois aller comme ça !?
+- id: sub_0125
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Hey! You're not runnin' from me!
+  fr: Hé ! Tu m'échapperas pas comme ç
+- id: sub_0126
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 9
+  en: Hey, I...
+  fr: Hé, je...
+- id: sub_0127
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Hey, baby. Looking for a good time?
+  fr: Hé, poupée. Tu veux t'amuser ?
+- id: sub_0128
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Hey, don't...
+  fr: Hé, pas ça...
+- id: sub_0129
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Hey, no tryin' to run!
+  fr: 'Hé, fuis pas comme ça '
+- id: sub_0130
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Hey, pal. The hell ya think you're doin' there?
+  fr: Hé l'ami, qu'est-ce que tu fous là ?
+- id: sub_0131
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Hey, quit flirting in public, asshole.
+  fr: Arrête de draguer en public, connard.
+- id: sub_0132
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Hey, quit it!
+  fr: Hé, arrêtez !
+- id: sub_0133
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Hey, that's a great plan.
+  fr: Hé, super bonne idée.
+- id: sub_0134
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: Hey, when do we get a turn, sweet thing?
+  fr: Quand est-ce qu'on a un tour, ma belle ?
+- id: sub_0135
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Hey, yeah. That's genius.
+  fr: Ouais, bien vu. Bonne idé
+- id: sub_0136
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 9
+  en: Hey, you.
+  fr: Hé, toi.
+- id: sub_0137
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Hey. The hell you lookin' at?
+  fr: Hé. Qu'est-ce que tu mates ?
+- id: sub_0138
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Hey... Stop it.
+  fr: Hé... Arrêtez.
+- id: sub_0139
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Heyyy, just a second there.
+  fr: Hééé, deux secondes là.
+- id: sub_0140
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Hit it your damn self.
+  fr: Débrouille-toi seul.
+- id: sub_0141
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Hnff...
+  fr: Hnff...
+- id: sub_0142
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Hngh...
+  fr: Hngh...
+- id: sub_0143
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Hnnf...
+  fr: Hnnf...
+- id: sub_0144
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 8
+  en: Hnngh...
+  fr: Hnngh...
+- id: sub_0145
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Hotels are a lot more fun with two, sweetheart.
+  fr: L'hôtel est bien mieux à deux, ma belle.
+- id: sub_0146
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: How 'bout we knock you out, then? Make it stop?
+  fr: Et si on t'assommait pour abréger ça ?
+- id: sub_0147
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: How 'bout we strip her bare while you watch?
+  fr: Et si on la déshabillait sous tes yeux ?
+- id: sub_0148
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: How about we make it so you never walk again?
+  fr: Et si tu marchais plus jamais de ta vie ?
+- id: sub_0149
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: How about we spill 'em on the sidewalk?
+  fr: Et si on lui étalait les tripes par ter
+- id: sub_0150
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: How about you give us a turn on that, honey?
+  fr: Et si tu nous laissais un tour, chérie ?
+- id: sub_0151
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: How are you this stupid!?
+  fr: Mais t'es tellement con !
+- id: sub_0152
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: How could I still have more?
+  fr: Comment j'en aurais plus ?
+- id: sub_0153
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: How many times you expect me to apologize?
+  fr: Je dois m'excuser combien de fois !?
+- id: sub_0154
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: How would I have more than what's in my wallet?
+  fr: J'ai rien de plus que mon portefeuille !
+- id: sub_0155
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: How're you plannin' to make amends?
+  fr: Comment tu comptes te racheter, hei
+- id: sub_0156
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: How's about an answer?
+  fr: Tu me réponds oui ou n
+- id: sub_0157
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: How's about giving us a turn on yer girl, then?
+  fr: Alors prête-nous ta meuf un peu !
+- id: sub_0158
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: How's about ya let us in on the fun? Eh?
+  fr: Et si tu nous laissais profiter un peu ?
+- id: sub_0159
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Hragh!
+  fr: Hragh!
+- id: sub_0160
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Hrah !
+  fr: Hrah !
+- id: sub_0161
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Hrgh...
+  fr: Hrgh...
+- id: sub_0162
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Hrnf...
+  fr: Hrnf...
+- id: sub_0163
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 8
+  en: Hrrnh...
+  fr: Hrrnh...
+- id: sub_0164
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Huh? Now that hurts my feelings.
+  fr: Hein ? Là, ça me blesse.
+- id: sub_0165
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 11
+  en: Huh? Uhh...
+  fr: Hein ? Euh
+- id: sub_0166
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Hyah !
+  fr: Hyah !
+- id: sub_0167
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: I ain't askin' yer opinion!
+  fr: Je demande pas ton avis !
+- id: sub_0168
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: I ain't askin' you!
+  fr: Je te cause pas !
+- id: sub_0169
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: I ain't askin'. I'm tellin'. Now, do it!
+  fr: Je demande pas. J'ordonne. Allez !
+- id: sub_0170
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: I ain't letting anythin' go! Hand. It. Over!
+  fr: Je lâche rien ! File-le ! Vite !
+- id: sub_0171
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: I already gave you all I had.
+  fr: Je vous ai déjà tout donné.
+- id: sub_0172
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: I already gave you all the money I got.
+  fr: Je vous ai déjà donné tout mon fric.
+- id: sub_0173
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: I am lost. Help me find my way to a hotel?
+  fr: Je suis perdu. Tu m'emmènes à l'hôtel ?
+- id: sub_0174
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: I asked if you got business!
+  fr: J'ai demandé si t'avais un s
+- id: sub_0175
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: I asked what the hell you're doing there.
+  fr: J'ai demandé ce que tu foutais là.
+- id: sub_0176
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: I didn't ask if you CAN. DO it!
+  fr: J'ai pas demandé si tu POUVAIS.
+- id: sub_0177
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: I don't even got any cash on me now...
+  fr: J'ai même plus un rond sur moi...
+- id: sub_0178
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: I don't even have any cash on me...
+  fr: J'ai même plus un sou sur moi...
+- id: sub_0179
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: I don't even have cash on me now...
+  fr: J'ai même plus un sou sur moi...
+- id: sub_0180
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: I don't got another yen!
+  fr: J'ai plus un seul yen !
+- id: sub_0181
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: I don't got any more.
+  fr: J'en ai plus du tout.
+- id: sub_0182
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: I don't wanna hear your excuses.
+  fr: J'veux pas entendre tes excuses.
+- id: sub_0183
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: I got no time to waste on losers!
+  fr: 'J''ai pas de temps pour les nazes '
+- id: sub_0184
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: I love ya, sweetheart! Let's hit a hotel.
+  fr: Je t'aime, ma jolie ! Go à l'hôtel.
+- id: sub_0185
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: I really can't let you do that.
+  fr: Je peux pas vous laisser faire.
+- id: sub_0186
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: I said I was sorry.
+  fr: J'ai dit pardon.
+- id: sub_0187
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 48
+  en: I said I'm sorry. Besides, you're the one who...
+  fr: Désolé ! Et puis c'est vous qui avez...
+- id: sub_0188
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: I said answer me, goddammit!
+  fr: Réponds-moi vite, bordel !
+- id: sub_0189
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: I said stop it!
+  fr: J'ai dit stop !
+- id: sub_0190
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: I want that top off NOW, woman!
+  fr: 'Fais tomber ce haut MAINTENANT '
+- id: sub_0191
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: I was just out drinking, see?
+  fr: Je buvais un verre, tu vois ?
+- id: sub_0192
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: I'd just go along with it if I were you.
+  fr: À ta place, je ferais ce qu'on te dit.
+- id: sub_0193
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: I'd say that's lettin' you off easy.
+  fr: T'as de la chance, c'est pas cher pa
+- id: sub_0194
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: I'll have ya beggin' and moanin'.
+  fr: Je vais te faire supplier.
+- id: sub_0195
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 48
+  en: I'll have ya screamin' "No way!" all night long.
+  fr: Je vais te faire hurler toute la nuit.
+- id: sub_0196
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: I'm beggin' here...
+  fr: Je vous en supplie
+- id: sub_0197
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: I'm beggin' ya...
+  fr: Pitié, je vous en
+- id: sub_0198
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: I'm dead serious, sugar.
+  fr: Je suis sérieux, poupée.
+- id: sub_0199
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: I'm hurryin' here!
+  fr: Je suis pressé !
+- id: sub_0200
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: I'm in a hurry here.
+  fr: Je suis pressé là.
+- id: sub_0201
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: I'm in a hurry!
+  fr: 'Je suis pressé '
+- id: sub_0202
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: I'm in love with ya, baby. Let's hit a hotel.
+  fr: Je kiffe trop sur toi. Viens à l'hôtel.
+- id: sub_0203
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 16
+  en: I'm not gonna...
+  fr: Je vais pas...
+- id: sub_0204
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: I'm not here so you can waste my time!
+  fr: Je suis pas là pour poireauter !
+- id: sub_0205
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: I'm seriously done with you. Get! Lost!
+  fr: Tu me saoules. Dégage de là !
+- id: sub_0206
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 10
+  en: I'm sorry.
+  fr: Pardon.
+- id: sub_0207
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: I'm waitin' on an answer, dumbass!
+  fr: J'attends ta réponse, abruti !
+- id: sub_0208
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: If I were you, I'd wanna do this the easy way.
+  fr: À votre place, je choisirais la douceur.
+- id: sub_0209
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: If sorry's all it took, we wouldn't need cops.
+  fr: Si pardon suffisait, pas besoin de flics.
+- id: sub_0210
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: If ya can't pay, we gotta figure somethin' out.
+  fr: Si tu peux pas payer, faut s'arranger.
+- id: sub_0211
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Instead, you get to help us blow off steam.
+  fr: À la place, tu vas nous détendre un peu.
+- id: sub_0212
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: It'd be different if she was giving us a turn.
+  fr: Ce serait différent si elle nous faisait kiffe
+- id: sub_0213
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: It'll never happen again, so please...
+  fr: Ça n'arrivera plus, pitié...
+- id: sub_0214
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: It's love at first sight. Let's hit the hotels.
+  fr: C'est le coup de foudre. Direction l'hôtel.
+- id: sub_0215
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: It's pissin' me off just watchin' you.
+  fr: Rien que de te voir, ça me gave.
+- id: sub_0216
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: It's pissin' me off just watchin'.
+  fr: Rien que de regarder, ça me gave.
+- id: sub_0217
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Just MOVE already!
+  fr: BOUGEZ, bon sang !
+- id: sub_0218
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Just get lost already.
+  fr: Dégage de là maintenan
+- id: sub_0219
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Just give us a chance!
+  fr: Laisse-nous une chance
+- id: sub_0220
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Just let us go...
+  fr: Laissez-nous...
+- id: sub_0221
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Just looking at guys like you pisses me off!
+  fr: Voir des mecs comme toi me fout en rogne !
+- id: sub_0222
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: Keep ignorin' me, it'll get ya hurt!
+  fr: Continue à m'ignorer et tu vas ramas
+- id: sub_0223
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Know your role in life, loser!
+  fr: Reste à ta place, minable !
+- id: sub_0224
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: L-Laissez-moi y aller...
+  fr: L-Laissez-moi y aller...
+- id: sub_0225
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Laisse ton argent en partant.
+  fr: Laisse ton argent en partant.
+- id: sub_0226
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Laissez moi partir...
+  fr: Laissez-moi partir...
+- id: sub_0227
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Lend us some cash?
+  fr: Un prêt de fric ?
+- id: sub_0228
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Let us borrow her for the day, pal.
+  fr: Prête-la pour la journée, l'ami.
+- id: sub_0229
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Let's go hit the hotel.
+  fr: On va direct à l'hôtel.
+- id: sub_0230
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Let's have a little strip show.
+  fr: Fais-nous un petit strip-tease.
+- id: sub_0231
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Let's have a strip show. One piece at a time.
+  fr: Fais un strip-tease. Un par un.
+- id: sub_0232
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Let's hurry to the nearest hotel.
+  fr: Vite, direction l'hôtel proche.
+- id: sub_0233
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Let's just make 'em strip for us instead! Haha!
+  fr: Faisons-les plutôt se déshabiller !
+- id: sub_0234
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Let's motor to the nearest hotel.
+  fr: Direction l'hôtel le plus proche.
+- id: sub_0235
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Let's see the money, junior.
+  fr: Fais voir le fric, gamin.
+- id: sub_0236
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Like hell! We KNOW you're holding out.
+  fr: Mon oeil ! On SAIT que tu gardes du fr
+- id: sub_0237
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Lookit you two, all lovey-dovey.
+  fr: Regardez ces deux tourtereaux.
+- id: sub_0238
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 48
+  en: Maintenant, donne-moi ton portefeuille, abruti !
+  fr: Maintenant, donne-moi ton portefeuille, abruti !
+- id: sub_0239
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Mais...
+  fr: Mais...
+- id: sub_0240
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 5
+  en: Move!
+  fr: Bouge
+- id: sub_0241
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 5
+  en: Move.
+  fr: Bouge
+- id: sub_0242
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: My ears are bleedin' over here.
+  fr: Mes oreilles saignent là.
+- id: sub_0243
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: N-No more... I can't...
+  fr: P-Pitié... j'en peux pl
+- id: sub_0244
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 16
+  en: N-No, I'm not...
+  fr: N-Non, c'est fau
+- id: sub_0245
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 12
+  en: N-No, I'm...
+  fr: N-Non, je...
+- id: sub_0246
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: N-No, don't! ...Please, just lemme go.
+  fr: N-Non ! ...Pitié, laissez-moi partir.
+- id: sub_0247
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: N-No. 'Course not...
+  fr: N-Non, bien sûr...
+- id: sub_0248
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 3
+  en: NO!
+  fr: NON
+- id: sub_0249
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Naw, girl, I'm dead serious here.
+  fr: Mais non, je suis très sérieux.
+- id: sub_0250
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Naw, naw, I'm bein' serious here!
+  fr: Mais non, je suis très sérieux !
+- id: sub_0251
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Ne m'ignore pas, bordel !
+  fr: Ne m'ignore pas, bordel !
+- id: sub_0252
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Ngh...
+  fr: Ngh...
+- id: sub_0253
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Nice woman ya got.
+  fr: Jolie meuf que t'a
+- id: sub_0254
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Nngf...
+  fr: Nngf...
+- id: sub_0255
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Nngh...
+  fr: Nngh...
+- id: sub_0256
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 8
+  en: Nnghf...
+  fr: Nnghf...
+- id: sub_0257
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: No hotel, got it. Let's do it in the streets!
+  fr: Pas d'hôtel, pigé. On fait ça dehors !
+- id: sub_0258
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 10
+  en: No more...
+  fr: Pitié...
+- id: sub_0259
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: No way!
+  fr: Jamais!
+- id: sub_0260
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 3
+  en: No!
+  fr: Non
+- id: sub_0261
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: No! P-Please, just leave me alone.
+  fr: Non ! P-Pitié, laissez-moi là.
+- id: sub_0262
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: No! Please, stop...
+  fr: Non ! Pitié, arrête
+- id: sub_0263
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 12
+  en: No! Stop it!
+  fr: Non ! Stop !
+- id: sub_0264
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: No! We wouldn't...
+  fr: Non ! Jamais on...
+- id: sub_0265
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: No! You can't.
+  fr: Non ! Jamais !
+- id: sub_0266
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: No, I would never...
+  fr: Non, jamais je...
+- id: sub_0267
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: No, I'm curious how your face got so ugly.
+  fr: Non, d'où t'as une gueule si moche ?
+- id: sub_0268
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: No, we wouldn't...
+  fr: Non, jamais on...
+- id: sub_0269
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: No, you can't... Please don't!
+  fr: Non, pas ça... Pitié, non !
+- id: sub_0270
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: No. Stop it...
+  fr: Non, arrêtez..
+- id: sub_0271
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 5
+  en: No...
+  fr: Non..
+- id: sub_0272
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Nobody asked you!
+  fr: On t'a rien dit !
+- id: sub_0273
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Non ! L-Laissez-moi partir.
+  fr: Non ! L-Laissez-moi partir.
+- id: sub_0274
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Not willin' to do yer part!?
+  fr: Tu veux pas y mettre du tien
+- id: sub_0275
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 8
+  en: Nrrgh...
+  fr: Nrrgh...
+- id: sub_0276
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Off on a happy little sleepover date?
+  fr: En route pour pioncer en amoureux ?
+- id: sub_0277
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 48
+  en: Off to spend the night at the boyfriend's place?
+  fr: Tu vas pioncer chez ton mec ?
+- id: sub_0278
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 9
+  en: Oh non...
+  fr: Oh non...
+- id: sub_0279
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 53
+  en: On a dit qu'on allait payer ! T'as trop de questions.
+  fr: On a dit qu'on allait payer ! T'as trop de questions.
+- id: sub_0280
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: On n'a plus rien.
+  fr: On n'a plus rien.
+- id: sub_0281
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: On peut laisser tomber, s'il te plait ?
+  fr: On peut laisser tomber, s'il te plait ?
+- id: sub_0282
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Oof, that hurt real bad.
+  fr: Ouch, ça fait trop mal.
+- id: sub_0283
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: Oof, that's bad. Bone's fractured all to hell.
+  fr: Ouch, c'est moche. L'os est brisé net.
+- id: sub_0284
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: Oof, that's serious. Bone's fractured to bits.
+  fr: Ouch, c'est grave. L'os est en miettes.
+- id: sub_0285
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Oof...
+  fr: Ouf...
+- id: sub_0286
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 16
+  en: Ooh, I'm scared.
+  fr: Ouh, trop peur.
+- id: sub_0287
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Ooh, effrayant.
+  fr: Ooh, effrayant.
+- id: sub_0288
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: Ooh, so scary.
+  fr: Ouh, trop peur
+- id: sub_0289
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Oooh, I got in trouble...
+  fr: Ouh là, des ennuis...
+- id: sub_0290
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Oooh, t'en as eu assez ?
+  fr: Oooh, t'en as eu assez ?
+- id: sub_0291
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Oooh... Aah, mon bras me fait mal !
+  fr: Oooh... Aah, mon bras me fait mal !
+- id: sub_0292
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Or are you trying to show off?
+  fr: Ou tu cherches à te la péter ?
+- id: sub_0293
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Or did you want to entertain us some other way?
+  fr: Ou tu veux nous amuser autrement ?
+- id: sub_0294
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Or what, you need some help?
+  fr: 'Ou alors t''as besoin d''aide '
+- id: sub_0295
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Or what? You lookin' to get stripped by force!?
+  fr: Ou quoi ? Tu veux qu'on te déshabille ?
+- id: sub_0296
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Ouais, toi, mon pote.
+  fr: Ouais, toi, mon pote.
+- id: sub_0297
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Ouch. Ça fait mal.
+  fr: Ouch. Ça fait mal.
+- id: sub_0298
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Out on a sleepover date at the boy's place?
+  fr: En route pour dormir chez ton mec ?
+- id: sub_0299
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 48
+  en: Owww, it hurts so bad... Even worse when I move.
+  fr: Aïe, ça fait trop mal... Pire en bougeant.
+- id: sub_0300
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: Owwwwwww! It hurts so bad!
+  fr: Aïeeeeee ! Trop mal !
+- id: sub_0301
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 16
+  en: P-Please, don't.
+  fr: P-Pitié, non.
+- id: sub_0302
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 50
+  en: Personne ne va se soucier d'une ordure comme toi !
+  fr: Personne ne va se soucier d'une ordure comme toi !
+- id: sub_0303
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: Pisses me off just looking at you.
+  fr: Ta sale gueule me saoule déjà.
+- id: sub_0304
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Please leave us alone...
+  fr: Laissez-nous en paix...
+- id: sub_0305
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 12
+  en: Please move!
+  fr: Poussez-vous
+- id: sub_0306
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Please, just let us go.
+  fr: Pitié, laissez-nous...
+- id: sub_0307
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: Please, just stop...
+  fr: Pitié, arrêtez...
+- id: sub_0308
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Please, no more...
+  fr: Pitié, arrêtez...
+- id: sub_0309
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Please, stop.
+  fr: Pitié, arrête
+- id: sub_0310
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Please, stop. I'm sorry, so please...
+  fr: Arrêtez, pitié. Pardonnez-moi...
+- id: sub_0311
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Q-Quelqu'un... aidez-moi...
+  fr: Q-Quelqu'un... aidez-moi...
+- id: sub_0312
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Que voulez-vous de moi ?
+  fr: Que voulez-vous de moi ?
+- id: sub_0313
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Quit bein' a nuisance and get outta the way!
+  fr: Arrête d'emmerder le monde et dégage !
+- id: sub_0314
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Quit dickin' around and let's have it!
+  fr: Arrête de traîner et crache le blé !
+- id: sub_0315
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Quoi ?
+  fr: Quoi ?
+- id: sub_0316
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 12
+  en: Quoi ? Er...
+  fr: Quoi ? Euh..
+- id: sub_0317
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Quoi ? Hum...
+  fr: Quoi ? Hum...
+- id: sub_0318
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Rragh !
+  fr: Rragh !
+- id: sub_0319
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: Rushin' through life ain't any fun, babe.
+  fr: Se presser dans la vie, c'est naze.
+- id: sub_0320
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 12
+  en: S-S-Sorry...
+  fr: P-P-Pardon..
+- id: sub_0321
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 10
+  en: S-Sorry...
+  fr: P-Pardon..
+- id: sub_0322
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 5
+  en: STOP!
+  fr: STOP!
+- id: sub_0323
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: Say somethin'!
+  fr: Dis un truc !
+- id: sub_0324
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: See, I just lost big on the slots.
+  fr: J'ai tout perdu aux jeux, tu vois.
+- id: sub_0325
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: Seein' guys like you makes my skin crawl.
+  fr: Voir des types comme toi me dégoûte.
+- id: sub_0326
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: She's not some toy to be loaned around.
+  fr: C'est pas un jouet qu'on se prête !
+- id: sub_0327
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Show some spine, limp dick!
+  fr: Aie des couilles, trouillar
+- id: sub_0328
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Showin' off in front of yer girl?
+  fr: Tu fais le fier devant ta nana ?
+- id: sub_0329
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 8
+  en: Shut it!
+  fr: Ta gueul
+- id: sub_0330
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Shut up and come with us!
+  fr: Ferme-la et suis-nous !
+- id: sub_0331
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Shut up with the damn flirting already!
+  fr: Ferme-la avec tes dragues à la con !
+- id: sub_0332
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: Shut up with your giggling and flirting!
+  fr: Ferme-la avec tes minauderies !
+- id: sub_0333
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Shut up, numbnuts!
+  fr: Ferme-la, abruti !
+- id: sub_0334
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Shut yer damn mouth and do as you're told!
+  fr: Ferme ta gueule et fais ce qu'on te dit !
+- id: sub_0335
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: So hurry up and hand it over already.
+  fr: Alors magne-toi de tout me donner.
+- id: sub_0336
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: So, you know, time to pad out the ol' wallet.
+  fr: Faut bien remplir un peu mon larfeuille.
+- id: sub_0337
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: So? That's their problem!
+  fr: Et alors ? C'est leur pro
+- id: sub_0338
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Somebody... help me...
+  fr: Quelqu'un... à l'aide.
+- id: sub_0339
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Someone... help...
+  fr: À l'aide... pitié.
+- id: sub_0340
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Somethin' wrong with yer mouth, boy? Talk!
+  fr: T'as perdu ta langue, gamin ? Parle !
+- id: sub_0341
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: Sorry I bumped you.
+  fr: Pardon du choc.
+- id: sub_0342
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Sorry ain't gonna put his arm back together.
+  fr: Pardon va pas lui réparer le bras.
+- id: sub_0343
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Sorry, I got someplace to be.
+  fr: Désolé, je dois y aller.
+- id: sub_0344
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Sorry, I gotta be going.
+  fr: Désolé, je dois y aller.
+- id: sub_0345
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Sorry, I'm in a hurry here.
+  fr: Désolé, je suis pressé là.
+- id: sub_0346
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Sorry, I'm in a hurry right now.
+  fr: Désolé, je suis pressé là.
+- id: sub_0347
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Sorry, guess I can't stop him.
+  fr: Désolé, je peux pas l'arrêter.
+- id: sub_0348
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Sorry... Please, just lemme go.
+  fr: Pardon... Laissez-moi partir.
+- id: sub_0349
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Stir us into the mix, baby.
+  fr: Mets-nous dans le coup, béb
+- id: sub_0350
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: Stop it. I got somebody waitin' for me.
+  fr: Arrêtez. Quelqu'un m'attend.
+- id: sub_0351
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 10
+  en: Stop it...
+  fr: Arrêtez...
+- id: sub_0352
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Stop trying to resist, you cow!
+  fr: Résiste pas, grosse vache !
+- id: sub_0353
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Stop, please...
+  fr: Arrêtez, pitié.
+- id: sub_0354
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Stop...
+  fr: Stop...
+- id: sub_0355
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Sucks to be you. Buh-bye!
+  fr: Pas de bol pour toi. Ciao
+- id: sub_0356
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Sure ya wanna keep goin'? He'll croak on ya.
+  fr: T'es sûr ? Il va y passer là.
+- id: sub_0357
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Sure, we ain't thieves.
+  fr: On est pas des voleurs.
+- id: sub_0358
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: T'es devenu muet ?
+  fr: T'es devenu muet ?
+- id: sub_0359
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Take a look at this physique!
+  fr: Regarde un peu ce corps !
+- id: sub_0360
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Take it nice and easy with us. Have some fun.
+  fr: Prends ça cool avec nous. On s'amuse.
+- id: sub_0361
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: That hurt? Feel like you're gonna die?
+  fr: Ça fait mal ? Tu te sens crever ?
+- id: sub_0362
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: That hurt? You want it to stop?
+  fr: Ça fait mal ? Tu veux qu'on ces
+- id: sub_0363
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: That was all the money I had.
+  fr: C'était tout ce que j'avais.
+- id: sub_0364
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: That was all the money I have.
+  fr: C'était tout mon argent.
+- id: sub_0365
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: That's how loans work, isn't it?
+  fr: C'est comme ça un prêt, non ?
+- id: sub_0366
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: That's not very nice.
+  fr: C'est pas très gentil
+- id: sub_0367
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: The hell are you mumblin' about!?
+  fr: Qu'est-ce que tu baves, bordel !?
+- id: sub_0368
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: The hell are you so happy about?
+  fr: 'Qu''est-ce qui te rend si joyeux '
+- id: sub_0369
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: The hell do you get off coppin' an attitude?
+  fr: D'où tu sors cet air supérieur, toi !?
+- id: sub_0370
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: The hell you gigglin' and flirtin' about?
+  fr: Qu'est-ce que vous rigolez tous deux ?
+- id: sub_0371
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: The hell's wrong with you?
+  fr: Mais t'as un problème !?
+- id: sub_0372
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: The little bone chips don't care 'bout sorry.
+  fr: Les débris d'os s'en fichent pas mal.
+- id: sub_0373
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Then let's have the rest already!
+  fr: Alors file le reste maintenant !
+- id: sub_0374
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Then you choose how this goes down.
+  fr: Alors choisis comment ça se passe.
+- id: sub_0375
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: There's plenty of girls around! Pick one!
+  fr: Y a plein de filles ! Lâchez-moi !
+- id: sub_0376
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: They can wait awhile longer.
+  fr: Ils peuvent attendre un peu.
+- id: sub_0377
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Think you're all that 'cause you got a girl?
+  fr: Tu te crois fort avec ta meuf !?
+- id: sub_0378
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: This ain't a show. Get goin'.
+  fr: C'est pas un spectacle, dégag
+- id: sub_0379
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: This guy's the worst.
+  fr: Ce mec est trop naze.
+- id: sub_0380
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: This one's about to die on ya. You done yet?
+  fr: Il va bientôt crever là. T'as fini ?
+- id: sub_0381
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 51
+  en: Ton porte-monnaie. Allez. On va en faire bon usage.
+  fr: Ton porte-monnaie. Allez. On va en faire bon usage.
+- id: sub_0382
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: Trash like you don't deserve help!
+  fr: Une ordure comme toi mérite rien !
+- id: sub_0383
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: Ugh, GET LOST.
+  fr: Pfff, DÉGAGE.
+- id: sub_0384
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Ugh, va te faire foutre.
+  fr: Ugh, va te faire foutre.
+- id: sub_0385
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: Ugh, whatever.
+  fr: Pfff, peu impo
+- id: sub_0386
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Uh oh! You all alone, cutie?
+  fr: Ouh là ! Toute seule, ma bel
+- id: sub_0387
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Uh-oh. Sounds like somebody's telling fibs.
+  fr: Ouh là. Quelqu'un nous raconte des cracks.
+- id: sub_0388
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Uhh, you got business here?
+  fr: Euh, t'as un souci ici ?
+- id: sub_0389
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Ungh...
+  fr: Ungh...
+- id: sub_0390
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Unless you were planning to fight me over it?
+  fr: Ou alors tu veux qu'on se batte pour ça ?
+- id: sub_0391
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: Urgh...
+  fr: Urgh...
+- id: sub_0392
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Urk...
+  fr: Urk...
+- id: sub_0393
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: Urm...
+  fr: Euh...
+- id: sub_0394
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 52
+  en: Vas-y tout seul. On devrait s'y habituer maintenant.
+  fr: Vas-y tout seul. On devrait s'y habituer maintenant.
+- id: sub_0395
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Vas-y, fais ton choix.
+  fr: Vas-y, fais ton choix.
+- id: sub_0396
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: Vas-y, parle.
+  fr: Vas-y, parle.
+- id: sub_0397
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 6
+  en: WHAT!?
+  fr: QUOI !
+- id: sub_0398
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Watch where you're walkin'!
+  fr: Regarde où tu marches !
+- id: sub_0399
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Watching guys like you makes me wanna puke.
+  fr: Voir des mecs comme toi me donne la gerbe.
+- id: sub_0400
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: We just want somebody to drink with for a bit.
+  fr: On veut juste picoler avec quelqu'un.
+- id: sub_0401
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: We're just asking for a little loan, is all.
+  fr: On demande juste un petit prêt, c'est tout.
+- id: sub_0402
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: We're just borrowin' her a minute!
+  fr: On l'emprunte une minute !
+- id: sub_0403
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: We're just borrowin' her awhile!
+  fr: On l'emprunte juste un moment !
+- id: sub_0404
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: We're just borrowing her a little while!
+  fr: On l'emprunte juste un petit peu !
+- id: sub_0405
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: We're just gonna borrow her awhile!
+  fr: On l'emprunte juste un petit moment
+- id: sub_0406
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Well ain't that funny. I'm in a hurry, too.
+  fr: C'est marrant. Moi aussi je suis pressé.
+- id: sub_0407
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Well aren't you special?
+  fr: Tu te crois spécial, toi
+- id: sub_0408
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Well, now ya get to play punchin' bag.
+  fr: Tu vas servir de punching-ball.
+- id: sub_0409
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Wh-What are you sayin'?
+  fr: Qu-Qu'est-ce que tu dis
+- id: sub_0410
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Wh-What are you talking about?
+  fr: D-De quoi vous parlez ?
+- id: sub_0411
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Wh-What!? No... Please, no.
+  fr: Quoi !? Non... Pitié, non.
+- id: sub_0412
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Wh-What're ya talkin' about?
+  fr: D-De quoi vous parlez ?
+- id: sub_0413
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: Wha-- HEY! Stop it!
+  fr: Quoi... HÉ ! Arrête
+- id: sub_0414
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: What a waste! Why not come have fun with us?
+  fr: Quel gâchis ! Viens t'amuser avec nous !
+- id: sub_0415
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: What do you mean, no!?
+  fr: Comment ça non !?
+- id: sub_0416
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: What do you mean, no? You want this.
+  fr: Comment ça non ? T'en as bien envie.
+- id: sub_0417
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: What!? Stop it!
+  fr: Quoi !? Arrêtez
+- id: sub_0418
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: What'd you say to me?
+  fr: Qu'est-ce que t'as di
+- id: sub_0419
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: What're you talkin' about?
+  fr: De quoi vous parlez ?
+- id: sub_0420
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: What's the hold-up? Get stripping.
+  fr: T'attends quoi ? À poil, vite.
+- id: sub_0421
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: What's with the confidence, buddy?
+  fr: D'où tu sors cette assurance ?
+- id: sub_0422
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: What, are you crazy!? I'm not goin' anywhere.
+  fr: T'es ouf !? Je vais nulle part avec toi !
+- id: sub_0423
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: What, pain gettin' to be too much?
+  fr: Quoi, la douleur devient trop fort
+- id: sub_0424
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: What, the pain too bad?
+  fr: Quoi, trop mal ?
+- id: sub_0425
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: What, tryin' to rub it in our face?
+  fr: Quoi, tu veux nous narguer devant n
+- id: sub_0426
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: What, ya think I was born yesterday? ALL of it!
+  fr: Tu me prends pour un bleu ? TOUT, vite !
+- id: sub_0427
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: What, you got business here?
+  fr: Quoi, t'as un problème ?
+- id: sub_0428
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: What, you're gonna talk back to me?
+  fr: Quoi, tu vas oser me répondre !?
+- id: sub_0429
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: What? I can't do that.
+  fr: Quoi ? Pas question !
+- id: sub_0430
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: What? N-No, I'm not...
+  fr: Quoi ? N-Non, jamais..
+- id: sub_0431
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: What? No money? That some kind of joke!?
+  fr: Quoi ? Pas de fric ? C'est un gag !?
+- id: sub_0432
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: What? You ain't serious....
+  fr: Quoi ? Tu déconnes là...
+- id: sub_0433
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Whatever, shut up and make way.
+  fr: Bref, ferme-la et laisse passer
+- id: sub_0434
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Where the hell do you think you're going!?
+  fr: Où tu crois aller comme ça, bordel !?
+- id: sub_0435
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Where the hell were you lookin'!?
+  fr: Où est-ce que tu regardais, borde
+- id: sub_0436
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: Where the hell ya think you're goin'!?
+  fr: Où tu crois aller comme ça, bordel !?
+- id: sub_0437
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Where would I be hiding more?
+  fr: Où voulez-vous que j'en cache
+- id: sub_0438
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: Where would I even be hiding more?
+  fr: Où voulez-vous que j'en cache !?
+- id: sub_0439
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Where's the fire, baby?
+  fr: T'es pressée, poupée ?
+- id: sub_0440
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Who cares about a guy's face?
+  fr: On s'en fout de sa tronche !
+- id: sub_0441
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: Who the hell are you? You got business here?
+  fr: T'es qui toi ? T'as un souci ?
+- id: sub_0442
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: Whoa, whoa. Don't be so cold, pal.
+  fr: Du calme. Sois pas si froid, l'ami
+- id: sub_0443
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Why are you doin' this?
+  fr: Pourquoi vous faites ça
+- id: sub_0444
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Why are you doing this?
+  fr: Pourquoi faire ça ?
+- id: sub_0445
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Why bother tellin' lies nobody's gonna buy?
+  fr: Pourquoi mentir ? Zéro crédibilité.
+- id: sub_0446
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Why don't ya lend her to us awhile?
+  fr: Pourquoi tu nous la prêtes pas ?
+- id: sub_0447
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Why is this happening...?
+  fr: Pourquoi ça m'arrive... ?
+- id: sub_0448
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Why not ask some other girl?
+  fr: Va voir une autre fille !
+- id: sub_0449
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Why not come have some fun with us?
+  fr: Viens donc t'amuser un peu avec nou
+- id: sub_0450
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Why not take it nice and slow with us in bed?
+  fr: Et si on prenait notre temps au lit ?
+- id: sub_0451
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: Why would I have more than what's in my wallet?
+  fr: J'ai rien d'autre que mon portefeuille !
+- id: sub_0452
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Why're ya doin' this to me?
+  fr: Pourquoi me faire ça ?
+- id: sub_0453
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Why's this happenin' to me...?
+  fr: Pourquoi ça m'arrive... ?
+- id: sub_0454
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: Woo-woo! Look at you two, all arm in arm.
+  fr: Oh là là ! Bras dessus, bras dessous.
+- id: sub_0455
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Y-You gotta be kiddin'.
+  fr: V-Vous rigolez...
+- id: sub_0456
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Ya can't run forever!
+  fr: Tu fuiras pas toujour
+- id: sub_0457
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Ya think this is some joke!?
+  fr: Tu crois que c'est un gag !?
+- id: sub_0458
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Yeah, I'm talkin' to you.
+  fr: Ouais, c'est à toi que je
+- id: sub_0459
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Yeah, no way could we do that!
+  fr: Ouais, jamais de la vie !
+- id: sub_0460
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: Yeah, no way we'd...
+  fr: Ouais, pas question
+- id: sub_0461
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Yeah, no way we're doin' that!
+  fr: Ouais, jamais de la vie !
+- id: sub_0462
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Yeah, there's no way we can...
+  fr: Ouais, pas question...
+- id: sub_0463
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: Yeah, we can't do that...
+  fr: On peut pas faire ça...
+- id: sub_0464
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: Yeah. We can't just take off our clothes here.
+  fr: On va pas se déshabiller ici !
+- id: sub_0465
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: Yeesh, okay. Psycho...
+  fr: Ouh là, d'accord, taré
+- id: sub_0466
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Yeesh, so touchy.
+  fr: Dis donc, suscept
+- id: sub_0467
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: You ain't givin' the orders here!
+  fr: C'est pas toi qui commandes ici !
+- id: sub_0468
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: You boys go take care of each other!
+  fr: Allez donc vous occuper ensemble !
+- id: sub_0469
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: You coppin' an attitude with us!?
+  fr: Tu te permets de faire le malin !
+- id: sub_0470
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: You don't get a vote in this.
+  fr: T'as pas ton mot à dire ici.
+- id: sub_0471
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: You don't mind, right?
+  fr: Ça te dérange pas, hei
+- id: sub_0472
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: You even listenin' anymore?
+  fr: T'écoutes encore ce qu'on d
+- id: sub_0473
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: You gonna play superhero and save the girl?
+  fr: Tu joues les héros pour la sauver ?
+- id: sub_0474
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: You gonna protect the little lady?
+  fr: Tu vas protéger la demoiselle ?
+- id: sub_0475
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: You gonna shit on a sweet deal like that!?
+  fr: Tu craches sur une affaire pareille !?
+- id: sub_0476
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: You got any money?
+  fr: T'as du fric ?
+- id: sub_0477
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: You gotta be joking...
+  fr: Vous plaisantez...
+- id: sub_0478
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: You keep outta this!
+  fr: Mêle-toi de tes fess
+- id: sub_0479
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: You know ya want to.
+  fr: 'Tu sais que t''en as '
+- id: sub_0480
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: You like that!?
+  fr: T'aimes ça !?
+- id: sub_0481
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: You listenin' to me?
+  fr: Tu m'écoutes, là ?
+- id: sub_0482
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: You looking to get BOTH of you hurt?
+  fr: 'Tu veux qu''on vous défonce tous les '
+- id: sub_0483
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 44
+  en: You make it seem like we're being mean here.
+  fr: Tu fais croire qu'on est des méchants.
+- id: sub_0484
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: You off to have yourselves a little sleepover?
+  fr: Vous partez pioncer ensemble en amoureux ?
+- id: sub_0485
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: You out all by yourself, sweetheart?
+  fr: Tu traînes toute seule, ma jolie ?
+- id: sub_0486
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: You really gotta go 'round flirtin' in public?
+  fr: T'es obligé de draguer en plein public ?
+- id: sub_0487
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: You seen these muscles?
+  fr: T'as vu ces muscles ?
+- id: sub_0488
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: You serious right now?
+  fr: T'es sérieux là ?
+- id: sub_0489
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 40
+  en: You should be! Who do you think you are?
+  fr: T'as intérêt ! Tu te prends pour qui ?
+- id: sub_0490
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: You showin' off? That what this is?
+  fr: Tu te la pètes ? C'est ça l'idée ?
+- id: sub_0491
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: You stay outta this!
+  fr: Mêle-toi de tes fess
+- id: sub_0492
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: You talkin' back to us!?
+  fr: Tu nous réponds, là !?
+- id: sub_0493
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: You telling me what I can and can't do?
+  fr: Tu vas me dicter ma loi, toi ?
+- id: sub_0494
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: You that eager to hurt, friend?
+  fr: 'T''as si hâte de morfler, l''ami '
+- id: sub_0495
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: You think I'm joking around here!?
+  fr: Tu crois que je déconne, là !?
+- id: sub_0496
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: You think that's gonna cut it?
+  fr: Tu crois que ça va suffire ?
+- id: sub_0497
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: You think this is a joke?
+  fr: Tu crois que c'est une bl
+- id: sub_0498
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: You think this town's yer personal playground?
+  fr: Tu crois que la ville t'appartient ?
+- id: sub_0499
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 39
+  en: You think you're gonna play hero today?
+  fr: Tu crois faire le héros aujourd'hui ?
+- id: sub_0500
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: You think you're some knight in shining armor?
+  fr: Tu te prends pour un chevalier blanc !?
+- id: sub_0501
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: You took all the money I had.
+  fr: Vous avez pris tout mon argen
+- id: sub_0502
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: You trying to show off? Is that it?
+  fr: Tu te la racontes ? C'est ça ?
+- id: sub_0503
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: You two putting on a show?
+  fr: Vous faites un spectacle ?
+- id: sub_0504
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 47
+  en: You want me sink the both of you in the ocean!?
+  fr: Tu veux que je vous noie tous les deux !?
+- id: sub_0505
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: You what? Who said you get an opinion here?
+  fr: Quoi ? Qui t'a dit de l'ouvrir !?
+- id: sub_0506
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: You'll pay me back, though?
+  fr: Vous me rembourserez ?
+- id: sub_0507
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: You're awful uppity for a horse-faced old bag!
+  fr: Tu l'ouvres bien grand pour un vieux sac !
+- id: sub_0508
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: You're comin'.
+  fr: Tu viens.
+- id: sub_0509
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: You're giving me a migraine.
+  fr: Tu me files la migraine.
+- id: sub_0510
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: You're into it, ain't ya, sugar?
+  fr: T'aimes bien ça, non, ma jolie ?
+- id: sub_0511
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: You're into it, right, babe?
+  fr: 'T''en meurs d''envie, non, ma '
+- id: sub_0512
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: You're making my ears bleed here.
+  fr: Tu me casses les oreilles, là.
+- id: sub_0513
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: You're not getting away!
+  fr: Tu t'échapperas pas !
+- id: sub_0514
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: You're not going anywhere!
+  fr: Tu bouges pas d'ici !
+- id: sub_0515
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: You're outta your mind!
+  fr: T'es complètement taré
+- id: sub_0516
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: You're spending the night alone, asshole.
+  fr: Tu vas dormir tout seul, connard.
+- id: sub_0517
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: You're talking back to us?
+  fr: Tu nous réponds, là !?
+- id: sub_0518
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 11
+  en: À l'aide...
+  fr: À l'aide...
+- id: sub_0519
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 25
+  en: '...And please be careful.'
+  fr: '...Et faites attention. '
+- id: sub_0520
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: Are you all right?
+  fr: Tout va bien, là ?
+- id: sub_0521
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Are you all right? You need to be careful.
+  fr: Tout va bien ? Vous devez faire attention.
+- id: sub_0522
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: But I can keep going.
+  fr: Mais j'peux continuer
+- id: sub_0523
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: C'mon, where are you going?
+  fr: Hé, où est-ce que tu vas ?
+- id: sub_0524
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 45
+  en: Damn waste of my time... Can I just end them?
+  fr: 'Perte de temps... Je peux les achever ?     '
+- id: sub_0525
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Did ya have a drink before comin' in?
+  fr: T'as bu un coup avant de venir ici ?
+- id: sub_0526
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Did you need something?
+  fr: Vous vouliez un truc ?
+- id: sub_0527
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: Did you need something? Can I fix you a drink?
+  fr: Vous désirez quelque chose ? Un petit verre ?
+- id: sub_0528
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Do know that it's appreciated.
+  fr: C'est vraiment très apprécié.
+- id: sub_0529
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Do you WANT me to kill you? Don't tempt me.
+  fr: Tu veux que j'te bute ? Me tente pas, mec.
+- id: sub_0530
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Don't make me bust out the leash.
+  fr: M'oblige pas à sortir la laisse.
+- id: sub_0531
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Don't wander off. You follow me.
+  fr: 'T''éloigne pas d''ici. Suis-moi.  '
+- id: sub_0532
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Drink tastes best in moderation, you know.
+  fr: L'alcool se savoure avec modération, non ?
+- id: sub_0533
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Easy, tiger. Don't go making trouble.
+  fr: 'Du calme, champion. Pas de vagues.  '
+- id: sub_0534
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Goodness, are you all right?
+  fr: Mon dieu, vous allez bien ?
+- id: sub_0535
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Goodness, you're hurt! What happened?
+  fr: 'Vous saignez ! Que s''est-il passé ? '
+- id: sub_0536
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Here we are, sir.
+  fr: Nous y voici, va
+- id: sub_0537
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Hey, come on. Calm down.
+  fr: Hé, doucement. Du calme.
+- id: sub_0538
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: Hey, what you doing?
+  fr: 'Hé ! Tu fais quoi ? '
+- id: sub_0539
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 27
+  en: Hm? Did you need something?
+  fr: 'Un souci, peut-être ?      '
+- id: sub_0540
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: Hm? Was there something I can do for you?
+  fr: 'Je peux faire quelque chose pour vous ? '
+- id: sub_0541
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: How can I help?
+  fr: Je peux aider ?
+- id: sub_0542
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: How did it go with Kanae-chan?
+  fr: 'Ça a été avec Kanae-chan ?   '
+- id: sub_0543
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: Hé ! No girl likes a brute, you know.
+  fr: Aucune fille n'aime les brutes, va !
+- id: sub_0544
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: I could use another drink, too!
+  fr: 'Je reprendrais bien un verre ! '
+- id: sub_0545
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: I don't even know what to say.
+  fr: Je ne sais même pas quoi dire
+- id: sub_0546
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: I'll take you there.
+  fr: 'Je vous y emmène.  '
+- id: sub_0547
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 22
+  en: If it isn't Kiryu-san.
+  fr: Tiens donc, Kiryu-san.
+- id: sub_0548
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: If it isn't Majima-san.
+  fr: Tiens donc, Majima-san.
+- id: sub_0549
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: If this is a joke, I'm not laughing.
+  fr: 'Si c''est une blague, je ris pas. '
+- id: sub_0550
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 29
+  en: Is there anything you needed?
+  fr: Vous avez besoin d'un truc ?
+- id: sub_0551
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Kanae-chan should be in the dressing room.
+  fr: Kanae-chan doit être au vestiaire, chef.
+- id: sub_0552
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Killing that girl's the only way you live.
+  fr: Tuer cette fille est ta seule issue, mec.
+- id: sub_0553
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: Leave something behind, sir?
+  fr: 'Vous avez oublié un truc ?  '
+- id: sub_0554
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Let's you and me drink sometime!
+  fr: 'On s''boit un coup un de ces 4 ! '
+- id: sub_0555
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Looks like we lost them.
+  fr: On les a semés on dirait
+- id: sub_0556
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: Looks like we're here. This is it.
+  fr: On dirait qu'on y est. C'est ici.
+- id: sub_0557
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: My life story can wait.
+  fr: 'Ma vie peut attendre. '
+- id: sub_0558
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Oh ho, been out enjoying a drink? How nice.
+  fr: Oh oh, vous buvez un verre ? C'est sympa !
+- id: sub_0559
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: Oh, dear. Just how tipsy are you?
+  fr: Mon dieu. Tu as trop bu ou quoi ?
+- id: sub_0560
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 32
+  en: Oh, dear. What are you thinking?
+  fr: 'Mais enfin, à quoi tu penses ? '
+- id: sub_0561
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 26
+  en: Oh, did something come up?
+  fr: 'Oh, il y a un problème ? '
+- id: sub_0562
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: Oh, you've been drinking. I hadn't noticed.
+  fr: Oh, vous avez bu. Je n'avais pas remarqué.
+- id: sub_0563
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Okay, let's go.
+  fr: 'C''est parti.   '
+- id: sub_0564
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Or do you already have a lead?
+  fr: Ou t'as déjà une piste, toi ?
+- id: sub_0565
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: Ow, that hurts!
+  fr: Aïe, ça douille
+- id: sub_0566
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: P-Please do watch where you're going.
+  fr: F-Faites attention où vous marchez !
+- id: sub_0567
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 31
+  en: Perhaps you should rest awhile?
+  fr: 'Vous devriez vous reposer...  '
+- id: sub_0568
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 20
+  en: Please come with me.
+  fr: Suivez-moi, patron.
+- id: sub_0569
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 17
+  en: Please wait, sir.
+  fr: Attendez, patron.
+- id: sub_0570
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Right this way, please.
+  fr: 'Par ici, suivez-moi.  '
+- id: sub_0571
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 7
+  en: See ya.
+  fr: À plus.
+- id: sub_0572
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: See you later, sir.
+  fr: 'À plus tard, chef. '
+- id: sub_0573
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: See you later.
+  fr: 'À plus tard.  '
+- id: sub_0574
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 23
+  en: Something on your mind?
+  fr: 'Un problème en tête ? '
+- id: sub_0575
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Sorry to rely on you for so much...
+  fr: Pardon de vous solliciter autant...
+- id: sub_0576
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: That dangerous.
+  fr: C'est dangereux
+- id: sub_0577
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 43
+  en: The Nozomi deal is just... You're a wizard.
+  fr: L'affaire Nozomi... Vous êtes un magicien.
+- id: sub_0578
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: There he go...
+  fr: 'Et voilà...   '
+- id: sub_0579
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: There you are.
+  fr: Te voilà, toi.
+- id: sub_0580
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 14
+  en: This way, sir.
+  fr: Par ici, chef.
+- id: sub_0581
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Watch where you running.
+  fr: Regarde où tu cours, toi
+- id: sub_0582
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 21
+  en: Well, see you around.
+  fr: 'Bon, à plus tard.   '
+- id: sub_0583
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: What are ya up to?
+  fr: Tu fais quoi là ?
+- id: sub_0584
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 18
+  en: What you need now?
+  fr: Tu veux quoi, là ?
+- id: sub_0585
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: What's the hurry all of a sudden?
+  fr: 'C''est quoi cette urgence, là ?  '
+- id: sub_0586
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 48
+  en: What, you forget something? That's not like you.
+  fr: T'as oublié un truc ? Ça te ressemble pas trop.
+- id: sub_0587
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 16
+  en: What, you tired?
+  fr: 'T''es fatigué ?  '
+- id: sub_0588
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: Where are you going? It's this way.
+  fr: Où allez-vous ? C'est par ici, va.
+- id: sub_0589
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Whoa, are you okay, sir?
+  fr: 'Tout va bien, patron ? '
+- id: sub_0590
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 34
+  en: Whoa, did somebody do that to you?
+  fr: Oula, qui t'a arrangé comme ça ?
+- id: sub_0591
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 30
+  en: Worry 'bout yerself right now!
+  fr: 'Pense plutôt à ta peau, là ! '
+- id: sub_0592
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 24
+  en: Wow, are you all right!?
+  fr: 'Ça va ? T''es blessé !? '
+- id: sub_0593
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 38
+  en: You been to the Champion District yet?
+  fr: T'es déjà allé au quartier Champion ?
+- id: sub_0594
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 10
+  en: You drunk?
+  fr: 'T''as bu ? '
+- id: sub_0595
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: You drunk? Must be nice to play it loose.
+  fr: Bourré ? C'est beau de vivre sans souci.
+- id: sub_0596
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 37
+  en: You look like you've had quite a few.
+  fr: On dirait que vous avez bien picolé.
+- id: sub_0597
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 19
+  en: You need something?
+  fr: Tu as un problème ?
+- id: sub_0598
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: You need to treat those injuries.
+  fr: Tu devrais soigner tes blessures
+- id: sub_0599
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 41
+  en: You should really treat those injuries...
+  fr: 'Vous devriez soigner vos blessures...   '
+- id: sub_0600
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 16
+  en: You so generous!
+  fr: 'Trop généreux ! '
+- id: sub_0601
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: You two fighting isn't going to help anything.
+  fr: Vous battre tous les deux ne résoudra rien.
+- id: sub_0602
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 36
+  en: '`Hé ! Where the hell are you going!?'
+  fr: 'Hé ! Où diable tu vas comme ça !? '
+- id: sub_0603
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 33
+  en: '`Hé ! You''re not runnin'' from me!'
+  fr: Hé ! Tu vas pas m'échapper, là !
+- id: sub_0604
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 16
+  en: '`J''ai dit stop !'
+  fr: 'J''ai dit stop ! '
+- id: sub_0605
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 35
+  en: '`Non P-Please, just leave me alone.'
+  fr: 'N-Non, pitié... Laissez-moi...   '
+- id: sub_0606
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 13
+  en: '`Non Stop it!'
+  fr: 'Arrête ça ! '
+- id: sub_0607
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 15
+  en: '`Non You can''t.'
+  fr: 'Non, pas ça !  '
+- id: sub_0608
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 28
+  en: '`Wh-What!? Non.. Please, no.'
+  fr: Q-Quoi !? Non... Pitié, non.
+- id: sub_0609
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 46
+  en: Vous vouliez un truc ?  Can I fix you a drink?
+  fr: Vous désirez quelque chose ? Un petit verre ?
+- id: sub_0610
+  context: Street ambient voice subtitle (.mfp in sound.par)
+  max_len: 42
+  en: Tout va bien, là ? You need to be careful.
+  fr: Tout va bien ? Vous devez faire attention.

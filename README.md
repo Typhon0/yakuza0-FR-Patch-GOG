@@ -1,7 +1,7 @@
 # Yakuza 0 - French Translation (VOSTFR) for GOG Edition
 
 [![Platform](https://img.shields.io/badge/Platform-GOG_Galaxy_%7C_Windows_%7C_Linux_%7C_Steam_Deck-blue.svg)](#)
-[![Version](https://img.shields.io/badge/Patch_Version-v1.12.11--gog-green.svg)](#)
+[![Version](https://img.shields.io/badge/Patch_Version-v1.13.0--gog-green.svg)](#)
 [![Status](https://img.shields.io/badge/Status-100%25_Playable_%26_Crash--Free-success.svg)](#)
 [![PAR Verification](https://img.shields.io/badge/PAR_Integrity-131%2F131_PASS-brightgreen.svg)](#)
 [![Original Mod](https://img.shields.io/badge/Original_Translation-Byce61_%2F_Yakuza_RGG_France-orange.svg)](https://www.youtube.com/channel/UCVhH_lJSjvyH_njkHQNxfBA)
@@ -45,7 +45,7 @@ The original community patch was compiled strictly for the Steam release:
 
 ---
 
-### 🎮 Translated Content (v1.12.11)
+### 🎮 Translated Content (v1.13.0)
 
 * **Main Story & Cutscenes**: 100% of story cutscenes, prerendered cinematics, and dialogues subtitled in natural French.
 * **Combat & Progression**: 100% of abilities, battle styles (Brawler, Rush, Beast, Dragon of Dojima / Thug, Slugger, Breaker, Mad Dog of Shimano), all Heat Actions (*Essence of...*), masters, and combat evaluation ranks.
@@ -200,6 +200,27 @@ Deux packages de distribution sont disponibles :
 
 ---
 
+### 🌐 Gestion & Édition des Traductions (`translations/` & `tools/i18n.py`)
+
+Les traductions du projet sont centralisées sous forme de catalogues **YAML modulaires** dans le dossier [`translations/`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/translations/), facilement éditables par des humains et des IA :
+
+```
+translations/
+├── combat/         # Capacités, styles de combat (Dragon, Brawler...) et Heat Actions
+├── minigames/      # Hôtesses du Cabaret Club, agents Dragon & Tiger
+├── shops/          # 558 descriptions d'objets (35 boutiques shop0000 à shop0034)
+├── story/          # Cabines de sauvegarde (58 car. ASCII) et quêtes secondaires
+├── subtitles/      # 540 sous-titres audio de rue (sound.par)
+└── system/         # Menus de pause, infobulles et tutoriels
+```
+
+L'outil CLI unifié [`tools/i18n.py`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/tools/i18n.py) gère le cycle de vie complet :
+* **Validation & Linting** : `python3 tools/i18n.py validate` vérifie la compatibilité des caractères avec [`font_table_french.bin`](file:///home/dev/repos/yakuza0-FR-Patch-GOG/release_gog/font_table_french.bin) et applique les règles d'or (cabines strictes 58 caractères ASCII, absence de null-padding dans les dialogues).
+* **Compilation** : `python3 tools/i18n.py compile` synchronise les modules Python pour alimenter la chaîne de reconstruction PAR Sega sans régression.
+* **Statistiques** : `python3 tools/i18n.py status` affiche le taux d'avancement et le nombre de mots par domaine.
+
+---
+
 ### 🔍 Vérification & Diagnostic
 
 Le patch intègre des outils d'audit et de diagnostic autonomes :
@@ -228,7 +249,19 @@ yakuza0-FR-Patch-GOG/
 │   ├── patch_gog.sh                  # Lanceur Linux / Steam Deck 1-clic
 │   └── font_table_french.bin         # Table de crénage des métriques de police (0x80-0xFF)
 │
+├── translations/                     # Catalogues de traduction unifiés (format YAML)
+│   ├── combat/                       # Capacités et styles de combat
+│   ├── minigames/                    # Hôtesses de cabaret et agents
+│   ├── shops/                        # 558 descriptions d'objets en boutiques
+│   ├── story/                        # Cabines de sauvegarde et quêtes secondaires
+│   ├── subtitles/                    # Sous-titres audio d'ambiance
+│   └── system/                       # Menus de pause et tutoriels
+│
 ├── tools/                            # Outils de développement, d'audit et de build
+│   ├── i18n.py                       # CLI unifié de gestion, linting et compilation des traductions
+│   ├── i18n_validator.py             # Validateur de conformité des règles d'or et tables de police
+│   ├── i18n_extractor.py             # Moteur d'extraction des dictionnaires vers YAML
+│   ├── i18n_compiler.py              # Compilateur YAML vers modules Python de build
 │   ├── build_release.py              # Générateur de release autonome avec test E2E intégré
 │   ├── verify_patch.py               # Validateur autonome des 131 archives PAR
 │   ├── crash_analyzer.py             # Analyseur intelligent de logs de crash Special K / RGG

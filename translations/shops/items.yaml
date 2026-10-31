@@ -1,0 +1,5116 @@
+# Yakuza 0 GOG - Shop Item Descriptions Catalog
+# 558 item descriptions across all 35 shop files (shop0000.bin - shop0034.bin).
+# Golden Rule 1: shop0013.bin (24 bytes) and shop0029.bin (20 bytes) Pocket Circuit
+# side tables are strictly preserved by the rebuild tool.
+
+domain: shops
+total_entries: 558
+entries:
+- id: shop0000_slot00
+  file: shop0000.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0000.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0001_slot00
+  file: shop0001.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0001.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0002_slot00
+  file: shop0002.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0002.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0003_slot00
+  file: shop0003.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0003.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0004_slot00
+  file: shop0004.bin
+  slot: 0
+  item_id: 481
+  context: Item description in shop0004.bin (slot 0)
+  en: ''
+  fr: |-
+    Simple morceau de bois que vous pouvez trouver
+    partout. De faible durabilité, mais un coup porté
+    peut toujours faire des dégâts corrects.
+- id: shop0004_slot01
+  file: shop0004.bin
+  slot: 1
+  item_id: 482
+  context: Item description in shop0004.bin (slot 1)
+  en: ''
+  fr: |-
+    Tuyau en fer ordinaire. Son faible poids lui permet
+    d'être facile à manier, et il a tout de même un
+    impact considérable.
+- id: shop0004_slot02
+  file: shop0004.bin
+  slot: 2
+  item_id: 489
+  context: Item description in shop0004.bin (slot 2)
+  en: ''
+  fr: |-
+    Cette arme contondante a été prévue pour
+    l'auto-défense. Elle risque de ne pas marcher
+    aussi bien en situation réelle.
+- id: shop0004_slot03
+  file: shop0004.bin
+  slot: 3
+  item_id: 492
+  context: Item description in shop0004.bin (slot 3)
+  en: ''
+  fr: |-
+    Ce tantò flambant neuf ne présente pas de traces
+    d'usure, et semble assez facile à manier.
+- id: shop0004_slot04
+  file: shop0004.bin
+  slot: 4
+  item_id: 499
+  context: Item description in shop0004.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce couteau papillon manque de potentiel
+    offensif, mais il a l'avantage d'être compact.
+- id: shop0004_slot05
+  file: shop0004.bin
+  slot: 5
+  item_id: 520
+  context: Item description in shop0004.bin (slot 5)
+  en: ''
+  fr: |-
+    Ce sabre en bois est destiné à la pratique
+    du kendò, mais il est plus puissant qu'il
+    n'en a l'air.
+- id: shop0004_slot06
+  file: shop0004.bin
+  slot: 6
+  item_id: 532
+  context: Item description in shop0004.bin (slot 6)
+  en: ''
+  fr: |-
+    Ce marteau forgé à partir de fer peut causer
+    des dégâts, mais la poignée est fragile et
+    sujette à la casse.
+- id: shop0004_slot07
+  file: shop0004.bin
+  slot: 7
+  item_id: 541
+  context: Item description in shop0004.bin (slot 7)
+  en: ''
+  fr: |-
+    Ce long morceau de bois est ce que l'on
+    peut trouver n'importe où. Il ne résiste
+    pas longtemps, mais il fait mal.
+- id: shop0004_slot08
+  file: shop0004.bin
+  slot: 8
+  item_id: 558
+  context: Item description in shop0004.bin (slot 8)
+  en: ''
+  fr: |-
+    Ces armes de combat populaires peuvent augmenter
+    les dégâts causés par les coups de poings lorsqu'elles
+    sont portées sur les deux mains.
+- id: shop0004_slot09
+  file: shop0004.bin
+  slot: 9
+  item_id: 567
+  context: Item description in shop0004.bin (slot 9)
+  en: ''
+  fr: |-
+    Ce briquet fonctionne comme un
+    petit lance-flammes portatif.
+- id: shop0004_slot10
+  file: shop0004.bin
+  slot: 10
+  item_id: 604
+  context: Item description in shop0004.bin (slot 10)
+  en: ''
+  fr: |-
+    Ce modèle de pistolet est une version commerciale
+    modifiée pour augmenter la puissance de feu.
+- id: shop0004_slot11
+  file: shop0004.bin
+  slot: 11
+  item_id: 623
+  context: Item description in shop0004.bin (slot 11)
+  en: ''
+  fr: |-
+    Cette arme ancienne a été fabriquée entre les
+    périodes Edo et Meiji. Il fonctionne toujours
+    comme une arme à feu.
+- id: shop0004_slot12
+  file: shop0004.bin
+  slot: 12
+  item_id: 624
+  context: Item description in shop0004.bin (slot 12)
+  en: ''
+  fr: |-
+    Cet étrange revolver n'est jamais à court
+    de munitions.
+- id: shop0004_slot13
+  file: shop0004.bin
+  slot: 13
+  item_id: 627
+  context: Item description in shop0004.bin (slot 13)
+  en: ''
+  fr: |-
+    Ce fusil est en or massif. Rien qu'en le regardant,
+    vous sentez que la chance est de votre côté.
+- id: shop0004_slot14
+  file: shop0004.bin
+  slot: 14
+  item_id: 642
+  context: Item description in shop0004.bin (slot 14)
+  en: ''
+  fr: |-
+    Cette cotte de mailles en acier est
+    efficace contre les armes blanches.
+- id: shop0004_slot15
+  file: shop0004.bin
+  slot: 15
+  item_id: 656
+  context: Item description in shop0004.bin (slot 15)
+  en: ''
+  fr: |-
+    Cette veste noire de jais est un classique
+    des professionnels, et fournit une résistance
+    contre les armes à feu et l'étourdissement.
+- id: shop0004_slot16
+  file: shop0004.bin
+  slot: 16
+  item_id: 680
+  context: Item description in shop0004.bin (slot 16)
+  en: ''
+  fr: |-
+    Ce foulard est si miteux que les ennemis auront
+    pitié de vous, ce qui les rendra moins susceptibles
+    de se liguer contre vous.
+- id: shop0004_slot17
+  file: shop0004.bin
+  slot: 17
+  item_id: 687
+  context: Item description in shop0004.bin (slot 17)
+  en: ''
+  fr: |-
+    La bénédiction divine de cette amulette est
+    censée réduire le nombre d'ennemis qui
+    se massent autour de vous.
+- id: shop0004_slot18
+  file: shop0004.bin
+  slot: 18
+  item_id: 128
+  context: Item description in shop0004.bin (slot 18)
+  en: ''
+  fr: |-
+    Utilisez ce kit de réparation pour réparer
+    une arme.
+- id: shop0004_slot19
+  file: shop0004.bin
+  slot: 19
+  item_id: 403
+  context: Item description in shop0004.bin (slot 19)
+  en: ''
+  fr: |-
+    Permet de faire tourner les machines a sous
+    automatiquement.
+    *Utilise automatiquement.
+- id: shop0005_slot00
+  file: shop0005.bin
+  slot: 0
+  item_id: 389
+  context: Item description in shop0005.bin (slot 0)
+  en: ''
+  fr: |-
+    Cette assiette est faite de platine rare, et cela
+    vaut probablement une petite fortune.
+- id: shop0005_slot01
+  file: shop0005.bin
+  slot: 1
+  item_id: 390
+  context: Item description in shop0005.bin (slot 1)
+  en: ''
+  fr: |-
+    Cette assiette est en or, et elle a certainement
+    une grande valeur.
+- id: shop0006_slot00
+  file: shop0006.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0006.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0007_slot00
+  file: shop0007.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0007.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0007_slot01
+  file: shop0007.bin
+  slot: 1
+  item_id: 7
+  context: Item description in shop0007.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0007_slot02
+  file: shop0007.bin
+  slot: 2
+  item_id: 12
+  context: Item description in shop0007.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0007_slot03
+  file: shop0007.bin
+  slot: 3
+  item_id: 61
+  context: Item description in shop0007.bin (slot 3)
+  en: ''
+  fr: |-
+    Ces biscuits sont une collation très populaire parmi
+    les jeunes et les plus âgés.
+- id: shop0007_slot04
+  file: shop0007.bin
+  slot: 4
+  item_id: 19
+  context: Item description in shop0007.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0007_slot05
+  file: shop0007.bin
+  slot: 5
+  item_id: 17
+  context: Item description in shop0007.bin (slot 5)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0007_slot06
+  file: shop0007.bin
+  slot: 6
+  item_id: 20
+  context: Item description in shop0007.bin (slot 6)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0007_slot07
+  file: shop0007.bin
+  slot: 7
+  item_id: 22
+  context: Item description in shop0007.bin (slot 7)
+  en: ''
+  fr: |-
+    Les algues bouillies dans la sauce soja sont
+    au centre de cet onigiri.
+- id: shop0007_slot08
+  file: shop0007.bin
+  slot: 8
+  item_id: 23
+  context: Item description in shop0007.bin (slot 8)
+  en: ''
+  fr: Cet onigiri est farci de thon et de mayonnaise.
+- id: shop0007_slot09
+  file: shop0007.bin
+  slot: 9
+  item_id: 24
+  context: Item description in shop0007.bin (slot 9)
+  en: ''
+  fr: Cet onigiri est farci de morceaux de saumon.
+- id: shop0007_slot10
+  file: shop0007.bin
+  slot: 10
+  item_id: 29
+  context: Item description in shop0007.bin (slot 10)
+  en: ''
+  fr: |-
+    Un déjeuner bento ordinaire. Suffisant pour
+    vous remplir l'estomac.
+- id: shop0007_slot11
+  file: shop0007.bin
+  slot: 11
+  item_id: 30
+  context: Item description in shop0007.bin (slot 11)
+  en: ''
+  fr: Ce repas tonkatsu est fait avec du porc Satsuma.
+- id: shop0007_slot12
+  file: shop0007.bin
+  slot: 12
+  item_id: 38
+  context: Item description in shop0007.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de base de supérette
+    est populaire pour sa saveur exquise.
+- id: shop0007_slot13
+  file: shop0007.bin
+  slot: 13
+  item_id: 39
+  context: Item description in shop0007.bin (slot 13)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de supérette est populaire
+    pour sa pâte de haricots sucrés au goût de
+    sésame.
+- id: shop0007_slot14
+  file: shop0007.bin
+  slot: 14
+  item_id: 40
+  context: Item description in shop0007.bin (slot 14)
+  en: ''
+  fr: |-
+    Cette brique de 500 ml contient du lait entier
+    qui a été pasteurisé à basse température pour
+    préserver ses bienfaits naturels et sa fraîcheur.
+- id: shop0007_slot15
+  file: shop0007.bin
+  slot: 15
+  item_id: 41
+  context: Item description in shop0007.bin (slot 15)
+  en: ''
+  fr: |-
+    Cette sélection de choix de sushis de style
+    nigiri dans une boîte ne comprend que du
+    poisson de haute qualité, mais onéreux.
+- id: shop0007_slot16
+  file: shop0007.bin
+  slot: 16
+  item_id: 51
+  context: Item description in shop0007.bin (slot 16)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0007_slot17
+  file: shop0007.bin
+  slot: 17
+  item_id: 45
+  context: Item description in shop0007.bin (slot 17)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0007_slot18
+  file: shop0007.bin
+  slot: 18
+  item_id: 48
+  context: Item description in shop0007.bin (slot 18)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0007_slot19
+  file: shop0007.bin
+  slot: 19
+  item_id: 49
+  context: Item description in shop0007.bin (slot 19)
+  en: ''
+  fr: |-
+    Le whisky le plus populaire au Japon. Il a un
+    arôme doux et est épais en bouche, avec un
+    goût doux et riche.
+- id: shop0007_slot20
+  file: shop0007.bin
+  slot: 20
+  item_id: 72
+  context: Item description in shop0007.bin (slot 20)
+  en: ''
+  fr: |-
+    Un shochu de patate douce qui réussit à faire
+    ressortir les saveurs de ses ingrédients.
+- id: shop0007_slot21
+  file: shop0007.bin
+  slot: 21
+  item_id: 75
+  context: Item description in shop0007.bin (slot 21)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0008_slot00
+  file: shop0008.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0008.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0008_slot01
+  file: shop0008.bin
+  slot: 1
+  item_id: 7
+  context: Item description in shop0008.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0008_slot02
+  file: shop0008.bin
+  slot: 2
+  item_id: 12
+  context: Item description in shop0008.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0008_slot03
+  file: shop0008.bin
+  slot: 3
+  item_id: 61
+  context: Item description in shop0008.bin (slot 3)
+  en: ''
+  fr: |-
+    Ces biscuits sont une collation très populaire parmi
+    les jeunes et les plus âgés.
+- id: shop0008_slot04
+  file: shop0008.bin
+  slot: 4
+  item_id: 19
+  context: Item description in shop0008.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0008_slot05
+  file: shop0008.bin
+  slot: 5
+  item_id: 17
+  context: Item description in shop0008.bin (slot 5)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0008_slot06
+  file: shop0008.bin
+  slot: 6
+  item_id: 20
+  context: Item description in shop0008.bin (slot 6)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0008_slot07
+  file: shop0008.bin
+  slot: 7
+  item_id: 22
+  context: Item description in shop0008.bin (slot 7)
+  en: ''
+  fr: |-
+    Les algues bouillies dans la sauce soja sont
+    au centre de cet onigiri.
+- id: shop0008_slot08
+  file: shop0008.bin
+  slot: 8
+  item_id: 23
+  context: Item description in shop0008.bin (slot 8)
+  en: ''
+  fr: Cet onigiri est farci de thon et de mayonnaise.
+- id: shop0008_slot09
+  file: shop0008.bin
+  slot: 9
+  item_id: 24
+  context: Item description in shop0008.bin (slot 9)
+  en: ''
+  fr: Cet onigiri est farci de morceaux de saumon.
+- id: shop0008_slot10
+  file: shop0008.bin
+  slot: 10
+  item_id: 29
+  context: Item description in shop0008.bin (slot 10)
+  en: ''
+  fr: |-
+    Un déjeuner bento ordinaire. Suffisant pour
+    vous remplir l'estomac.
+- id: shop0008_slot11
+  file: shop0008.bin
+  slot: 11
+  item_id: 30
+  context: Item description in shop0008.bin (slot 11)
+  en: ''
+  fr: Ce repas tonkatsu est fait avec du porc Satsuma.
+- id: shop0008_slot12
+  file: shop0008.bin
+  slot: 12
+  item_id: 32
+  context: Item description in shop0008.bin (slot 12)
+  en: ''
+  fr: |-
+    Une côtelette de porc frite garnie d'une sauce miso
+    sucrée et savoureuse est le fameux festin de
+    Nagoya qui agrémente ce repas.
+- id: shop0008_slot13
+  file: shop0008.bin
+  slot: 13
+  item_id: 38
+  context: Item description in shop0008.bin (slot 13)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de base de supérette
+    est populaire pour sa saveur exquise.
+- id: shop0008_slot14
+  file: shop0008.bin
+  slot: 14
+  item_id: 39
+  context: Item description in shop0008.bin (slot 14)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de supérette est populaire
+    pour sa pâte de haricots sucrés au goût de
+    sésame.
+- id: shop0008_slot15
+  file: shop0008.bin
+  slot: 15
+  item_id: 40
+  context: Item description in shop0008.bin (slot 15)
+  en: ''
+  fr: |-
+    Cette brique de 500 ml contient du lait entier
+    qui a été pasteurisé à basse température pour
+    préserver ses bienfaits naturels et sa fraîcheur.
+- id: shop0008_slot16
+  file: shop0008.bin
+  slot: 16
+  item_id: 41
+  context: Item description in shop0008.bin (slot 16)
+  en: ''
+  fr: |-
+    Cette sélection de choix de sushis de style
+    nigiri dans une boîte ne comprend que du
+    poisson de haute qualité, mais onéreux.
+- id: shop0008_slot17
+  file: shop0008.bin
+  slot: 17
+  item_id: 51
+  context: Item description in shop0008.bin (slot 17)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0008_slot18
+  file: shop0008.bin
+  slot: 18
+  item_id: 45
+  context: Item description in shop0008.bin (slot 18)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0008_slot19
+  file: shop0008.bin
+  slot: 19
+  item_id: 48
+  context: Item description in shop0008.bin (slot 19)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0008_slot20
+  file: shop0008.bin
+  slot: 20
+  item_id: 49
+  context: Item description in shop0008.bin (slot 20)
+  en: ''
+  fr: |-
+    Le whisky le plus populaire au Japon. Il a un
+    arôme doux et est épais en bouche, avec un
+    goût doux et riche.
+- id: shop0008_slot21
+  file: shop0008.bin
+  slot: 21
+  item_id: 72
+  context: Item description in shop0008.bin (slot 21)
+  en: ''
+  fr: |-
+    Un shochu de patate douce qui réussit à faire
+    ressortir les saveurs de ses ingrédients.
+- id: shop0008_slot22
+  file: shop0008.bin
+  slot: 22
+  item_id: 75
+  context: Item description in shop0008.bin (slot 22)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0009_slot00
+  file: shop0009.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0009.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0009_slot01
+  file: shop0009.bin
+  slot: 1
+  item_id: 7
+  context: Item description in shop0009.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0009_slot02
+  file: shop0009.bin
+  slot: 2
+  item_id: 12
+  context: Item description in shop0009.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0009_slot03
+  file: shop0009.bin
+  slot: 3
+  item_id: 61
+  context: Item description in shop0009.bin (slot 3)
+  en: ''
+  fr: |-
+    Ces biscuits sont une collation très populaire parmi
+    les jeunes et les plus âgés.
+- id: shop0009_slot04
+  file: shop0009.bin
+  slot: 4
+  item_id: 19
+  context: Item description in shop0009.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0009_slot05
+  file: shop0009.bin
+  slot: 5
+  item_id: 17
+  context: Item description in shop0009.bin (slot 5)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0009_slot06
+  file: shop0009.bin
+  slot: 6
+  item_id: 20
+  context: Item description in shop0009.bin (slot 6)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0009_slot07
+  file: shop0009.bin
+  slot: 7
+  item_id: 22
+  context: Item description in shop0009.bin (slot 7)
+  en: ''
+  fr: |-
+    Les algues bouillies dans la sauce soja sont
+    au centre de cet onigiri.
+- id: shop0009_slot08
+  file: shop0009.bin
+  slot: 8
+  item_id: 23
+  context: Item description in shop0009.bin (slot 8)
+  en: ''
+  fr: Cet onigiri est farci de thon et de mayonnaise.
+- id: shop0009_slot09
+  file: shop0009.bin
+  slot: 9
+  item_id: 24
+  context: Item description in shop0009.bin (slot 9)
+  en: ''
+  fr: Cet onigiri est farci de morceaux de saumon.
+- id: shop0009_slot10
+  file: shop0009.bin
+  slot: 10
+  item_id: 29
+  context: Item description in shop0009.bin (slot 10)
+  en: ''
+  fr: |-
+    Un déjeuner bento ordinaire. Suffisant pour
+    vous remplir l'estomac.
+- id: shop0009_slot11
+  file: shop0009.bin
+  slot: 11
+  item_id: 30
+  context: Item description in shop0009.bin (slot 11)
+  en: ''
+  fr: Ce repas tonkatsu est fait avec du porc Satsuma.
+- id: shop0009_slot12
+  file: shop0009.bin
+  slot: 12
+  item_id: 38
+  context: Item description in shop0009.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de base de supérette
+    est populaire pour sa saveur exquise.
+- id: shop0009_slot13
+  file: shop0009.bin
+  slot: 13
+  item_id: 39
+  context: Item description in shop0009.bin (slot 13)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de supérette est populaire
+    pour sa pâte de haricots sucrés au goût de
+    sésame.
+- id: shop0009_slot14
+  file: shop0009.bin
+  slot: 14
+  item_id: 40
+  context: Item description in shop0009.bin (slot 14)
+  en: ''
+  fr: |-
+    Cette brique de 500 ml contient du lait entier
+    qui a été pasteurisé à basse température pour
+    préserver ses bienfaits naturels et sa fraîcheur.
+- id: shop0009_slot15
+  file: shop0009.bin
+  slot: 15
+  item_id: 41
+  context: Item description in shop0009.bin (slot 15)
+  en: ''
+  fr: |-
+    Cette sélection de choix de sushis de style
+    nigiri dans une boîte ne comprend que du
+    poisson de haute qualité, mais onéreux.
+- id: shop0009_slot16
+  file: shop0009.bin
+  slot: 16
+  item_id: 51
+  context: Item description in shop0009.bin (slot 16)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0009_slot17
+  file: shop0009.bin
+  slot: 17
+  item_id: 45
+  context: Item description in shop0009.bin (slot 17)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0009_slot18
+  file: shop0009.bin
+  slot: 18
+  item_id: 48
+  context: Item description in shop0009.bin (slot 18)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0009_slot19
+  file: shop0009.bin
+  slot: 19
+  item_id: 49
+  context: Item description in shop0009.bin (slot 19)
+  en: ''
+  fr: |-
+    Le whisky le plus populaire au Japon. Il a un
+    arôme doux et est épais en bouche, avec un
+    goût doux et riche.
+- id: shop0009_slot20
+  file: shop0009.bin
+  slot: 20
+  item_id: 72
+  context: Item description in shop0009.bin (slot 20)
+  en: ''
+  fr: |-
+    Un shochu de patate douce qui réussit à faire
+    ressortir les saveurs de ses ingrédients.
+- id: shop0009_slot21
+  file: shop0009.bin
+  slot: 21
+  item_id: 75
+  context: Item description in shop0009.bin (slot 21)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0010_slot00
+  file: shop0010.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0010.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0011_slot00
+  file: shop0011.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0011.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0011_slot01
+  file: shop0011.bin
+  slot: 1
+  item_id: 7
+  context: Item description in shop0011.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0011_slot02
+  file: shop0011.bin
+  slot: 2
+  item_id: 12
+  context: Item description in shop0011.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0011_slot03
+  file: shop0011.bin
+  slot: 3
+  item_id: 61
+  context: Item description in shop0011.bin (slot 3)
+  en: ''
+  fr: |-
+    Ces biscuits sont une collation très populaire parmi
+    les jeunes et les plus âgés.
+- id: shop0011_slot04
+  file: shop0011.bin
+  slot: 4
+  item_id: 19
+  context: Item description in shop0011.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0011_slot05
+  file: shop0011.bin
+  slot: 5
+  item_id: 17
+  context: Item description in shop0011.bin (slot 5)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0011_slot06
+  file: shop0011.bin
+  slot: 6
+  item_id: 20
+  context: Item description in shop0011.bin (slot 6)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0011_slot07
+  file: shop0011.bin
+  slot: 7
+  item_id: 21
+  context: Item description in shop0011.bin (slot 7)
+  en: ''
+  fr: |-
+    Il y a plus qu'assez de cet assortiment
+    savoureux d'oden pour satisfaire votre faim.
+- id: shop0011_slot08
+  file: shop0011.bin
+  slot: 8
+  item_id: 22
+  context: Item description in shop0011.bin (slot 8)
+  en: ''
+  fr: |-
+    Les algues bouillies dans la sauce soja sont
+    au centre de cet onigiri.
+- id: shop0011_slot09
+  file: shop0011.bin
+  slot: 9
+  item_id: 23
+  context: Item description in shop0011.bin (slot 9)
+  en: ''
+  fr: Cet onigiri est farci de thon et de mayonnaise.
+- id: shop0011_slot10
+  file: shop0011.bin
+  slot: 10
+  item_id: 24
+  context: Item description in shop0011.bin (slot 10)
+  en: ''
+  fr: Cet onigiri est farci de morceaux de saumon.
+- id: shop0011_slot11
+  file: shop0011.bin
+  slot: 11
+  item_id: 29
+  context: Item description in shop0011.bin (slot 11)
+  en: ''
+  fr: |-
+    Un déjeuner bento ordinaire. Suffisant pour
+    vous remplir l'estomac.
+- id: shop0011_slot12
+  file: shop0011.bin
+  slot: 12
+  item_id: 30
+  context: Item description in shop0011.bin (slot 12)
+  en: ''
+  fr: Ce repas tonkatsu est fait avec du porc Satsuma.
+- id: shop0011_slot13
+  file: shop0011.bin
+  slot: 13
+  item_id: 37
+  context: Item description in shop0011.bin (slot 13)
+  en: ''
+  fr: |-
+    Yakisoba au chou et au porc. L'odeur de la
+    sauce est tout simplement appétissante.
+- id: shop0011_slot14
+  file: shop0011.bin
+  slot: 14
+  item_id: 38
+  context: Item description in shop0011.bin (slot 14)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de base de supérette
+    est populaire pour sa saveur exquise.
+- id: shop0011_slot15
+  file: shop0011.bin
+  slot: 15
+  item_id: 39
+  context: Item description in shop0011.bin (slot 15)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de supérette est populaire
+    pour sa pâte de haricots sucrés au goût de
+    sésame.
+- id: shop0011_slot16
+  file: shop0011.bin
+  slot: 16
+  item_id: 40
+  context: Item description in shop0011.bin (slot 16)
+  en: ''
+  fr: |-
+    Cette brique de 500 ml contient du lait entier
+    qui a été pasteurisé à basse température pour
+    préserver ses bienfaits naturels et sa fraîcheur.
+- id: shop0011_slot17
+  file: shop0011.bin
+  slot: 17
+  item_id: 41
+  context: Item description in shop0011.bin (slot 17)
+  en: ''
+  fr: |-
+    Cette sélection de choix de sushis de style
+    nigiri dans une boîte ne comprend que du
+    poisson de haute qualité, mais onéreux.
+- id: shop0011_slot18
+  file: shop0011.bin
+  slot: 18
+  item_id: 51
+  context: Item description in shop0011.bin (slot 18)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0011_slot19
+  file: shop0011.bin
+  slot: 19
+  item_id: 45
+  context: Item description in shop0011.bin (slot 19)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0011_slot20
+  file: shop0011.bin
+  slot: 20
+  item_id: 48
+  context: Item description in shop0011.bin (slot 20)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0011_slot21
+  file: shop0011.bin
+  slot: 21
+  item_id: 49
+  context: Item description in shop0011.bin (slot 21)
+  en: ''
+  fr: |-
+    Le whisky le plus populaire au Japon. Il a un
+    arôme doux et est épais en bouche, avec un
+    goût doux et riche.
+- id: shop0011_slot22
+  file: shop0011.bin
+  slot: 22
+  item_id: 73
+  context: Item description in shop0011.bin (slot 22)
+  en: ''
+  fr: |-
+    Ce shochu d'orge a un goût sec populaire
+    auprès des buveurs expérimentés.
+- id: shop0011_slot23
+  file: shop0011.bin
+  slot: 23
+  item_id: 69
+  context: Item description in shop0011.bin (slot 23)
+  en: ''
+  fr: |-
+    Ce whisky écossais a un taux d'alcool élevé,
+    soyez donc sûr d'en boire avec modération.
+- id: shop0011_slot24
+  file: shop0011.bin
+  slot: 24
+  item_id: 75
+  context: Item description in shop0011.bin (slot 24)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0012_slot00
+  file: shop0012.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0012.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0012_slot01
+  file: shop0012.bin
+  slot: 1
+  item_id: 7
+  context: Item description in shop0012.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0012_slot02
+  file: shop0012.bin
+  slot: 2
+  item_id: 12
+  context: Item description in shop0012.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0012_slot03
+  file: shop0012.bin
+  slot: 3
+  item_id: 61
+  context: Item description in shop0012.bin (slot 3)
+  en: ''
+  fr: |-
+    Ces biscuits sont une collation très populaire parmi
+    les jeunes et les plus âgés.
+- id: shop0012_slot04
+  file: shop0012.bin
+  slot: 4
+  item_id: 19
+  context: Item description in shop0012.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0012_slot05
+  file: shop0012.bin
+  slot: 5
+  item_id: 17
+  context: Item description in shop0012.bin (slot 5)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0012_slot06
+  file: shop0012.bin
+  slot: 6
+  item_id: 20
+  context: Item description in shop0012.bin (slot 6)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0012_slot07
+  file: shop0012.bin
+  slot: 7
+  item_id: 21
+  context: Item description in shop0012.bin (slot 7)
+  en: ''
+  fr: |-
+    Il y a plus qu'assez de cet assortiment
+    savoureux d'oden pour satisfaire votre faim.
+- id: shop0012_slot08
+  file: shop0012.bin
+  slot: 8
+  item_id: 22
+  context: Item description in shop0012.bin (slot 8)
+  en: ''
+  fr: |-
+    Les algues bouillies dans la sauce soja sont
+    au centre de cet onigiri.
+- id: shop0012_slot09
+  file: shop0012.bin
+  slot: 9
+  item_id: 23
+  context: Item description in shop0012.bin (slot 9)
+  en: ''
+  fr: Cet onigiri est farci de thon et de mayonnaise.
+- id: shop0012_slot10
+  file: shop0012.bin
+  slot: 10
+  item_id: 24
+  context: Item description in shop0012.bin (slot 10)
+  en: ''
+  fr: Cet onigiri est farci de morceaux de saumon.
+- id: shop0012_slot11
+  file: shop0012.bin
+  slot: 11
+  item_id: 35
+  context: Item description in shop0012.bin (slot 11)
+  en: ''
+  fr: |-
+    C'est un sandwich club ordinaire avec
+    de la tomate, de la laitue, etc.
+- id: shop0012_slot12
+  file: shop0012.bin
+  slot: 12
+  item_id: 36
+  context: Item description in shop0012.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce sandwich est fait d'un mélange oeuf-mayo
+    avec du thon sur du pain blanc.
+- id: shop0012_slot13
+  file: shop0012.bin
+  slot: 13
+  item_id: 38
+  context: Item description in shop0012.bin (slot 13)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de base de supérette
+    est populaire pour sa saveur exquise.
+- id: shop0012_slot14
+  file: shop0012.bin
+  slot: 14
+  item_id: 39
+  context: Item description in shop0012.bin (slot 14)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de supérette est populaire
+    pour sa pâte de haricots sucrés au goût de
+    sésame.
+- id: shop0012_slot15
+  file: shop0012.bin
+  slot: 15
+  item_id: 40
+  context: Item description in shop0012.bin (slot 15)
+  en: ''
+  fr: |-
+    Cette brique de 500 ml contient du lait entier
+    qui a été pasteurisé à basse température pour
+    préserver ses bienfaits naturels et sa fraîcheur.
+- id: shop0012_slot16
+  file: shop0012.bin
+  slot: 16
+  item_id: 67
+  context: Item description in shop0012.bin (slot 16)
+  en: ''
+  fr: Une mandarine au goût sucré et acidulé.
+- id: shop0012_slot17
+  file: shop0012.bin
+  slot: 17
+  item_id: 41
+  context: Item description in shop0012.bin (slot 17)
+  en: ''
+  fr: |-
+    Cette sélection de choix de sushis de style
+    nigiri dans une boîte ne comprend que du
+    poisson de haute qualité, mais onéreux.
+- id: shop0012_slot18
+  file: shop0012.bin
+  slot: 18
+  item_id: 44
+  context: Item description in shop0012.bin (slot 18)
+  en: ''
+  fr: |-
+    Cette brochette de poulet grillé a une odeur
+    savoureuse absolument irrésistible.
+- id: shop0012_slot19
+  file: shop0012.bin
+  slot: 19
+  item_id: 51
+  context: Item description in shop0012.bin (slot 19)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0012_slot20
+  file: shop0012.bin
+  slot: 20
+  item_id: 76
+  context: Item description in shop0012.bin (slot 20)
+  en: ''
+  fr: |-
+    Une boîte élégante de confiseries parfaites pour
+    offrir en cadeau à des partenaires d'affaires.
+- id: shop0012_slot21
+  file: shop0012.bin
+  slot: 21
+  item_id: 45
+  context: Item description in shop0012.bin (slot 21)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0012_slot22
+  file: shop0012.bin
+  slot: 22
+  item_id: 48
+  context: Item description in shop0012.bin (slot 22)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0012_slot23
+  file: shop0012.bin
+  slot: 23
+  item_id: 49
+  context: Item description in shop0012.bin (slot 23)
+  en: ''
+  fr: |-
+    Le whisky le plus populaire au Japon. Il a un
+    arôme doux et est épais en bouche, avec un
+    goût doux et riche.
+- id: shop0012_slot24
+  file: shop0012.bin
+  slot: 24
+  item_id: 68
+  context: Item description in shop0012.bin (slot 24)
+  en: ''
+  fr: |-
+    Cette grande bouteille de saké peut être
+    appréciée chaude ou froide.
+- id: shop0012_slot25
+  file: shop0012.bin
+  slot: 25
+  item_id: 74
+  context: Item description in shop0012.bin (slot 25)
+  en: ''
+  fr: Une variété rare de shochu aux châtaignes.
+- id: shop0012_slot26
+  file: shop0012.bin
+  slot: 26
+  item_id: 946
+  context: Item description in shop0012.bin (slot 26)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont conçus pour fournir le maximum de vitesse possible.
+    Coût : 3
+- id: shop0012_slot27
+  file: shop0012.bin
+  slot: 27
+  item_id: 947
+  context: Item description in shop0012.bin (slot 27)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont conçus pour fournir le maximum de vitesse possible.
+    Coût : 4
+- id: shop0012_slot28
+  file: shop0012.bin
+  slot: 28
+  item_id: 75
+  context: Item description in shop0012.bin (slot 28)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0013_slot00
+  file: shop0013.bin
+  slot: 0
+  item_id: 11
+  context: Item description in shop0013.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan Light est bon marché, mais
+    il ne restaure que peu de santé et de heat.
+- id: shop0013_slot01
+  file: shop0013.bin
+  slot: 1
+  item_id: 12
+  context: Item description in shop0013.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0013_slot02
+  file: shop0013.bin
+  slot: 2
+  item_id: 13
+  context: Item description in shop0013.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0013_slot03
+  file: shop0013.bin
+  slot: 3
+  item_id: 7
+  context: Item description in shop0013.bin (slot 3)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0013_slot04
+  file: shop0013.bin
+  slot: 4
+  item_id: 8
+  context: Item description in shop0013.bin (slot 4)
+  en: ''
+  fr: |-
+    Le Tauriner + recharge significativement votre
+    jauge de heat.
+- id: shop0013_slot05
+  file: shop0013.bin
+  slot: 5
+  item_id: 2
+  context: Item description in shop0013.bin (slot 5)
+  en: ''
+  fr: |-
+    Le Toughness Light est bon marché, mais
+    il ne redonne pas beaucoup de santé.
+- id: shop0013_slot06
+  file: shop0013.bin
+  slot: 6
+  item_id: 3
+  context: Item description in shop0013.bin (slot 6)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0013_slot07
+  file: shop0013.bin
+  slot: 7
+  item_id: 4
+  context: Item description in shop0013.bin (slot 7)
+  en: ''
+  fr: |-
+    Le Toughness ZZ peut restaurer une partie
+    importante de votre santé.
+- id: shop0013_slot08
+  file: shop0013.bin
+  slot: 8
+  item_id: 19
+  context: Item description in shop0013.bin (slot 8)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0013_slot09
+  file: shop0013.bin
+  slot: 9
+  item_id: 17
+  context: Item description in shop0013.bin (slot 9)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0013_slot10
+  file: shop0013.bin
+  slot: 10
+  item_id: 18
+  context: Item description in shop0013.bin (slot 10)
+  en: ''
+  fr: |-
+    Ce délicieux tonkotsu ramen est plein de graisse
+    de porc et d'une forte soupe infusé de porc.
+- id: shop0013_slot11
+  file: shop0013.bin
+  slot: 11
+  item_id: 20
+  context: Item description in shop0013.bin (slot 11)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0013_slot12
+  file: shop0013.bin
+  slot: 12
+  item_id: 51
+  context: Item description in shop0013.bin (slot 12)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0013_slot13
+  file: shop0013.bin
+  slot: 13
+  item_id: 45
+  context: Item description in shop0013.bin (slot 13)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0013_slot14
+  file: shop0013.bin
+  slot: 14
+  item_id: 46
+  context: Item description in shop0013.bin (slot 14)
+  en: ''
+  fr: |-
+    Une canette de 35cl de 7 Up. Ce soda est au
+    goût citron et citron vert.
+- id: shop0013_slot15
+  file: shop0013.bin
+  slot: 15
+  item_id: 47
+  context: Item description in shop0013.bin (slot 15)
+  en: ''
+  fr: |-
+    Une canette de 35cl de Mountain Dew. Ce soda
+    a un goût frais et exaltant d'agrumes.
+- id: shop0013_slot16
+  file: shop0013.bin
+  slot: 16
+  item_id: 48
+  context: Item description in shop0013.bin (slot 16)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0013_slot17
+  file: shop0013.bin
+  slot: 17
+  item_id: 50
+  context: Item description in shop0013.bin (slot 17)
+  en: ''
+  fr: |-
+    Une des bières les plus populaires au monde,
+    appréciée dans 140 pays.
+- id: shop0013_slot18
+  file: shop0013.bin
+  slot: 18
+  item_id: 70
+  context: Item description in shop0013.bin (slot 18)
+  en: ''
+  fr: |-
+    Ce champagne est loin d'être le plus cher, mais
+    il donne toujours l'impression de se faire
+    plaisir.
+- id: shop0013_slot19
+  file: shop0013.bin
+  slot: 19
+  item_id: 71
+  context: Item description in shop0013.bin (slot 19)
+  en: ''
+  fr: |-
+    Bien qu'il ne s'agisse pas d'une marque,
+    ce champagne a le goût que l'on attend de lui,
+    pour le prix qu'on l'a payé.
+- id: shop0013_slot20
+  file: shop0013.bin
+  slot: 20
+  item_id: 75
+  context: Item description in shop0013.bin (slot 20)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0013_slot21
+  file: shop0013.bin
+  slot: 21
+  item_id: 481
+  context: Item description in shop0013.bin (slot 21)
+  en: ''
+  fr: |-
+    Simple morceau de bois que vous pouvez trouver
+    partout. De faible durabilité, mais un coup porté
+    peut toujours faire des dégâts corrects.
+- id: shop0013_slot22
+  file: shop0013.bin
+  slot: 22
+  item_id: 486
+  context: Item description in shop0013.bin (slot 22)
+  en: ''
+  fr: |-
+    Ce parapluie élégant se marie bien avec
+    un costume.
+- id: shop0013_slot23
+  file: shop0013.bin
+  slot: 23
+  item_id: 571
+  context: Item description in shop0013.bin (slot 23)
+  en: ''
+  fr: |-
+    Ce n'est que du sel de table ordinaire,
+    mais il peut être utilisé pour aveugler
+    les ennemis.
+- id: shop0013_slot24
+  file: shop0013.bin
+  slot: 24
+  item_id: 624
+  context: Item description in shop0013.bin (slot 24)
+  en: ''
+  fr: |-
+    Cet étrange revolver n'est jamais à court
+    de munitions.
+- id: shop0013_slot25
+  file: shop0013.bin
+  slot: 25
+  item_id: 644
+  context: Item description in shop0013.bin (slot 25)
+  en: ''
+  fr: |-
+    Cette chemise à chaîne de type occidental est
+    plus légère qu'elle n'en a l'air et offre une excellente
+    défense. Efficace contre les armes blanches.
+- id: shop0013_slot26
+  file: shop0013.bin
+  slot: 26
+  item_id: 680
+  context: Item description in shop0013.bin (slot 26)
+  en: ''
+  fr: |-
+    Ce foulard est si miteux que les ennemis auront
+    pitié de vous, ce qui les rendra moins susceptibles
+    de se liguer contre vous.
+- id: shop0013_slot27
+  file: shop0013.bin
+  slot: 27
+  item_id: 686
+  context: Item description in shop0013.bin (slot 27)
+  en: ''
+  fr: Cette amulette devrait s'avérer utile contre les balles.
+- id: shop0013_slot28
+  file: shop0013.bin
+  slot: 28
+  item_id: 656
+  context: Item description in shop0013.bin (slot 28)
+  en: ''
+  fr: |-
+    Cette veste noire de jais est un classique
+    des professionnels, et fournit une résistance
+    contre les armes à feu et l'étourdissement.
+- id: shop0013_slot29
+  file: shop0013.bin
+  slot: 29
+  item_id: 938
+  context: Item description in shop0013.bin (slot 29)
+  en: ''
+  fr: |-
+    Une batterie pour voitures Pocket Circuit. Elle fournit
+    une haute tension mais dure peu de temps, idéale
+    pour les courses courtes. Coût : 5
+- id: shop0013_slot30
+  file: shop0013.bin
+  slot: 30
+  item_id: 937
+  context: Item description in shop0013.bin (slot 30)
+  en: ''
+  fr: |-
+    Une batterie pour voitures Pocket Circuit. Bien que sa
+    tension soit faible, elle dure longtemps, très efficace
+    sur les pistes longues. Coût : 5
+- id: shop0013_slot31
+  file: shop0013.bin
+  slot: 31
+  item_id: 892
+  context: Item description in shop0013.bin (slot 31)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et procurent une adhérence supérieure.
+    Coût : 1
+- id: shop0013_slot32
+  file: shop0013.bin
+  slot: 32
+  item_id: 897
+  context: Item description in shop0013.bin (slot 32)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Leur profil robuste leur permet de rouler aussi
+    bien sur l'herbe que sur la piste. Coût : 1
+- id: shop0013_slot33
+  file: shop0013.bin
+  slot: 33
+  item_id: 912
+  context: Item description in shop0013.bin (slot 33)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont axés sur la puissance, facilitant grandement
+    les montées. Coût : 1
+- id: shop0013_slot34
+  file: shop0013.bin
+  slot: 34
+  item_id: 857
+  context: Item description in shop0013.bin (slot 34)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais
+    vous ralentit dans les virages. Coût : 2
+- id: shop0014_slot00
+  file: shop0014.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0014.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0014_slot01
+  file: shop0014.bin
+  slot: 1
+  item_id: 13
+  context: Item description in shop0014.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0014_slot02
+  file: shop0014.bin
+  slot: 2
+  item_id: 437
+  context: Item description in shop0014.bin (slot 2)
+  en: ''
+  fr: Des fléchettes qui facilitent la visée.
+- id: shop0014_slot03
+  file: shop0014.bin
+  slot: 3
+  item_id: 438
+  context: Item description in shop0014.bin (slot 3)
+  en: ''
+  fr: Ces fléchettes anciennes semblent sur-mesure.
+- id: shop0014_slot04
+  file: shop0014.bin
+  slot: 4
+  item_id: 444
+  context: Item description in shop0014.bin (slot 4)
+  en: ''
+  fr: |-
+    Une canne haute performance parfaite pour la pêche
+    en mer et en rivière. Très sensible et avec une meilleure portée.
+- id: shop0014_slot05
+  file: shop0014.bin
+  slot: 5
+  item_id: 642
+  context: Item description in shop0014.bin (slot 5)
+  en: ''
+  fr: |-
+    Cette cotte de mailles en acier est
+    efficace contre les armes blanches.
+- id: shop0014_slot06
+  file: shop0014.bin
+  slot: 6
+  item_id: 643
+  context: Item description in shop0014.bin (slot 6)
+  en: ''
+  fr: |-
+    Cette cotte ancienne finement ouvragé
+    offre une protection solide contre les
+    armes blanches.
+- id: shop0014_slot07
+  file: shop0014.bin
+  slot: 7
+  item_id: 687
+  context: Item description in shop0014.bin (slot 7)
+  en: ''
+  fr: |-
+    La bénédiction divine de cette amulette est
+    censée réduire le nombre d'ennemis qui
+    se massent autour de vous.
+- id: shop0014_slot08
+  file: shop0014.bin
+  slot: 8
+  item_id: 509
+  context: Item description in shop0014.bin (slot 8)
+  en: ''
+  fr: |-
+    Vous ne devriez pas trop brandir ça lorsque vous
+    vous baladez en ville.
+- id: shop0014_slot09
+  file: shop0014.bin
+  slot: 9
+  item_id: 520
+  context: Item description in shop0014.bin (slot 9)
+  en: ''
+  fr: |-
+    Ce sabre en bois est destiné à la pratique
+    du kendò, mais il est plus puissant qu'il
+    n'en a l'air.
+- id: shop0014_slot10
+  file: shop0014.bin
+  slot: 10
+  item_id: 482
+  context: Item description in shop0014.bin (slot 10)
+  en: ''
+  fr: |-
+    Tuyau en fer ordinaire. Son faible poids lui permet
+    d'être facile à manier, et il a tout de même un
+    impact considérable.
+- id: shop0014_slot11
+  file: shop0014.bin
+  slot: 11
+  item_id: 659
+  context: Item description in shop0014.bin (slot 11)
+  en: ''
+  fr: |-
+    Cet équipement améliore votre capacité
+    à attraper vos adversaires.
+- id: shop0014_slot12
+  file: shop0014.bin
+  slot: 12
+  item_id: 841
+  context: Item description in shop0014.bin (slot 12)
+  en: ''
+  fr: |-
+    Une voiture Pocket Circuit unique qui ne manquera pas
+    d'attirer tous les regards sur la piste.
+- id: shop0015_slot00
+  file: shop0015.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0015.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0015_slot01
+  file: shop0015.bin
+  slot: 1
+  item_id: 13
+  context: Item description in shop0015.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0015_slot02
+  file: shop0015.bin
+  slot: 2
+  item_id: 444
+  context: Item description in shop0015.bin (slot 2)
+  en: ''
+  fr: |-
+    Une canne haute performance parfaite pour la pêche
+    en mer et en rivière. Très sensible et avec une meilleure portée.
+- id: shop0015_slot03
+  file: shop0015.bin
+  slot: 3
+  item_id: 642
+  context: Item description in shop0015.bin (slot 3)
+  en: ''
+  fr: |-
+    Cette cotte de mailles en acier est
+    efficace contre les armes blanches.
+- id: shop0015_slot04
+  file: shop0015.bin
+  slot: 4
+  item_id: 643
+  context: Item description in shop0015.bin (slot 4)
+  en: ''
+  fr: |-
+    Cette cotte ancienne finement ouvragé
+    offre une protection solide contre les
+    armes blanches.
+- id: shop0015_slot05
+  file: shop0015.bin
+  slot: 5
+  item_id: 687
+  context: Item description in shop0015.bin (slot 5)
+  en: ''
+  fr: |-
+    La bénédiction divine de cette amulette est
+    censée réduire le nombre d'ennemis qui
+    se massent autour de vous.
+- id: shop0015_slot06
+  file: shop0015.bin
+  slot: 6
+  item_id: 509
+  context: Item description in shop0015.bin (slot 6)
+  en: ''
+  fr: |-
+    Vous ne devriez pas trop brandir ça lorsque vous
+    vous baladez en ville.
+- id: shop0015_slot07
+  file: shop0015.bin
+  slot: 7
+  item_id: 520
+  context: Item description in shop0015.bin (slot 7)
+  en: ''
+  fr: |-
+    Ce sabre en bois est destiné à la pratique
+    du kendò, mais il est plus puissant qu'il
+    n'en a l'air.
+- id: shop0015_slot08
+  file: shop0015.bin
+  slot: 8
+  item_id: 482
+  context: Item description in shop0015.bin (slot 8)
+  en: ''
+  fr: |-
+    Tuyau en fer ordinaire. Son faible poids lui permet
+    d'être facile à manier, et il a tout de même un
+    impact considérable.
+- id: shop0015_slot09
+  file: shop0015.bin
+  slot: 9
+  item_id: 659
+  context: Item description in shop0015.bin (slot 9)
+  en: ''
+  fr: |-
+    Cet équipement améliore votre capacité
+    à attraper vos adversaires.
+- id: shop0016_slot00
+  file: shop0016.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0016.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0016_slot01
+  file: shop0016.bin
+  slot: 1
+  item_id: 13
+  context: Item description in shop0016.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0016_slot02
+  file: shop0016.bin
+  slot: 2
+  item_id: 14
+  context: Item description in shop0016.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan Royale recharge énormément votre
+    santé et votre jauge de heat.
+- id: shop0016_slot03
+  file: shop0016.bin
+  slot: 3
+  item_id: 7
+  context: Item description in shop0016.bin (slot 3)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0016_slot04
+  file: shop0016.bin
+  slot: 4
+  item_id: 8
+  context: Item description in shop0016.bin (slot 4)
+  en: ''
+  fr: |-
+    Le Tauriner + recharge significativement votre
+    jauge de heat.
+- id: shop0016_slot05
+  file: shop0016.bin
+  slot: 5
+  item_id: 9
+  context: Item description in shop0016.bin (slot 5)
+  en: ''
+  fr: |-
+    Le Tauriner ++ recharge énormément votre jauge
+    de heat.
+- id: shop0016_slot06
+  file: shop0016.bin
+  slot: 6
+  item_id: 3
+  context: Item description in shop0016.bin (slot 6)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0016_slot07
+  file: shop0016.bin
+  slot: 7
+  item_id: 4
+  context: Item description in shop0016.bin (slot 7)
+  en: ''
+  fr: |-
+    Le Toughness ZZ peut restaurer une partie
+    importante de votre santé.
+- id: shop0016_slot08
+  file: shop0016.bin
+  slot: 8
+  item_id: 5
+  context: Item description in shop0016.bin (slot 8)
+  en: ''
+  fr: |-
+    Le Toughness Emperor est idéal quand vous
+    avez besoin d'une amélioration significative
+    de votre santé.
+- id: shop0016_slot09
+  file: shop0016.bin
+  slot: 9
+  item_id: 16
+  context: Item description in shop0016.bin (slot 9)
+  en: ''
+  fr: |-
+    Le AppStim RX stimule l'appétit en améliorant
+    la digestion.
+- id: shop0017_slot00
+  file: shop0017.bin
+  slot: 0
+  item_id: 88
+  context: Item description in shop0017.bin (slot 0)
+  en: ''
+  fr: |-
+    Cette eau de Cologne française pour homme
+    est populaire pour son parfum à la fois attirant
+    et masculin.
+- id: shop0017_slot01
+  file: shop0017.bin
+  slot: 1
+  item_id: 89
+  context: Item description in shop0017.bin (slot 1)
+  en: ''
+  fr: |-
+    Le parfum fin et fleuri de ce parfum français
+    en fait un objet apprécié des femmes.
+- id: shop0017_slot02
+  file: shop0017.bin
+  slot: 2
+  item_id: 90
+  context: Item description in shop0017.bin (slot 2)
+  en: ''
+  fr: |-
+    Cette eau de Cologne italienne pour hommes
+    dégage un air à la fois sensuel et sophistiqué.
+- id: shop0017_slot03
+  file: shop0017.bin
+  slot: 3
+  item_id: 91
+  context: Item description in shop0017.bin (slot 3)
+  en: ''
+  fr: |-
+    Ce parfum italien dégage un air sensuel.
+    Il devrait faire un excellent cadeau pour
+    la femme de votre vie.
+- id: shop0017_slot04
+  file: shop0017.bin
+  slot: 4
+  item_id: 92
+  context: Item description in shop0017.bin (slot 4)
+  en: ''
+  fr: Cette écharpe française est un cadeau très apprécié.
+- id: shop0017_slot05
+  file: shop0017.bin
+  slot: 5
+  item_id: 93
+  context: Item description in shop0017.bin (slot 5)
+  en: ''
+  fr: Ce portefeuille français est un cadeau très apprécié.
+- id: shop0017_slot06
+  file: shop0017.bin
+  slot: 6
+  item_id: 94
+  context: Item description in shop0017.bin (slot 6)
+  en: ''
+  fr: Cette écharpe italienne est un cadeau très apprécié.
+- id: shop0017_slot07
+  file: shop0017.bin
+  slot: 7
+  item_id: 95
+  context: Item description in shop0017.bin (slot 7)
+  en: ''
+  fr: Ce portefeuille italien est un cadeau très apprécié.
+- id: shop0017_slot08
+  file: shop0017.bin
+  slot: 8
+  item_id: 96
+  context: Item description in shop0017.bin (slot 8)
+  en: ''
+  fr: Ce sac à main français est un cadeau populaire.
+- id: shop0017_slot09
+  file: shop0017.bin
+  slot: 9
+  item_id: 97
+  context: Item description in shop0017.bin (slot 9)
+  en: ''
+  fr: Ce sac à bandoulière italien est un cadeau populaire.
+- id: shop0017_slot10
+  file: shop0017.bin
+  slot: 10
+  item_id: 98
+  context: Item description in shop0017.bin (slot 10)
+  en: ''
+  fr: |-
+    Cette montre suisse a été fabriquée
+    à la main par un horloger talentueux.
+- id: shop0017_slot11
+  file: shop0017.bin
+  slot: 11
+  item_id: 99
+  context: Item description in shop0017.bin (slot 11)
+  en: ''
+  fr: |-
+    Cette montre italienne haut de gamme pour
+    femmes devrait faire un joli cadeau.
+- id: shop0017_slot12
+  file: shop0017.bin
+  slot: 12
+  item_id: 100
+  context: Item description in shop0017.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce collier italien haut de gamme est le cadeau
+    parfait pour une femme aux goûts distingués.
+- id: shop0017_slot13
+  file: shop0017.bin
+  slot: 13
+  item_id: 101
+  context: Item description in shop0017.bin (slot 13)
+  en: ''
+  fr: |-
+    Cette bague italienne haut de gamme serait
+    un joli cadeau pour une femme aux goûts
+    distingués.
+- id: shop0017_slot14
+  file: shop0017.bin
+  slot: 14
+  item_id: 102
+  context: Item description in shop0017.bin (slot 14)
+  en: ''
+  fr: |-
+    Ce collier italien haut de gamme pour hommes
+    est en argent, et est très distingué.
+- id: shop0017_slot15
+  file: shop0017.bin
+  slot: 15
+  item_id: 103
+  context: Item description in shop0017.bin (slot 15)
+  en: ''
+  fr: |-
+    Ce bracelet en or orne magnifiquement le
+    poignet, et ses délicates gravures fantaisistes
+    lui confèrent un air de luxe.
+- id: shop0017_slot16
+  file: shop0017.bin
+  slot: 16
+  item_id: 104
+  context: Item description in shop0017.bin (slot 16)
+  en: ''
+  fr: |-
+    Ce bracelet en argent fait chic sur n'importe
+    quel poignet, et va bien avec un look formel
+    ou décontracté.
+- id: shop0017_slot17
+  file: shop0017.bin
+  slot: 17
+  item_id: 105
+  context: Item description in shop0017.bin (slot 17)
+  en: ''
+  fr: |-
+    Ces célèbres bottes de marque italienne sont
+    faites de cuir.
+- id: shop0017_slot18
+  file: shop0017.bin
+  slot: 18
+  item_id: 106
+  context: Item description in shop0017.bin (slot 18)
+  en: ''
+  fr: |-
+    Ces sandales ont été fabriquées par une
+    célèbre marque française.
+- id: shop0017_slot19
+  file: shop0017.bin
+  slot: 19
+  item_id: 107
+  context: Item description in shop0017.bin (slot 19)
+  en: ''
+  fr: |-
+    Ce manteau luxueux de Grande-Bretagne pour
+    femmes serait un beau cadeau pour une femme
+    aux goûts distingués.
+- id: shop0017_slot20
+  file: shop0017.bin
+  slot: 20
+  item_id: 108
+  context: Item description in shop0017.bin (slot 20)
+  en: ''
+  fr: |-
+    Ce manteau est richement habillé de la fourrure
+    la plus à la mode de cette année et conçu
+    pour attirer l'attention.
+- id: shop0017_slot21
+  file: shop0017.bin
+  slot: 21
+  item_id: 109
+  context: Item description in shop0017.bin (slot 21)
+  en: ''
+  fr: |-
+    Cette mini-jupe est parfaitement conçue
+    pour accentuer les jambes et les allonger.
+- id: shop0017_slot22
+  file: shop0017.bin
+  slot: 22
+  item_id: 110
+  context: Item description in shop0017.bin (slot 22)
+  en: ''
+  fr: |-
+    Ce sac à main de fabrication locale est finement
+    confectionné et a la réputation de bien porter.
+- id: shop0017_slot23
+  file: shop0017.bin
+  slot: 23
+  item_id: 111
+  context: Item description in shop0017.bin (slot 23)
+  en: ''
+  fr: |-
+    Avec leur fourrure de lapin, ces bottes courtes
+    à l'allure distinctive expriment parfaitement
+    la saison et la féminité intérieure d'une dame.
+- id: shop0017_slot24
+  file: shop0017.bin
+  slot: 24
+  item_id: 112
+  context: Item description in shop0017.bin (slot 24)
+  en: ''
+  fr: |-
+    Fabriquées en cuir véritable, ces bottes longues
+    sont dotées d'un profil élégant et fin la cheville.
+- id: shop0018_slot00
+  file: shop0018.bin
+  slot: 0
+  item_id: 187
+  context: Item description in shop0018.bin (slot 0)
+  en: ''
+  fr: |-
+    Ce menu comprend un hamburger Smile
+    classique, des frites et une boisson. À emporter.
+- id: shop0018_slot01
+  file: shop0018.bin
+  slot: 1
+  item_id: 188
+  context: Item description in shop0018.bin (slot 1)
+  en: ''
+  fr: |-
+    Ce menu comprend un cheeseburger Smile,
+    des frites et une boisson. À emporter.
+- id: shop0018_slot02
+  file: shop0018.bin
+  slot: 2
+  item_id: 189
+  context: Item description in shop0018.bin (slot 2)
+  en: ''
+  fr: |-
+    Ce menu comprend un hamburger teriyaki Smile
+    avec une sauce spéciale, des frites et une boisson.
+    À emporter.
+- id: shop0018_slot03
+  file: shop0018.bin
+  slot: 3
+  item_id: 190
+  context: Item description in shop0018.bin (slot 3)
+  en: ''
+  fr: |-
+    Notre fameux hamburger King Smile, des frites
+    et une boisson. À emporter.
+- id: shop0018_slot04
+  file: shop0018.bin
+  slot: 4
+  item_id: 191
+  context: Item description in shop0018.bin (slot 4)
+  en: ''
+  fr: |-
+    Un délicieux hamburger au thon avec une
+    texture unique, des frites et une boisson.
+    À emporter.
+- id: shop0018_slot05
+  file: shop0018.bin
+  slot: 5
+  item_id: 192
+  context: Item description in shop0018.bin (slot 5)
+  en: ''
+  fr: |-
+    Un tendre hamburger de porc à l'étouffée avec
+    des frites et une boisson. À emporter.
+- id: shop0019_slot00
+  file: shop0019.bin
+  slot: 0
+  item_id: 902
+  context: Item description in shop0019.bin (slot 0)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à n'importe quelle
+    piste. Coût : 2
+- id: shop0019_slot01
+  file: shop0019.bin
+  slot: 1
+  item_id: 907
+  context: Item description in shop0019.bin (slot 1)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et ont une adhérence supérieure.
+    Coût : 2
+- id: shop0019_slot02
+  file: shop0019.bin
+  slot: 2
+  item_id: 873
+  context: Item description in shop0019.bin (slot 2)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais vous
+    ralentit dans les virages. Coût : 3
+- id: shop0019_slot03
+  file: shop0019.bin
+  slot: 3
+  item_id: 878
+  context: Item description in shop0019.bin (slot 3)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Votre vitesse diminue moins dans les virages, mais
+    vous devez veiller à ne pas sortir de la piste. Coût : 3
+- id: shop0019_slot04
+  file: shop0019.bin
+  slot: 4
+  item_id: 862
+  context: Item description in shop0019.bin (slot 4)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Compromis entre les réductions de risque de sortie
+    de piste et la perte de vitesse en virages. Coût : 2
+- id: shop0019_slot05
+  file: shop0019.bin
+  slot: 5
+  item_id: 847
+  context: Item description in shop0019.bin (slot 5)
+  en: ''
+  fr: Un autocollant représentant des flammes ardentes.
+- id: shop0019_slot06
+  file: shop0019.bin
+  slot: 6
+  item_id: 852
+  context: Item description in shop0019.bin (slot 6)
+  en: ''
+  fr: Une voiture non raffinée à l'allure masculine.
+- id: shop0019_slot07
+  file: shop0019.bin
+  slot: 7
+  item_id: 917
+  context: Item description in shop0019.bin (slot 7)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un compromis entre vitesse et puissance, avec
+    un léger penchant pour la puissance brute. Coût : 1
+- id: shop0019_slot08
+  file: shop0019.bin
+  slot: 8
+  item_id: 843
+  context: Item description in shop0019.bin (slot 8)
+  en: ''
+  fr: |-
+    Cette statue dorée est un artefact légendaire
+    inspirant la sérénité et l'harmonie avec le monde.
+    Vous pourriez gagner une fortune en la vendant.
+- id: shop0019_slot09
+  file: shop0019.bin
+  slot: 9
+  item_id: 898
+  context: Item description in shop0019.bin (slot 9)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Leur profil robuste leur permet de rouler aussi
+    bien sur l'herbe que sur la piste. Coût : 2
+- id: shop0019_slot10
+  file: shop0019.bin
+  slot: 10
+  item_id: 874
+  context: Item description in shop0019.bin (slot 10)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais vous
+    ralentit dans les virages. Coût : 4
+- id: shop0019_slot11
+  file: shop0019.bin
+  slot: 11
+  item_id: 863
+  context: Item description in shop0019.bin (slot 11)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Compromis entre les réductions de risque de sortie
+    de piste et la perte de vitesse en virages. Coût : 3
+- id: shop0019_slot12
+  file: shop0019.bin
+  slot: 12
+  item_id: 893
+  context: Item description in shop0019.bin (slot 12)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et procurent une adhérence supérieure.
+    Coût : 2
+- id: shop0019_slot13
+  file: shop0019.bin
+  slot: 13
+  item_id: 888
+  context: Item description in shop0019.bin (slot 13)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à merveille à tout
+    type de piste. Coût : 2
+- id: shop0019_slot14
+  file: shop0019.bin
+  slot: 14
+  item_id: 858
+  context: Item description in shop0019.bin (slot 14)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais
+    vous ralentit dans les virages. Coût : 3
+- id: shop0019_slot15
+  file: shop0019.bin
+  slot: 15
+  item_id: 923
+  context: Item description in shop0019.bin (slot 15)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils trouvent un équilibre idéal entre vitesse
+    et puissance. Coût : 2
+- id: shop0019_slot16
+  file: shop0019.bin
+  slot: 16
+  item_id: 848
+  context: Item description in shop0019.bin (slot 16)
+  en: ''
+  fr: Un autocollant représentant un océan déchaîné.
+- id: shop0019_slot17
+  file: shop0019.bin
+  slot: 17
+  item_id: 908
+  context: Item description in shop0019.bin (slot 17)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et ont une adhérence supérieure.
+    Coût : 3
+- id: shop0019_slot18
+  file: shop0019.bin
+  slot: 18
+  item_id: 913
+  context: Item description in shop0019.bin (slot 18)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont axés sur la puissance, facilitant grandement
+    les montées. Coût : 2
+- id: shop0019_slot19
+  file: shop0019.bin
+  slot: 19
+  item_id: 869
+  context: Item description in shop0019.bin (slot 19)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Permet de prendre les virages à haute vitesse, mais
+    avec plus de risque de sortir de la piste. Coût : 4
+- id: shop0019_slot20
+  file: shop0019.bin
+  slot: 20
+  item_id: 879
+  context: Item description in shop0019.bin (slot 20)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Votre vitesse diminue moins dans les virages, mais
+    vous devez veiller à ne pas sortir de la piste. Coût : 4
+- id: shop0019_slot21
+  file: shop0019.bin
+  slot: 21
+  item_id: 903
+  context: Item description in shop0019.bin (slot 21)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à n'importe quelle
+    piste. Coût : 3
+- id: shop0019_slot22
+  file: shop0019.bin
+  slot: 22
+  item_id: 918
+  context: Item description in shop0019.bin (slot 22)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un compromis entre vitesse et puissance, avec
+    un léger penchant pour la puissance brute. Coût : 2
+- id: shop0019_slot23
+  file: shop0019.bin
+  slot: 23
+  item_id: 853
+  context: Item description in shop0019.bin (slot 23)
+  en: ''
+  fr: Une voiture sportive avec moins de traînée.
+- id: shop0019_slot24
+  file: shop0019.bin
+  slot: 24
+  item_id: 844
+  context: Item description in shop0019.bin (slot 24)
+  en: ''
+  fr: |-
+    Cet énorme diamant est un artefact légendaire qui
+    pourrait être taillé en d'innombrables petites pierres
+    précieuses. Vous pourriez gagner une fortune en le vendant.
+- id: shop0019_slot25
+  file: shop0019.bin
+  slot: 25
+  item_id: 943
+  context: Item description in shop0019.bin (slot 25)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Bien qu'ils manquent de puissance, ils fournissent une
+    bonne dose de vitesse. Coût : 5
+- id: shop0019_slot26
+  file: shop0019.bin
+  slot: 26
+  item_id: 899
+  context: Item description in shop0019.bin (slot 26)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Leur profil robuste leur permet de rouler aussi
+    bien sur l'herbe que sur la piste. Coût : 3
+- id: shop0019_slot27
+  file: shop0019.bin
+  slot: 27
+  item_id: 875
+  context: Item description in shop0019.bin (slot 27)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais vous
+    ralentit dans les virages. Coût : 5
+- id: shop0019_slot28
+  file: shop0019.bin
+  slot: 28
+  item_id: 864
+  context: Item description in shop0019.bin (slot 28)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Compromis entre les réductions de risque de sortie
+    de piste et la perte de vitesse en virages. Coût : 4
+- id: shop0019_slot29
+  file: shop0019.bin
+  slot: 29
+  item_id: 894
+  context: Item description in shop0019.bin (slot 29)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et procurent une adhérence supérieure.
+    Coût : 3
+- id: shop0019_slot30
+  file: shop0019.bin
+  slot: 30
+  item_id: 889
+  context: Item description in shop0019.bin (slot 30)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à merveille à tout
+    type de piste. Coût : 3
+- id: shop0019_slot31
+  file: shop0019.bin
+  slot: 31
+  item_id: 859
+  context: Item description in shop0019.bin (slot 31)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais
+    vous ralentit dans les virages. Coût : 4
+- id: shop0019_slot32
+  file: shop0019.bin
+  slot: 32
+  item_id: 924
+  context: Item description in shop0019.bin (slot 32)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils trouvent un équilibre idéal entre vitesse
+    et puissance. Coût : 3
+- id: shop0019_slot33
+  file: shop0019.bin
+  slot: 33
+  item_id: 849
+  context: Item description in shop0019.bin (slot 33)
+  en: ''
+  fr: Un autocollant qui donne un style frais et lumineux.
+- id: shop0019_slot34
+  file: shop0019.bin
+  slot: 34
+  item_id: 909
+  context: Item description in shop0019.bin (slot 34)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et ont une adhérence supérieure.
+    Coût : 4
+- id: shop0019_slot35
+  file: shop0019.bin
+  slot: 35
+  item_id: 914
+  context: Item description in shop0019.bin (slot 35)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont axés sur la puissance, facilitant grandement
+    les montées. Coût : 3
+- id: shop0019_slot36
+  file: shop0019.bin
+  slot: 36
+  item_id: 870
+  context: Item description in shop0019.bin (slot 36)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Permet de prendre les virages à haute vitesse, mais
+    avec plus de risque de sortir de la piste. Coût : 5
+- id: shop0019_slot37
+  file: shop0019.bin
+  slot: 37
+  item_id: 880
+  context: Item description in shop0019.bin (slot 37)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Votre vitesse diminue moins dans les virages, mais
+    vous devez veiller à ne pas sortir de la piste. Coût : 5
+- id: shop0019_slot38
+  file: shop0019.bin
+  slot: 38
+  item_id: 904
+  context: Item description in shop0019.bin (slot 38)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à n'importe quelle
+    piste. Coût : 4
+- id: shop0019_slot39
+  file: shop0019.bin
+  slot: 39
+  item_id: 919
+  context: Item description in shop0019.bin (slot 39)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un compromis entre vitesse et puissance, avec
+    un léger penchant pour la puissance brute. Coût : 3
+- id: shop0019_slot40
+  file: shop0019.bin
+  slot: 40
+  item_id: 932
+  context: Item description in shop0019.bin (slot 40)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un équilibre entre vitesse et puissance, avec
+    un léger penchant pour le rendement brut. Coût : 2
+- id: shop0019_slot41
+  file: shop0019.bin
+  slot: 41
+  item_id: 854
+  context: Item description in shop0019.bin (slot 41)
+  en: ''
+  fr: Une voiture avec un design futuriste.
+- id: shop0019_slot42
+  file: shop0019.bin
+  slot: 42
+  item_id: 845
+  context: Item description in shop0019.bin (slot 42)
+  en: ''
+  fr: |-
+    Ce métal est un artefact légendaire si dense qu'il ne
+    peut être travaillé, et ses origines restent un mystère.
+    Vous pourriez gagner une fortune en le vendant.
+- id: shop0019_slot43
+  file: shop0019.bin
+  slot: 43
+  item_id: 944
+  context: Item description in shop0019.bin (slot 43)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Bien qu'ils manquent de puissance, ils fournissent une
+    bonne dose de vitesse. Coût : 6
+- id: shop0019_slot44
+  file: shop0019.bin
+  slot: 44
+  item_id: 900
+  context: Item description in shop0019.bin (slot 44)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Leur profil robuste leur permet de rouler aussi
+    bien sur l'herbe que sur la piste. Coût : 4
+- id: shop0019_slot45
+  file: shop0019.bin
+  slot: 45
+  item_id: 876
+  context: Item description in shop0019.bin (slot 45)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Votre vitesse diminue moins dans les virages, mais
+    vous devez veiller à ne pas sortir de la piste. Coût : 1
+- id: shop0019_slot46
+  file: shop0019.bin
+  slot: 46
+  item_id: 865
+  context: Item description in shop0019.bin (slot 46)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Compromis entre les réductions de risque de sortie
+    de piste et la perte de vitesse en virages. Coût : 5
+- id: shop0019_slot47
+  file: shop0019.bin
+  slot: 47
+  item_id: 895
+  context: Item description in shop0019.bin (slot 47)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et procurent une adhérence supérieure.
+    Coût : 4
+- id: shop0019_slot48
+  file: shop0019.bin
+  slot: 48
+  item_id: 890
+  context: Item description in shop0019.bin (slot 48)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à merveille à tout
+    type de piste. Coût : 4
+- id: shop0019_slot49
+  file: shop0019.bin
+  slot: 49
+  item_id: 928
+  context: Item description in shop0019.bin (slot 49)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Axés sur la puissance, facilitant ainsi les montées en
+    pente. Coût : 3
+- id: shop0019_slot50
+  file: shop0019.bin
+  slot: 50
+  item_id: 860
+  context: Item description in shop0019.bin (slot 50)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais
+    vous ralentit dans les virages. Coût : 5
+- id: shop0019_slot51
+  file: shop0019.bin
+  slot: 51
+  item_id: 925
+  context: Item description in shop0019.bin (slot 51)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils trouvent un équilibre idéal entre vitesse
+    et puissance. Coût : 4
+- id: shop0019_slot52
+  file: shop0019.bin
+  slot: 52
+  item_id: 850
+  context: Item description in shop0019.bin (slot 52)
+  en: ''
+  fr: Un autocollant qui donne un style sombre et dangereux.
+- id: shop0019_slot53
+  file: shop0019.bin
+  slot: 53
+  item_id: 910
+  context: Item description in shop0019.bin (slot 53)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ils sont légers et ont une adhérence supérieure.
+    Coût : 5
+- id: shop0019_slot54
+  file: shop0019.bin
+  slot: 54
+  item_id: 915
+  context: Item description in shop0019.bin (slot 54)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont axés sur la puissance, facilitant grandement
+    les montées. Coût : 4
+- id: shop0019_slot55
+  file: shop0019.bin
+  slot: 55
+  item_id: 871
+  context: Item description in shop0019.bin (slot 55)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais vous
+    ralentit dans les virages. Coût : 1
+- id: shop0019_slot56
+  file: shop0019.bin
+  slot: 56
+  item_id: 881
+  context: Item description in shop0019.bin (slot 56)
+  en: ''
+  fr: |-
+    Un élément avant pour voitures Pocket Circuit.
+    Augmente l'appui aérodynamique sur la voiture
+    afin de l'aider à ne pas trop rebondir. Coût : 3
+- id: shop0019_slot57
+  file: shop0019.bin
+  slot: 57
+  item_id: 905
+  context: Item description in shop0019.bin (slot 57)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à n'importe quelle
+    piste. Coût : 5
+- id: shop0019_slot58
+  file: shop0019.bin
+  slot: 58
+  item_id: 920
+  context: Item description in shop0019.bin (slot 58)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un compromis entre vitesse et puissance, avec
+    un léger penchant pour la puissance brute. Coût : 4
+- id: shop0019_slot59
+  file: shop0019.bin
+  slot: 59
+  item_id: 933
+  context: Item description in shop0019.bin (slot 59)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un équilibre entre vitesse et puissance, avec
+    un léger penchant pour le rendement brut. Coût : 3
+- id: shop0019_slot60
+  file: shop0019.bin
+  slot: 60
+  item_id: 855
+  context: Item description in shop0019.bin (slot 60)
+  en: ''
+  fr: Une voiture unique qui ne passe pas inaperçue.
+- id: shop0019_slot61
+  file: shop0019.bin
+  slot: 61
+  item_id: 883
+  context: Item description in shop0019.bin (slot 61)
+  en: ''
+  fr: |-
+    Un élément moteur pour voitures Pocket Circuit.
+    Son couple élevé fournit une bonne accélération,
+    faisant des pentes un jeu d'enfant. Coût : 2
+- id: shop0019_slot62
+  file: shop0019.bin
+  slot: 62
+  item_id: 934
+  context: Item description in shop0019.bin (slot 62)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un équilibre entre vitesse et puissance, avec
+    un léger penchant pour le rendement brut. Coût : 4
+- id: shop0019_slot63
+  file: shop0019.bin
+  slot: 63
+  item_id: 929
+  context: Item description in shop0019.bin (slot 63)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Axés sur la puissance, facilitant ainsi les montées en
+    pente. Coût : 4
+- id: shop0019_slot64
+  file: shop0019.bin
+  slot: 64
+  item_id: 901
+  context: Item description in shop0019.bin (slot 64)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à n'importe quelle
+    piste. Coût : 1
+- id: shop0019_slot65
+  file: shop0019.bin
+  slot: 65
+  item_id: 846
+  context: Item description in shop0019.bin (slot 65)
+  en: ''
+  fr: |-
+    Cette statue de dragon est un artefact légendaire
+    en or. Bien qu'ancienne, elle est finement sculptée.
+    Vous pourriez gagner une fortune en la vendant.
+- id: shop0019_slot66
+  file: shop0019.bin
+  slot: 66
+  item_id: 877
+  context: Item description in shop0019.bin (slot 66)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Votre vitesse diminue moins dans les virages, mais
+    vous devez veiller à ne pas sortir de la piste. Coût : 2
+- id: shop0019_slot67
+  file: shop0019.bin
+  slot: 67
+  item_id: 866
+  context: Item description in shop0019.bin (slot 67)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Permet de prendre les virages à haute vitesse, mais
+    avec plus de risque de sortir de la piste. Coût : 1
+- id: shop0019_slot68
+  file: shop0019.bin
+  slot: 68
+  item_id: 891
+  context: Item description in shop0019.bin (slot 68)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Ces pneus équilibrés conviennent à merveille à tout
+    type de piste. Coût : 5
+- id: shop0019_slot69
+  file: shop0019.bin
+  slot: 69
+  item_id: 861
+  context: Item description in shop0019.bin (slot 69)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Compromis entre les réductions de risque de sortie
+    de piste et la perte de vitesse en virages. Coût : 1
+- id: shop0019_slot70
+  file: shop0019.bin
+  slot: 70
+  item_id: 926
+  context: Item description in shop0019.bin (slot 70)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Axés sur la puissance, facilitant ainsi les montées en
+    pente. Coût : 1
+- id: shop0019_slot71
+  file: shop0019.bin
+  slot: 71
+  item_id: 851
+  context: Item description in shop0019.bin (slot 71)
+  en: ''
+  fr: Une voiture futuriste avec une bonne aérodynamique.
+- id: shop0019_slot72
+  file: shop0019.bin
+  slot: 72
+  item_id: 911
+  context: Item description in shop0019.bin (slot 72)
+  en: ''
+  fr: |-
+    Composés de pneus pour voitures Pocket Circuit.
+    Comme leur aspect grossier le suggère, ils sont
+    aussi capables de rouler sur l'herbe. Coût : 1
+- id: shop0019_slot73
+  file: shop0019.bin
+  slot: 73
+  item_id: 916
+  context: Item description in shop0019.bin (slot 73)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont axés sur la puissance, facilitant grandement
+    les montées. Coût : 5
+- id: shop0019_slot74
+  file: shop0019.bin
+  slot: 74
+  item_id: 872
+  context: Item description in shop0019.bin (slot 74)
+  en: ''
+  fr: |-
+    Un cadre extérieur pour voitures Pocket Circuit.
+    Diminue les chances de sortir de la piste, mais vous
+    ralentit dans les virages. Coût : 2
+- id: shop0019_slot75
+  file: shop0019.bin
+  slot: 75
+  item_id: 882
+  context: Item description in shop0019.bin (slot 75)
+  en: ''
+  fr: |-
+    Un élément moteur pour voitures Pocket Circuit.
+    Son couple élevé fournit une bonne accélération,
+    faisant des pentes un jeu d'enfant. Coût : 1
+- id: shop0019_slot76
+  file: shop0019.bin
+  slot: 76
+  item_id: 921
+  context: Item description in shop0019.bin (slot 76)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un compromis entre vitesse et puissance, avec
+    un léger penchant pour la puissance brute. Coût : 5
+- id: shop0019_slot77
+  file: shop0019.bin
+  slot: 77
+  item_id: 885
+  context: Item description in shop0019.bin (slot 77)
+  en: ''
+  fr: |-
+    Un élément moteur pour voitures Pocket Circuit.
+    Son couple élevé fournit une bonne accélération,
+    faisant des pentes un jeu d'enfant. Coût : 4
+- id: shop0019_slot78
+  file: shop0019.bin
+  slot: 78
+  item_id: 940
+  context: Item description in shop0019.bin (slot 78)
+  en: ''
+  fr: |-
+    Un stabilisateur latéral pour voitures Pocket Circuit.
+    Il aide à redresser votre voiture dès qu'elle
+    menace de se renverser. Coût : 3
+- id: shop0019_slot79
+  file: shop0019.bin
+  slot: 79
+  item_id: 930
+  context: Item description in shop0019.bin (slot 79)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Axés sur la puissance, facilitant ainsi les montées en
+    pente. Coût : 5
+- id: shop0019_slot80
+  file: shop0019.bin
+  slot: 80
+  item_id: 931
+  context: Item description in shop0019.bin (slot 80)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un équilibre entre vitesse et puissance, avec
+    un léger penchant pour le rendement brut. Coût : 1
+- id: shop0019_slot81
+  file: shop0019.bin
+  slot: 81
+  item_id: 935
+  context: Item description in shop0019.bin (slot 81)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Offrent un équilibre entre vitesse et puissance, avec
+    un léger penchant pour le rendement brut. Coût : 5
+- id: shop0020_slot00
+  file: shop0020.bin
+  slot: 0
+  item_id: 82
+  context: Item description in shop0020.bin (slot 0)
+  en: ''
+  fr: |-
+    Le matsutake est largement considéré
+    comme le roi des champignons.
+- id: shop0020_slot01
+  file: shop0020.bin
+  slot: 1
+  item_id: 83
+  context: Item description in shop0020.bin (slot 1)
+  en: ''
+  fr: |-
+    Les champignons maitake sont un ajout
+    délicieux dans les plats chauds.
+- id: shop0020_slot02
+  file: shop0020.bin
+  slot: 2
+  item_id: 84
+  context: Item description in shop0020.bin (slot 2)
+  en: ''
+  fr: |-
+    Un champignon savoureux que l'on voit
+    rarement. Kitajima l'aurait nommé ainsi.
+    Il pourrait devenir un aliment de base.
+- id: shop0020_slot03
+  file: shop0020.bin
+  slot: 3
+  item_id: 85
+  context: Item description in shop0020.bin (slot 3)
+  en: ''
+  fr: |-
+    Les champignons Enokitake sont recommandés
+    par tous les fournisseurs de champignons.
+- id: shop0020_slot04
+  file: shop0020.bin
+  slot: 4
+  item_id: 86
+  context: Item description in shop0020.bin (slot 4)
+  en: ''
+  fr: |-
+    Les champignons shiitake sont un ingrédient
+    classique dans de nombreux plats.
+- id: shop0021_slot00
+  file: shop0021.bin
+  slot: 0
+  item_id: 942
+  context: Item description in shop0021.bin (slot 0)
+  en: ''
+  fr: |-
+    Un stabilisateur latéral pour voitures Pocket Circuit.
+    Il aide à garder votre voiture stable dès qu'elle
+    menace de se renverser. Coût : 5
+- id: shop0021_slot01
+  file: shop0021.bin
+  slot: 1
+  item_id: 884
+  context: Item description in shop0021.bin (slot 1)
+  en: ''
+  fr: |-
+    Un élément moteur pour voitures Pocket Circuit.
+    Son couple élevé fournit une bonne accélération,
+    faisant des pentes un jeu d'enfant. Coût : 3
+- id: shop0021_slot02
+  file: shop0021.bin
+  slot: 2
+  item_id: 510
+  context: Item description in shop0021.bin (slot 2)
+  en: ''
+  fr: |-
+    Cette puissante batte est parsemée de pointes
+    qui laissent des blessures de piqûre à ceux que
+    vous frappez.
+- id: shop0021_slot03
+  file: shop0021.bin
+  slot: 3
+  item_id: 522
+  context: Item description in shop0021.bin (slot 3)
+  en: ''
+  fr: |-
+    Ce katana n'a peut-être pas l'inscription
+    du forgeron, mais il est bien meilleur que
+    ceux produits en série.
+- id: shop0021_slot04
+  file: shop0021.bin
+  slot: 4
+  item_id: 568
+  context: Item description in shop0021.bin (slot 4)
+  en: ''
+  fr: |-
+    Cette arme rare est comme un lance-flammes
+    de poche dans un petit emballage élégant.
+- id: shop0021_slot05
+  file: shop0021.bin
+  slot: 5
+  item_id: 650
+  context: Item description in shop0021.bin (slot 5)
+  en: ''
+  fr: |-
+    Cette chemise pourrait raconter une histoire ou
+    deux sur des spectacles légendaires. Plonger dedans
+    peut causer des dommages collatéraux à d'autres personnes.
+- id: shop0021_slot06
+  file: shop0021.bin
+  slot: 6
+  item_id: 687
+  context: Item description in shop0021.bin (slot 6)
+  en: ''
+  fr: |-
+    La bénédiction divine de cette amulette est
+    censée réduire le nombre d'ennemis qui
+    se massent autour de vous.
+- id: shop0021_slot07
+  file: shop0021.bin
+  slot: 7
+  item_id: 144
+  context: Item description in shop0021.bin (slot 7)
+  en: ''
+  fr: |-
+    Ce poisson rare et coûteux a un motif ressemblant
+    à un visage humain sur sa tête.
+- id: shop0021_slot08
+  file: shop0021.bin
+  slot: 8
+  item_id: 137
+  context: Item description in shop0021.bin (slot 8)
+  en: ''
+  fr: |-
+    La forme néoténique de la salamandre mexicaine.
+    Ses adorables yeux ronds lui ont valu de nombreux
+    admirateurs.
+- id: shop0021_slot09
+  file: shop0021.bin
+  slot: 9
+  item_id: 158
+  context: Item description in shop0021.bin (slot 9)
+  en: ''
+  fr: |-
+    Ce poisson à l'apparence primitive est considéré
+    comme un fossile vivant datant de la préhistoire.
+- id: shop0021_slot10
+  file: shop0021.bin
+  slot: 10
+  item_id: 86
+  context: Item description in shop0021.bin (slot 10)
+  en: ''
+  fr: |-
+    Les champignons shiitake sont un ingrédient
+    classique dans de nombreux plats.
+- id: shop0022_slot00
+  file: shop0022.bin
+  slot: 0
+  item_id: 307
+  context: Item description in shop0022.bin (slot 0)
+  en: ''
+  fr: |-
+    Huit morceaux du célèbre snack d'Osaka.
+    Croustillant à l'extérieur, fondant à l'intérieur !
+- id: shop0022_slot01
+  file: shop0022.bin
+  slot: 1
+  item_id: 308
+  context: Item description in shop0022.bin (slot 1)
+  en: ''
+  fr: |-
+    Seize morceaux du célèbre snack d'Osaka.
+    Croustillant à l'extérieur, fondant à l'intérieur !
+- id: shop0022_slot02
+  file: shop0022.bin
+  slot: 2
+  item_id: 309
+  context: Item description in shop0022.bin (slot 2)
+  en: ''
+  fr: |-
+    Huit morceaux du célèbre snack d'Osaka,
+    garnis de fromage fondu. Découvrez la saveur
+    irrésistible de son fromage et de sa sauce.
+- id: shop0023_slot00
+  file: shop0023.bin
+  slot: 0
+  item_id: 426
+  context: Item description in shop0023.bin (slot 0)
+  en: ''
+  fr: |-
+    Takoyaki disponible pour un temps limité.
+    Vous devriez les manger tant qu'ils sont chauds.
+- id: shop0024_slot00
+  file: shop0024.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0024.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0024_slot01
+  file: shop0024.bin
+  slot: 1
+  item_id: 7
+  context: Item description in shop0024.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0024_slot02
+  file: shop0024.bin
+  slot: 2
+  item_id: 12
+  context: Item description in shop0024.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0024_slot03
+  file: shop0024.bin
+  slot: 3
+  item_id: 61
+  context: Item description in shop0024.bin (slot 3)
+  en: ''
+  fr: |-
+    Ces biscuits sont une collation très populaire parmi
+    les jeunes et les plus âgés.
+- id: shop0024_slot04
+  file: shop0024.bin
+  slot: 4
+  item_id: 19
+  context: Item description in shop0024.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0024_slot05
+  file: shop0024.bin
+  slot: 5
+  item_id: 17
+  context: Item description in shop0024.bin (slot 5)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0024_slot06
+  file: shop0024.bin
+  slot: 6
+  item_id: 20
+  context: Item description in shop0024.bin (slot 6)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0024_slot07
+  file: shop0024.bin
+  slot: 7
+  item_id: 21
+  context: Item description in shop0024.bin (slot 7)
+  en: ''
+  fr: |-
+    Il y a plus qu'assez de cet assortiment
+    savoureux d'oden pour satisfaire votre faim.
+- id: shop0024_slot08
+  file: shop0024.bin
+  slot: 8
+  item_id: 22
+  context: Item description in shop0024.bin (slot 8)
+  en: ''
+  fr: |-
+    Les algues bouillies dans la sauce soja sont
+    au centre de cet onigiri.
+- id: shop0024_slot09
+  file: shop0024.bin
+  slot: 9
+  item_id: 23
+  context: Item description in shop0024.bin (slot 9)
+  en: ''
+  fr: Cet onigiri est farci de thon et de mayonnaise.
+- id: shop0024_slot10
+  file: shop0024.bin
+  slot: 10
+  item_id: 24
+  context: Item description in shop0024.bin (slot 10)
+  en: ''
+  fr: Cet onigiri est farci de morceaux de saumon.
+- id: shop0024_slot11
+  file: shop0024.bin
+  slot: 11
+  item_id: 35
+  context: Item description in shop0024.bin (slot 11)
+  en: ''
+  fr: |-
+    C'est un sandwich club ordinaire avec
+    de la tomate, de la laitue, etc.
+- id: shop0024_slot12
+  file: shop0024.bin
+  slot: 12
+  item_id: 36
+  context: Item description in shop0024.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce sandwich est fait d'un mélange oeuf-mayo
+    avec du thon sur du pain blanc.
+- id: shop0024_slot13
+  file: shop0024.bin
+  slot: 13
+  item_id: 37
+  context: Item description in shop0024.bin (slot 13)
+  en: ''
+  fr: |-
+    Yakisoba au chou et au porc. L'odeur de la
+    sauce est tout simplement appétissante.
+- id: shop0024_slot14
+  file: shop0024.bin
+  slot: 14
+  item_id: 38
+  context: Item description in shop0024.bin (slot 14)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de base de supérette
+    est populaire pour sa saveur exquise.
+- id: shop0024_slot15
+  file: shop0024.bin
+  slot: 15
+  item_id: 39
+  context: Item description in shop0024.bin (slot 15)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de supérette est populaire
+    pour sa pâte de haricots sucrés au goût de
+    sésame.
+- id: shop0024_slot16
+  file: shop0024.bin
+  slot: 16
+  item_id: 40
+  context: Item description in shop0024.bin (slot 16)
+  en: ''
+  fr: |-
+    Cette brique de 500 ml contient du lait entier
+    qui a été pasteurisé à basse température pour
+    préserver ses bienfaits naturels et sa fraîcheur.
+- id: shop0024_slot17
+  file: shop0024.bin
+  slot: 17
+  item_id: 67
+  context: Item description in shop0024.bin (slot 17)
+  en: ''
+  fr: Une mandarine au goût sucré et acidulé.
+- id: shop0024_slot18
+  file: shop0024.bin
+  slot: 18
+  item_id: 51
+  context: Item description in shop0024.bin (slot 18)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0024_slot19
+  file: shop0024.bin
+  slot: 19
+  item_id: 45
+  context: Item description in shop0024.bin (slot 19)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0024_slot20
+  file: shop0024.bin
+  slot: 20
+  item_id: 48
+  context: Item description in shop0024.bin (slot 20)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0024_slot21
+  file: shop0024.bin
+  slot: 21
+  item_id: 49
+  context: Item description in shop0024.bin (slot 21)
+  en: ''
+  fr: |-
+    Le whisky le plus populaire au Japon. Il a un
+    arôme doux et est épais en bouche, avec un
+    goût doux et riche.
+- id: shop0024_slot22
+  file: shop0024.bin
+  slot: 22
+  item_id: 72
+  context: Item description in shop0024.bin (slot 22)
+  en: ''
+  fr: |-
+    Un shochu de patate douce qui réussit à faire
+    ressortir les saveurs de ses ingrédients.
+- id: shop0024_slot23
+  file: shop0024.bin
+  slot: 23
+  item_id: 946
+  context: Item description in shop0024.bin (slot 23)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont conçus pour fournir le maximum de vitesse possible.
+    Coût : 3
+- id: shop0024_slot24
+  file: shop0024.bin
+  slot: 24
+  item_id: 947
+  context: Item description in shop0024.bin (slot 24)
+  en: ''
+  fr: |-
+    Éléments de transmission pour voitures Pocket Circuit.
+    Ils sont conçus pour fournir le maximum de vitesse possible.
+    Coût : 4
+- id: shop0024_slot25
+  file: shop0024.bin
+  slot: 25
+  item_id: 75
+  context: Item description in shop0024.bin (slot 25)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0024_slot26
+  file: shop0024.bin
+  slot: 26
+  item_id: 65
+  context: Item description in shop0024.bin (slot 26)
+  en: ''
+  fr: |-
+    Une batterie. Indispensable pour alimenter
+    la plupart des appareils électroniques.
+- id: shop0025_slot00
+  file: shop0025.bin
+  slot: 0
+  item_id: 3
+  context: Item description in shop0025.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0025_slot01
+  file: shop0025.bin
+  slot: 1
+  item_id: 7
+  context: Item description in shop0025.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0025_slot02
+  file: shop0025.bin
+  slot: 2
+  item_id: 12
+  context: Item description in shop0025.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0025_slot03
+  file: shop0025.bin
+  slot: 3
+  item_id: 61
+  context: Item description in shop0025.bin (slot 3)
+  en: ''
+  fr: |-
+    Ces biscuits sont une collation très populaire parmi
+    les jeunes et les plus âgés.
+- id: shop0025_slot04
+  file: shop0025.bin
+  slot: 4
+  item_id: 19
+  context: Item description in shop0025.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0025_slot05
+  file: shop0025.bin
+  slot: 5
+  item_id: 17
+  context: Item description in shop0025.bin (slot 5)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0025_slot06
+  file: shop0025.bin
+  slot: 6
+  item_id: 20
+  context: Item description in shop0025.bin (slot 6)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0025_slot07
+  file: shop0025.bin
+  slot: 7
+  item_id: 21
+  context: Item description in shop0025.bin (slot 7)
+  en: ''
+  fr: |-
+    Il y a plus qu'assez de cet assortiment
+    savoureux d'oden pour satisfaire votre faim.
+- id: shop0025_slot08
+  file: shop0025.bin
+  slot: 8
+  item_id: 22
+  context: Item description in shop0025.bin (slot 8)
+  en: ''
+  fr: |-
+    Les algues bouillies dans la sauce soja sont
+    au centre de cet onigiri.
+- id: shop0025_slot09
+  file: shop0025.bin
+  slot: 9
+  item_id: 23
+  context: Item description in shop0025.bin (slot 9)
+  en: ''
+  fr: Cet onigiri est farci de thon et de mayonnaise.
+- id: shop0025_slot10
+  file: shop0025.bin
+  slot: 10
+  item_id: 24
+  context: Item description in shop0025.bin (slot 10)
+  en: ''
+  fr: Cet onigiri est farci de morceaux de saumon.
+- id: shop0025_slot11
+  file: shop0025.bin
+  slot: 11
+  item_id: 35
+  context: Item description in shop0025.bin (slot 11)
+  en: ''
+  fr: |-
+    C'est un sandwich club ordinaire avec
+    de la tomate, de la laitue, etc.
+- id: shop0025_slot12
+  file: shop0025.bin
+  slot: 12
+  item_id: 36
+  context: Item description in shop0025.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce sandwich est fait d'un mélange oeuf-mayo
+    avec du thon sur du pain blanc.
+- id: shop0025_slot13
+  file: shop0025.bin
+  slot: 13
+  item_id: 37
+  context: Item description in shop0025.bin (slot 13)
+  en: ''
+  fr: |-
+    Yakisoba au chou et au porc. L'odeur de la
+    sauce est tout simplement appétissante.
+- id: shop0025_slot14
+  file: shop0025.bin
+  slot: 14
+  item_id: 38
+  context: Item description in shop0025.bin (slot 14)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de base de supérette
+    est populaire pour sa saveur exquise.
+- id: shop0025_slot15
+  file: shop0025.bin
+  slot: 15
+  item_id: 39
+  context: Item description in shop0025.bin (slot 15)
+  en: ''
+  fr: |-
+    Ce bon vieux produit de supérette est populaire
+    pour sa pâte de haricots sucrés au goût de
+    sésame.
+- id: shop0025_slot16
+  file: shop0025.bin
+  slot: 16
+  item_id: 40
+  context: Item description in shop0025.bin (slot 16)
+  en: ''
+  fr: |-
+    Cette brique de 500 ml contient du lait entier
+    qui a été pasteurisé à basse température pour
+    préserver ses bienfaits naturels et sa fraîcheur.
+- id: shop0025_slot17
+  file: shop0025.bin
+  slot: 17
+  item_id: 67
+  context: Item description in shop0025.bin (slot 17)
+  en: ''
+  fr: Une mandarine au goût sucré et acidulé.
+- id: shop0025_slot18
+  file: shop0025.bin
+  slot: 18
+  item_id: 51
+  context: Item description in shop0025.bin (slot 18)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0025_slot19
+  file: shop0025.bin
+  slot: 19
+  item_id: 45
+  context: Item description in shop0025.bin (slot 19)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0025_slot20
+  file: shop0025.bin
+  slot: 20
+  item_id: 48
+  context: Item description in shop0025.bin (slot 20)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0025_slot21
+  file: shop0025.bin
+  slot: 21
+  item_id: 49
+  context: Item description in shop0025.bin (slot 21)
+  en: ''
+  fr: |-
+    Le whisky le plus populaire au Japon. Il a un
+    arôme doux et est épais en bouche, avec un
+    goût doux et riche.
+- id: shop0025_slot22
+  file: shop0025.bin
+  slot: 22
+  item_id: 72
+  context: Item description in shop0025.bin (slot 22)
+  en: ''
+  fr: |-
+    Un shochu de patate douce qui réussit à faire
+    ressortir les saveurs de ses ingrédients.
+- id: shop0025_slot23
+  file: shop0025.bin
+  slot: 23
+  item_id: 75
+  context: Item description in shop0025.bin (slot 23)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0026_slot00
+  file: shop0026.bin
+  slot: 0
+  item_id: 29
+  context: Item description in shop0026.bin (slot 0)
+  en: ''
+  fr: |-
+    Un déjeuner bento ordinaire. Suffisant pour
+    vous remplir l'estomac.
+- id: shop0026_slot01
+  file: shop0026.bin
+  slot: 1
+  item_id: 30
+  context: Item description in shop0026.bin (slot 1)
+  en: ''
+  fr: Ce repas tonkatsu est fait avec du porc Satsuma.
+- id: shop0026_slot02
+  file: shop0026.bin
+  slot: 2
+  item_id: 37
+  context: Item description in shop0026.bin (slot 2)
+  en: ''
+  fr: |-
+    Yakisoba au chou et au porc. L'odeur de la
+    sauce est tout simplement appétissante.
+- id: shop0026_slot03
+  file: shop0026.bin
+  slot: 3
+  item_id: 41
+  context: Item description in shop0026.bin (slot 3)
+  en: ''
+  fr: |-
+    Cette sélection de choix de sushis de style
+    nigiri dans une boîte ne comprend que du
+    poisson de haute qualité, mais onéreux.
+- id: shop0026_slot04
+  file: shop0026.bin
+  slot: 4
+  item_id: 44
+  context: Item description in shop0026.bin (slot 4)
+  en: ''
+  fr: |-
+    Cette brochette de poulet grillé a une odeur
+    savoureuse absolument irrésistible.
+- id: shop0027_slot00
+  file: shop0027.bin
+  slot: 0
+  item_id: 51
+  context: Item description in shop0027.bin (slot 0)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0027_slot01
+  file: shop0027.bin
+  slot: 1
+  item_id: 52
+  context: Item description in shop0027.bin (slot 1)
+  en: ''
+  fr: |-
+    Quand vous avez besoin de gagner, que ce soit
+    au sport, un examen ou dans la vie, cette boisson
+    fait ressortir le dur à cuire en vous !
+- id: shop0027_slot02
+  file: shop0027.bin
+  slot: 2
+  item_id: 53
+  context: Item description in shop0027.bin (slot 2)
+  en: ''
+  fr: |-
+    Le nouveau et amélioré Diehard Drink ! Diehard MAX
+    délivre 3 000 mg de taurine pour vous préparer
+    à tous les défis que vous pourriez rencontrer !
+- id: shop0027_slot03
+  file: shop0027.bin
+  slot: 3
+  item_id: 54
+  context: Item description in shop0027.bin (slot 3)
+  en: ''
+  fr: |-
+    Dites bonjour à votre nouveau camarade de
+    beuverie ! Une dose contient 90 mg de curcuma,
+    la plus grande proposée par la série Super Turmeric !
+- id: shop0027_slot04
+  file: shop0027.bin
+  slot: 4
+  item_id: 55
+  context: Item description in shop0027.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce mélange de graines de sésame noir et de
+    kinako (farine de soja grillée) est aussi
+    savoureux que sain !
+- id: shop0027_slot05
+  file: shop0027.bin
+  slot: 5
+  item_id: 56
+  context: Item description in shop0027.bin (slot 5)
+  en: ''
+  fr: |-
+    Ce bonbon dur a un coeur de sucre brun non raffiné
+    qui double votre plaisir de manger des bonbons !
+- id: shop0027_slot06
+  file: shop0027.bin
+  slot: 6
+  item_id: 57
+  context: Item description in shop0027.bin (slot 6)
+  en: ''
+  fr: |-
+    Avec du vrai gingembre ! Profitez de la bonté
+    de la fonte en bouche que notre méthode spéciale
+    de cuisson à feu ouvert vous permet de découvrir.
+- id: shop0027_slot07
+  file: shop0027.bin
+  slot: 7
+  item_id: 58
+  context: Item description in shop0027.bin (slot 7)
+  en: ''
+  fr: |-
+    Ce bonbon rafraîchissant au citron est plein
+    de vitamine C !
+- id: shop0027_slot08
+  file: shop0027.bin
+  slot: 8
+  item_id: 59
+  context: Item description in shop0027.bin (slot 8)
+  en: ''
+  fr: |-
+    Voici les bonbons à succès Extreme Lemon, maintenant
+    en sachets granulés contenant 1 500 mg de
+    vitamine C !
+- id: shop0027_slot09
+  file: shop0027.bin
+  slot: 9
+  item_id: 12
+  context: Item description in shop0027.bin (slot 9)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0027_slot10
+  file: shop0027.bin
+  slot: 10
+  item_id: 13
+  context: Item description in shop0027.bin (slot 10)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0027_slot11
+  file: shop0027.bin
+  slot: 11
+  item_id: 14
+  context: Item description in shop0027.bin (slot 11)
+  en: ''
+  fr: |-
+    Le Staminan Royale recharge énormément votre
+    santé et votre jauge de heat.
+- id: shop0027_slot12
+  file: shop0027.bin
+  slot: 12
+  item_id: 7
+  context: Item description in shop0027.bin (slot 12)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0027_slot13
+  file: shop0027.bin
+  slot: 13
+  item_id: 8
+  context: Item description in shop0027.bin (slot 13)
+  en: ''
+  fr: |-
+    Le Tauriner + recharge significativement votre
+    jauge de heat.
+- id: shop0027_slot14
+  file: shop0027.bin
+  slot: 14
+  item_id: 9
+  context: Item description in shop0027.bin (slot 14)
+  en: ''
+  fr: |-
+    Le Tauriner ++ recharge énormément votre jauge
+    de heat.
+- id: shop0027_slot15
+  file: shop0027.bin
+  slot: 15
+  item_id: 3
+  context: Item description in shop0027.bin (slot 15)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0027_slot16
+  file: shop0027.bin
+  slot: 16
+  item_id: 4
+  context: Item description in shop0027.bin (slot 16)
+  en: ''
+  fr: |-
+    Le Toughness ZZ peut restaurer une partie
+    importante de votre santé.
+- id: shop0027_slot17
+  file: shop0027.bin
+  slot: 17
+  item_id: 5
+  context: Item description in shop0027.bin (slot 17)
+  en: ''
+  fr: |-
+    Le Toughness Emperor est idéal quand vous
+    avez besoin d'une amélioration significative
+    de votre santé.
+- id: shop0027_slot18
+  file: shop0027.bin
+  slot: 18
+  item_id: 16
+  context: Item description in shop0027.bin (slot 18)
+  en: ''
+  fr: |-
+    Le AppStim RX stimule l'appétit en améliorant
+    la digestion.
+- id: shop0028_slot00
+  file: shop0028.bin
+  slot: 0
+  item_id: 51
+  context: Item description in shop0028.bin (slot 0)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0028_slot01
+  file: shop0028.bin
+  slot: 1
+  item_id: 52
+  context: Item description in shop0028.bin (slot 1)
+  en: ''
+  fr: |-
+    Quand vous avez besoin de gagner, que ce soit
+    au sport, un examen ou dans la vie, cette boisson
+    fait ressortir le dur à cuire en vous !
+- id: shop0028_slot02
+  file: shop0028.bin
+  slot: 2
+  item_id: 53
+  context: Item description in shop0028.bin (slot 2)
+  en: ''
+  fr: |-
+    Le nouveau et amélioré Diehard Drink ! Diehard MAX
+    délivre 3 000 mg de taurine pour vous préparer
+    à tous les défis que vous pourriez rencontrer !
+- id: shop0028_slot03
+  file: shop0028.bin
+  slot: 3
+  item_id: 54
+  context: Item description in shop0028.bin (slot 3)
+  en: ''
+  fr: |-
+    Dites bonjour à votre nouveau camarade de
+    beuverie ! Une dose contient 90 mg de curcuma,
+    la plus grande proposée par la série Super Turmeric !
+- id: shop0028_slot04
+  file: shop0028.bin
+  slot: 4
+  item_id: 55
+  context: Item description in shop0028.bin (slot 4)
+  en: ''
+  fr: |-
+    Ce mélange de graines de sésame noir et de
+    kinako (farine de soja grillée) est aussi
+    savoureux que sain !
+- id: shop0028_slot05
+  file: shop0028.bin
+  slot: 5
+  item_id: 56
+  context: Item description in shop0028.bin (slot 5)
+  en: ''
+  fr: |-
+    Ce bonbon dur a un coeur de sucre brun non raffiné
+    qui double votre plaisir de manger des bonbons !
+- id: shop0028_slot06
+  file: shop0028.bin
+  slot: 6
+  item_id: 57
+  context: Item description in shop0028.bin (slot 6)
+  en: ''
+  fr: |-
+    Avec du vrai gingembre ! Profitez de la bonté
+    de la fonte en bouche que notre méthode spéciale
+    de cuisson à feu ouvert vous permet de découvrir.
+- id: shop0028_slot07
+  file: shop0028.bin
+  slot: 7
+  item_id: 58
+  context: Item description in shop0028.bin (slot 7)
+  en: ''
+  fr: |-
+    Ce bonbon rafraîchissant au citron est plein
+    de vitamine C !
+- id: shop0028_slot08
+  file: shop0028.bin
+  slot: 8
+  item_id: 59
+  context: Item description in shop0028.bin (slot 8)
+  en: ''
+  fr: |-
+    Voici les bonbons à succès Extreme Lemon, maintenant
+    en sachets granulés contenant 1 500 mg de
+    vitamine C !
+- id: shop0028_slot09
+  file: shop0028.bin
+  slot: 9
+  item_id: 12
+  context: Item description in shop0028.bin (slot 9)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0028_slot10
+  file: shop0028.bin
+  slot: 10
+  item_id: 13
+  context: Item description in shop0028.bin (slot 10)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0028_slot11
+  file: shop0028.bin
+  slot: 11
+  item_id: 14
+  context: Item description in shop0028.bin (slot 11)
+  en: ''
+  fr: |-
+    Le Staminan Royale recharge énormément votre
+    santé et votre jauge de heat.
+- id: shop0028_slot12
+  file: shop0028.bin
+  slot: 12
+  item_id: 7
+  context: Item description in shop0028.bin (slot 12)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0028_slot13
+  file: shop0028.bin
+  slot: 13
+  item_id: 8
+  context: Item description in shop0028.bin (slot 13)
+  en: ''
+  fr: |-
+    Le Tauriner + recharge significativement votre
+    jauge de heat.
+- id: shop0028_slot14
+  file: shop0028.bin
+  slot: 14
+  item_id: 9
+  context: Item description in shop0028.bin (slot 14)
+  en: ''
+  fr: |-
+    Le Tauriner ++ recharge énormément votre jauge
+    de heat.
+- id: shop0028_slot15
+  file: shop0028.bin
+  slot: 15
+  item_id: 3
+  context: Item description in shop0028.bin (slot 15)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0028_slot16
+  file: shop0028.bin
+  slot: 16
+  item_id: 4
+  context: Item description in shop0028.bin (slot 16)
+  en: ''
+  fr: |-
+    Le Toughness ZZ peut restaurer une partie
+    importante de votre santé.
+- id: shop0028_slot17
+  file: shop0028.bin
+  slot: 17
+  item_id: 5
+  context: Item description in shop0028.bin (slot 17)
+  en: ''
+  fr: |-
+    Le Toughness Emperor est idéal quand vous
+    avez besoin d'une amélioration significative
+    de votre santé.
+- id: shop0028_slot18
+  file: shop0028.bin
+  slot: 18
+  item_id: 16
+  context: Item description in shop0028.bin (slot 18)
+  en: ''
+  fr: |-
+    Le AppStim RX stimule l'appétit en améliorant
+    la digestion.
+- id: shop0028_slot19
+  file: shop0028.bin
+  slot: 19
+  item_id: 60
+  context: Item description in shop0028.bin (slot 19)
+  en: ''
+  fr: |-
+    Cette boisson habu est tout bonnement indescriptible.
+    Vous devez l'essayer pour comprendre.
+- id: shop0029_slot00
+  file: shop0029.bin
+  slot: 0
+  item_id: 11
+  context: Item description in shop0029.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan Light est bon marché, mais
+    il ne restaure que peu de santé et de heat.
+- id: shop0029_slot01
+  file: shop0029.bin
+  slot: 1
+  item_id: 12
+  context: Item description in shop0029.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0029_slot02
+  file: shop0029.bin
+  slot: 2
+  item_id: 13
+  context: Item description in shop0029.bin (slot 2)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0029_slot03
+  file: shop0029.bin
+  slot: 3
+  item_id: 7
+  context: Item description in shop0029.bin (slot 3)
+  en: ''
+  fr: |-
+    Le Tauriner recharge modestement votre jauge
+    de heat.
+- id: shop0029_slot04
+  file: shop0029.bin
+  slot: 4
+  item_id: 8
+  context: Item description in shop0029.bin (slot 4)
+  en: ''
+  fr: |-
+    Le Tauriner + recharge significativement votre
+    jauge de heat.
+- id: shop0029_slot05
+  file: shop0029.bin
+  slot: 5
+  item_id: 2
+  context: Item description in shop0029.bin (slot 5)
+  en: ''
+  fr: |-
+    Le Toughness Light est bon marché, mais
+    il ne redonne pas beaucoup de santé.
+- id: shop0029_slot06
+  file: shop0029.bin
+  slot: 6
+  item_id: 3
+  context: Item description in shop0029.bin (slot 6)
+  en: ''
+  fr: |-
+    Le Toughness Z peut s'avérer utile lorsque vous
+    avez besoin d'augmenter votre santé.
+- id: shop0029_slot07
+  file: shop0029.bin
+  slot: 7
+  item_id: 4
+  context: Item description in shop0029.bin (slot 7)
+  en: ''
+  fr: |-
+    Le Toughness ZZ peut restaurer une partie
+    importante de votre santé.
+- id: shop0029_slot08
+  file: shop0029.bin
+  slot: 8
+  item_id: 19
+  context: Item description in shop0029.bin (slot 8)
+  en: ''
+  fr: |-
+    Ce ramen contient du bouillon frais de sauce soja
+    et du chashu de porc délicieusement texturé.
+- id: shop0029_slot09
+  file: shop0029.bin
+  slot: 9
+  item_id: 17
+  context: Item description in shop0029.bin (slot 9)
+  en: ''
+  fr: |-
+    Le miso et le porc mélangés à des légumes épicés
+    font une succulente soupe dans ce miso ramen.
+- id: shop0029_slot10
+  file: shop0029.bin
+  slot: 10
+  item_id: 18
+  context: Item description in shop0029.bin (slot 10)
+  en: ''
+  fr: |-
+    Ce délicieux tonkotsu ramen est plein de graisse
+    de porc et d'une forte soupe infusé de porc.
+- id: shop0029_slot11
+  file: shop0029.bin
+  slot: 11
+  item_id: 20
+  context: Item description in shop0029.bin (slot 11)
+  en: ''
+  fr: |-
+    Ces délicieuses et tendres nouilles de yakisoba
+    sont combinées à de savoureux calamars.
+- id: shop0029_slot12
+  file: shop0029.bin
+  slot: 12
+  item_id: 51
+  context: Item description in shop0029.bin (slot 12)
+  en: ''
+  fr: |-
+    Le curcuma et d'autres ingrédients naturels rendent
+    ce complément efficace contre la gueule de bois.
+- id: shop0029_slot13
+  file: shop0029.bin
+  slot: 13
+  item_id: 45
+  context: Item description in shop0029.bin (slot 13)
+  en: ''
+  fr: |-
+    Le thé Oolong est célèbre pour sa saveur riche
+    et épaisse, et son arrière-goût léger.
+- id: shop0029_slot14
+  file: shop0029.bin
+  slot: 14
+  item_id: 46
+  context: Item description in shop0029.bin (slot 14)
+  en: ''
+  fr: |-
+    Une canette de 35cl de 7 Up. Ce soda est au
+    goût citron et citron vert.
+- id: shop0029_slot15
+  file: shop0029.bin
+  slot: 15
+  item_id: 47
+  context: Item description in shop0029.bin (slot 15)
+  en: ''
+  fr: |-
+    Une canette de 35cl de Mountain Dew. Ce soda
+    a un goût frais et exaltant d'agrumes.
+- id: shop0029_slot16
+  file: shop0029.bin
+  slot: 16
+  item_id: 48
+  context: Item description in shop0029.bin (slot 16)
+  en: ''
+  fr: |-
+    Cette bière a un arrière-goût agréable et une
+    profondeur de saveur que seuls les malts
+    d'orge 100 % peuvent offrir.
+- id: shop0029_slot17
+  file: shop0029.bin
+  slot: 17
+  item_id: 50
+  context: Item description in shop0029.bin (slot 17)
+  en: ''
+  fr: |-
+    Une des bières les plus populaires au monde,
+    appréciée dans 140 pays.
+- id: shop0029_slot18
+  file: shop0029.bin
+  slot: 18
+  item_id: 70
+  context: Item description in shop0029.bin (slot 18)
+  en: ''
+  fr: |-
+    Ce champagne est loin d'être le plus cher, mais
+    il donne toujours l'impression de se faire
+    plaisir.
+- id: shop0029_slot19
+  file: shop0029.bin
+  slot: 19
+  item_id: 71
+  context: Item description in shop0029.bin (slot 19)
+  en: ''
+  fr: |-
+    Bien qu'il ne s'agisse pas d'une marque,
+    ce champagne a le goût que l'on attend de lui,
+    pour le prix qu'on l'a payé.
+- id: shop0029_slot20
+  file: shop0029.bin
+  slot: 20
+  item_id: 75
+  context: Item description in shop0029.bin (slot 20)
+  en: ''
+  fr: |-
+    On ne sait jamais quand ces mouchoirs peuvent
+    être utiles.
+- id: shop0029_slot21
+  file: shop0029.bin
+  slot: 21
+  item_id: 481
+  context: Item description in shop0029.bin (slot 21)
+  en: ''
+  fr: |-
+    Simple morceau de bois que vous pouvez trouver
+    partout. De faible durabilité, mais un coup porté
+    peut toujours faire des dégâts corrects.
+- id: shop0029_slot22
+  file: shop0029.bin
+  slot: 22
+  item_id: 486
+  context: Item description in shop0029.bin (slot 22)
+  en: ''
+  fr: |-
+    Ce parapluie élégant se marie bien avec
+    un costume.
+- id: shop0029_slot23
+  file: shop0029.bin
+  slot: 23
+  item_id: 571
+  context: Item description in shop0029.bin (slot 23)
+  en: ''
+  fr: |-
+    Ce n'est que du sel de table ordinaire,
+    mais il peut être utilisé pour aveugler
+    les ennemis.
+- id: shop0029_slot24
+  file: shop0029.bin
+  slot: 24
+  item_id: 624
+  context: Item description in shop0029.bin (slot 24)
+  en: ''
+  fr: |-
+    Cet étrange revolver n'est jamais à court
+    de munitions.
+- id: shop0029_slot25
+  file: shop0029.bin
+  slot: 25
+  item_id: 644
+  context: Item description in shop0029.bin (slot 25)
+  en: ''
+  fr: |-
+    Cette chemise à chaîne de type occidental est
+    plus légère qu'elle n'en a l'air et offre une excellente
+    défense. Efficace contre les armes blanches.
+- id: shop0029_slot26
+  file: shop0029.bin
+  slot: 26
+  item_id: 680
+  context: Item description in shop0029.bin (slot 26)
+  en: ''
+  fr: |-
+    Ce foulard est si miteux que les ennemis auront
+    pitié de vous, ce qui les rendra moins susceptibles
+    de se liguer contre vous.
+- id: shop0029_slot27
+  file: shop0029.bin
+  slot: 27
+  item_id: 686
+  context: Item description in shop0029.bin (slot 27)
+  en: ''
+  fr: Cette amulette devrait s'avérer utile contre les balles.
+- id: shop0029_slot28
+  file: shop0029.bin
+  slot: 28
+  item_id: 656
+  context: Item description in shop0029.bin (slot 28)
+  en: ''
+  fr: |-
+    Cette veste noire de jais est un classique
+    des professionnels, et fournit une résistance
+    contre les armes à feu et l'étourdissement.
+- id: shop0029_slot29
+  file: shop0029.bin
+  slot: 29
+  item_id: 719
+  context: Item description in shop0029.bin (slot 29)
+  en: ''
+  fr: |-
+    Cette vis métallique ordinaire a de très nombreux
+    usages dans la fabrication d'équipement.
+- id: shop0029_slot30
+  file: shop0029.bin
+  slot: 30
+  item_id: 720
+  context: Item description in shop0029.bin (slot 30)
+  en: ''
+  fr: |-
+    Ce ressort métallique ordinaire est utile pour un
+    grand nombre de confections d'équipement.
+- id: shop0029_slot31
+  file: shop0029.bin
+  slot: 31
+  item_id: 769
+  context: Item description in shop0029.bin (slot 31)
+  en: ''
+  fr: |-
+    Cette fourrure d'une blancheur immaculée est
+    extrêmement douce et soyeuse au toucher.
+- id: shop0029_slot32
+  file: shop0029.bin
+  slot: 32
+  item_id: 782
+  context: Item description in shop0029.bin (slot 32)
+  en: ''
+  fr: |-
+    Une coque utilisée pour confectionner de magnifiques
+    fusées de feux d'artifice.
+- id: shop0029_slot33
+  file: shop0029.bin
+  slot: 33
+  item_id: 733
+  context: Item description in shop0029.bin (slot 33)
+  en: ''
+  fr: |-
+    Cet aimant attire et ramasse une grande quantité
+    de sable de fer lorsqu'on l'utilise dans un bac.
+- id: shop0029_slot34
+  file: shop0029.bin
+  slot: 34
+  item_id: 65
+  context: Item description in shop0029.bin (slot 34)
+  en: ''
+  fr: |-
+    Une batterie. Indispensable pour alimenter
+    la plupart des appareils électroniques.
+- id: shop0029_slot35
+  file: shop0029.bin
+  slot: 35
+  item_id: 77
+  context: Item description in shop0029.bin (slot 35)
+  en: ''
+  fr: |-
+    Ces chaussures de sport sont exactement ce
+    qu'il faut pour faire de l'exercice.
+- id: shop0030_slot00
+  file: shop0030.bin
+  slot: 0
+  item_id: 88
+  context: Item description in shop0030.bin (slot 0)
+  en: ''
+  fr: |-
+    Cette eau de Cologne française pour homme
+    est populaire pour son parfum à la fois attirant
+    et masculin.
+- id: shop0030_slot01
+  file: shop0030.bin
+  slot: 1
+  item_id: 89
+  context: Item description in shop0030.bin (slot 1)
+  en: ''
+  fr: |-
+    Le parfum fin et fleuri de ce parfum français
+    en fait un objet apprécié des femmes.
+- id: shop0030_slot02
+  file: shop0030.bin
+  slot: 2
+  item_id: 90
+  context: Item description in shop0030.bin (slot 2)
+  en: ''
+  fr: |-
+    Cette eau de Cologne italienne pour hommes
+    dégage un air à la fois sensuel et sophistiqué.
+- id: shop0030_slot03
+  file: shop0030.bin
+  slot: 3
+  item_id: 91
+  context: Item description in shop0030.bin (slot 3)
+  en: ''
+  fr: |-
+    Ce parfum italien dégage un air sensuel.
+    Il devrait faire un excellent cadeau pour
+    la femme de votre vie.
+- id: shop0030_slot04
+  file: shop0030.bin
+  slot: 4
+  item_id: 92
+  context: Item description in shop0030.bin (slot 4)
+  en: ''
+  fr: Cette écharpe française est un cadeau très apprécié.
+- id: shop0030_slot05
+  file: shop0030.bin
+  slot: 5
+  item_id: 93
+  context: Item description in shop0030.bin (slot 5)
+  en: ''
+  fr: Ce portefeuille français est un cadeau très apprécié.
+- id: shop0030_slot06
+  file: shop0030.bin
+  slot: 6
+  item_id: 94
+  context: Item description in shop0030.bin (slot 6)
+  en: ''
+  fr: Cette écharpe italienne est un cadeau très apprécié.
+- id: shop0030_slot07
+  file: shop0030.bin
+  slot: 7
+  item_id: 95
+  context: Item description in shop0030.bin (slot 7)
+  en: ''
+  fr: Ce portefeuille italien est un cadeau très apprécié.
+- id: shop0030_slot08
+  file: shop0030.bin
+  slot: 8
+  item_id: 96
+  context: Item description in shop0030.bin (slot 8)
+  en: ''
+  fr: Ce sac à main français est un cadeau populaire.
+- id: shop0030_slot09
+  file: shop0030.bin
+  slot: 9
+  item_id: 97
+  context: Item description in shop0030.bin (slot 9)
+  en: ''
+  fr: Ce sac à bandoulière italien est un cadeau populaire.
+- id: shop0030_slot10
+  file: shop0030.bin
+  slot: 10
+  item_id: 98
+  context: Item description in shop0030.bin (slot 10)
+  en: ''
+  fr: |-
+    Cette montre suisse a été fabriquée
+    à la main par un horloger talentueux.
+- id: shop0030_slot11
+  file: shop0030.bin
+  slot: 11
+  item_id: 99
+  context: Item description in shop0030.bin (slot 11)
+  en: ''
+  fr: |-
+    Cette montre italienne haut de gamme pour
+    femmes devrait faire un joli cadeau.
+- id: shop0030_slot12
+  file: shop0030.bin
+  slot: 12
+  item_id: 100
+  context: Item description in shop0030.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce collier italien haut de gamme est le cadeau
+    parfait pour une femme aux goûts distingués.
+- id: shop0030_slot13
+  file: shop0030.bin
+  slot: 13
+  item_id: 101
+  context: Item description in shop0030.bin (slot 13)
+  en: ''
+  fr: |-
+    Cette bague italienne haut de gamme serait
+    un joli cadeau pour une femme aux goûts
+    distingués.
+- id: shop0030_slot14
+  file: shop0030.bin
+  slot: 14
+  item_id: 102
+  context: Item description in shop0030.bin (slot 14)
+  en: ''
+  fr: |-
+    Ce collier italien haut de gamme pour hommes
+    est en argent, et est très distingué.
+- id: shop0030_slot15
+  file: shop0030.bin
+  slot: 15
+  item_id: 103
+  context: Item description in shop0030.bin (slot 15)
+  en: ''
+  fr: |-
+    Ce bracelet en or orne magnifiquement le
+    poignet, et ses délicates gravures fantaisistes
+    lui confèrent un air de luxe.
+- id: shop0030_slot16
+  file: shop0030.bin
+  slot: 16
+  item_id: 104
+  context: Item description in shop0030.bin (slot 16)
+  en: ''
+  fr: |-
+    Ce bracelet en argent fait chic sur n'importe
+    quel poignet, et va bien avec un look formel
+    ou décontracté.
+- id: shop0030_slot17
+  file: shop0030.bin
+  slot: 17
+  item_id: 105
+  context: Item description in shop0030.bin (slot 17)
+  en: ''
+  fr: |-
+    Ces célèbres bottes de marque italienne sont
+    faites de cuir.
+- id: shop0030_slot18
+  file: shop0030.bin
+  slot: 18
+  item_id: 106
+  context: Item description in shop0030.bin (slot 18)
+  en: ''
+  fr: |-
+    Ces sandales ont été fabriquées par une
+    célèbre marque française.
+- id: shop0030_slot19
+  file: shop0030.bin
+  slot: 19
+  item_id: 107
+  context: Item description in shop0030.bin (slot 19)
+  en: ''
+  fr: |-
+    Ce manteau luxueux de Grande-Bretagne pour
+    femmes serait un beau cadeau pour une femme
+    aux goûts distingués.
+- id: shop0030_slot20
+  file: shop0030.bin
+  slot: 20
+  item_id: 108
+  context: Item description in shop0030.bin (slot 20)
+  en: ''
+  fr: |-
+    Ce manteau est richement habillé de la fourrure
+    la plus à la mode de cette année et conçu
+    pour attirer l'attention.
+- id: shop0030_slot21
+  file: shop0030.bin
+  slot: 21
+  item_id: 109
+  context: Item description in shop0030.bin (slot 21)
+  en: ''
+  fr: |-
+    Cette mini-jupe est parfaitement conçue
+    pour accentuer les jambes et les allonger.
+- id: shop0030_slot22
+  file: shop0030.bin
+  slot: 22
+  item_id: 110
+  context: Item description in shop0030.bin (slot 22)
+  en: ''
+  fr: |-
+    Ce sac à main de fabrication locale est finement
+    confectionné et a la réputation de bien porter.
+- id: shop0030_slot23
+  file: shop0030.bin
+  slot: 23
+  item_id: 111
+  context: Item description in shop0030.bin (slot 23)
+  en: ''
+  fr: |-
+    Avec leur fourrure de lapin, ces bottes courtes
+    à l'allure distinctive expriment parfaitement
+    la saison et la féminité intérieure d'une dame.
+- id: shop0030_slot24
+  file: shop0030.bin
+  slot: 24
+  item_id: 112
+  context: Item description in shop0030.bin (slot 24)
+  en: ''
+  fr: |-
+    Fabriquées en cuir véritable, ces bottes longues
+    sont dotées d'un profil élégant et fin la cheville.
+- id: shop0031_slot00
+  file: shop0031.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0031.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0031_slot01
+  file: shop0031.bin
+  slot: 1
+  item_id: 13
+  context: Item description in shop0031.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0031_slot02
+  file: shop0031.bin
+  slot: 2
+  item_id: 437
+  context: Item description in shop0031.bin (slot 2)
+  en: ''
+  fr: Des fléchettes qui facilitent la visée.
+- id: shop0031_slot03
+  file: shop0031.bin
+  slot: 3
+  item_id: 438
+  context: Item description in shop0031.bin (slot 3)
+  en: ''
+  fr: Ces fléchettes anciennes semblent sur-mesure.
+- id: shop0031_slot04
+  file: shop0031.bin
+  slot: 4
+  item_id: 444
+  context: Item description in shop0031.bin (slot 4)
+  en: ''
+  fr: |-
+    Une canne haute performance parfaite pour la pêche
+    en mer et en rivière. Très sensible et avec une meilleure portée.
+- id: shop0031_slot05
+  file: shop0031.bin
+  slot: 5
+  item_id: 642
+  context: Item description in shop0031.bin (slot 5)
+  en: ''
+  fr: |-
+    Cette cotte de mailles en acier est
+    efficace contre les armes blanches.
+- id: shop0031_slot06
+  file: shop0031.bin
+  slot: 6
+  item_id: 643
+  context: Item description in shop0031.bin (slot 6)
+  en: ''
+  fr: |-
+    Cette cotte ancienne finement ouvragé
+    offre une protection solide contre les
+    armes blanches.
+- id: shop0031_slot07
+  file: shop0031.bin
+  slot: 7
+  item_id: 687
+  context: Item description in shop0031.bin (slot 7)
+  en: ''
+  fr: |-
+    La bénédiction divine de cette amulette est
+    censée réduire le nombre d'ennemis qui
+    se massent autour de vous.
+- id: shop0031_slot08
+  file: shop0031.bin
+  slot: 8
+  item_id: 509
+  context: Item description in shop0031.bin (slot 8)
+  en: ''
+  fr: |-
+    Vous ne devriez pas trop brandir ça lorsque vous
+    vous baladez en ville.
+- id: shop0031_slot09
+  file: shop0031.bin
+  slot: 9
+  item_id: 520
+  context: Item description in shop0031.bin (slot 9)
+  en: ''
+  fr: |-
+    Ce sabre en bois est destiné à la pratique
+    du kendò, mais il est plus puissant qu'il
+    n'en a l'air.
+- id: shop0031_slot10
+  file: shop0031.bin
+  slot: 10
+  item_id: 482
+  context: Item description in shop0031.bin (slot 10)
+  en: ''
+  fr: |-
+    Tuyau en fer ordinaire. Son faible poids lui permet
+    d'être facile à manier, et il a tout de même un
+    impact considérable.
+- id: shop0031_slot11
+  file: shop0031.bin
+  slot: 11
+  item_id: 659
+  context: Item description in shop0031.bin (slot 11)
+  en: ''
+  fr: |-
+    Cet équipement améliore votre capacité
+    à attraper vos adversaires.
+- id: shop0031_slot12
+  file: shop0031.bin
+  slot: 12
+  item_id: 777
+  context: Item description in shop0031.bin (slot 12)
+  en: ''
+  fr: |-
+    Ce cuir robuste est d'une qualité exceptionnelle.
+    Il peut être utilisé pour fabriquer de l'équipement.
+- id: shop0031_slot13
+  file: shop0031.bin
+  slot: 13
+  item_id: 776
+  context: Item description in shop0031.bin (slot 13)
+  en: ''
+  fr: |-
+    Cette fourrure sans tache est douce au toucher.
+    Elle peut être utilisée pour fabriquer de l'équipement.
+- id: shop0031_slot14
+  file: shop0031.bin
+  slot: 14
+  item_id: 717
+  context: Item description in shop0031.bin (slot 14)
+  en: ''
+  fr: Il s'agit simplement de fer ordinaire.
+- id: shop0031_slot15
+  file: shop0031.bin
+  slot: 15
+  item_id: 721
+  context: Item description in shop0031.bin (slot 15)
+  en: ''
+  fr: |-
+    Ce talisman maintient la jauge de Fièvre à
+    son maximum tout le temps.
+- id: shop0031_slot16
+  file: shop0031.bin
+  slot: 16
+  item_id: 722
+  context: Item description in shop0031.bin (slot 16)
+  en: ''
+  fr: |-
+    Cet appareil émet un son lorsque qu'une carte
+    téléphonique est proche.
+- id: shop0031_slot17
+  file: shop0031.bin
+  slot: 17
+  item_id: 732
+  context: Item description in shop0031.bin (slot 17)
+  en: ''
+  fr: |-
+    Cette poudre abrasive s'utilise pour polir le métal
+    et la pierre. Sert à fabriquer de l'équipement.
+- id: shop0031_slot18
+  file: shop0031.bin
+  slot: 18
+  item_id: 753
+  context: Item description in shop0031.bin (slot 18)
+  en: ''
+  fr: |-
+    Ce curieux bijou semble briller de l'intérieur.
+    Il peut être utilisé pour fabriquer de l'équipement.
+- id: shop0032_slot00
+  file: shop0032.bin
+  slot: 0
+  item_id: 12
+  context: Item description in shop0032.bin (slot 0)
+  en: ''
+  fr: |-
+    Le Staminan X recharge légèrement votre santé
+    et votre jauge de heat.
+- id: shop0032_slot01
+  file: shop0032.bin
+  slot: 1
+  item_id: 13
+  context: Item description in shop0032.bin (slot 1)
+  en: ''
+  fr: |-
+    Le Staminan XX recharge significativement votre
+    santé et votre jauge de heat.
+- id: shop0032_slot02
+  file: shop0032.bin
+  slot: 2
+  item_id: 444
+  context: Item description in shop0032.bin (slot 2)
+  en: ''
+  fr: |-
+    Une canne haute performance parfaite pour la pêche
+    en mer et en rivière. Très sensible et avec une meilleure portée.
+- id: shop0032_slot03
+  file: shop0032.bin
+  slot: 3
+  item_id: 642
+  context: Item description in shop0032.bin (slot 3)
+  en: ''
+  fr: |-
+    Cette cotte de mailles en acier est
+    efficace contre les armes blanches.
+- id: shop0032_slot04
+  file: shop0032.bin
+  slot: 4
+  item_id: 643
+  context: Item description in shop0032.bin (slot 4)
+  en: ''
+  fr: |-
+    Cette cotte ancienne finement ouvragé
+    offre une protection solide contre les
+    armes blanches.
+- id: shop0032_slot05
+  file: shop0032.bin
+  slot: 5
+  item_id: 687
+  context: Item description in shop0032.bin (slot 5)
+  en: ''
+  fr: |-
+    La bénédiction divine de cette amulette est
+    censée réduire le nombre d'ennemis qui
+    se massent autour de vous.
+- id: shop0032_slot06
+  file: shop0032.bin
+  slot: 6
+  item_id: 509
+  context: Item description in shop0032.bin (slot 6)
+  en: ''
+  fr: |-
+    Vous ne devriez pas trop brandir ça lorsque vous
+    vous baladez en ville.
+- id: shop0032_slot07
+  file: shop0032.bin
+  slot: 7
+  item_id: 520
+  context: Item description in shop0032.bin (slot 7)
+  en: ''
+  fr: |-
+    Ce sabre en bois est destiné à la pratique
+    du kendò, mais il est plus puissant qu'il
+    n'en a l'air.
+- id: shop0032_slot08
+  file: shop0032.bin
+  slot: 8
+  item_id: 482
+  context: Item description in shop0032.bin (slot 8)
+  en: ''
+  fr: |-
+    Tuyau en fer ordinaire. Son faible poids lui permet
+    d'être facile à manier, et il a tout de même un
+    impact considérable.
+- id: shop0032_slot09
+  file: shop0032.bin
+  slot: 9
+  item_id: 659
+  context: Item description in shop0032.bin (slot 9)
+  en: ''
+  fr: |-
+    Cet équipement améliore votre capacité
+    à attraper vos adversaires.
+- id: shop0033_slot00
+  file: shop0033.bin
+  slot: 0
+  item_id: 447
+  context: Item description in shop0033.bin (slot 0)
+  en: ''
+  fr: |-
+    Cette pyramide de champagne utilise une quantité
+    extravagante de champagne d'or.
+- id: shop0033_slot01
+  file: shop0033.bin
+  slot: 1
+  item_id: 448
+  context: Item description in shop0033.bin (slot 1)
+  en: ''
+  fr: |-
+    L'expérience du champagne est encore plus magique
+    lorsque le serveur fait sauter le bouchon sous vos yeux.
+- id: shop0033_slot02
+  file: shop0033.bin
+  slot: 2
+  item_id: 449
+  context: Item description in shop0033.bin (slot 2)
+  en: ''
+  fr: Un champagne rosé élégant et fruité.
+- id: shop0033_slot03
+  file: shop0033.bin
+  slot: 3
+  item_id: 450
+  context: Item description in shop0033.bin (slot 3)
+  en: ''
+  fr: Un champagne noir corsé au caractère affirmé.
+- id: shop0033_slot04
+  file: shop0033.bin
+  slot: 4
+  item_id: 451
+  context: Item description in shop0033.bin (slot 4)
+  en: ''
+  fr: Un champagne blanc d'une grande finesse.
+- id: shop0033_slot05
+  file: shop0033.bin
+  slot: 5
+  item_id: 452
+  context: Item description in shop0033.bin (slot 5)
+  en: ''
+  fr: |-
+    Si vous achetez ce whisky Yamazaki 12 ans à la bouteille,
+    vous pouvez le conserver au club et le déguster à chaque visite.
+- id: shop0033_slot06
+  file: shop0033.bin
+  slot: 6
+  item_id: 457
+  context: Item description in shop0033.bin (slot 6)
+  en: ''
+  fr: |-
+    Savourez un champagne à prix abordable tout en tentant
+    votre chance au gacha pour remporter un cadeau précieux !
+- id: shop0033_slot07
+  file: shop0033.bin
+  slot: 7
+  item_id: 453
+  context: Item description in shop0033.bin (slot 7)
+  en: ''
+  fr: Savourez une bouteille de bière fraîche et désaltérante.
+- id: shop0033_slot08
+  file: shop0033.bin
+  slot: 8
+  item_id: 454
+  context: Item description in shop0033.bin (slot 8)
+  en: ''
+  fr: |-
+    Ce cocktail raffiné associe la douceur de la crème
+    de cassis au peps du jus d'orange.
+- id: shop0033_slot09
+  file: shop0033.bin
+  slot: 9
+  item_id: 455
+  context: Item description in shop0033.bin (slot 9)
+  en: ''
+  fr: Un délicieux jus d'orange fraîchement pressé.
+- id: shop0033_slot10
+  file: shop0033.bin
+  slot: 10
+  item_id: 456
+  context: Item description in shop0033.bin (slot 10)
+  en: ''
+  fr: Un soju sud-coréen Kyogetsu Green doux et limpide.
+- id: shop0034_slot00
+  file: shop0034.bin
+  slot: 0
+  item_id: 463
+  context: Item description in shop0034.bin (slot 0)
+  en: ''
+  fr: Un somptueux plateau de fruits frais de saison.
+- id: shop0034_slot01
+  file: shop0034.bin
+  slot: 1
+  item_id: 464
+  context: Item description in shop0034.bin (slot 1)
+  en: ''
+  fr: |-
+    Une assiette copieuse de carbonara onctueuse
+    qui vous calera bien l'estomac.
+- id: shop0034_slot02
+  file: shop0034.bin
+  slot: 2
+  item_id: 465
+  context: Item description in shop0034.bin (slot 2)
+  en: ''
+  fr: |-
+    Impossible de vous tromper avec ces délicieux
+    morceaux de poulet frit karaage doré et croustillant.
+- id: shop0034_slot03
+  file: shop0034.bin
+  slot: 3
+  item_id: 466
+  context: Item description in shop0034.bin (slot 3)
+  en: ''
+  fr: Des bâtonnets sains et croquants de légumes frais bio.
+- id: shop0034_slot04
+  file: shop0034.bin
+  slot: 4
+  item_id: 467
+  context: Item description in shop0034.bin (slot 4)
+  en: ''
+  fr: |-
+    De l'aile de raie séchée grillée sur la braise
+    pour révéler sa saveur douce et fumée.
+- id: shop0034_slot05
+  file: shop0034.bin
+  slot: 5
+  item_id: 468
+  context: Item description in shop0034.bin (slot 5)
+  en: ''
+  fr: |-
+    Croustillant à l'extérieur, fondant à souhait
+    à l'intérieur. Servi bien chaud.
+- id: shop0034_slot06
+  file: shop0034.bin
+  slot: 6
+  item_id: 469
+  context: Item description in shop0034.bin (slot 6)
+  en: ''
+  fr: |-
+    Des frites dorées parfaitement salées, à tremper
+    dans la sauce de votre choix.
+- id: shop0034_slot07
+  file: shop0034.bin
+  slot: 7
+  item_id: 470
+  context: Item description in shop0034.bin (slot 7)
+  en: ''
+  fr: |-
+    D'irrésistibles bâtonnets croustillants et dorés
+    dont on ne peut plus s'arrêter.
+- id: shop0034_slot08
+  file: shop0034.bin
+  slot: 8
+  item_id: 471
+  context: Item description in shop0034.bin (slot 8)
+  en: ''
+  fr: |-
+    Des fèves de soja edamame bouillies dans de l'eau salée,
+    l'apéritif incontournable des bars japonais.
+- id: shop0034_slot09
+  file: shop0034.bin
+  slot: 9
+  item_id: 472
+  context: Item description in shop0034.bin (slot 9)
+  en: ''
+  fr: |-
+    Un assortiment de fruits à coque grillés,
+    le grand classique des clubs du monde entier.
+- id: shop0034_slot10
+  file: shop0034.bin
+  slot: 10
+  item_id: 473
+  context: Item description in shop0034.bin (slot 10)
+  en: ''
+  fr: |-
+    Le choix idéal pour vous rafraîchir si les hôtesses
+    vous ont fait monter la température.
+- id: shop0034_slot11
+  file: shop0034.bin
+  slot: 11
+  item_id: 474
+  context: Item description in shop0034.bin (slot 11)
+  en: ''
+  fr: |-
+    Des friandises sucrées et délicates que l'on retrouve
+    sur les tables des meilleurs clubs d'hôtesses.

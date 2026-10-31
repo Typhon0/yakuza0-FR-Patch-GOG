@@ -219,7 +219,7 @@ def extract_all(target_dir: str = "translations") -> Dict[str, int]:
     # 5. Combat & Abilities (boot_dict_part1..5.py via build_boot_dict.py)
     try:
         import build_boot_dict
-        boot_dict = build_boot_dict.build_boot_dict()
+        boot_dict = build_boot_dict.build_all_boot_translations()
         boot_entries = extract_dict_to_entries(boot_dict, prefix="boot")
         boot_out = os.path.join(target_dir, "combat", "abilities.yaml")
         boot_header = "Yakuza 0 GOG - Combat Abilities, Heat Actions & Style Names Catalog"

@@ -220,3 +220,4 @@ def compile_all(translations_dir: str = "translations", output_tools_dir: str = 
         results["wdr_translations_data.py"] = len(combined_story_entries)
 
     return results
+
