@@ -24,6 +24,49 @@ import sys
 import struct
 import time
 
+try:
+    from tools.console_ui import (
+        Colors,
+        strip_ansi,
+        print_banner,
+        card_start,
+        card_line,
+        card_end,
+    )
+except ImportError:
+    try:
+        from console_ui import (
+            Colors,
+            strip_ansi,
+            print_banner,
+            card_start,
+            card_line,
+            card_end,
+        )
+    except ImportError:
+        class Colors:
+            RESET = ""
+            BOLD = ""
+            DIM = ""
+            RED = ""
+            GREEN = ""
+            YELLOW = ""
+            BLUE = ""
+            MAGENTA = ""
+            CYAN = ""
+            WHITE = ""
+            GRAY = ""
+
+        def strip_ansi(t): return t
+        def print_banner(v="v1.13.0"):
+            print("=========================================================")
+            print(f"  YAKUZA 0 — VÉRIFICATEUR D'INTÉGRITÉ DU PATCH FR ({v})")
+            print("  Par Typhon0 (basé sur les traductions initiales de RGG FR)")
+            print("=========================================================\n")
+        def card_start(t, w=76): print(f"\n--- [ {t} ] ---")
+        def card_line(t, s="info", w=76): print(f"  [{s.upper()}] {t}")
+        def card_end(w=76): print("-" * w)
+
 # ── SLLZ Decompressor (self-contained, proven Sega bit-flag format) ─────────
 def decompress_sllz(data):
     """Decompress SLLZ-compressed data (Sega/RGG bit-flag format)."""
@@ -382,23 +425,19 @@ def find_all_pars(data_dir):
 
 
 def main():
-    print("=" * 70)
-    print("  VÉRIFICATEUR D'INTÉGRITÉ — Patch FR Yakuza 0 GOG")
-    print("=" * 70)
-    print()
+    print_banner(version="v1.13.0")
 
     hint = sys.argv[1] if len(sys.argv) > 1 else None
     data_dir = find_game_dir(hint)
 
     if not data_dir:
-        print("[ERREUR] Impossible de trouver le dossier data/ du jeu.")
-        print("Usage: python3 verify_patch.py /chemin/vers/Yakuza0/")
+        card_start("ERREUR DE DÉTECTION DU JEU", width=76)
+        card_line("Impossible de trouver le dossier data/ du jeu Yakuza 0.", status="err")
+        card_line("Usage : python3 verify_patch.py /chemin/vers/Yakuza0/", status="info")
+        card_end(width=76)
         sys.exit(1)
 
-    print(f"[*] Dossier data détecté: {os.path.abspath(data_dir)}")
     all_pars = find_all_pars(data_dir)
-    print(f"[*] {len(all_pars)} archives .par trouvées")
-    print()
 
     # Classify
     critical_names = {
@@ -430,18 +469,13 @@ def main():
     }
 
     # 1. Critical archives (deep check with SLLZ decompression)
-    print("─" * 70)
-    print("  VÉRIFICATION APPROFONDIE DES ARCHIVES CRITIQUES (avec décompression)")
-    print("─" * 70)
+    card_start("1/2 — VÉRIFICATION DES ARCHIVES CRITIQUES", width=76)
     for p in critical_pars:
         rel = os.path.relpath(p, data_dir)
         canon = CANONICAL_CRITICAL_RELPATHS.get(os.path.basename(p))
         if canon and os.path.normpath(rel) != canon:
             total_warn += 1
-            print(f"  \033[93m[DOUBLON ORPHELIN IGNORÉ]\033[0m {rel}")
-            print(f"         ⚠️ Ce fichier est situé dans un sous-dossier parasite non chargé par le jeu.")
-            print(f"         💡 Le fichier officiel actif du jeu est '{canon}'.")
-            print(f"         🗑️ Vous pouvez supprimer ce sous-dossier accidentel en toute sécurité.")
+            card_line(f"{rel} — Doublon orphelin ignoré", status="warn")
             continue
 
         v = ParValidator(p)
@@ -449,31 +483,24 @@ def main():
 
         if v.issues:
             total_fail += 1
-            status = "\033[91m[ÉCHEC]\033[0m"
-            print(f"  {status} {rel}")
-            for e in v.issues:
-                print(f"         ❌ {e}")
-            for w in v.warnings:
-                print(f"         ⚠️  {w}")
+            card_line(f"{rel:<28} — ÉCHEC : {v.issues[0]}", status="err")
+            for e in v.issues[1:]:
+                card_line(f"  ❌ {e}", status="none")
         elif v.warnings:
             total_warn += 1
             total_pass += 1
-            status = "\033[93m[AVERT]\033[0m"
-            print(f"  {status} {rel}")
+            card_line(f"{rel:<28} ({v.file_count} fichiers) — Avertissement", status="warn")
             for w in v.warnings:
-                print(f"         ⚠️  {w}")
+                card_line(f"  ⚠️  {w}", status="none")
         else:
             total_pass += 1
-            status = "\033[92m[  OK ]\033[0m"
-            print(f"  {status} {rel} ({v.file_count} fichiers)")
+            card_line(f"{rel:<28} ({v.file_count} fichiers)", status="ok")
 
         all_results.append((rel, v))
+    card_end(width=76)
 
     # 2. Other archives (structural check only — skip SLLZ decompression for speed)
-    print()
-    print("─" * 70)
-    print("  VÉRIFICATION STRUCTURELLE DES AUTRES ARCHIVES")
-    print("─" * 70)
+    card_start("2/2 — VÉRIFICATION DES ARCHIVES SECONDAIRES", width=76)
 
     other_fail = 0
     other_pass = 0
@@ -484,7 +511,7 @@ def main():
                 data = f.read()
             magic = struct.unpack('>I', data[:4])[0]
             if magic != 0x50415243:
-                print(f"  \033[91m[ÉCHEC]\033[0m {rel}: magic invalide {hex(magic)}")
+                card_line(f"{rel}: magic invalide {hex(magic)}", status="err")
                 other_fail += 1
                 continue
 
@@ -498,14 +525,14 @@ def main():
                 if f_off + c_sz > len(data):
                     n_off = name_offset + i * 64
                     fn = data[n_off : n_off + 64].split(b'\x00')[0].decode('latin1', 'replace')
-                    print(f"  \033[91m[ÉCHEC]\033[0m {rel}: {fn} dépasse l'archive")
+                    card_line(f"{rel}: {fn} dépasse l'archive", status="err")
                     has_issue = True
                     break
                 fb = data[f_off : f_off + min(c_sz, 4)]
                 if (flags & 0x80000000) and fb[:4] != b'SLLZ':
                     n_off = name_offset + i * 64
                     fn = data[n_off : n_off + 64].split(b'\x00')[0].decode('latin1', 'replace')
-                    print(f"  \033[91m[ÉCHEC]\033[0m {rel}: {fn} flag SLLZ incohérent")
+                    card_line(f"{rel}: {fn} flag SLLZ incohérent", status="err")
                     has_issue = True
                     break
 
@@ -514,39 +541,35 @@ def main():
             else:
                 other_pass += 1
         except Exception as ex:
-            print(f"  \033[91m[ÉCHEC]\033[0m {rel}: {ex}")
+            card_line(f"{rel}: {ex}", status="err")
             other_fail += 1
 
     total_pass += other_pass
     total_fail += other_fail
 
+    if other_fail == 0:
+        card_line(f"{other_pass} archives secondaires vérifiées avec succès", status="ok")
+    card_end(width=76)
+
     elapsed = time.time() - start
 
-    # Summary
-    print()
-    print("=" * 70)
-    print("  RÉSUMÉ")
-    print("=" * 70)
-    print(f"  Archives vérifiées : {total_pass + total_fail}")
-    print(f"  ✅ OK              : {total_pass}")
+    # Summary Card
+    card_start("RÉSUMÉ D'INTÉGRITÉ & CONFORMITÉ", width=76)
+    card_line(f"Total des archives analysées   : {total_pass + total_fail}", status="info")
+    card_line(f"Archives conformes et intègres : {total_pass} / {total_pass + total_fail}", status="ok" if total_fail == 0 else "warn")
     if total_warn:
-        print(f"  ⚠️  Avertissements  : {total_warn}")
-    print(f"  ❌ Échecs          : {total_fail}")
-    print(f"  ⏱️  Durée           : {elapsed:.1f}s")
-    print()
+        card_line(f"Avertissements mineurs         : {total_warn}", status="warn")
+    if total_fail:
+        card_line(f"Échecs détectés                : {total_fail}", status="err")
+    card_line(f"Temps de contrôle              : {elapsed:.1f}s", status="info")
 
     if total_fail == 0:
-        print("  \033[92m╔══════════════════════════════════════════════════════════╗\033[0m")
-        print("  \033[92m║  TOUTES LES ARCHIVES SONT SAINES — PATCH PRÊT À JOUER  ║\033[0m")
-        print("  \033[92m╚══════════════════════════════════════════════════════════╝\033[0m")
+        card_line("TOUTES LES ARCHIVES SONT 100% SAINES — PATCH PRÊT À JOUER", status="ok")
     else:
-        print("  \033[91m╔══════════════════════════════════════════════════════════╗\033[0m")
-        print("  \033[91m║  ATTENTION : DES PROBLÈMES ONT ÉTÉ DÉTECTÉS !          ║\033[0m")
-        print("  \033[91m╚══════════════════════════════════════════════════════════╝\033[0m")
-        print()
-        print("  Vérifiez les erreurs ci-dessus et réappliquez le patch si nécessaire.")
+        card_line("ATTENTION : DES ERREURS D'INTÉGRITÉ ONT ÉTÉ DÉTECTÉES", status="err")
+        card_line("Veuillez réappliquer le patch avec patch_fr.bat", status="warn")
 
-    print()
+    card_end(width=76)
     return 0 if total_fail == 0 else 1
 
 
