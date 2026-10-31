@@ -46,6 +46,7 @@ PRECOMPILED_DATA = [
     ("release_gog/data/wdr_par_c/common.par", "data/wdr_par_c/common.par"),
     ("release_gog/data/bootpar/boot.par", "data/bootpar/boot.par"),
     ("release_gog/data/staypar/stay.par", "data/staypar/stay.par"),
+    ("release_gog/data/pausepar_e/minigame.par", "data/pausepar_e/minigame.par"),
 ]
 
 # Automatically include all standalone loose minigame tables (.bin, .bin_c, and minigame textures .dds)

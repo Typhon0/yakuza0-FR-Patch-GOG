@@ -325,6 +325,7 @@ def install_data_archives(game_dir):
         ("boot.par", "data/bootpar/boot.par", 1500000),
         ("stay.par", "data/staypar/stay.par", 500000),
         ("common.par", "data/wdr_par_c/common.par", 10000),
+        ("minigame.par", "data/pausepar_e/minigame.par", 15000000),
     ]
 
     p_bar_full = format_progress(100, 100, width=16)
