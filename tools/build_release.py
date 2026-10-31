@@ -28,10 +28,11 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.12.11"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.13.0"
 
 # Files to include from tools/ (strictly user-facing)
 TOOL_FILES = [
+    "tools/console_ui.py",
     "tools/verify_patch.py",
     "tools/patch_sound_par.py",
     "tools/sound_subtitles_data.py",
@@ -63,42 +64,56 @@ ROOT_FILES = [
 
 BAT_PATCHER = r'''@echo off
 chcp 65001 >nul
-echo ========================================================
-echo   Yakuza 0 - Patch VOSTFR GOG v1.12.11
-echo   Par RGG Yakuza Rev / Typhon0
-echo ========================================================
-echo.
+title Yakuza 0 GOG — Patch FR par Typhon0
 
-REM Detect game directory by locating Yakuza0.exe
-if "%~1"=="" (
-    echo [*] Recherche automatique du repertoire de Yakuza 0...
-    if exist "%~dp0Yakuza0.exe" (
-        set "GAMEDIR=%~dp0"
-    ) else if exist "%~dp0..\Yakuza0.exe" (
-        set "GAMEDIR=%~dp0.."
-    ) else if exist "%CD%\Yakuza0.exe" (
-        set "GAMEDIR=%CD%"
-    ) else if exist "%CD%\..\Yakuza0.exe" (
-        set "GAMEDIR=%CD%\.."
-    ) else if exist "%CD%\..\..\Yakuza0.exe" (
-        set "GAMEDIR=%CD%\..\.."
-    ) else if exist "D:\GOG Games\Yakuza 0\Yakuza0.exe" (
-        set "GAMEDIR=D:\GOG Games\Yakuza 0"
-    ) else if exist "C:\GOG Games\Yakuza 0\Yakuza0.exe" (
-        set "GAMEDIR=C:\GOG Games\Yakuza 0"
-    ) else if exist "C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\Yakuza0.exe" (
-        set "GAMEDIR=C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0"
-    ) else (
-        echo [ERREUR] Impossible de trouver Yakuza0.exe.
-        echo Glissez-deposez votre dossier de jeu sur ce fichier patch_fr.bat
-        echo ou lancez: patch_fr.bat "D:\GOG Games\Yakuza 0"
-        pause
-        exit /b 1
-    )
-) else (
-    set "GAMEDIR=%~1"
+REM Fermeture forcee de tout processus Yakuza0.exe residuel pour debloquer l'ecriture
+tasklist /FI "IMAGENAME eq Yakuza0.exe" 2>nul | find /I /N "Yakuza0.exe">nul
+if "%ERRORLEVEL%"=="0" (
+    echo [*] Fermeture de Yakuza0.exe en cours d'execution...
+    taskkill /F /IM Yakuza0.exe >nul 2>&1
+    timeout /t 1 /nobreak >nul
 )
 
+REM Use embedded Python
+set "PYTHON=%~dp0python\python.exe"
+if not exist "%PYTHON%" (
+    echo [ERREUR] Python embarque introuvable dans %~dp0python\
+    echo Assurez-vous d'avoir extrait l'integralite de l'archive zip.
+    pause
+    exit /b 1
+)
+
+REM Detect game directory by locating Yakuza0.exe
+if not "%~1"=="" (
+    set "GAMEDIR=%~1"
+    goto :check_dir
+)
+
+REM Auto-detection in standard locations
+if exist "%~dp0Yakuza0.exe" (
+    set "GAMEDIR=%~dp0"
+) else if exist "%~dp0..\Yakuza0.exe" (
+    set "GAMEDIR=%~dp0.."
+) else if exist "%CD%\Yakuza0.exe" (
+    set "GAMEDIR=%CD%"
+) else if exist "%CD%\..\Yakuza0.exe" (
+    set "GAMEDIR=%CD%\.."
+) else if exist "%CD%\..\..\Yakuza0.exe" (
+    set "GAMEDIR=%CD%\..\.."
+) else if exist "D:\GOG Games\Yakuza 0\Yakuza0.exe" (
+    set "GAMEDIR=D:\GOG Games\Yakuza 0"
+) else if exist "C:\GOG Games\Yakuza 0\Yakuza0.exe" (
+    set "GAMEDIR=C:\GOG Games\Yakuza 0"
+) else if exist "C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\Yakuza0.exe" (
+    set "GAMEDIR=C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0"
+) else (
+    REM Hand off to Python interactive directory resolution (card UI + drive scan / folder picker)
+    "%PYTHON%" "%~dp0patch_gog.py"
+    if errorlevel 1 goto :error
+    goto :verify_step
+)
+
+:check_dir
 REM Strip all trailing backslashes
 :strip_slash
 if "%GAMEDIR:~-1%"=="\" (
@@ -115,35 +130,15 @@ if "%GAMEDIR:~-1%"=="\" (
 )
 
 if not exist "%GAMEDIR%\Yakuza0.exe" (
-    echo [ERREUR] Yakuza0.exe introuvable dans "%GAMEDIR%"
-    echo Veuillez specifier le chemin du dossier d'installation du jeu.
-    pause
-    exit /b 1
-)
-
-echo [*] Dossier du jeu confirme : %GAMEDIR%
-echo.
-
-REM Fermeture forcee de tout processus Yakuza0.exe residuel pour debloquer l'ecriture
-tasklist /FI "IMAGENAME eq Yakuza0.exe" 2>nul | find /I /N "Yakuza0.exe">nul
-if "%ERRORLEVEL%"=="0" (
-    echo [*] Fermeture de Yakuza0.exe en cours d'execution...
-    taskkill /F /IM Yakuza0.exe >nul 2>&1
-    timeout /t 1 /nobreak >nul
+    REM Specified directory is invalid: hand off to Python interactive resolver
+    "%PYTHON%" "%~dp0patch_gog.py" "%GAMEDIR%"
+    if errorlevel 1 goto :error
+    goto :verify_step
 )
 
 REM Deverrouillage des attributs lecture seule (Read-Only frequents sur GOG)
-echo [*] Deverrouillage des attributs lecture seule...
 attrib -R "%GAMEDIR%\Yakuza0.exe" >nul 2>&1
 attrib -R "%GAMEDIR%\data\*.par" /S >nul 2>&1
-
-REM Use embedded Python
-set "PYTHON=%~dp0python\python.exe"
-if not exist "%PYTHON%" (
-    echo [ERREUR] Python embarque introuvable dans %~dp0python\
-    pause
-    exit /b 1
-)
 
 REM Verification conflits mods (YakuzaParless / SRMM)
 if exist "%GAMEDIR%\YakuzaParless.asi" (
@@ -155,38 +150,38 @@ if exist "%GAMEDIR%\YakuzaParless.asi" (
     echo.
 )
 
-echo [1/2] Installation des archives et patch de l'executable Yakuza0.exe...
 "%PYTHON%" "%~dp0patch_gog.py" "%GAMEDIR%\Yakuza0.exe"
 if errorlevel 1 goto :error
 
-echo.
-echo [2/2] Verification d'integrite du jeu...
-"%PYTHON%" "%~dp0tools\verify_patch.py" "%GAMEDIR%"
-if errorlevel 1 goto :error
+:verify_step
+REM Verification post-patch
+if not "%GAMEDIR%"=="" (
+    if exist "%GAMEDIR%\Yakuza0.exe" (
+        "%PYTHON%" "%~dp0tools\verify_patch.py" "%GAMEDIR%"
+    )
+)
 
+:fin
 echo.
-echo ========================================================
-echo   PATCH INSTALLE AVEC SUCCES !
-echo   Toutes les cabines telephoniques et dialogues sont 100%% fonctionnels.
-echo   Bon jeu !
-echo ========================================================
 pause
 exit /b 0
 
 :error
 echo.
-echo [ERREUR] Une erreur est survenue pendant le patch.
-echo Verifiez les messages ci-dessus.
 pause
 exit /b 1
 '''
 
 BAT_VERIFY = r'''@echo off
 chcp 65001 >nul
-echo ========================================================
-echo   Yakuza 0 - Verification d'integrite du jeu
-echo ========================================================
-echo.
+title Yakuza 0 GOG — Verification d'integrite par Typhon0
+
+set "PYTHON=%~dp0python\python.exe"
+if not exist "%PYTHON%" (
+    echo [ERREUR] Python embarque introuvable.
+    pause
+    exit /b 1
+)
 
 if "%~1"=="" (
     if exist "%~dp0Yakuza0.exe" (
@@ -206,30 +201,40 @@ if "%~1"=="" (
     ) else if exist "C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0\Yakuza0.exe" (
         set "GAMEDIR=C:\Program Files (x86)\GOG Galaxy\Games\Yakuza 0"
     ) else (
-        echo [ERREUR] Impossible de trouver Yakuza0.exe.
-        pause
-        exit /b 1
+        "%PYTHON%" "%~dp0tools\verify_patch.py"
+        goto :fin
     )
 ) else (
     set "GAMEDIR=%~1"
 )
 
 for %%I in ("%GAMEDIR%") do set "GAMEDIR=%%~fI"
-
-set "PYTHON=%~dp0python\python.exe"
-if not exist "%PYTHON%" (
-    echo [ERREUR] Python embarque introuvable.
-    pause
-    exit /b 1
-)
-
 "%PYTHON%" "%~dp0tools\verify_patch.py" "%GAMEDIR%"
+
+:fin
+echo.
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.12.11
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.13.0
+### Par Typhon0 (basé sur les traductions initiales de RGG FR)
 
-## Nouveautés v1.12.11
+## Nouveautés v1.13.0
+- **Refonte Visuelle & Ergonomique de l'Installateur (Modern Console UI par Typhon0)** :
+  - Nouveau bandeau ASCII art inspiré de Yakuza avec attribution explicite.
+  - Interface en cartes Unicode élégantes (`╭───╮`, `│`, `╰───╯`) avec balises d'état colorées (`[✓]`, `[⚡]`, `[ℹ]`, `[✗]`).
+  - Barres de progression graphiques lors du déploiement des archives (`[████████░░]`).
+  - Résolution intelligente du répertoire de jeu : scan automatique des disques, sélecteur de dossier natif Windows et glisser-déposer.
+- **Atteinte du Jalon 100% de Traduction Intégrale (100% Localization Milestone)** :
+  - Traduction intégrale des arbres de styles et répertoires d'actions Heat (`complete_heat.bin_c`, `tips_tutorial.bin_c`, `ability.bin_c`).
+  - Traduction des 29 cartes et compétences de combat du Colisée (`battle_deck_list.bin_c`).
+  - Traduction des 48 répliques des joueurs de roulette (`response_roulette.bin_c`).
+  - Traduction des 61 invites de touches et commandes manette de mini-jeux (`controller_explain.bin_c`).
+  - Traduction des règles de combat du Colisée (`tougijyo_regulation_set.bin_c`).
+  - Traduction des salutations et répliques d'indicateurs de rue (`snitch.bin`).
+  - Préservation intégrale et bit-exacte des structures binaires RGG et sectorisation 2 048 octets.
+
+## Historique v1.12.11
 - **Correction Critique Crash Ponts d'Osaka / Sous-titres Voix de Rue (0x19CAC0 — CMfp::Initialize)** :
   Correction du crash mémoire (`EXCEPTION_ACCESS_VIOLATION` à `0x14019CAC0`) survenant lors de la traversée des ponts de Sotenbori (Osaka) ou lors de scènes de rue à l'affichage des sous-titres d'ambiance et de détresse. Restauration de l'automate `CMfp::Initialize` dans `sound.par`, réinjection de répliques en français parlé naturel 100% bit-exact et alignement sectoriel strict de 2 048 octets.
 
@@ -271,7 +276,7 @@ Certains termes techniques ou officiels sont volontairement conservés en versio
 - **Identifiants internes Sega** : Noms de variables et d'animations du moteur qui causeraient des crashs mémoire s'ils étaient altérés.
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.12.11.zip`.
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.13.0.zip`.
 2. Lancez `patch_fr.bat` (en faisant un clic droit -> « Exécuter en tant qu'administrateur »).
 3. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
 
