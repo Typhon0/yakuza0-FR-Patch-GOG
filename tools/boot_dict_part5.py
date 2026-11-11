@@ -99,6 +99,45 @@ P5 = {
     'Pleasure King Area': 'Zone du Roi des plaisirs',
     'Area share increased.': 'Part de marché augmentée.',
     'Area share decreased.': 'Part de marché diminuée.',
+    'Purchased %s': 'Bien acquis : %s',
+    'Share': 'Part',
+    'Share Gained': 'Part acquise',
+    'Share Bonus': 'Bonus de part',
+    '%u\xef\xbc\x85': '%u%%',
+    '\xc3\x97%u\xef\xbc\x85': '×%u%%',
+    '%d\xef\xbc\x85': '%d%%',
+    'Profit Forecast': 'Bénéfices estimés',
+    'Economy': 'Économie',
+    'Safety Rank': 'Sécurité',
+    'Property Rank': 'Rang du bien',
+    'Rank': 'Rang',
+    'Management Skills': 'Gestion',
+    'Troubleshooting': 'Dépannage',
+    'Strength': 'Force',
+    'Battle Assist Rate': 'Taux de soutien',
+    'Property Skills': 'Compétences du bien',
+    'Investment': 'Investissement',
+    'Profile': 'Profil',
+    'Salary': 'Salaire',
+    'Role': 'Rôle',
+    'Manage areas.': 'Gérer les zones.',
+    'View properties.': 'Voir les propriétés.',
+    "Opponent's Strength": "Force adverse",
+    "Media King's Turf": "Territoire du Roi des médias",
+    "Gambling King's Turf": "Territoire du Roi du jeu",
+    "Leisure King's Turf": "Territoire du Roi des loisirs",
+    "Electronics King's Turf": "Territoire du Roi de l'électronique",
+    "Pleasure King's Turf": "Territoire du Roi des plaisirs",
+    'Weak': 'Faible',
+    'Medium': 'Moyen',
+    'Strong': 'Fort',
+    'Payout Ready': 'Paiement prêt',
+    'Collecting Payout': 'Encaissement en cours',
+    'Manager Salary': 'Salaire du gérant',
+    'Security Salary': 'Salaire du vigile',
+    'Total': 'Total',
+    'Recover': 'Récupérer',
+    '%s obtained.': '%s obtenu.',
 
     # Cabaret Club Sunshine
     'Target Club Mars Area Customers': 'Cibler la clientèle de la zone Club Mars',
@@ -171,4 +210,82 @@ P5 = {
     'Dime Store': 'Bazar',
     'Udon Shop': 'Restaurant d\'udon',
     'Chapter Completion Bonus': 'Bonus de fin de chapitre',
+
+    # Boutons avec balises et invites de navigation
+    '<Sign:C> Back': '<Sign:C> Retour',
+    '<Sign:D> OK  <Sign:C> Back': '<Sign:D> OK  <Sign:C> Retour',
+    '<Sign:D> OK    <Sign:C> Back': '<Sign:D> OK    <Sign:C> Retour',
+    '<Sign:D> Next': '<Sign:D> Suivant',
+    '<Sign:55>Dodge Enemy Attacks<Sign:55>': '<Sign:55>Esquiver les attaques ennemies<Sign:55>',
+    '<Sign:30> Select direction\n<Sign:29> Camera controls\n<Sign:0> Shooting mode': '<Sign:30> Choisir direction\n<Sign:29> Contrôles caméra\n<Sign:0> Mode tir',
+
+    # Descriptions des styles de combat
+    "Kiryu's basic battle style.\nUnleash dynamic fighting moves\neffective in any situation.":
+        "Style de combat de base de Kiryu.\nAttaques dynamiques et efficaces\nen toute situation.",
+    'A battle style focused on speed.\nPummel enemies into submission with a\nflurry of blows and quick evasions.':
+        'Un style axé sur la vitesse.\nSubmergez les ennemis sous un déluge\nde coups et d\'esquives rapides.',
+    'A battle style focused on power.\nWield a bat to gain a crushing\nadvantage and an iron defense.':
+        'Un style axé sur la puissance.\nArmé d\'une batte pour un avantage\nécrasant et une défense de fer.',
+    "Majima's basic battle style.\nLaunch precise attacks that exploit\nenemy weaknesses in any situation.":
+        "Style de combat de base de Majima.\nAttaques précises ciblant les faiblesses\nennemies en toute situation.",
+    'A battle style focused on speed. Deal\nmassive combo damage with whirling\nattacks based on breakdancing.':
+        'Un style axé sur la vitesse. Infligez\nde lourds combos tourbillonnants inspirés\ndu breakdance.',
+
+    # Menus système et modes de jeu
+    'Unsaved data will be lost.\nAre you sure?':
+        'Les données non sauvegardées seront perdues.\nConfirmer ?',
+    'Explore the game world without\nfollowing the main story.':
+        'Explorez librement le monde sans\nsuivre l\'histoire principale.',
+    'I can go wherever I want and do whatever\nI wanna do.':
+        'Je peux aller où je veux et faire tout\nce dont j\'ai envie.',
+    'I can go wherever I want and do whatever\nI want to do.':
+        'Je peux aller où je veux et faire tout\nce dont j\'ai envie.',
+    'Recommended for players who are skilled at\naction games.':
+        'Recommandé pour les joueurs aguerris\naux jeux d\'action.',
+    'The highest difficulty setting, with no data carried\nover and no continues. For true yakuza only!':
+        'La difficulté ultime, sans transfert de données\nni continuations. Pour les vrais yakuzas !',
+    'Retain clear data and explore the game world\nwithout following the story.':
+        'Conservez vos données et explorez librement\nle monde sans suivre l\'histoire.',
+    'Start a new game from scratch and explore the\ngame world without following the story.':
+        'Commencez une nouvelle partie et explorez\nlibrement le monde sans suivre l\'histoire.',
+    'Start a new game from scratch without\nusing game clear data.':
+        'Commencer une nouvelle partie de zéro sans\nutiliser de données de fin de jeu.',
+    'Start a new game retaining all clear\ndata except certain elements.\nYou cannot play on LEGEND difficulty when carrying over data.':
+        'Commencer une partie en conservant les données\nvalidées (hors exceptions).\nDifficulté LÉGENDE indisponible avec transfert.',
+
+    # Mini-jeux et tournois
+    'Keio Mahjong Cup: Dragon Series': 'Coupe de mahjong Keio : Série Dragon',
+    'Mahjong Revolution Cup: Dragon Series': 'Révolution du mahjong : Série Dragon',
+    'Total points x rate': 'Total points x taux',
+    'Result %d pts.': 'Résultat : %d pts',
+    'Select %s?': 'Sélectionner %s ?',
+
+    # Dialogues et interjections courtes
+    'Hello.': 'Bonjour.',
+    'Hello!': 'Bonjour !',
+    'Okay.': "D'accord.",
+    'Okay...': "D'accord...",
+    'Oh, okay.': "Oh, d'accord.",
+    'Oh, okay...': "Oh, d'accord...",
+    'Uh, okay.': "Euh, d'accord.",
+    'Uh, okay?': "Euh, d'accord ?",
+    'Sorry.': 'Désolé.',
+    'Sorry, heh.': 'Désolé, hé.',
+    'Sorry, pal!': "Désolé, l'ami !",
+    "Heh, that's okay.": 'Hé, pas de souci.',
+    "Maybe I'll order takeout.": 'Je vais peut-être commander à emporter.',
+    'Awright!/Oh, yeah.': 'Super !/Oh oui.',
+    'Defeat stings...': 'La défaite est amère...',
+    'Heh, sorry guys.': 'Hé, désolé les gars.',
+    'Hell yeah!': 'Carrément !',
+    'Hello, handsome.': 'Salut, beau gosse.',
+    'Oh yeah!': 'Oh oui !',
+    'Oh yeah./Sweet.': 'Oh oui./Génial.',
+    'Oh, yeah!/Woo-hoo!': 'Oh oui !/Youhou !',
+    'Oh, yeah!/Yes!': 'Oh oui !/Oui !',
+    'Oh, yeah./Sweet.': 'Oh oui./Génial.',
+    'Okay, okay./Phew...': "D'accord, d'accord./Ouf...",
+    'Thanks a bunch!': 'Merci infiniment !',
+    'Welcome!': 'Bienvenue !',
+    'Yeah!': 'Ouais !',
 }

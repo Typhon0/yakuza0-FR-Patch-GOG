@@ -43,9 +43,11 @@ def get_clean_french_ability_bin(fr_boot_path='par_original/boot_steam_fr.par'):
     with open(fr_boot_path, 'rb') as f:
         fr_files = parse_par(f.read())
     raw = fr_files['ability.bin_c'][3]
-    decomp = decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw
+    decomp = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
     assert len(decomp) == 130914, f"Unexpected ability.bin_c length: {len(decomp)}"
-    comp = compress_sllz(decomp)
+    decomp = decomp.replace(b'Heat actions', b'Actions Heat')
+    assert len(decomp) == 130914, f"Length changed in ability.bin_c!"
+    comp = compress_sllz(bytes(decomp))
     return 0x80000000, len(decomp), len(comp), comp
 
 def get_clean_french_tips_tutorial_bin(fr_boot_path='par_original/boot_steam_fr.par'):
@@ -73,6 +75,7 @@ def get_clean_french_tips_tutorial_bin(fr_boot_path='par_original/boot_steam_fr.
             dec[pos : pos + len(bad)] = good
             pos = dec.find(bad, pos + len(bad))
 
+    dec = dec.replace(b'Heat actions', b'Actions Heat')
     assert len(dec) == orig_len, f"Length altered during normalization: {len(dec)} vs {orig_len}"
     comp = compress_sllz(bytes(dec))
     return 0x80000000, len(dec), len(comp), comp
@@ -142,6 +145,17 @@ def get_clean_french_item_bin(fr_boot_path='par_original/boot_steam_fr.par'):
 def get_clean_french_complete_heat(fr_boot):
     raw = fr_boot['complete_heat.bin_c'][3]
     dec = bytearray(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
+    heat_reps = [
+        (b'Brawler Style', b'Style Brawler'),
+        (b'Rush Style', b'Style Rush'),
+        (b'Beast Style', b'Style Beast'),
+        (b'Thug Style', b'Style Thug'),
+        (b'Breaker Style', b'Style Breaker'),
+        (b'Slugger Style', b'Style Slugger'),
+    ]
+    for old, new in heat_reps:
+        assert len(old) == len(new)
+        dec = dec.replace(old, new)
     comp = compress_sllz(bytes(dec))
     return 0x80000000, len(dec), len(comp), comp
 
@@ -149,6 +163,70 @@ def get_clean_french_complete_shisho(fr_boot):
     raw = fr_boot['complete_shisho.bin_c'][3]
     dec = bytes(decompress_sllz(raw) if raw.startswith(b'SLLZ') else raw)
     return 0x0, len(dec), len(dec), dec
+
+BATTLE_DECKS = {
+    'Street Emperor': 'Roi de la rue',
+    "Demon's Full-course": 'Festin du démon',
+    'Legend Dancer': 'Danseur lég.',
+    'Shimano Dancer': 'Danse Shimano',
+    "Dojima's rush": 'Ruée Dojima',
+    'Immediate Crusher': 'Broyeur express',
+    'Hitman': 'Tueur',
+    'Just a Dancer': 'Juste danseur',
+    'Suregoro Full': 'Sutegoro max',
+    'Sutegoro Slugger': 'Batteur Sutegoro',
+    'Bat Master': 'Roi batte',
+    'Tank': 'Tank',
+    'Out box': 'Out-box',
+    'Ghost': 'Ombre',
+    'Drunker': 'Ivrogne',
+    'Intensely Rampage': 'Carnage furieux',
+    'Style testing': 'Test de style',
+    'Basis for the fight': 'Bases du combat',
+    'Street fight': 'Combat rue',
+    'Style Break': 'Brise-style',
+    'Style to K': 'Style en K',
+    'W Style Rush': 'Style Rush W',
+    'Weapon Braker': 'Brise-armes',
+    'Short smasher': 'Écrase-court',
+    'Nice K': 'Beau K',
+    'Style Changer A': 'Change-style A',
+    'Style Changer B': 'Change-style B',
+    'Toughness': 'Robuste',
+    'Nice Fight': 'Beau duel',
+}
+
+CARD_SKILLS = {
+    'Close Ur Eyes': 'Yeux fermes  ',
+    'Bad Guard': 'Mauv Gard',
+    "Don't Stop me": 'Inarretable  ',
+    'Heat Action': 'Action Heat',
+    'Style Change': 'Change Style',
+    'Grab \xef\xbc\x86 Throw': 'Prise & Lancer',
+}
+
+def get_clean_french_battle_deck_list_bin(clean_par):
+    raw = clean_par['battle_deck_list.bin_c'][3]
+    clean_deck = bytearray(raw)
+    combined_decks = dict(BATTLE_DECKS)
+    combined_decks.update(CARD_SKILLS)
+    for en, fr in combined_decks.items():
+        en_b = en.encode('latin1')
+        fr_b = fr.encode('latin1')
+        if en_b in clean_deck:
+            diff = len(en_b) - len(fr_b)
+            assert diff >= 0, f"Overflow for {en}"
+            rep = fr_b + (b' ' * diff)
+            pos = 0
+            while True:
+                idx = clean_deck.find(en_b, pos)
+                if idx == -1:
+                    break
+                clean_deck[idx : idx + len(en_b)] = rep
+                pos = idx + len(en_b)
+    assert len(clean_deck) == len(raw)
+    assert clean_deck.count(b'\x00') == raw.count(b'\x00')
+    return 0x0, len(clean_deck), len(clean_deck), bytes(clean_deck)
 
 MAIL_FR = {
     'This is a test.': "C'est un test.",
@@ -233,6 +311,7 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
     money_result_entry = get_clean_french_money_result(fr_boot_files)
     mail_entry = get_clean_french_mail_calibrated(clean_par)
     string_tbl_entry = get_clean_french_string_tbl_bin(clean_par)
+    deck_entry = get_clean_french_battle_deck_list_bin(clean_par)
 
     TARGET_FILES = {
         'caption.bin_c': ref_par['caption.bin_c'],
@@ -240,7 +319,7 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
         'explanation_sub_story.bin_c': substory_entry,
         'item.bin_c': item_entry,
         'string_tbl.bin_c': string_tbl_entry,
-        'battle_deck_list.bin_c': ref_par['battle_deck_list.bin_c'],
+        'battle_deck_list.bin_c': deck_entry,
         'encounter_pupup_message.bin_c': epm_entry,
         'ability.bin_c': ability_entry,
         'complete_heat.bin_c': heat_entry,

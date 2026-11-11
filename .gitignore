@@ -16,6 +16,9 @@ scratch/
 staging_gog_patch/
 staging_release/
 frameworks/
+data/
+par_original/
+graphify-out/
 
 # Python & caches
 __pycache__/

@@ -33,6 +33,49 @@ class TestPatchGogUI(unittest.TestCase):
         self.assertTrue(hasattr(patch_gog, 'card_end'))
         self.assertTrue(hasattr(patch_gog, 'print_banner'))
 
+    def test_verify_patch_no_banner_flag(self):
+        # Verify that verify_patch respects --no-banner and YAKUZA_NO_BANNER
+        import subprocess
+
+        script_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "tools", "verify_patch.py"))
+        tmp_cwd = tempfile.gettempdir()
+
+        # Test with --no-banner
+        res = subprocess.run(
+            [sys.executable, script_path, "--no-banner", "/invalid_game_dir"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            cwd=tmp_cwd
+        )
+        self.assertNotIn("YAKUZA 0 — PATCH DE TRADUCTION", res.stdout)
+        self.assertIn("ERREUR DE DÉTECTION DU JEU", res.stdout)
+
+        # Test with YAKUZA_NO_BANNER env var
+        env = os.environ.copy()
+        env["YAKUZA_NO_BANNER"] = "1"
+        res_env = subprocess.run(
+            [sys.executable, script_path, "/invalid_game_dir"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            env=env,
+            cwd=tmp_cwd
+        )
+        self.assertNotIn("YAKUZA 0 — PATCH DE TRADUCTION", res_env.stdout)
+        self.assertIn("ERREUR DE DÉTECTION DU JEU", res_env.stdout)
+
+        # Test normal invocation displays banner
+        res_normal = subprocess.run(
+            [sys.executable, script_path, "/invalid_game_dir"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            cwd=tmp_cwd
+        )
+        self.assertIn("YAKUZA 0 — PATCH DE TRADUCTION", res_normal.stdout)
+        self.assertIn("ERREUR DE DÉTECTION DU JEU", res_normal.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

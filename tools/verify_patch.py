@@ -256,13 +256,13 @@ class ParValidator:
                 except Exception as ex:
                     self.error(f"{fn}: ERREUR décompression SLLZ: {ex}")
 
-            # ── Sector alignment check for streaming archive (pause.par) ──
+            # ── Sector alignment check for streaming archives (pause.par & pokecir.par) ──
             base_name = os.path.basename(self.path)
-            if base_name == 'pause.par':
+            if base_name in ('pause.par', 'pokecir.par'):
                 if f_off % 2048 != 0:
                     self.error(
                         f"{fn}: offset {hex(f_off)} NON aligné sur 2 048 octets (reste: {f_off % 2048}) "
-                        f"— CAUSE DU CRASH 0x234B0 (Règle d'or n°1 & n°3)"
+                        f"— CAUSE DU CRASH 0x234B0 / BLOCAGE CHARGEMENT (Règle d'or n°1 & n°3)"
                     )
 
             # ── Critical file checks ──
@@ -433,9 +433,13 @@ def find_all_pars(data_dir):
 
 
 def main():
-    print_banner(version="v1.13.0")
+    no_banner = "--no-banner" in sys.argv or os.environ.get("YAKUZA_NO_BANNER") == "1"
+    clean_argv = [a for a in sys.argv[1:] if a != "--no-banner"]
 
-    hint = sys.argv[1] if len(sys.argv) > 1 else None
+    if not no_banner:
+        print_banner(version="v1.13.0")
+
+    hint = clean_argv[0] if clean_argv else None
     data_dir = find_game_dir(hint)
 
     if not data_dir:

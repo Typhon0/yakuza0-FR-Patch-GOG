@@ -437,8 +437,8 @@ def rebuild_string_tbl(raw_bytes):
                 new_str_bytes = new_str.encode('latin1')
                 replaced_count += 1
             else:
-                # Keep original bytes, but fix broken \xc7
-                new_str_bytes = old_str_bytes.replace(b'\xc7', b'C')
+                # Keep original bytes, but fix broken \xc7 and residual Japanese fullwidth percent \xef\xbc\x85
+                new_str_bytes = old_str_bytes.replace(b'\xc7', b'C').replace(b'\xef\xbc\x85', b'%%')
 
             new_ptr = 32284 + len(new_pool)
             struct.pack_into('>I', header, ptr_loc, new_ptr)

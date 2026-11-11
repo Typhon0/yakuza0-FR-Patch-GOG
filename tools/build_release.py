@@ -47,6 +47,7 @@ PRECOMPILED_DATA = [
     ("release_gog/data/bootpar/boot.par", "data/bootpar/boot.par"),
     ("release_gog/data/staypar/stay.par", "data/staypar/stay.par"),
     ("release_gog/data/pausepar_e/minigame.par", "data/pausepar_e/minigame.par"),
+    ("release_gog/data/minigame/pokecir.par", "data/minigame/pokecir.par"),
 ]
 
 # Automatically include all standalone loose minigame tables (.bin, .bin_c, and minigame textures .dds)
@@ -155,10 +156,11 @@ if exist "%GAMEDIR%\YakuzaParless.asi" (
 if errorlevel 1 goto :error
 
 :verify_step
-REM Verification post-patch
+REM Verification post-patch (suppression du bandeau doublon deja affiche par patch_gog.py)
+set "YAKUZA_NO_BANNER=1"
 if not "%GAMEDIR%"=="" (
     if exist "%GAMEDIR%\Yakuza0.exe" (
-        "%PYTHON%" "%~dp0tools\verify_patch.py" "%GAMEDIR%"
+        "%PYTHON%" "%~dp0tools\verify_patch.py" --no-banner "%GAMEDIR%"
     )
 )
 

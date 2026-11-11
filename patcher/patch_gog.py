@@ -352,6 +352,7 @@ def install_data_archives(game_dir):
         ("stay.par", "data/staypar/stay.par", 500000),
         ("common.par", "data/wdr_par_c/common.par", 10000),
         ("minigame.par", "data/pausepar_e/minigame.par", 15000000),
+        ("pokecir.par", "data/minigame/pokecir.par", 50000),
     ]
 
     p_bar_full = format_progress(100, 100, width=16)

@@ -164,6 +164,35 @@ def test_release_zip(zip_path: str):
         assert "Éléments de transmission pour voitures Pocket Circuit".encode('latin1') in d_ebisuya, "Ebisuya PC gear description mismatch!"
         print("  + 35 boutiques : 0 description d'item corrompue, incohérente ou placeholder (Cabaret & Pocket Circuit validés) !")
 
+        # Check 5h: Verify Pocket Circuit par sector alignment and dialogue sync
+        print("[5h] Vérification de l'intégrité et de l'alignement sectoriel Pocket Circuit (pokecir.par & wdr.par)...")
+        pokecir_path = os.path.join(root, 'data', 'minigame', 'pokecir.par')
+        assert os.path.isfile(pokecir_path), "data/minigame/pokecir.par manquant dans le zip de release !"
+        with open(pokecir_path, 'rb') as pf:
+            pokecir_raw = pf.read()
+        p_fc, p_fto, p_fcount, p_ftoff = struct.unpack('>4I', pokecir_raw[16:32])
+        assert p_fcount == 63, f"pokecir.par contient {p_fcount} fichiers, attendu 63 !"
+        for i in range(p_fcount):
+            p_e_off = p_ftoff + i * 32
+            _, _, _, p_off = struct.unpack('>4I', pokecir_raw[p_e_off : p_e_off + 16])
+            assert p_off % 2048 == 0, f"pokecir.par fichier {i} off={hex(p_off)} non aligné sur 2048 octets !"
+        # Check dialogue sync on uid00030136.msg
+        d_pmsg = decompress_sllz(files['uid00030136.msg'][3])
+        p_tbl_off = struct.unpack('>I', d_pmsg[0x14:0x18])[0]
+        from tools.fix_all_msg_dialogue_lengths import sega_char_count
+        p_desync = 0
+        for off in range(0x18, p_tbl_off - 12, 4):
+            w0, w1, _ = struct.unpack('>3I', d_pmsg[off:off+12])
+            flags_val = w0 & 0xFFFF
+            enc_len = (w0 >> 16) & 0xFFFF
+            if 0x18 <= w1 < p_tbl_off and enc_len > 0 and flags_val in (0x0700, 0x0a00, 0x0d00, 0x0600, 0x0900, 0x0800, 0x0b00, 0x0c00, 0x0e00, 0x0f00, 0x0100, 0x0200):
+                n_idx = d_pmsg.find(b'\x00', w1)
+                if n_idx > w1 and n_idx < p_tbl_off:
+                    if sega_char_count(d_pmsg[w1:n_idx]) != enc_len:
+                        p_desync += 1
+        assert p_desync == 0, f"uid00030136.msg a encore {p_desync} nœuds désynchronisés !"
+        print("  + Pocket Circuit : pokecir.par aligné 2 048 o (63/63 fichiers) et uid00030136.msg synchronisé (0 softlock) !")
+
         # Check 6: Run verify_patch on extracted package
         print("[6/6] Exécution de verify_patch.py sur le package extrait...")
         res = subprocess.run([sys.executable, 'tools/verify_patch.py', root], stdout=subprocess.PIPE, stderr=subprocess.PIPE)

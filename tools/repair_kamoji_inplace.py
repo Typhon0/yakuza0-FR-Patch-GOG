@@ -374,6 +374,30 @@ KAMOJI_INPLACE_MAP = {
     "Next up is \\100,000. I'll be waiting!": (
         "Prochaine etape : 100 000 yens !     "
     ),
+    # 100: 66b
+    "Swing my head? Like bobbing and weaving? Okay, I'll remember\r\nthat.": (
+        "Bouger la tete ? Esquiver en weaving ? D'accord, je retiens bien."
+    ),
+    # 101: 135b
+    "You learned Damage Weaving. Press <Sign:6> or <Sign:3> when hit\r\nby an enemy attack to perform a weaving move and dodge\r\nout of the way.": (
+        "Vous apprenez le Weaving. Pressez <Sign:6> ou <Sign:3> sous les\r\ncoups pour esquiver grace a un mouvement de weaving.             "
+    ),
+    # 102: 171b
+    "Hold <Sign:4> to enter a fighting stance, then <Sign:3> to\r\nQuickstep while still facing the enemy. Watch for their\r\nattacks closely, and press <Sign:3> at the right time.": (
+        "Maintenez <Sign:4> en garde, puis <Sign:3> pour esquiver en\r\nfaisant face. Observez l'ennemi et appuyez sur <Sign:3> au\r\nbon moment.                                       "
+    ),
+    # 103: 177b
+    "You learned Counter Quickstep. This lets you evade and\r\nswitch places with the enemy. Hold <Sign:4> to enter a\r\nfighting stance, then <Sign:0> in time with an enemy's attack.": (
+        "Vous apprenez le Contre-pas. Cela permet d'esquiver et de\r\npasser dans le dos. Maintenez <Sign:4>, puis <Sign:0> au\r\nmoment de l'attaque.                                    "
+    ),
+    # 104: 20b
+    "Make Use of Weaving!": (
+        "Maitrise le weaving!"
+    ),
+    # 105: 21b
+    "Use Quickstep Combos!": (
+        "Enchaine les esquives"
+    ),
 }
 
 def generate_repaired_kamoji_msg(clean_par_path='par_original/wdr.par'):

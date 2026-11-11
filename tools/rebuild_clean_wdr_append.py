@@ -168,6 +168,8 @@ def patch_snitch_binary(decomp_snitch):
         (b"Ahh! Please don't hit me!", b"Aah ! Pitie, pitie !     "),
         (b'Enjoy your time at our bar.', b'Passez un bon moment ici.  '),
         (b'Please, let my daughter go!', b'Pitie, relachez ma fille ! '),
+        (b'Welcome!', b'Bonjour!'),
+        (b'Hello!', b'Salut!'),
     ]
     for en_b, fr_b in extra_barks:
         assert len(en_b) == len(fr_b)

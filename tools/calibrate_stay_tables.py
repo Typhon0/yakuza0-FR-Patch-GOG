@@ -1028,10 +1028,6 @@ SEARCH_ARMS_LOCATION_CALIBRATED = {
 # 9. ACTIVITY LIST / CP CHALLENGES (activity_list.bin_c - flags=0x80000000)
 # ===========================================================================
 ACTIVITY_LIST_CALIBRATED = {
-    '\x01\x01\x01\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1a\x1a\x1a\x1b\x1b\x1b\x1b\x1c\x1c\x1c\x1d\x1d\x1d\x1e\x1e\x1e\x1f\x1f\x1f   !!!!!!""""""####$$$$$$%%%&&&&\'\'\'((()))***+++,,,---...///000001112334554556777788888999999:::;;;;<<<<===>?@ABCDDDDEFFGGGHHHIIIJJJKKLMMNNOOPQRSTUVWXYZZZZ[\\]^_`aaabbbcccdddeeefffgggghijklllmmmnnnooopppqrstuvwxyz{{{{{|||||}~\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa0\xa0¡¡¡¢¢¢£££¤¥¦§¨©ª«¬¬¬\xad®¯°±±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÃÄÅÆÇÈÉÊÊËËÌÍÎÏÐÑÎÏÐ':
-        '\x01\x01\x01\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1a\x1a\x1a\x1b\x1b\x1b\x1b\x1c\x1c\x1c\x1d\x1d\x1d\x1e\x1e\x1e\x1f\x1f\x1f   !!!!!!""""""####$$$$$$%%%&&&&\'\'\'((()))***+++,,,---...///000001112334554556777788888999999:::;;;;<<<<===>?@ABCDDDDEFFGGGHHHIIIJJJKKLMMNNOOPQRSTUVWXYZZZZ[\\]^_`aaabbbcccdddeeefffgggghijklllmmmnnnooopppqrstuvwxyz{{{{{|||||}~\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa0\xa0¡¡¡¢¢¢£££¤¥¦§¨©ª«¬¬¬\xad®¯°±±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÃÄÅÆÇÈÉÊÊËËÌÍÎÏÐÑÎÏÐ',
-    '\x01\x01\x01\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1a\x1a\x1a\x1b\x1b\x1b\x1b\x1c\x1c\x1c\x1d\x1d\x1d\x1e\x1e\x1e\x1f\x1f\x1f   !!!!!!""""""####$$$$$$%%%&&&&\'\'\'((()))***+++,,,---...///000001112334554556777788888999999:::;;;;<<<<===>?@ABCDDDDEFFGGGHHHIIIJJJKKLMMNNOOPQRSTUVWXYZZZZ[\\]^_`abcdefghijklmnopqrsssstuvwxxxyyyzzz{{{|||}~\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x87\x87\x87\x87\x88\x88\x88\x88\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0¡¢£¤¥¦§¨©ª«¬¬¬\xad\xad\xad®®®¯¯¯°±²³´µ¶·¸¸¸¹º»¼½½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÏÐÑÒÓÔÕÖÖ××ØÙÚÛÜÝÚÛÜ':
-        '\x01\x01\x01\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1a\x1a\x1a\x1b\x1b\x1b\x1b\x1c\x1c\x1c\x1d\x1d\x1d\x1e\x1e\x1e\x1f\x1f\x1f   !!!!!!""""""####$$$$$$%%%&&&&\'\'\'((()))***+++,,,---...///000001112334554556777788888999999:::;;;;<<<<===>?@ABCDDDDEFFGGGHHHIIIJJJKKLMMNNOOPQRSTUVWXYZZZZ[\\]^_`abcdefghijklmnopqrsssstuvwxxxyyyzzz{{{|||}~\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x87\x87\x87\x87\x88\x88\x88\x88\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0¡¢£¤¥¦§¨©ª«¬¬¬\xad\xad\xad®®®¯¯¯°±²³´µ¶·¸¸¸¹º»¼½½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÏÐÑÒÓÔÕÖÖ××ØÙÚÛÜÝÚÛÜ',
     'Acquire %d different accessories for Ai':
         'Obtenir %d accessoires diff. pour Ai',
     'Acquire %d different accessories for Chika':
@@ -1175,9 +1171,9 @@ ACTIVITY_LIST_CALIBRATED = {
     'Collect %d telephone cards':
         'Trouver %d cartes tél.',
     'Collect total proceeds of %s':
-        'Recettes totales de %s',
+        'Recettes totales',
     'Collected total proceeds of %s':
-        'Recettes totales de %s',
+        'Recettes totales',
     'Compete in Pocket Circuit races %d times':
         '%d courses disputées en Pocket Circuit',
     'Compete in races %d times':
@@ -1379,15 +1375,15 @@ ACTIVITY_LIST_CALIBRATED = {
     'Earn a total of %s':
         'Gagner %s au total',
     'Earn a total of %s by batting':
-        'Gagner %s au batting center',
+        'Gagner %d au batting center',
     'Earn a total of %s in Catfights':
-        'Gagner %s aux combats de catch',
+        'Combats de catch',
     'Earn a total of %s in baccarat':
-        'Gagner %s au baccara',
+        'Gagner %d au baccara',
     'Earn a total of %s in battle':
-        'Gagner %s au duel',
+        'Gagner %d au duel',
     'Earn a total of %s in blackjack':
-        'Gagner %s au blackjack',
+        'Gagner %d au blackjack',
     'Earn a total of %s in cee-lo':
         'Gagner %s au cee-lo',
     'Earn a total of %s in cho-han':
@@ -1397,31 +1393,31 @@ ACTIVITY_LIST_CALIBRATED = {
     'Earn a total of %s in koi-koi':
         'Gagner %s au koi-koi',
     'Earn a total of %s in mahjong':
-        'Gagner %s au mahjong',
+        'Gagner %d au mahjong',
     'Earn a total of %s in oicho-kabu':
         "Gagner %s à l'oicho-kabu",
     'Earn a total of %s in poker':
-        'Gagner %s au poker',
+        'Gagner %d au poker',
     'Earn a total of %s in pool':
         'Gagner %s au billard',
     'Earn a total of %s in roulette':
         'Gagner %s à la roulette',
     'Earn a total of %s in sales':
-        'Gagner %s de ventes',
+        'Gagner %d de ventes',
     'Earn a total of %s in split games':
         'Gagner %s au split game',
     'Earned a total of %s':
         'Gagné %s au total',
     'Earned a total of %s at the batting center':
-        'Gagner %s au batting center',
+        'Gagné %d au batting center',
     'Earned a total of %s in Catfights':
-        'Gagner %s aux combats de catch',
+        'Combats de catch',
     'Earned a total of %s in baccarat':
-        'Gagner %s au baccara',
+        'Gagné %d au baccara',
     'Earned a total of %s in battle':
-        'Gagner %s au combat en tout',
+        'Gagné %d au combat en tout',
     'Earned a total of %s in blackjack':
-        'Gagner %s au blackjack',
+        'Gagné %d au blackjack',
     'Earned a total of %s in cee-lo':
         'Gagner %s au cee-lo',
     'Earned a total of %s in cho-han':
@@ -1431,7 +1427,7 @@ ACTIVITY_LIST_CALIBRATED = {
     'Earned a total of %s in koi-koi':
         'Gagner %s au koi-koi',
     'Earned a total of %s in mahjong':
-        'Gagner %s au mahjong',
+        'Gagné %d au mahjong',
     'Earned a total of %s in oicho-kabu':
         "Gagner %s à l'oicho-kabu",
     'Earned a total of %s in poker':
@@ -1441,7 +1437,7 @@ ACTIVITY_LIST_CALIBRATED = {
     'Earned a total of %s in roulette':
         'Gagner %s à la roulette',
     'Earned a total of %s in sales':
-        'Gagner %s de ventes',
+        'Gagné %d de ventes',
     'Earned a total of %s in split game bowling':
         'Gagner %s au split game du bowling',
     'Eat %d food items':

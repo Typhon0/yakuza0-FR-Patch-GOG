@@ -86,8 +86,9 @@ def synchronize_msg_dialogue_lengths(decomp_bytes: bytes, orig_bytes: bytes = No
                             s_orig = orig_bytes[ow1:null_orig]
                             if o_enc == len(s_orig) and o_enc > 0 and o_flags == flags:
                                 is_dialogue = True
-                else:
-                    # Fallback heuristic if orig_bytes is not provided
+
+                # Robust fallback heuristic for shifted/reallocated scripts or if orig_bytes is not provided
+                if not is_dialogue:
                     if flags in (0x0700, 0x0a00, 0x0d00, 0x0600, 0x0900, 0x0800, 0x0b00, 0x0c00, 0x0e00, 0x0f00, 0x0100, 0x0200) and enc_len > 0:
                         is_dialogue = True
 
