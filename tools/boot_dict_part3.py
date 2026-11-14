@@ -1451,7 +1451,7 @@ P3 = {
     "What's your problem?!":
         "C'est quoi ton probleme !?",
     "What's your type?":
-        "Quel est ton genre d'homme ?",
+        'Quel est ton genre de fille ?',
     "What've we got here?":
         "Qu'avons-nous la ?",
     'What?':
@@ -1615,9 +1615,9 @@ P3 = {
     'You made me blush...':
         'Tu me fais rougir...',
     'You make me feel relaxed and happy.':
-        'Tu me detends et me rends heureuse.',
+        'Tu me detends et me rends heureux.',
     'You make me feel resentful.':
-        'Tu me rends rancuniere.',
+        'Tu me rends rancunier.',
     'You make me raunchy.':
         'Tu me rends toute chose.',
     'You mean it?':

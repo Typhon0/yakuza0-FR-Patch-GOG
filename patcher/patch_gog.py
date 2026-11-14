@@ -154,6 +154,24 @@ GOG_DIRECT_WORDS = [
     (0xD85400, b'Appuyez sur <Sign:60> pour avancer.\x00', "Press <Sign:60> to fast forward -> Appuyez sur <Sign:60> (0xD85400)"),
     (0xD85468, b'Manette d\xe9connect\xe9e\x00', "Controller disconnected -> Manette déconnectée (0xD85468)"),
     (0xD85AE0, b"<Sign:C> : Fermer les informations d\xe9taill\xe9es.\n<Sign:59>/<Sign:60> : Parcourir les autres pages d'infos.\x00", "Press <Sign:C> to close -> Fermer les informations (0xD85AE0)"),
+    # Mini-jeu Téléphone Club (Telekura Rinrin-bo - Kiryu) : Roulette & Dialogues d'imagination
+    (0xD85320, b'Quoi ? Ma silhouette ?\x00', "What? My body type? -> Quoi ? Ma silhouette ? (0xD85320)"),
+    (0xD85338, b'Mon visage ?\x00', "My face? -> Mon visage ? (0xD85338)"),
+    (0xD85348, b'Quoi ? Maintenant ??\x00', "What? You mean now?? -> Quoi ? Maintenant ?? (0xD85348)"),
+    (0xD85360, b"Hum, mon corps t'int\xe9resse ?\x00", "Interested in body -> Hum, mon corps t'intéresse ? (0xD85360)"),
+    (0xD85388, b'Quel genre de visage tu aimes... ?\x00', "Face preference -> Quel genre de visage tu aimes... ? (0xD85388)"),
+    (0xD853B0, b"Tu te d\xe9cides enfin \xe0 m'inviter !\x00", "Invite me -> Tu te décides enfin à m'inviter ! (0xD853B0)"),
+    (0xD853D8, b'Eh bien, mon corps...\x00', "Well, my body... -> Eh bien, mon corps... (0xD853D8)"),
+    (0xD853F0, b"Hum, d'accord.\x00", "Hmmm, okay. -> Hum, d'accord. (0xD853F0)"),
+    (0xD8C4D0, b"J'adore le sport, j'ai un corps plut\xf4t muscl\xe9.\nMais sois pas trop brutal avec moi. Enfin bref,\nje m'emballe un peu, non ? Dr\xf4le de question.\x00", "Toned side -> J'adore le sport... (0xD8C4D0)"),
+    (0xD8C580, b"On dit que mon visage est fin. Cheveux courts,\nmais les mecs pr\xe9f\xe8rent long. Tu aimes\nles filles aux cheveux courts ?\x00", "Small face -> On dit que mon visage... (0xD8C580)"),
+    (0xD8C600, b"Oui. J'ai envie de te voir aussi. Je stresse !\nMais j'ai vraiment h\xe2te. Retrouvons-nous.\x00", "Meet up -> Oui. J'ai envie de te voir... (0xD8C600)"),
+    (0xD8C670, b"Voyons, je fais attention \xe0 ma ligne. Une fille\ndouce attire les gentlemen. Mais bon, parfois\n\xeatre douce c'est un peu ennuyeux... \x00", "Careful figure -> Voyons, je fais attention... (0xD8C670)"),
+    (0xD8C700, b"On dit que je ressemble aux idoles de la t\xe9l\xe9.\nLe genre coquette ? Haha, tu ferais bien\nde te m\xe9fier...\x00", "Idol face -> On dit que je ressemble... (0xD8C700)"),
+    (0xD8C780, b"On va enfin se voir ? Tu m'as d\xe9j\xe0 bien chauff\xe9e,\nalors me laisse pas en plan... Commencons\npar nous amuser un peu, d'accord ?\x00", "Finally meet -> On va enfin se voir ? (0xD8C780)"),
+    (0xD8C820, b"Mon soutien-gorge est trop serr\xe9 ces temps-ci.\nFaut que j'en rach\xe8te. Mais pourquoi je te dis ca ?\nC'est un peu intime comme question.\x00", "Bra tighter -> Mon soutien-gorge... (0xD8C820)"),
+    (0xD8C8C0, b"Tu veux en savoir plus, hein ? On dit que mon\nvisage est sexy. Pourquoi ? Je suis une femme.\x00", "Sexy face -> Tu veux en savoir plus... (0xD8C8C0)"),
+    (0xD8C930, b"Tu as tant envie de me voir ? Hm ? Non non,\nmoi aussi je veux te voir. Je te suivrai\npartout o\xf9 tu voudras.\x00", "Wherever you want -> Tu as tant envie... (0xD8C930)"),
 ]
 
 # French strings mapped to original English strings in .rdata

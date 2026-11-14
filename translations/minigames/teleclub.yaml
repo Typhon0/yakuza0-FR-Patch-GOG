@@ -1,0 +1,107 @@
+# translations/minigames/teleclub.yaml
+# Localisation française des répliques et options de roulette du mini-jeu Téléphone Club (Yakuza 0 GOG)
+# Ingested in Yakuza0.exe via GOG_DIRECT_WORDS (patch_gog.py)
+
+# --- Options de la roulette (Offsets 0xD85320 - 0xD853F0) ---
+- id: tc_roulette_body_type
+  offset: "0xD85320"
+  max_slot: 24
+  en: "What? My body type?"
+  fr: "Quoi ? Ma silhouette ?"
+
+- id: tc_roulette_face
+  offset: "0xD85338"
+  max_slot: 16
+  en: "My face?"
+  fr: "Mon visage ?"
+
+- id: tc_roulette_now
+  offset: "0xD85348"
+  max_slot: 24
+  en: "What? You mean now??"
+  fr: "Quoi ? Maintenant ??"
+
+- id: tc_roulette_interested_body
+  offset: "0xD85360"
+  max_slot: 40
+  en: "Hmmm, you're interested in my body?"
+  fr: "Hum, mon corps t'interesse ?"
+
+- id: tc_roulette_face_preference
+  offset: "0xD85388"
+  max_slot: 40
+  en: "I wonder what kind of face you like..."
+  fr: "Quel genre de visage tu aimes... ?"
+
+- id: tc_roulette_invite
+  offset: "0xD853B0"
+  max_slot: 40
+  en: "You finally decided to invite me!!"
+  fr: "Tu te decides enfin a m'inviter !"
+
+- id: tc_roulette_well_body
+  offset: "0xD853D8"
+  max_slot: 24
+  en: "Well, my body..."
+  fr: "Eh bien, mon corps..."
+
+- id: tc_roulette_okay
+  offset: "0xD853F0"
+  max_slot: 16
+  en: "Hmmm, okay."
+  fr: "Hum, d'accord."
+
+# --- Dialogues de la cinématique d'imagination de Kiryu (Offsets 0xD8C4D0 - 0xD8C930) ---
+- id: tc_imagination_toned_body
+  offset: "0xD8C4D0"
+  max_slot: 176
+  en: "I like working out, so my body's probably more on the toned\nside. But don't get too rough with me. Er, I'm getting\nahead of myself, aren't I? What a weird question."
+  fr: "J'adore le sport, j'ai un corps plutot muscle.\nMais sois pas trop brutal avec moi. Enfin bref,\nje m'emballe un peu, non ? Drole de question."
+
+- id: tc_imagination_small_face
+  offset: "0xD8C580"
+  max_slot: 128
+  en: "People say my face is small. My hair's short,\nbut guys seem to prefer it long. What do you think\nabout short-haired girls?"
+  fr: "On dit que mon visage est fin. Cheveux courts,\nmais les mecs preferent long. Tu aimes\nles filles aux cheveux courts ?"
+
+- id: tc_imagination_meet_nervous
+  offset: "0xD8C600"
+  max_slot: 112
+  en: "Yeah. I want to meet you too. I'm getting nervous!\nBut I'm really looking forward to it. Let's meet up. "
+  fr: "Oui. J'ai envie de te voir aussi. Je stresse !\nMais j'ai vraiment hate. Retrouvons-nous."
+
+- id: tc_imagination_careful_figure
+  offset: "0xD8C670"
+  max_slot: 144
+  en: "Let's see, I'm pretty careful about my figure. A gentle\ngirl attracts a gentleman. Then again, sometimes gentle\nis kinda boring... "
+  fr: "Voyons, je fais attention a ma ligne. Une fille\ndouce attire les gentlemen. Mais bon, parfois\netre douce c'est un peu ennuyeux... "
+
+- id: tc_imagination_idol_face
+  offset: "0xD8C700"
+  max_slot: 128
+  en: "People say my face is similar to the idols you see on\nTV these days. The flirty type? Haha, maybe you better\nwatch out..."
+  fr: "On dit que je ressemble aux idoles de la tele.\nLe genre coquette ? Haha, tu ferais bien\nde te mefier..."
+
+- id: tc_imagination_finally_meet
+  offset: "0xD8C780"
+  max_slot: 160
+  en: "We're finally going to meet? You already got me pretty\nhot, so you better not leave me hanging... Well, let's\njust start with some fun, shall we?"
+  fr: "On va enfin se voir ? Tu m'as deja bien chauffee,\nalors me laisse pas en plan... Commencons\npar nous amuser un peu, d'accord ?"
+
+- id: tc_imagination_bra_tighter
+  offset: "0xD8C820"
+  max_slot: 160
+  en: "Lately it feels like my bra has gotten tighter. I need\nto buy a new one. Why am I telling this to you, though?\nGeez, kind of a personal question."
+  fr: "Mon soutien-gorge est trop serre ces temps-ci.\nFaut que j'en rachete. Mais pourquoi je te dis ca ?\nC'est un peu intime comme question."
+
+- id: tc_imagination_sexy_face
+  offset: "0xD8C8C0"
+  max_slot: 112
+  en: "Oh, you're trying to get to know me, huh? I'm told my\nface is pretty sexy. Why? Because I'm a grown woman."
+  fr: "Tu veux en savoir plus, hein ? On dit que mon\nvisage est sexy. Pourquoi ? Je suis une femme."
+
+- id: tc_imagination_wherever_you_want
+  offset: "0xD8C930"
+  max_slot: 144
+  en: "Wow, you must really want to meet me. Hm? Oh, no, no.\nI want to meet you too. I'll go, I'll go. I'll go wherever\nyou want me to. "
+  fr: "Tu as tant envie de me voir ? Hm ? Non non,\nmoi aussi je veux te voir. Je te suivrai\npartout ou tu voudras."

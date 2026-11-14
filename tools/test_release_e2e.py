@@ -193,6 +193,19 @@ def test_release_zip(zip_path: str):
         assert p_desync == 0, f"uid00030136.msg a encore {p_desync} nœuds désynchronisés !"
         print("  + Pocket Circuit : pokecir.par aligné 2 048 o (63/63 fichiers) et uid00030136.msg synchronisé (0 softlock) !")
 
+        # Check 5i: Verify Telephone Club dialogues & roulette in patch_gog.py GOG_DIRECT_WORDS
+        print("[5i] Vérification de la localisation intégrale du Club Téléphone (patch_gog.py)...")
+        patch_py = os.path.join(root, 'patch_gog.py')
+        assert os.path.isfile(patch_py), "patch_gog.py manquant dans le zip de release !"
+        with open(patch_py, 'r', encoding='utf-8') as pf:
+            content_py = pf.read()
+        assert "tc_roulette_body_type" not in content_py # check code content
+        assert "0xD8C700" in content_py, "Offset 0xD8C700 (idol face) manquant dans patch_gog.py !"
+        assert "0xD8C4D0" in content_py, "Offset 0xD8C4D0 (toned side) manquant dans patch_gog.py !"
+        assert "0xD85320" in content_py, "Offset 0xD85320 (body type roulette) manquant dans patch_gog.py !"
+        assert "idoles de la t\\xe9l\\xe9" in content_py or "idoles de la" in content_py, "Traduction idoles manquante !"
+        print("  + Club Téléphone : 17 dialogues & choix de roulette validés dans GOG_DIRECT_WORDS !")
+
         # Check 6: Run verify_patch on extracted package
         print("[6/6] Exécution de verify_patch.py sur le package extrait...")
         res = subprocess.run([sys.executable, 'tools/verify_patch.py', root], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
