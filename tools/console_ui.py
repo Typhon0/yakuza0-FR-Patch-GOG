@@ -79,7 +79,7 @@ def c(color_code: str, text: str) -> str:
     return text
 
 
-def print_banner(version: str = "v1.13.0"):
+def print_banner(version: str = "v1.14.0"):
     """Displays the stylized ASCII banner for Yakuza 0 FR Patch."""
     banner_lines = [
         r"  ██╗   ██╗ █████╗ ██╗  ██╗██╗   ██╗███████╗ █████╗      ██████╗ ",

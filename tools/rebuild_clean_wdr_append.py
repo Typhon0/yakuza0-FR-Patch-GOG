@@ -398,6 +398,12 @@ def rebuild_clean_wdr_append(clean_par_path, curr_par_path, output_path):
                     if pos_ch != -1:
                         decomp_curr_ba[pos_ch + len(target_chohan) : tbl_off] = b'\x00' * (tbl_off - (pos_ch + len(target_chohan)))
 
+                # Restore Sega's dynamic protagonist speaker token ('Player\x00')
+                # Yakuza0.exe (0x14038df2c) checks strictly for "Player\x00" to substitute with "Kiryu" or "Majima".
+                # An old replacement turned this into "Joueer\x00", causing the engine to display literal "Joueer" instead of the protagonist name.
+                if b'Joueer\x00' in decomp_curr_ba:
+                    decomp_curr_ba = bytearray(bytes(decomp_curr_ba).replace(b'Joueer\x00', b'Player\x00'))
+
                 for en_orig, fr_b, diff in dialogue_candidates:
                     target = fr_b + (b'\x00' * (diff + 1))
                     if target in decomp_curr_ba:

@@ -28,6 +28,7 @@ sys.path.insert(0, os.path.abspath('scratch'))
 from scratch.scanner_engine import parse_par, decompress_sllz
 from tools.sllz import compress_sllz
 from tools.translate_boot_par_complete import rebuild_string_tbl
+from tools.build_calibrated_substories import get_calibrated_substories_bin
 from tools.rebuild_clean_stay_append import apply_in_place_clean
 
 def get_clean_french_encounter_popup_bin(fr_boot_path='par_original/boot_steam_fr.par'):
@@ -299,7 +300,7 @@ def rebuild_boot_par(clean_par_path='par_original/boot.par',
 
     epm_entry = get_clean_french_encounter_popup_bin()
     item_entry = get_clean_french_item_bin()
-    substory_entry = get_clean_french_substory_bin()
+    substory_entry = get_calibrated_substories_bin()
     ability_entry = get_clean_french_ability_bin()
     tips_entry = get_clean_french_tips_tutorial_bin()
 

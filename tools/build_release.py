@@ -28,7 +28,7 @@ PYTHON_EMBED_URL = "https://www.python.org/ftp/python/3.12.7/python-3.12.7-embed
 PYTHON_EMBED_ZIP = "python-3.12.7-embed-amd64.zip"
 
 RELEASE_DIR = "staging_release"
-RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.13.0"
+RELEASE_NAME = "Yakuza0_FR_Patch_GOG_v1.14.0"
 
 # Files to include from tools/ (strictly user-facing)
 TOOL_FILES = [
@@ -36,6 +36,7 @@ TOOL_FILES = [
     "tools/verify_patch.py",
     "tools/patch_sound_par.py",
     "tools/sound_subtitles_data.py",
+    "tools/pokecir_commentary_data.py",
     "tools/sllz.py",
     "tools/__init__.py",
 ]
@@ -219,10 +220,24 @@ echo.
 pause
 '''
 
-README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.13.0
+README_FR = r'''# Yakuza 0 — Patch VOSTFR GOG v1.14.0
 ### Par Typhon0 (basé sur les traductions initiales de RGG FR)
 
-## Nouveautés v1.13.0
+## Nouveautés v1.14.0
+- **Commentaires de course Pocket Circuit (Poké-Circuit) 100% en Français** :
+  - Traduction et injection intégrale des 253 répliques et annonces en direct du commentateur pendant les courses de Pocket Circuit (annonces de tours, bolides, sauts, loopings, virages, arrivées, encouragements des concurrents...).
+  - Injection binaire de la table de pointeurs de chaînes à l'offset `0xFFFB70` dans `Yakuza0.exe` (253 pointeurs vers les chaînes localisées), avec gestion transparente dans `patcher/patch_gog.py` et nouveau module `tools/pokecir_commentary_data.py`.
+- **Restauration du token dynamique de protagoniste ("Player\x00")** :
+  - Restauration de l'identifiant interne Sega `Player\x00` dans les dialogues de `wdr.par` (remplaçant une ancienne substitution "Joueer\x00"). `Yakuza0.exe` (`0x14038df2c`) vérifie strictement cette chaîne pour substituer dynamiquement "Kiryu" ou "Majima".
+- **Préservation des tokens système de quêtes secondaires (boot.par)** :
+  - Maintien rigoureux des tokens système (`Finished`, `Done`, `Complete`, `Hidden`) dans le groupe 1058 de `string_tbl.bin_c` pour garantir le bon fonctionnement des vérifications logiques de complétion des histoires secondaires (`0x140373846`).
+- **Calibrage et alignement 4-octets des histoires secondaires** :
+  - Alignement 4-octets strict avec compensation d'espaces dans `build_calibrated_substories.py` (`explanation_sub_story.bin_c`).
+- **Suite de tests & certification qualité** :
+  - Nouveau test d'intégration E2E `[5j]` validant l'application des 253 commentaires et de la table de pointeurs `0xFFFB70`.
+  - 131/131 archives PAR certifiées saines et conformes.
+
+## Historique v1.13.0
 - **Refonte Visuelle & Ergonomique de l'Installateur (Modern Console UI par Typhon0)** :
   - Nouveau bandeau ASCII art inspiré de Yakuza avec attribution explicite.
   - Interface en cartes Unicode élégantes (`╭───╮`, `│`, `╰───╯`) avec balises d'état colorées (`[✓]`, `[⚡]`, `[ℹ]`, `[✗]`).
@@ -279,7 +294,7 @@ Certains termes techniques ou officiels sont volontairement conservés en versio
 - **Identifiants internes Sega** : Noms de variables et d'animations du moteur qui causeraient des crashs mémoire s'ils étaient altérés.
 
 ## Installation simple (Recommandée)
-1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.13.0.zip`.
+1. Décompressez l'archive `Yakuza0_FR_Patch_GOG_v1.14.0.zip`.
 2. Lancez `patch_fr.bat` (en faisant un clic droit -> « Exécuter en tant qu'administrateur »).
 3. Attendez le message « PATCH INSTALLE AVEC SUCCES ! » et lancez le jeu !
 
@@ -410,7 +425,7 @@ def build_release():
     # Copier data, patch_gog.py, font table, LISEZMOI, verify_patch
     shutil.copytree(os.path.join(stage, "data"), os.path.join(stage_no_py, "data"))
     os.makedirs(os.path.join(stage_no_py, "tools"), exist_ok=True)
-    for tf in ["console_ui.py", "verify_patch.py", "patch_sound_par.py", "sound_subtitles_data.py", "sllz.py", "__init__.py"]:
+    for tf in ["console_ui.py", "verify_patch.py", "patch_sound_par.py", "sound_subtitles_data.py", "pokecir_commentary_data.py", "sllz.py", "__init__.py"]:
         src_tf = os.path.join(stage, "tools", tf)
         if os.path.isfile(src_tf):
             shutil.copy2(src_tf, os.path.join(stage_no_py, "tools", tf))

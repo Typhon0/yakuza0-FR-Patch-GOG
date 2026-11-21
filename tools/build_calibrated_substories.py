@@ -294,9 +294,12 @@ def get_calibrated_substories_bin():
         calibrated = clean_french_font(calibrated)
         new_e_strs.append(calibrated.encode('latin1'))
         
+    raw_test = b'\x00'.join(new_e_strs) + b'\x00'
+    rem = (-len(raw_test)) % 4
+    if rem > 0:
+        new_e_strs[-1] += b' ' * rem
     new_e_payload = bytearray(b'\x00'.join(new_e_strs) + b'\x00')
-    while len(new_e_payload) % 4 != 0:
-        new_e_payload.append(0)
+    assert len(new_e_payload) % 4 == 0, f"Unaligned payload: {len(new_e_payload)}"
     col_payloads[3] = bytes(new_e_payload)
     col_defs[3][2][2] = len(new_e_payload)
     

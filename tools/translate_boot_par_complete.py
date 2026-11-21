@@ -426,7 +426,11 @@ def rebuild_string_tbl(raw_bytes):
             old_str_bytes = dec[old_ptr:].split(b'\x00')[0]
             old_str = old_str_bytes.decode('latin1', errors='replace')
 
-            if old_str in BOOT_DICT:
+            # DO NOT translate system tokens in Group 1058 (Finished, Done, Complete, Hidden)
+            # as Yakuza0.exe relies on these exact string literals for substory completion checks (0x140373846)
+            if i == 1058:
+                new_str_bytes = old_str_bytes
+            elif old_str in BOOT_DICT:
                 new_str = clean_fr(BOOT_DICT[old_str])
                 new_str_bytes = new_str.encode('latin1')
                 replaced_count += 1

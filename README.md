@@ -1,7 +1,7 @@
 # Yakuza 0 - French Translation (VOSTFR) for GOG Edition
 
 [![Platform](https://img.shields.io/badge/Platform-GOG_Galaxy_%7C_Windows_%7C_Linux_%7C_Steam_Deck-blue.svg)](#)
-[![Version](https://img.shields.io/badge/Patch_Version-v1.13.0--gog-green.svg)](#)
+[![Version](https://img.shields.io/badge/Patch_Version-v1.14.0--gog-green.svg)](#)
 [![Status](https://img.shields.io/badge/Status-100%25_Playable_%26_Crash--Free-success.svg)](#)
 [![PAR Verification](https://img.shields.io/badge/PAR_Integrity-131%2F131_PASS-brightgreen.svg)](#)
 [![Original Mod](https://img.shields.io/badge/Original_Translation-Byce61_%2F_Yakuza_RGG_France-orange.svg)](https://www.youtube.com/channel/UCVhH_lJSjvyH_njkHQNxfBA)
@@ -45,7 +45,7 @@ The original community patch was compiled strictly for the Steam release:
 
 ---
 
-### 🎮 Translated Content (v1.13.0)
+### 🎮 Translated Content (v1.14.0)
 
 * **Main Story & Cutscenes**: 100% of story cutscenes, prerendered cinematics, and dialogues subtitled in natural French.
 * **Combat & Progression**: 100% of abilities, battle styles (Brawler, Rush, Beast, Dragon of Dojima / Thug, Slugger, Breaker, Mad Dog of Shimano), all Heat Actions (*Essence of...*), masters, and combat evaluation ranks.
@@ -53,7 +53,7 @@ The original community patch was compiled strictly for the Steam release:
 * **Business & Management**: 100% localized Real Estate Royale (all 33 employees & Five Billionaires) and Cabaret Club Czar (all 30 hostesses & rival clubs).
 * **In-Game Menus & UI**: Inventory, Equipment, CP Virtue Shrines, Pager messages, Controller overlays, System Settings, Save/Load.
 * **Shops & Dining**: 100% of all 35 stores (Poppo, Don Quijote, Kotobuki Drug, Ebisu Pawn, arms dealers) with 558 translated item descriptions and merchant barks.
-* **Minigames**: Pocket Circuit (parts & descriptions), Catfight Club, Poker opponents, and Fishing (inventory & capture popups).
+* **Minigames**: Pocket Circuit (parts, descriptions, and 253 in-race live commentaries and subtitles), Catfight Club, Telephone Club, Poker opponents, and Fishing (inventory & capture popups).
 
 #### 📌 Terms and Tables Intentionally Kept in Original Format (By Design & Safety):
 To guarantee lore fidelity, respect official licensing, and prevent engine memory faults:

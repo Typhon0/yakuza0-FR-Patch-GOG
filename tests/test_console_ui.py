@@ -31,7 +31,7 @@ class TestConsoleUI(unittest.TestCase):
         old_stdout = sys.stdout
         try:
             sys.stdout = captured
-            print_banner(version="v1.13.0")
+            print_banner(version="v1.14.0")
         finally:
             sys.stdout = old_stdout
         

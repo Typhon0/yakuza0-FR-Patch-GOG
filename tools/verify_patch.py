@@ -66,7 +66,7 @@ except ImportError:
             GRAY = ""
 
         def strip_ansi(t): return t
-        def print_banner(version="v1.13.0", *args, **kwargs):
+        def print_banner(version="v1.14.0", *args, **kwargs):
             print("=========================================================")
             print(f"  YAKUZA 0 — VÉRIFICATEUR D'INTÉGRITÉ DU PATCH FR ({version})")
             print("  Par Typhon0 (basé sur les traductions initiales de RGG FR)")
@@ -437,7 +437,7 @@ def main():
     clean_argv = [a for a in sys.argv[1:] if a != "--no-banner"]
 
     if not no_banner:
-        print_banner(version="v1.13.0")
+        print_banner(version="v1.14.0")
 
     hint = clean_argv[0] if clean_argv else None
     data_dir = find_game_dir(hint)

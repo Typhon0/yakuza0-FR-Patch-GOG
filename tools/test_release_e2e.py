@@ -206,6 +206,23 @@ def test_release_zip(zip_path: str):
         assert "idoles de la t\\xe9l\\xe9" in content_py or "idoles de la" in content_py, "Traduction idoles manquante !"
         print("  + Club Téléphone : 17 dialogues & choix de roulette validés dans GOG_DIRECT_WORDS !")
 
+        # Check 5j: Verify Pocket Circuit in-race commentary subtitles and pointer table
+        print("[5j] Vérification des sous-titres et commentaires Pocket Circuit (patch_gog.py)...")
+        assert "apply_pokecir_commentary" in content_py, "apply_pokecir_commentary manquant dans patch_gog.py !"
+        assert "POKECIR_PTR_TABLE_OFFSET = 0xFFFB70" in content_py, "Offset 0xFFFB70 manquant dans patch_gog.py !"
+        assert "POKECIR_PTR_COUNT = 253" in content_py, "Compte 253 manquant dans patch_gog.py !"
+        assert "C'est le dernier tour !" in content_py, "Traduction 'C\'est le dernier tour !' manquante !"
+        assert "Arrivéééee !" in content_py, "Traduction 'Arrivéééee !' manquante !"
+        from tools.pokecir_commentary_data import apply_pokecir_commentary, POKECIR_PTR_COUNT
+        # Test simulated application on Yakuza0.exe if available
+        repo_exe = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "Yakuza0.exe")
+        if os.path.isfile(repo_exe):
+            with open(repo_exe, "rb") as yf:
+                sim_exe = bytearray(yf.read())
+            s_cnt, p_cnt = apply_pokecir_commentary(sim_exe)
+            assert s_cnt == 248 and p_cnt == 253, f"apply_pokecir_commentary échec ({s_cnt}, {p_cnt}) !"
+        print("  + Pocket Circuit : 253 commentaires de course et table de pointeurs 0xFFFB70 validés !")
+
         # Check 6: Run verify_patch on extracted package
         print("[6/6] Exécution de verify_patch.py sur le package extrait...")
         res = subprocess.run([sys.executable, 'tools/verify_patch.py', root], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -220,5 +237,5 @@ def test_release_zip(zip_path: str):
     print("=" * 70)
 
 if __name__ == '__main__':
-    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.13.0.zip'
+    zip_target = sys.argv[1] if len(sys.argv) > 1 else 'staging_release/Yakuza0_FR_Patch_GOG_v1.14.0.zip'
     test_release_zip(zip_target)
